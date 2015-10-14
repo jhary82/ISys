@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 import ludo.AbstractAction;
+import ludo.Player;
+import ludo.PlayerStats;
 import ludo.Token;
 
 /**
@@ -21,5 +23,14 @@ public class TakeRandomActionStrategy extends Strategy{
 
 		return new Random().nextInt(arg3.size());
 	}
+	
+	@Override
+	protected void onGameOver(List<PlayerStats> stats, int roundCount) {
+		
+	}
 
+	@Override
+	protected void onRoundOver(Player winner, int turnCount) {
+		
+	}
 }
