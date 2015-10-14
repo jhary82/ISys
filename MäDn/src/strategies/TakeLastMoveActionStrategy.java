@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 import ludo.AbstractAction;
-import ludo.AbstractStrategy;
 import ludo.MoveAction;
 import ludo.PlayerStats;
 import ludo.Token;
@@ -16,7 +15,7 @@ import ludo.Token;
  * @author Erik
  *
  */
-public class TakeLastMoveActionStrategy extends AbstractStrategy {
+public class TakeLastMoveActionStrategy extends Strategy {
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		

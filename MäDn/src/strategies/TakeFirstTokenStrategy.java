@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Random;
 
 import ludo.AbstractAction;
-import ludo.AbstractStrategy;
 import ludo.MoveAction;
 import ludo.Token;
 
@@ -18,7 +17,7 @@ import ludo.Token;
  * @author Simon
  *
  */
-public class TakeFirstTokenStrategy extends AbstractStrategy{
+public class TakeFirstTokenStrategy extends Strategy{
 
 	@Override
 	public int chooseAction(List<Token> arg0, int arg1, int arg2, List<AbstractAction> arg3) {
@@ -37,7 +36,10 @@ public class TakeFirstTokenStrategy extends AbstractStrategy{
 			MoveAction bestPosition = moves.get(0);
 			for( MoveAction act: moves){
 				if( act.destination().position() > bestPosition.destination().position()){
-					bestPosition = act;
+					if(act.destination().inHomeArea()){
+						bestPosition = act;
+					}
+					//bestPosition = act;
 				}
 			}
 			return  arg3.indexOf(bestPosition) ;

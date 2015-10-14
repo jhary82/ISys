@@ -13,7 +13,7 @@ public class Main {
 		AbstractStrategy darkred = new TakeRandomActionStrategy();
 		AbstractStrategy purple = new TakeRandomActionStrategy();
 		
-		LudoApp.setStrategies(red, blue, green, orange, darkred, purple);
+		LudoApp.setStrategies(red, blue, green, orange/*, darkred, purple*/);
 		LudoApp.launch(LudoApp.class, args);
 	}
 	

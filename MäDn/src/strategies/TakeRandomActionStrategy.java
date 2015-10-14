@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 import ludo.AbstractAction;
-import ludo.AbstractStrategy;
 import ludo.Token;
 
 /**
@@ -15,7 +14,7 @@ import ludo.Token;
  * @author Simon
  *
  */
-public class TakeRandomActionStrategy extends AbstractStrategy{
+public class TakeRandomActionStrategy extends Strategy{
 
 	@Override
 	public int chooseAction(List<Token> arg0, int arg1, int arg2, List<AbstractAction> arg3) {
