@@ -38,8 +38,10 @@ public class TakeFirstTokenStrategy extends Strategy{
 				if( act.destination().position() > bestPosition.destination().position()){
 					if(act.destination().inHomeArea()){
 						bestPosition = act;
+					} else {
+						bestPosition = act;
 					}
-					//bestPosition = act;
+					
 				}
 			}
 			return  arg3.indexOf(bestPosition) ;
