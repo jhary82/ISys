@@ -10,6 +10,11 @@ import ludo.Token;
 
 public class TakeTokenDieStrategy extends Strategy {
 
+	public TakeTokenDieStrategy(boolean savable) {
+		super(savable);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		List<MoveAction> moves = new ArrayList<>(); 

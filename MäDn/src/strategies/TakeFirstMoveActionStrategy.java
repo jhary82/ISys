@@ -9,13 +9,18 @@ import ludo.Token;
 
 /**
  * Diese Klasse implementiert eine einfache Strategie.
- * Es wird bei jedem Zug die erste MoveAktion der Liste der möglichen
- * Aktionen durchgeführt. Wenn keine gefunden wurde, wird eine zufällige Aktion
- * durchgeführt.
+ * Es wird bei jedem Zug die erste MoveAktion der Liste der mï¿½glichen
+ * Aktionen durchgefï¿½hrt. Wenn keine gefunden wurde, wird eine zufï¿½llige Aktion
+ * durchgefï¿½hrt.
  * @author Simon
  *
  */
 public class TakeFirstMoveActionStrategy extends Strategy {
+
+	public TakeFirstMoveActionStrategy(boolean savable) {
+		super(savable);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public int chooseAction(List<Token> arg0, int arg1, int arg2, 

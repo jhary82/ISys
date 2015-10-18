@@ -12,12 +12,17 @@ import ludo.MoveAction;
 import ludo.Token;
 
 /**
- * Diese Strategie nimmt, wenn möglich, die Spielfigur, die am weitesten vorne liegt.
- * Ansonsten wird eine zufällige Aktion ausgewählt.
+ * Diese Strategie nimmt, wenn mï¿½glich, die Spielfigur, die am weitesten vorne liegt.
+ * Ansonsten wird eine zufï¿½llige Aktion ausgewï¿½hlt.
  * @author Simon
  *
  */
 public class TakeFirstTokenStrategy extends Strategy{
+
+	public TakeFirstTokenStrategy(boolean savable) {
+		super(savable);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public int chooseAction(List<Token> arg0, int arg1, int arg2, List<AbstractAction> arg3) {
