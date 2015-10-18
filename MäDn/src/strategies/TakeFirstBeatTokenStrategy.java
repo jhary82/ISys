@@ -18,8 +18,11 @@ import ludo.Token;
  */
 public class TakeFirstBeatTokenStrategy extends Strategy {
 
-	public TakeFirstBeatTokenStrategy(boolean savable) {
-		super(savable);		
+
+
+	public TakeFirstBeatTokenStrategy(boolean evaluate, int ownIndex) {
+		super(evaluate, ownIndex);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -36,7 +39,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 		} else {
 			MoveAction move = moves.get(0);
 			for (MoveAction actMove : moves) {
-				for (Token actToken : tokens) {
+				for (Token actToken : tokens) {					
 					boolean beat = actToken.field().position() == actMove.destination().position();
 					boolean first = actMove.destination().position() > move.destination().position();
 					if (beat && first) {

@@ -1,47 +1,53 @@
 package strategies;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
+
 import java.util.List;
 
 import ludo.AbstractStrategy;
 import ludo.Player;
 import ludo.PlayerStats;
+import statistics.Turns;
 
 /**
- * Abstrakte Strategieklasse mit Hilfsmethoden für die statistische Datenerhebung.
+ * Abstrakte Strategieklasse
  * @author Simon
  *
  */
 public abstract class Strategy extends AbstractStrategy {	 
 		
-	private boolean savable = false;
+	/*
+	 * CSV-Datei für statistische Daten erzeugen
+	 */
+	private boolean evaluate = false;
 	
 	/*
-	 * in die zu speichernde CSV-Datei
+	 * der eigene Index, um herauszufinden, ob eine Partie gewonnen wurde 
 	 */
-	private File csv;
+	private int ownIndex;
+		
+	/*
+	 * speichert statistische Daten ab
+	 */
+	private Turns turns;
 	
 	/**
 	 * Konstruktor
-	 * @param savable true, wenn für diese Strategie eine CSV-Datei mit statistischen Daten erstellt werden soll
+	 * @param evaluate true, wenn diese Strategie ausgewertet werden soll 
+	 * @param ownIndex der eigene Index
 	 */
-	public Strategy(boolean savable){
-		this.savable = savable;
-		if(savable){
-			Date currentTime = new Date();
-			csv = new File("Strategy_"+currentTime.toString()+".csv");
-		}
+	public Strategy(boolean evaluate, int ownIndex){
+		this.evaluate = evaluate;
+		this.ownIndex = ownIndex;		
+		turns = new Turns();
 	}
 	
 	@Override
 	protected void onGameOver(List<PlayerStats> stats, int roundCount) {
-		if(!this.savable){
+		if(!this.evaluate){
 			return;
 		}
+		turns.saveToCSV("Strategy"); // TODO Namen anpassen
+		/*
 		double rc = roundCount;
 		double cp = stats.size();
 		double dg = rc/cp;
@@ -62,26 +68,20 @@ public abstract class Strategy extends AbstractStrategy {
 			double dgv = ((win-dg)/dg);
 			System.out.println("Gewinne/Verluste im Durchschnitt: " + dgv*100);
 			
-		}		
+		}		*/
 		
 		
 	}
 	
 	@Override
 	protected void onRoundOver(Player winner, int turnCount) {
-		if(!this.savable){
+		if(!this.evaluate){
 			return;
-		}		
-		System.out.println(winner.name());
-		// speichere in CSV-Datei ab
-		  try {
-			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.println("Test "+turnCount);
-			pw.flush();
-			pw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		}	
+		
+		turns.setWon( this.ownIndex == winner.index() );
+		turns.nextTurn();
+	
 	}
 	
 	

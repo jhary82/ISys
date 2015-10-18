@@ -17,8 +17,10 @@ import ludo.Token;
  */
 public class TakeFirstMoveActionStrategy extends Strategy {
 
-	public TakeFirstMoveActionStrategy(boolean savable) {
-		super(savable);
+
+
+	public TakeFirstMoveActionStrategy(boolean evaluate, int ownIndex) {
+		super(evaluate, ownIndex);
 		// TODO Auto-generated constructor stub
 	}
 

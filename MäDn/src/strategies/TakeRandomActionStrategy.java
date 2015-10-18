@@ -18,8 +18,11 @@ import ludo.Token;
  */
 public class TakeRandomActionStrategy extends Strategy{
 
-	public TakeRandomActionStrategy(boolean savable) {
-		super(savable);
+
+
+
+	public TakeRandomActionStrategy(boolean evaluate, int ownIndex) {
+		super(evaluate, ownIndex);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,13 +32,5 @@ public class TakeRandomActionStrategy extends Strategy{
 		return new Random().nextInt(arg3.size());
 	}
 	
-	@Override
-	protected void onGameOver(List<PlayerStats> stats, int roundCount) {
-		
-	}
 
-	@Override
-	protected void onRoundOver(Player winner, int turnCount) {
-		
-	}
 }

@@ -10,8 +10,11 @@ import ludo.Token;
 
 public class TakeTokenDieStrategy extends Strategy {
 
-	public TakeTokenDieStrategy(boolean savable) {
-		super(savable);
+	
+
+
+	public TakeTokenDieStrategy(boolean evaluate, int ownIndex) {
+		super(evaluate, ownIndex);
 		// TODO Auto-generated constructor stub
 	}
 

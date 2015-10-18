@@ -16,10 +16,14 @@ import ludo.Token;
  *
  */
 public class TakeLastMoveActionStrategy extends Strategy {
-	public TakeLastMoveActionStrategy(boolean savable) {
-		super(savable);
+
+	
+	
+	public TakeLastMoveActionStrategy(boolean evaluate, int ownIndex) {
+		super(evaluate, ownIndex);
 		// TODO Auto-generated constructor stub
 	}
+
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		
@@ -31,10 +35,5 @@ public class TakeLastMoveActionStrategy extends Strategy {
 								
 		return new Random().nextInt(actions.size());
 	}
-	@Override
-	protected void onGameOver(List<PlayerStats> stats, int roundCount) {
-		/*
-		 * Datei erstellen und die ergebnisse da rein kopieren.
-		 */
-	}
+	
 }
