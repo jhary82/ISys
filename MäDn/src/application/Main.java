@@ -6,12 +6,16 @@ import ludo.AbstractStrategy;
 
 public class Main {
 	public static void main(String[] args) {
-		AbstractStrategy red = new TakeFirstBeatTokenStrategy(true,0); // Replace with your implementation
-		AbstractStrategy blue = new TakeRandomActionStrategy(false,1); // Replace with your implementation
-		AbstractStrategy green = new TakeRandomActionStrategy(false,2); // Replace with your implementation
-		AbstractStrategy orange = new TakeRandomActionStrategy(false,3);// Replace with your implementation
-		AbstractStrategy darkred = new TakeRandomActionStrategy(false,4);
-		AbstractStrategy purple = new TakeRandomActionStrategy(false,5);
+		String csvName = null;
+		if( args.length == 1){
+			csvName = args[0];
+		}
+		AbstractStrategy red = new TakeFirstBeatTokenStrategy(true, 0, csvName); // Replace with your implementation
+		AbstractStrategy blue = new TakeRandomActionStrategy(); // Replace with your implementation
+		AbstractStrategy green = new TakeRandomActionStrategy(); // Replace with your implementation
+		AbstractStrategy orange = new TakeRandomActionStrategy();// Replace with your implementation
+		AbstractStrategy darkred = new TakeRandomActionStrategy();
+		AbstractStrategy purple = new TakeRandomActionStrategy();
 		
 		LudoApp.setStrategies(red, blue, green, orange/*, darkred, purple*/);
 		LudoApp.launch(LudoApp.class, args);

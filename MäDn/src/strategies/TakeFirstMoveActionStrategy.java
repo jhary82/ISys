@@ -19,8 +19,9 @@ public class TakeFirstMoveActionStrategy extends Strategy {
 
 
 
-	public TakeFirstMoveActionStrategy(boolean evaluate, int ownIndex) {
-		super(evaluate, ownIndex);
+
+	public TakeFirstMoveActionStrategy(boolean evaluate, int ownIndex, String csvName) {
+		super(evaluate, ownIndex, csvName);
 		// TODO Auto-generated constructor stub
 	}
 
