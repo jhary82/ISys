@@ -52,41 +52,28 @@ public abstract class Strategy extends AbstractStrategy {
 		double cp = stats.size();
 		double dg = Math.round((rc/cp)*Math.pow(10, 2))/Math.pow(10, 2);
 		System.out.println("RundenInsgesamt: " + roundCount);
-<<<<<<< HEAD
 		System.out.println("Ø gewinne pro Spieler: " + dg);
 		
 		System.out.println("------------------------------------------");
-=======
 		System.out.println("ï¿½ gewinne pro Spieler: " + dg);
->>>>>>> 58ec56b0ce5f5bd2b63078606d2697100f8d42e0
 		for(PlayerStats player : stats) {
 			
 			double win = player.wins();
 			
-<<<<<<< HEAD
 			System.out.print("Spielername: " + player.player().name() + " : ");
 			System.out.println("AnzahlGewonnen: " + player.wins());
 			System.out.println("Spiele gewonnen in Prozent: " + win/rc*100 + " %");
-=======
 			double gh = Math.round((win/rc)*Math.pow(10, 2))/Math.pow(10, 2);
 			System.out.println("GewinnHï¿½ufigkeit: " + gh*100);
 			
->>>>>>> 58ec56b0ce5f5bd2b63078606d2697100f8d42e0
 			
 			/*
 			double dgv = ((win-dg)/dg);
 			System.out.println("Gewinne/Verluste im Durchschnitt: " + dgv*100);
 			*/
-			
-<<<<<<< HEAD
-			System.out.println("------------------------------------------");
-		}
 		
 		
-=======
-		}		*/
->>>>>>> 58ec56b0ce5f5bd2b63078606d2697100f8d42e0
-		
+	
 		
 	}
 	

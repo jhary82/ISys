@@ -25,6 +25,14 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 		// TODO Auto-generated constructor stub
 	}
 
+	public List<AbstractAction> canHit(List<Token> tokens, List<AbstractAction> actions) {
+		List<AbstractAction> hits = null;
+		/*
+		 * TODO
+		 */
+		return hits;
+	}
+	
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		List<MoveAction> moves = new ArrayList<>();
@@ -37,11 +45,19 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 		if (moves.isEmpty()) {
 			return new Random().nextInt(actions.size());
 		} else {
+			/*
+			 * Sonderfall rückschlagen um in die Homebase zu kommen.
+			 * 
+			 */
+			canHit(tokens, actions);
 			MoveAction move = moves.get(0);
 			for (MoveAction actMove : moves) {
-				for (Token actToken : tokens) {					
+				for (Token actToken : tokens) {	
 					boolean beat = actToken.field().position() == actMove.destination().position();
 					boolean first = actMove.destination().position() > move.destination().position();
+					/*
+					 * in Strategy als methode auslagern
+					 */
 					if (beat && first) {
 						return moves.indexOf(actMove);
 					} else if (beat) {
