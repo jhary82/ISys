@@ -20,23 +20,21 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 
 
 
-	public TakeFirstBeatTokenStrategy(boolean evaluate, int ownIndex) {
-		super(evaluate, ownIndex);
+	public TakeFirstBeatTokenStrategy(boolean evaluate, int ownIndex, String csvName) {
+		super(evaluate, ownIndex, csvName);
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<AbstractAction> canHit(List<Token> tokens, List<AbstractAction> actions) {
-		List<AbstractAction> hits = null;
-		/*
-		 * TODO
-		 */
-		return hits;
-	}
 	
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		List<MoveAction> moves = new ArrayList<>();
-
+		
+		/*
+		 * Aufruf der statistics-Methode f√ºr die statistische Auswertung
+		 * */
+		setStatistics(tokens, turn, die, actions);
+		
 		for (int i = 0; i < actions.size(); i++) {
 			if (actions.get(i).getClass().equals(MoveAction.class)) {
 				moves.add((MoveAction) actions.get(i));
@@ -46,7 +44,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 			return new Random().nextInt(actions.size());
 		} else {
 			/*
-			 * Sonderfall r¸ckschlagen um in die Homebase zu kommen.
+			 * Sonderfall rÔøΩckschlagen um in die Homebase zu kommen.
 			 * 
 			 */
 			canHit(tokens, actions);

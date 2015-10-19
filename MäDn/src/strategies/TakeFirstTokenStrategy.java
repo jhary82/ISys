@@ -19,8 +19,9 @@ import ludo.Token;
  */
 public class TakeFirstTokenStrategy extends Strategy{
 
-	public TakeFirstTokenStrategy(boolean evaluate, int ownIndex) {
-		super(evaluate, ownIndex);
+	
+	public TakeFirstTokenStrategy(boolean evaluate, int ownIndex, String csvName) {
+		super(evaluate, ownIndex, csvName);
 		// TODO Auto-generated constructor stub
 	}
 

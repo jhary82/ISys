@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 import ludo.AbstractAction;
-import ludo.Player;
-import ludo.PlayerStats;
 import ludo.Token;
 
 /**
@@ -19,10 +17,12 @@ import ludo.Token;
 public class TakeRandomActionStrategy extends Strategy{
 
 
+	public TakeRandomActionStrategy(){
+		super(false, -1, "");
+	}
 
-
-	public TakeRandomActionStrategy(boolean evaluate, int ownIndex) {
-		super(evaluate, ownIndex);
+	public TakeRandomActionStrategy(boolean evaluate, int ownIndex, String csvName) {
+		super(evaluate, ownIndex, csvName);
 		// TODO Auto-generated constructor stub
 	}
 

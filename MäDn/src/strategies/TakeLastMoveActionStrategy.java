@@ -18,9 +18,9 @@ import ludo.Token;
 public class TakeLastMoveActionStrategy extends Strategy {
 
 	
-	
-	public TakeLastMoveActionStrategy(boolean evaluate, int ownIndex) {
-		super(evaluate, ownIndex);
+
+	public TakeLastMoveActionStrategy(boolean evaluate, int ownIndex, String csvName) {
+		super(evaluate, ownIndex, csvName);
 		// TODO Auto-generated constructor stub
 	}
 
