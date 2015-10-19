@@ -28,12 +28,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 	
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
-		List<MoveAction> moves = new ArrayList<>();
-		
-		/*
-		 * Aufruf der statistics-Methode für die statistische Auswertung
-		 * */
-		setStatistics(tokens, turn, die, actions);
+		List<MoveAction> moves = new ArrayList<>();		
 		
 		for (int i = 0; i < actions.size(); i++) {
 			if (actions.get(i).getClass().equals(MoveAction.class)) {

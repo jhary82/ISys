@@ -37,6 +37,16 @@ public abstract class Strategy extends AbstractStrategy {
 	 */
 	private String csvName;
 	
+	/*
+	 * Anzahl der Tokens in Startzone
+	 */
+	private int tokensInStart;
+	
+	/*
+	 * aktualisierte Liste des letzten Spielfeldstandes
+	 */
+	private List<Token> lastTokenList;
+	
 	/**
 	 * Konstruktor
 	 * @param evaluate true, wenn diese Strategie ausgewertet werden soll 
@@ -54,34 +64,11 @@ public abstract class Strategy extends AbstractStrategy {
 		if(!this.evaluate){
 			return;
 		}
-		turns.saveToCSV(this.csvName); 
 		/*
-		double rc = roundCount;
-		double cp = stats.size();
-		double dg = Math.round((rc/cp)*Math.pow(10, 2))/Math.pow(10, 2);
-		System.out.println("RundenInsgesamt: " + roundCount);
-		System.out.println("� gewinne pro Spieler: " + dg);
-		
-		System.out.println("------------------------------------------");
-		System.out.println("� gewinne pro Spieler: " + dg);
-		for(PlayerStats player : stats) {
-			
-			double win = player.wins();
-			
-			System.out.print("Spielername: " + player.player().name() + " : ");
-			System.out.println("AnzahlGewonnen: " + player.wins());
-			System.out.println("Spiele gewonnen in Prozent: " + win/rc*100 + " %");
-			double gh = Math.round((win/rc)*Math.pow(10, 2))/Math.pow(10, 2);
-			System.out.println("GewinnH�ufigkeit: " + gh*100);
-			
-			
-			/*
-			double dgv = ((win-dg)/dg);
-			System.out.println("Gewinne/Verluste im Durchschnitt: " + dgv*100);
-			*/
-		
-		
-	
+		 * loesche den zusaetzlichen Eintrag in turns
+		 */
+		turns.delLast();
+		turns.saveToCSV(this.csvName);	
 		
 	}
 	
@@ -90,33 +77,68 @@ public abstract class Strategy extends AbstractStrategy {
 		if(!this.evaluate){
 			return;
 		}	
+		/*
+		 * Aufsummieren, wieviele Tokens der eigenen Farbe in Home-, Startzone sind
+		 * im letzten Zug. 
+		 * Korrektur für die Statistik, wenn gewonnen, wird der letzte Token noch zu inHome hinzugezaehlt
+		 */
+		int inHome = (winner.index() == this.ownIndex) ? 1 : 0;
+		int inStart = 0;
+		for(Token tmp : this.lastTokenList){
+			if(tmp.index() == this.ownIndex){
+				if( tmp.field().inHomeArea()){
+					inHome++;
+				}
+				if( tmp.field().inStartArea()){
+					inStart++;
+				}				
+			}
+		}
 		
-		turns.setWon( this.ownIndex == winner.index() );
+		turns.setPositionCount(inHome, inStart);
+		turns.setTurnCount(turnCount);
+		turns.setWon( this.ownIndex == winner.index() );		
 		turns.nextTurn();
 	
 	}
 	
 	
 	/**
-	 * Ermitteln von statistischen Werten eines Zuges und uebertrag in turns	 
-	 */
-	protected void setStatistics(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
-		if( !canHit(tokens, actions).isEmpty() ){
-			turns.addHitChance();
-		}
-	}
-	
-	/**
-	 * TODO Java-Dok ergänzen
+	 * Gibt ein Liste von MoveActions zurück, die einen gegnerischen Token schlagen können.	 *  
 	 * @param tokens
 	 * @param actions
 	 * @return
 	 */
 	public List<AbstractAction> canHit(List<Token> tokens, List<AbstractAction> actions) {
-		List<AbstractAction> hits = null;
+		List<AbstractAction> hits = actions;// TODO ändern
 		/*
 		 * TODO
 		 */
+		
+		/*
+		 * sammeln von statistischen Daten
+		 */
+		if(this.evaluate){ 
+			this.turns.addHitChance();			
+			this.lastTokenList = tokens;
+			
+			/*
+			 * Berechnung, wie oft ein Token die Startzone verlassen hat
+			 */
+			int inStart = 0;
+			for(Token tmp : tokens){				
+				if( tmp.index() == this.ownIndex && tmp.field().inStartArea()){
+					inStart++;
+				}
+			}
+			if(inStart != this.tokensInStart && inStart < this.tokensInStart){
+				this.tokensInStart = inStart;
+				this.turns.addMoveOutStart();
+			}
+			else if(inStart > this.tokensInStart){
+				this.tokensInStart = inStart;
+			}
+		}
 		return hits;
 	}
 	
