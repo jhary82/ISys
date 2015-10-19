@@ -17,25 +17,78 @@ import ludo.Token;
  *
  */
 public class TakeFirstBeatTokenStrategy extends Strategy {
-
-
-
+	
 	public TakeFirstBeatTokenStrategy(boolean evaluate, int ownIndex) {
 		super(evaluate, ownIndex);
 		// TODO Auto-generated constructor stub
 	}
-
-	public List<AbstractAction> canHit(List<Token> tokens, List<AbstractAction> actions) {
-		List<AbstractAction> hits = null;
-		/*
-		 * TODO
-		 */
+	/**
+	 * Eine Methode um die Zuege zum Schlagen anderer Figuren rauszusuchen.
+	 * @param tokens - Alle Spielfiguren in dem Spiel mit deren Positionen.
+	 * @param moves - List von allen MoveAction.
+	 * @return - Liste aller Schlagfaehigen Zuege.
+	 */
+	public List<MoveAction> canHit(List<Token> tokens, List<MoveAction> moves) {
+		List<MoveAction> hits = new ArrayList<>();
+		for (MoveAction actMove : moves) {
+			for (Token actToken : tokens) {	
+				boolean hit = actToken.field().position() == actMove.destination().position();
+				if(hit) {
+					hits.add(actMove);
+				}
+			}
+		}
 		return hits;
+	}
+	
+	public List<MoveAction> sortPosition(List<MoveAction> moves) {
+		MoveAction move = null;
+		for(int i = 0; i < moves.size()-1; i++) {
+			boolean first = moves.get(i).destination().position() > moves.get(i+1).destination().position();
+			if(first) {
+				if(moves.get(i).destination().inHomeArea()) {
+					
+				}
+			}
+		}
+		
+		/*MoveAction move = moves.get(0);
+		for(MoveAction actMove : moves) {
+			boolean first = actMove.destination().position() > move.destination().position();
+			if(first) {
+				if(actMove.destination().inHomeArea()) {
+					
+				}
+			}
+		}*/
+		/*
+		 * 
+		 */
+		/*MoveAction move = moves.get(0);
+		for (MoveAction actMove : moves) {
+				boolean first = actMove.destination().position() > move.destination().position();
+				if (first) {
+					if(!actMove.token().field().inHomeArea()){
+						if (actMove.destination().inHomeArea()) {
+							return moves.indexOf(actMove);
+						} else {
+							move = actMove;
+						}
+					}
+					move = actMove;
+				}
+			
+		}*/
+		/*
+		 * 
+		 */
+		return null;
 	}
 	
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		List<MoveAction> moves = new ArrayList<>();
+		//List<MoveAction> hits = new ArrayList<>();
 
 		for (int i = 0; i < actions.size(); i++) {
 			if (actions.get(i).getClass().equals(MoveAction.class)) {
@@ -46,10 +99,10 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 			return new Random().nextInt(actions.size());
 		} else {
 			/*
-			 * Sonderfall rückschlagen um in die Homebase zu kommen.
+			 * Sonderfall rueckschlagen um in die Homebase zu kommen.
 			 * 
 			 */
-			canHit(tokens, actions);
+			//hits = canHit(tokens, moves);
 			MoveAction move = moves.get(0);
 			for (MoveAction actMove : moves) {
 				for (Token actToken : tokens) {	
