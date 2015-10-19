@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -46,8 +47,8 @@ public class Turns {
 	 * @param name der Name der CSV-Datei, Zeitstempel wird automatisch angehangen
 	 */
 	public void saveToCSV(String name){
-		Date currentTime = new Date();
-		File csv = new File(name+"_"+currentTime.toString()+".csv");
+		String currentTime = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());		
+		File csv = new File(name+"_"+currentTime+".csv");
 		// speichere in CSV-Datei ab
 		  try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
@@ -68,6 +69,11 @@ public class Turns {
 	
 	public void setWon(boolean won){
 		turns.get(actTurn).setWon(won);
+	}
+	
+	public void addHitChance(){
+		Turn tmp = turns.get(actTurn); 
+		tmp.setCountHitChances(tmp.getCountHitChances()+1);
 	}
 	
 }
