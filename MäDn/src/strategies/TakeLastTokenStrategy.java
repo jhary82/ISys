@@ -14,6 +14,14 @@ import ludo.Token;
  */
 public class TakeLastTokenStrategy extends Strategy {
 
+
+
+
+	public TakeLastTokenStrategy(boolean evaluate, int ownIndex) {
+		super(evaluate, ownIndex);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		List<MoveAction> moves = new ArrayList<>();

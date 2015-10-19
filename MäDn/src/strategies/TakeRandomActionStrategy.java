@@ -12,11 +12,19 @@ import ludo.PlayerStats;
 import ludo.Token;
 
 /**
- * Bei dieser Strategie wird immer eine zufällige Aktion durchgeführt.
+ * Bei dieser Strategie wird immer eine zufï¿½llige Aktion durchgefï¿½hrt.
  * @author Simon
  *
  */
 public class TakeRandomActionStrategy extends Strategy{
+
+
+
+
+	public TakeRandomActionStrategy(boolean evaluate, int ownIndex) {
+		super(evaluate, ownIndex);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public int chooseAction(List<Token> arg0, int arg1, int arg2, List<AbstractAction> arg3) {
@@ -24,13 +32,5 @@ public class TakeRandomActionStrategy extends Strategy{
 		return new Random().nextInt(arg3.size());
 	}
 	
-	@Override
-	protected void onGameOver(List<PlayerStats> stats, int roundCount) {
-		
-	}
 
-	@Override
-	protected void onRoundOver(Player winner, int turnCount) {
-		
-	}
 }
