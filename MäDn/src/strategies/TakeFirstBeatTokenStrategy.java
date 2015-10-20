@@ -9,7 +9,7 @@ import ludo.MoveAction;
 import ludo.Token;
 
 /**
- * Diese Strategie nimm eine der folgenden Strategie: 1. Schl�ge, mit der
+ * Diese Strategie nimm eine der folgenden Strategie: 1. Schlaege, mit der
  * Spielfigur, die am weitesten vorne liegt. 2. Schlage, mit irgendeine
  * Spielfigur. 3. Ziehe, mit der Spielfigur die am weitesten vorne liegt.
  * 
@@ -26,6 +26,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		List<MoveAction> moves = new ArrayList<>();
 		List<MoveAction> hits = new ArrayList<>();
+		List<MoveAction> sortMoves = new ArrayList<>();
 		
 		for (int i = 0; i < actions.size(); i++) {
 			if (actions.get(i).getClass().equals(MoveAction.class)) {
@@ -39,9 +40,10 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 			 * Sonderfall rueckschlagen um in die Homebase zu kommen.
 			 */
 			hits = canHit(tokens, moves);
+			sortMoves = sortPosition(moves);
 			MoveAction move = moves.get(0);
 			for (MoveAction actMove : moves) {
-				for (Token actToken : tokens) {	
+				for (Token actToken : tokens) {
 					boolean beat = actToken.field().position() == actMove.destination().position();
 					boolean first = actMove.destination().position() > move.destination().position();
 					/*

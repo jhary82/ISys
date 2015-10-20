@@ -1,6 +1,8 @@
 package strategies;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import ludo.AbstractStrategy;
@@ -18,7 +20,7 @@ import statistics.Turns;
 public abstract class Strategy extends AbstractStrategy {	 
 		
 	/*
-	 * CSV-Datei für statistische Daten erzeugen
+	 * CSV-Datei fuer statistische Daten erzeugen
 	 */
 	private boolean evaluate = false;
 	
@@ -80,7 +82,7 @@ public abstract class Strategy extends AbstractStrategy {
 		/*
 		 * Aufsummieren, wieviele Tokens der eigenen Farbe in Home-, Startzone sind
 		 * im letzten Zug. 
-		 * Korrektur für die Statistik, wenn gewonnen, wird der letzte Token noch zu inHome hinzugezaehlt
+		 * Korrektur fuer die Statistik, wenn gewonnen, wird der letzte Token noch zu inHome hinzugezaehlt
 		 */
 		int inHome = (winner.index() == this.ownIndex) ? 1 : 0;
 		int inStart = 0;
@@ -147,52 +149,38 @@ public abstract class Strategy extends AbstractStrategy {
 		return hits;
 	}
 	/**
-	 * 
-	 * @param moves
-	 * @return
+	 * Eine Methode um die Zuege nach destination und HomeArea zu sortieren.
+	 * Zuege in die HomeArea stehen am Anfang der Liste
+	 * @param moves - List von allen MoveAction.
+	 * @return - Liste nach destination und ob HomeArea sortiert.
 	 */
 	public List<MoveAction> sortPosition(List<MoveAction> moves) {
-		//MoveAction move = null;
-		for(int i = 0; i < moves.size()-1; i++) {
-			boolean first = moves.get(i).destination().position() > moves.get(i+1).destination().position();
-			if(first) {
-				if(moves.get(i).destination().inHomeArea()) {
-					
-				}
+		List<MoveAction> sortMoves = new ArrayList<>();
+		Collections.sort(moves, new Comparator<MoveAction>() {
+
+			@Override
+			public int compare(MoveAction m1, MoveAction m2) {
+				
+				if (m1.destination().position() > m2.destination().position())
+		            return 1;
+		        if (m1.destination().position() < m2.destination().position())
+		            return -1;
+		        return 0;
+			}
+		});
+		/*
+		 * moegliche auswertung wieviele in die HomeArea rein gehen koennten.
+		 */
+		for(MoveAction move : moves) {
+			if(move.destination().inHomeArea()) {
+				sortMoves.add(move);
 			}
 		}
-		
-		/*MoveAction move = moves.get(0);
-		for(MoveAction actMove : moves) {
-			boolean first = actMove.destination().position() > move.destination().position();
-			if(first) {
-				if(actMove.destination().inHomeArea()) {
-					
-				}
+		for(MoveAction move : moves) {
+			if(!sortMoves.contains(move)) {
+				sortMoves.add(move);
 			}
-		}*/
-		/*
-		 * 
-		 */
-		/*MoveAction move = moves.get(0);
-		for (MoveAction actMove : moves) {
-				boolean first = actMove.destination().position() > move.destination().position();
-				if (first) {
-					if(!actMove.token().field().inHomeArea()){
-						if (actMove.destination().inHomeArea()) {
-							return moves.indexOf(actMove);
-						} else {
-							move = actMove;
-						}
-					}
-					move = actMove;
-				}
-			
-		}*/
-		/*
-		 * 
-		 */
-		return null;
+		}		
+		return sortMoves;
 	}
-	
 }
