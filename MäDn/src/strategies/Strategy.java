@@ -1,5 +1,6 @@
 package strategies;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ludo.AbstractStrategy;
@@ -109,7 +110,7 @@ public abstract class Strategy extends AbstractStrategy {
 	 * @return - Liste aller Schlagfaehigen Zuege.
 	 */	
 	public List<MoveAction> canHit(List<Token> tokens, List<MoveAction> moves) {
-		List<MoveAction> hits = moves;
+		List<MoveAction> hits = new ArrayList<>();
 		for (MoveAction actMove : moves) {
 			for (Token actToken : tokens) {	
 				boolean hit = actToken.field().position() == actMove.destination().position();
