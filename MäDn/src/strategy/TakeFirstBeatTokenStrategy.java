@@ -50,13 +50,13 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 					 * in Strategy als methode auslagern
 					 */
 					if (beat && first) {
-						return moves.indexOf(actMove);
+						return actions.indexOf(actMove);
 					} else if (beat) {
-						return moves.indexOf(actMove);
+						return actions.indexOf(actMove);
 					} else if (first) {
 						if(!actMove.token().field().inHomeArea()){
 							if (actMove.destination().inHomeArea()) {
-								return moves.indexOf(actMove);
+								return actions.indexOf(actMove);
 							} else {
 								move = actMove;
 							}
