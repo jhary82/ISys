@@ -4,4 +4,6 @@
 m1 <- read.csv2("../Strategy1.csv", header=TRUE)
 
 #Gewinn-Quote
-length ( m$isWon[ m$isWon == 1 ] ) / length( m$isWon )
+won <- length ( m$isWon[ m$isWon == 1 ] )
+length <- length( m$isWon )
+won / length
