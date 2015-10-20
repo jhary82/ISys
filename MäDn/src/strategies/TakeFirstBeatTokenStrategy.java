@@ -24,7 +24,8 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 	
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
-		List<MoveAction> moves = new ArrayList<>();		
+		List<MoveAction> moves = new ArrayList<>();
+		List<MoveAction> hits = new ArrayList<>();
 		
 		for (int i = 0; i < actions.size(); i++) {
 			if (actions.get(i).getClass().equals(MoveAction.class)) {
@@ -37,7 +38,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 			/*
 			 * Sonderfall rueckschlagen um in die Homebase zu kommen.
 			 */
-			//hits = canHit(tokens, moves);
+			hits = canHit(tokens, moves);
 			MoveAction move = moves.get(0);
 			for (MoveAction actMove : moves) {
 				for (Token actToken : tokens) {	
