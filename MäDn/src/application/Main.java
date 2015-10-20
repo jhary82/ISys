@@ -10,7 +10,8 @@ public class Main {
 		if( args.length == 1){
 			csvName = args[0];
 		}
-		AbstractStrategy red = new TakeFirstBeatTokenStrategy(true, 0, csvName); // Replace with your implementation
+		//AbstractStrategy red = new TakeFirstBeatTokenStrategy(true, 0, csvName); // Replace with your implementation
+		AbstractStrategy red = new KillAndFleeStrategy(true, 0, csvName); // Replace with your implementation
 		AbstractStrategy blue = new TakeRandomActionStrategy(); // Replace with your implementation
 		AbstractStrategy green = new TakeRandomActionStrategy(); // Replace with your implementation
 		AbstractStrategy orange = new TakeRandomActionStrategy();// Replace with your implementation

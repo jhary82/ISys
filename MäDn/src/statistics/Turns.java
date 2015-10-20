@@ -52,13 +52,14 @@ public class Turns {
 		// speichere in CSV-Datei ab
 		  try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			for(Turn t : turns){
+			pw.println("isWon;countHitChances;countTokenInHome;countTokenInStart;countComingOut;turnCount");
+			for(Turn t : turns){ 
 				pw.print(t.isWon()?"1;":"0;");
 				pw.print(t.getCountHitChances()+";");
 				pw.print(t.getCountTokenInHome()+";");
 				pw.print(t.getCountTokenInStart()+";");
 				pw.print(t.getCountComingOut()+";");
-				pw.print(t.getTurnCount()+";\n");
+				pw.print(t.getTurnCount()+"\n");
 			}
 			pw.flush();
 			pw.close();
