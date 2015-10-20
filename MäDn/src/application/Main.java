@@ -1,7 +1,7 @@
 package application;
 
 import ludo.LudoApp;
-import strategies.*;
+import strategy.*;
 import ludo.AbstractStrategy;
 
 public class Main {
