@@ -36,37 +36,71 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 		if (moves.isEmpty()) {
 			return new Random().nextInt(actions.size());
 		} else {
-			/*
-			 * Sonderfall rueckschlagen um in die Homebase zu kommen.
-			 */
 			hits = canHit(tokens, moves);
 			sortMoves = sortPosition(moves);
-			MoveAction move = moves.get(0);
-			for (MoveAction actMove : moves) {
-				for (Token actToken : tokens) {
-					boolean beat = actToken.field().position() == actMove.destination().position();
-					boolean first = actMove.destination().position() > move.destination().position();
-					/*
-					 * in Strategy als methode auslagern
-					 */
-					if (beat && first) {
+			int anzahlFelder = tokens.size()/4*12-1;
+			if (!hits.isEmpty()) {
+				for (MoveAction actMove : hits) {
+					if (actMove.destination().position() >= anzahlFelder - 6) {
+						/*
+						 * Sonderfall rueckschlagen um in die Homebase zu kommen.
+						 */
 						return actions.indexOf(actMove);
-					} else if (beat) {
-						return actions.indexOf(actMove);
-					} else if (first) {
-						if(!actMove.token().field().inHomeArea()){
-							if (actMove.destination().inHomeArea()) {
-								return actions.indexOf(actMove);
-							} else {
-								move = actMove;
-							}
-						}
-						move = actMove;
+					} else if (die < 3 && actMove.token().field().position() - die == actMove.destination().position()) {
+						/*
+						 * nach hinten schlagen bei würfelwert unter 3
+						 */
+							return actions.indexOf(actMove);
+					} else if (die >= 3 && actMove.token().field().position() + die == actMove.destination().position()) {
+						/*
+						 * nach vorne schlagen bei würfelwert hoeher gleich 3
+						 */
+							return actions.indexOf(actMove);
+					} else {
+						return actions.indexOf(sortMoves.get(0));
 					}
 				}
-			}
-			return actions.indexOf(move);
+			} else {
+				if(sortMoves.size() > 2) {
+					if (die < 3) {
+						System.out.println("hallo3");
+						return actions.indexOf(sortMoves.get(1));
+					} else if (die >= 3) {
+						System.out.println("hallo1");
+						return actions.indexOf(sortMoves.get(0));
+					} else {
+						
+						return actions.indexOf(sortMoves.get(0));
+					}
+				}
+				
+			}	
 		}
-		
+		System.out.println("hallo2");
+		return actions.indexOf(sortMoves.get(0));
 	}
 }
+
+/*MoveAction move = moves.get(0);
+for (MoveAction actMove : moves) {
+	for (Token actToken : tokens) {
+		boolean beat = actToken.field().position() == actMove.destination().position();
+		boolean first = actMove.destination().position() > move.destination().position();
+		if (beat && first) {
+			return actions.indexOf(actMove);
+		} else if (beat) {
+			return actions.indexOf(actMove);
+		} else if (first) {
+			if(!actMove.token().field().inHomeArea()){
+				if (actMove.destination().inHomeArea()) {
+					return actions.indexOf(actMove);
+				} else {
+					move = actMove;
+				}
+			}
+			move = actMove;
+		}
+	}
+}
+return actions.indexOf(move);
+*/
