@@ -47,8 +47,9 @@ public class Turns {
 	 * @param name der Name der CSV-Datei, Zeitstempel wird automatisch angehangen
 	 */
 	public void saveToCSV(String name){
-		String currentTime = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());		
-		File csv = new File(name+"_"+currentTime+".csv");
+		/*String currentTime = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());		
+		File csv = new File(name+"_"+currentTime+".csv");*/
+		File csv = new File(name+".csv");
 		// speichere in CSV-Datei ab
 		  try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
