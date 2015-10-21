@@ -1,8 +1,6 @@
 package strategy;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import ludo.AbstractStrategy;
@@ -59,6 +57,7 @@ public abstract class Strategy extends AbstractStrategy {
 		this.ownIndex = ownIndex;		
 		this.csvName = csvName;
 		turns = new Turns();
+		lastTokenList = new ArrayList<>();
 	}
 	
 	@Override
@@ -125,8 +124,16 @@ public abstract class Strategy extends AbstractStrategy {
 		/*
 		 * sammeln von statistischen Daten
 		 */
-		if(this.evaluate){ 
-			this.turns.addHitChance();			
+		if(this.evaluate){
+			/*
+			 * Schlagchance
+			 */
+			if(!hits.isEmpty()){
+				this.turns.addHitChance();
+			}
+			/*
+			 * Sicherung des letzten Spielfeldes 
+			 */
 			this.lastTokenList = tokens;
 			
 			/*
@@ -138,6 +145,9 @@ public abstract class Strategy extends AbstractStrategy {
 					inStart++;
 				}
 			}
+			/*
+			 * Berechnung wieviele Tokens aus Start herauskommen
+			 */
 			if(inStart != this.tokensInStart && inStart < this.tokensInStart){
 				this.tokensInStart = inStart;
 				this.turns.addMoveOutStart();
