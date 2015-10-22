@@ -61,46 +61,20 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 					}
 				}
 			} else {
-				if(sortMoves.size() > 2) {
+				if(sortMoves.size() > 1) {
 					if (die < 3) {
-						System.out.println("hallo3");
 						return actions.indexOf(sortMoves.get(1));
 					} else if (die >= 3) {
-						System.out.println("hallo1");
 						return actions.indexOf(sortMoves.get(0));
 					} else {
-						
 						return actions.indexOf(sortMoves.get(0));
 					}
+				} else {
+					return actions.indexOf(sortMoves.get(0));
 				}
 				
 			}	
 		}
-		System.out.println("hallo2");
 		return actions.indexOf(sortMoves.get(0));
 	}
 }
-
-/*MoveAction move = moves.get(0);
-for (MoveAction actMove : moves) {
-	for (Token actToken : tokens) {
-		boolean beat = actToken.field().position() == actMove.destination().position();
-		boolean first = actMove.destination().position() > move.destination().position();
-		if (beat && first) {
-			return actions.indexOf(actMove);
-		} else if (beat) {
-			return actions.indexOf(actMove);
-		} else if (first) {
-			if(!actMove.token().field().inHomeArea()){
-				if (actMove.destination().inHomeArea()) {
-					return actions.indexOf(actMove);
-				} else {
-					move = actMove;
-				}
-			}
-			move = actMove;
-		}
-	}
-}
-return actions.indexOf(move);
-*/

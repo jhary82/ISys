@@ -105,7 +105,6 @@ public abstract class Strategy extends AbstractStrategy {
 	
 	}
 	
-	
 	/**
 	 * Eine Methode um die Zuege zum Schlagen anderer Figuren rauszusuchen.
 	 * @param tokens - Alle Spielfiguren in dem Spiel mit deren Positionen.
@@ -122,7 +121,6 @@ public abstract class Strategy extends AbstractStrategy {
 				}
 			}
 		}
-		
 		/*
 		 * sammeln von statistischen Daten
 		 */
@@ -173,9 +171,9 @@ public abstract class Strategy extends AbstractStrategy {
 			@Override
 			public int compare(MoveAction m1, MoveAction m2) {
 				
-				if (m1.destination().position() > m2.destination().position())
+				if (m1.destination().position() < m2.destination().position())
 		            return 1;
-		        if (m1.destination().position() < m2.destination().position())
+		        if (m1.destination().position() > m2.destination().position())
 		            return -1;
 		        return 0;
 			}
@@ -192,7 +190,7 @@ public abstract class Strategy extends AbstractStrategy {
 			if(!sortMoves.contains(move)) {
 				sortMoves.add(move);
 			}
-		}		
+		}
 		return sortMoves;
 	}
 }
