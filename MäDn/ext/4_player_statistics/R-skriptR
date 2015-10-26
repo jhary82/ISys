@@ -1,0 +1,71 @@
+#-- Übergabeparameter --
+args <- commandArgs(TRUE)
+
+#-- Hilfsfunktion --
+# m ist die Gesamtmenge
+# pos Anfang der Menge, für die eine Rundenkurve geplottet werden soll
+# pos2 Ende der Menge
+evaluate <- function(m, pos, pos2) {
+
+	#-- Gewinn-Quote --
+	won <- length ( m$isWon[ m$isWon == 1 ] )
+	length <- length( m$isWon )
+	wonQuote <- won / length
+	cat(paste("gewonne Spiele: ",won,"\n"))
+	cat(paste("Gesamtzahl der Spiele: ", length,"\n"))
+	cat(paste("Gewinnquotient: ", wonQuote,"\n"))
+
+	#-- Aufsplitten nach m1 und m0 --
+	m0 <- m[ (m$isWon==0), c(2,3,4,5) ]
+	m1 <- m[ (m$isWon==1), c(2,3,4,5) ]
+
+	#-- Schlagquote --
+	cat(paste("Durchschnittliche Schlagchance bei gewonnen Spielen: ", 	mean( m1$countHitChances ),"\n"))
+	cat(paste("Durchschnittliche Schlagchance bei verlorenen Spielen: ", 	mean( m0$countHitChances ),"\n"))
+	boxplot( m1$countHitChances, main="Schlagchance bei gewonnen Spielen" )
+	boxplot( m0$countHitChances, main="Schlagchance bei verlorenen Spielen" ) 
+
+	#-- wie oft herausgekommen? --
+	boxplot( m1$countComingOut, main="ComingOut aus Startzone bei gewonnen Spielen" )
+	boxplot( m0$countComingOut, main="ComingOut aus Startzone bei verlorenen Spielen" )
+	cat(paste("Durchschnittliche Herauskommen aus Startzone bei gewonnenen Spielen: ", 	mean( m1$countComingOut ),"\n"))
+	cat(paste("Durchschnittliche Herauskommen aus Startzone bei verlorenen Spielen: ", 	mean( m0$countComingOut ),"\n"))
+
+	# -- x1/x0 = Anteil myTurnCount zu turnCount --
+	x1 <- ( m1$myTurnCount/m1$turnCount*100 )
+	x0 <- ( m0$myTurnCount/m0$turnCount*100 )
+	cat(paste("Durchschnittliche Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen: ", 	mean( x1 ),"\n"))
+	cat(paste("Durchschnittliche Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen: ", 	mean( x0 ),"\n"))
+	boxplot(x1, main="Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen")
+	boxplot(x0, main="Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen")
+
+	#-- Anzahl eigener Züge --
+	cat(paste("Durchschnittliche Anzahl der eigenen Runden bei gewonnenen Spielen: ", 	mean( m1$myTurnCount ),"\n"))
+	cat(paste("Durchschnittliche Anzahl der eigenen Runden bei verlorenen Spielen: ", 	mean( m0$myTurnCount ),"\n"))
+	boxplot( m1$myTurnCount, main="Anzahl der eigenen Runden bei gewonnenen Spielen" )
+	boxplot( m0$myTurnCount, main="Anzahl der eigenen Runden bei verlorenen Spielen" )
+
+	#-- Visualisierung einer Runde --	
+	#von pos nach pos2
+	position <- pos
+	for(i in pos:pos2){
+		value <- 5 		#Spalte 5 - EOL
+		line <- data.frame( Value=numeric() ) 		#Mache aus Zeilenvektor einen Spaltenvektor
+		x_length <- length( m[position, ] )
+		for(i in 1:(x_length-value)){ value <- value+1;  line <- rbind( line, list(m[ position, value]) ) }		
+		with(line, plot(X0L, type='s', ylim=c(0,400), xlim=c(0,x_length), main="Spielverlauf" ) ) 	
+		position <- position + 1
+	}
+}
+
+x <- 3
+for(i in 1:args[1]) {
+	x <- x + 1
+	#-- Einlesen der csv.Datei --
+	str <- args[x]
+	m <- read.csv2(str, header=TRUE)
+
+	#-- werte aus --
+	evaluate(m, as.numeric(args[2]), as.numeric(args[3]))
+}
+
