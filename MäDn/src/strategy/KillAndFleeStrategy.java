@@ -24,6 +24,9 @@ public class KillAndFleeStrategy extends Strategy {
 		// TODO Auto-generated constructor stub
 	}
 
+	public KillAndFleeStrategy()  {
+		super(true, 0, "KAF");
+	}
 	
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {

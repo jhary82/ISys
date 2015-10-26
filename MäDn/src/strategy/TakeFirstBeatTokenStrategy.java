@@ -22,6 +22,10 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 		super(evaluate, ownIndex, csvName);
 	}
 	
+	public TakeFirstBeatTokenStrategy(){
+		super(true, 0, "TFBT");
+	}
+	
 	@Override
 	public int chooseAction(List<Token> tokens, int turn, int die, List<AbstractAction> actions) {
 		List<MoveAction> moves = new ArrayList<>();
@@ -48,12 +52,12 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 						return actions.indexOf(actMove);
 					} else if (die < 3 && actMove.token().field().position() - die == actMove.destination().position()) {
 						/*
-						 * nach hinten schlagen bei würfelwert unter 3
+						 * nach hinten schlagen bei wï¿½rfelwert unter 3
 						 */
 							return actions.indexOf(actMove);
 					} else if (die >= 3 && actMove.token().field().position() + die == actMove.destination().position()) {
 						/*
-						 * nach vorne schlagen bei würfelwert hoeher gleich 3
+						 * nach vorne schlagen bei wï¿½rfelwert hoeher gleich 3
 						 */
 							return actions.indexOf(actMove);
 					} else {

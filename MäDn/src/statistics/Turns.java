@@ -63,7 +63,7 @@ public class Turns {
 		File csv = new File(name+".csv");
 		// speichere in CSV-Datei ab
 		  try {			
-			PrintWriter pw = new PrintWriter(new FileWriter(csv, false));
+			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
 			pw.print("isWon;countHitChances;countComingOut;turnCount;myTurnCount");
 			for(int i = 0; i < getMaxTurnCount(); i++){
 				pw.print(";"+i);
@@ -80,6 +80,9 @@ public class Turns {
 				for(int i = 0; i < t.getMyTurnCount(); i++){
 					pw.print(";"+ list.get(i));	
 				}		
+				for(int i = t.getMyTurnCount(); i < getMaxTurnCount(); i++){
+					pw.print(";0");
+				}
 				pw.println();
 			}
 			pw.flush();
