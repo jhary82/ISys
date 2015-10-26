@@ -43,11 +43,7 @@ public abstract class Strategy extends AbstractStrategy {
 	 * Anzahl der Tokens in Startzone
 	 */
 	private int tokensInStart;
-	
-	/*
-	 * aktualisierte Liste des letzten Spielfeldstandes
-	 */
-	private List<Token> lastTokenList;
+		
 	
 	/**
 	 * Konstruktor
@@ -59,7 +55,6 @@ public abstract class Strategy extends AbstractStrategy {
 		this.ownIndex = ownIndex;		
 		this.csvName = csvName;
 		turns = new Turns();
-		lastTokenList = new ArrayList<>();
 	}
 	
 	@Override
@@ -80,25 +75,7 @@ public abstract class Strategy extends AbstractStrategy {
 		if(!this.evaluate){
 			return;
 		}	
-		/*
-		 * Aufsummieren, wieviele Tokens der eigenen Farbe in Home-, Startzone sind
-		 * im letzten Zug. 
-		 * Korrektur fuer die Statistik, wenn gewonnen, wird der letzte Token noch zu inHome hinzugezaehlt
-		 */
-		int inHome = (winner.index() == this.ownIndex) ? 1 : 0;
-		int inStart = 0;
-		for(Token tmp : this.lastTokenList){
-			if(tmp.index() == this.ownIndex){
-				if( tmp.field().inHomeArea()){
-					inHome++;
-				}
-				if( tmp.field().inStartArea()){
-					inStart++;
-				}				
-			}
-		}
 		
-		turns.setPositionCount(inHome, inStart);
 		turns.setTurnCount(turnCount);
 		turns.setWon( this.ownIndex == winner.index() );		
 		turns.nextTurn();
@@ -125,24 +102,25 @@ public abstract class Strategy extends AbstractStrategy {
 		 * sammeln von statistischen Daten
 		 */
 		if(this.evaluate){
+			List<Token> myTokens = new ArrayList<>();
 			/*
 			 * Schlagchance
 			 */
 			if(!hits.isEmpty()){
 				this.turns.addHitChance();
 			}
-			/*
-			 * Sicherung des letzten Spielfeldes 
-			 */
-			this.lastTokenList = tokens;
+			
 			
 			/*
 			 * Berechnung, wie oft ein Token die Startzone verlassen hat
 			 */
 			int inStart = 0;
 			for(Token tmp : tokens){				
-				if( tmp.index() == this.ownIndex && tmp.field().inStartArea()){
-					inStart++;
+				if( tmp.index() == this.ownIndex){
+					myTokens.add(tmp);
+					if(tmp.field().inStartArea()){
+						inStart++;
+					}
 				}
 			}
 			/*
@@ -155,6 +133,20 @@ public abstract class Strategy extends AbstractStrategy {
 			else if(inStart > this.tokensInStart){
 				this.tokensInStart = inStart;
 			}
+			/*
+			 * Ermittele den TurnValue
+			 */
+			int value = 0;
+			for(Token tmp : myTokens) {
+				if( tmp.field().inTrackArea() ){
+					value += tmp.field().position();
+				}
+				else if( tmp.field().inHomeArea() ){
+					value += 100;//TODO hier einen besseren variablen Wert finden
+				}				
+			}
+			turns.setTurnValue(value);			
+			
 		}
 		return hits;
 	}

@@ -7,22 +7,30 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
 /**
  * Sammelt und speichert statistische Daten über eine Liste von Runden.
- * Und wertet diese aus.
  * @author Simon
  *
  */
 public class Turns {
 	
+	/*
+	 * Zähler für die maximale Anzahl an Runde in einem Spiel
+	 */
+	private static int maxTurnCount = 0;
+	
+	/*
+	 * die aktuelle Runde
+	 */
 	private int actTurn;
 	
+	/*
+	 * Liste aller Runden
+	 */
 	private List<Turn> turns;
 	
 	/**
@@ -38,6 +46,9 @@ public class Turns {
 	 * Fügt eine neue Runde hinzu
 	 */
 	public void nextTurn(){
+		int size = turns.get(actTurn).getTurnValue().size();
+		setMaxTurnCount(size);
+		turns.get(actTurn).setMyTurnCount( size );
 		actTurn++;
 		turns.add(new Turn());
 	}
@@ -51,16 +62,25 @@ public class Turns {
 		File csv = new File(name+"_"+currentTime+".csv");*/
 		File csv = new File(name+".csv");
 		// speichere in CSV-Datei ab
-		  try {
-			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.println("isWon;countHitChances;countTokenInHome;countTokenInStart;countComingOut;turnCount");
+		  try {			
+			PrintWriter pw = new PrintWriter(new FileWriter(csv, false));
+			pw.print("isWon;countHitChances;countComingOut;turnCount;myTurnCount");
+			for(int i = 0; i < getMaxTurnCount(); i++){
+				pw.print(";"+i);
+			}
+			pw.println();
+			
 			for(Turn t : turns){ 
 				pw.print(t.isWon()?"1;":"0;");
 				pw.print(t.getCountHitChances()+";");
-				pw.print(t.getCountTokenInHome()+";");
-				pw.print(t.getCountTokenInStart()+";");
 				pw.print(t.getCountComingOut()+";");
-				pw.print(t.getTurnCount()+"\n");
+				pw.print(t.getTurnCount()+";");
+				pw.print(t.getMyTurnCount());
+				List<Integer> list = t.getTurnValue();
+				for(int i = 0; i < t.getMyTurnCount(); i++){
+					pw.print(";"+ list.get(i));	
+				}		
+				pw.println();
 			}
 			pw.flush();
 			pw.close();
@@ -86,6 +106,15 @@ public class Turns {
 	}
 	
 	/**
+	 * Setze den ermittelten Spielwert für aktuellen Turn.
+	 * Der ermittelte Spielwert ergibt sich aus: (alle Tokenwerte / 4).
+	 * @param value
+	 */
+	public void setTurnValue(int value){
+		turns.get(actTurn).addTurnValue(value);
+	}
+	
+	/**
 	 * Setze Anzahl der Runden
 	 * @param tC
 	 */
@@ -93,17 +122,7 @@ public class Turns {
 		turns.get(actTurn).setTurnCount(tC);
 	}
 	
-	/**
-	 * Setze die Tokens, die in Home- und Startzone sind
-	 * @param inHome
-	 * @param inStart
-	 */
-	public void setPositionCount(int inHome, int inStart){
-		Turn tmp = turns.get(actTurn);
-		tmp.setCountTokenInHome(inHome);
-		tmp.setCountTokenInStart(inStart);
-	}
-
+	
 	/**
 	 * Loesche den letzten Turn
 	 */
@@ -123,4 +142,21 @@ public class Turns {
 		tmp.setCountComingOut( tmp.getCountComingOut() + 1);		
 	}
 	
+	/**
+	 * Gibt die bisher angetroffene maximale Anzahl an Runden eines Spiels zurück
+	 * @return
+	 */
+	public static int getMaxTurnCount(){
+		return maxTurnCount;
+	}
+	
+	/**
+	 * Setzt die bisher angetroffene maximale Anzahl an Runden eines Spiels
+	 * @param value
+	 */
+	public static void setMaxTurnCount(int value){
+		if(value > maxTurnCount){
+			maxTurnCount = value;
+		}
+	}		
 }
