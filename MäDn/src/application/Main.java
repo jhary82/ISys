@@ -6,8 +6,9 @@ import ludo.AbstractStrategy;
 
 public class Main {
 	public static void main(String[] args) {		
-		AbstractStrategy red = new TakeFirstBeatTokenStrategy(true, 0, "TakeFirstBeatStrategy"); // Replace with your implementation
+		//AbstractStrategy red = new TakeFirstBeatTokenStrategy(true, 0, "TakeFirstBeatStrategy"); // Replace with your implementation
 		//AbstractStrategy red = new KillAndFleeStrategy(true, 0, "KillAndFleeStrategy"); // Replace with your implementation
+		AbstractStrategy red = new TFBTandKAF(false, 0, "TFBTandKAF"); // Replace with your implementation
 		AbstractStrategy blue = new TakeRandomActionStrategy(); // Replace with your implementation
 		AbstractStrategy green = new TakeRandomActionStrategy(); // Replace with your implementation
 		AbstractStrategy orange = new TakeRandomActionStrategy();// Replace with your implementation
