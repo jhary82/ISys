@@ -9,19 +9,24 @@ import ludo.MoveAction;
 import ludo.Token;
 
 /**
- * Diese Strategie nimm eine der folgenden Strategie: 1. Schlaege, mit der
- * Spielfigur, die am weitesten vorne liegt. 2. Schlage, mit irgendeine
- * Spielfigur. 3. Ziehe, mit der Spielfigur die am weitesten vorne liegt.
  * 
- * @author Erik
+ * @author Erik und Simon
  *
  */
 public class TakeFirstBeatTokenStrategy extends Strategy {
 
+	/**
+	 * Konstruktor für die Strategie.
+	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
+	 * @param ownIndex - Den eigenen Index
+	 * @param csvName - Name der Datei für die Statistik
+	 */
 	public TakeFirstBeatTokenStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
 	}
-
+	/**
+	 * Standart-Konstruktor
+	 */
 	public TakeFirstBeatTokenStrategy() {
 		super(true, 0, "TFBT");
 	}

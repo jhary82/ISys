@@ -3,8 +3,16 @@ package application;
 import ludo.LudoApp;
 import strategy.*;
 import ludo.AbstractStrategy;
-
+/**
+ * Die Hauptklasse zum starten des Spiels.
+ * @author Simon und Erik
+ *
+ */
 public class Main {
+	/**
+	 * Die Hauptmethode zum starten des Spiels.
+	 * @param args
+	 */
 	public static void main(String[] args) {		
 		//AbstractStrategy red = new TakeFirstBeatTokenStrategy(false, 0, "TakeFirstBeatStrategy"); // Replace with your implementation
 		//AbstractStrategy red = new KillAndFleeStrategy(false, 0, "KillAndFleeStrategy"); // Replace with your implementation

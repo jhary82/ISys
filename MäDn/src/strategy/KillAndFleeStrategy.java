@@ -12,18 +12,24 @@ import ludo.MoveAction;
 import ludo.Token;
 
 /**
- * Diese Strategie versucht mÃ¶glichst sichere ZÃ¼ge zu machen.
+ * Diese Strategie versucht moeglichst sichere Zuege zu machen.
  * Andere Token werden geschlagen oder gemieden.
- * @author Simon
+ * @author Erik und Simon
  * 
  */
 public class KillAndFleeStrategy extends Strategy {
-
+	/**
+	 * Konstruktor für die Strategie.
+	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
+	 * @param ownIndex - Den eigenen Index
+	 * @param csvName - Name der Datei für die Statistik
+	 */
 	public KillAndFleeStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
-		// TODO Auto-generated constructor stub
 	}
-
+	/**
+	 * Standart-Konstruktor
+	 */
 	public KillAndFleeStrategy()  {
 		super(true, 0, "KAF");
 	}

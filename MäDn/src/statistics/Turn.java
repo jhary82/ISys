@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Speichert fÃ¼r eine Runde statistische Daten
+ * Speichert fuer eine Runde statistische Daten
  * @author Simon
  *
  */
@@ -89,7 +89,7 @@ public class Turn {
 	}
 
 	/**
-	 * Zählt eins hoch an Position für countSubStrategy
+	 * Zaehlt eins hoch an Position für countSubStrategy
 	 * @param pos
 	 */
 	public void addCountSubStrategy(int pos) {		

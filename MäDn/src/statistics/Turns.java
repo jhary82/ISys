@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- * Sammelt und speichert statistische Daten über eine Liste von Runden.
+ * Sammelt und speichert statistische Daten ueber eine Liste von Runden.
  * @author Simon
  *
  */
@@ -38,7 +38,7 @@ public class Turns {
 	}
 	
 	/**
-	 * Fügt eine neue Runde hinzu
+	 * Fuegt eine neue Runde hinzu
 	 */
 	public void nextTurn(){
 		actTurn++;

@@ -7,14 +7,25 @@ import java.util.Random;
 import ludo.AbstractAction;
 import ludo.MoveAction;
 import ludo.Token;
-
+/**
+ * 
+ * @author Erik und Simon
+ *
+ */
 public class TFBTandKAF extends Strategy {
 
+	/**
+	 * Konstruktor für die Strategie.
+	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
+	 * @param ownIndex - Den eigenen Index
+	 * @param csvName - Name der Datei für die Statistik
+	 */
 	public TFBTandKAF(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
-		// TODO Auto-generated constructor stub
 	}
-	
+	/**
+	 * Standart-Konstruktor
+	 */
 	public TFBTandKAF(){
 		super(true, 0, "TFBTandKAF");
 	}
@@ -33,7 +44,7 @@ public class TFBTandKAF extends Strategy {
 		if (moves.isEmpty()) {
 			/*
 			 * Number 1
-			 * Keine Zugmöglichkeit
+			 * Keine Zugmoeglichkeit
 			 */
 			//statistics(1);
 			return new Random().nextInt(actions.size());
@@ -91,7 +102,7 @@ public class TFBTandKAF extends Strategy {
 				else{
 					/*
 					 * Number 6
-					 * Mit der ersten gefährdeten Spielfigur ziehen.
+					 * Mit der ersten gefaehrdeten Spielfigur ziehen.
 					 */
 					//statistics(6);
 					return actions.indexOf( inDanger.get(0) );

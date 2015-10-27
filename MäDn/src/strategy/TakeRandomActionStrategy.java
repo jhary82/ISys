@@ -1,6 +1,3 @@
-/**
- * 
- */
 package strategy;
 
 import java.util.List;
@@ -10,22 +7,28 @@ import ludo.AbstractAction;
 import ludo.Token;
 
 /**
- * Bei dieser Strategie wird immer eine zufï¿½llige Aktion durchgefï¿½hrt.
- * @author Simon
+ * Bei dieser Strategie wird immer eine zufaellige Aktion durchgefuehrt.
+ * @author Simon und Erik
  *
  */
 public class TakeRandomActionStrategy extends Strategy{
 
-
+	/**
+	 * Standart-Konstruktor
+	 */
 	public TakeRandomActionStrategy(){
 		super(false, -1, "");
 	}
-
+	/**
+	 * Konstruktor für die Strategie.
+	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
+	 * @param ownIndex - Den eigenen Index
+	 * @param csvName - Name der Datei für die Statistik
+	 */
 	public TakeRandomActionStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
-		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public int chooseAction(List<Token> arg0, int arg1, int arg2, List<AbstractAction> arg3) {
 

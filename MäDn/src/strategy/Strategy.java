@@ -14,7 +14,7 @@ import statistics.Turns;
 
 /**
  * Abstrakte Strategieklasse
- * @author Simon
+ * @author Simon und Erik
  *
  */
 public abstract class Strategy extends AbstractStrategy {	 
