@@ -31,6 +31,11 @@ public class TFBTandKAF extends Strategy {
 			}
 		}
 		if (moves.isEmpty()) {
+			/*
+			 * Number 1
+			 * Keine Zugmöglichkeit
+			 */
+			//statistics(1);
 			return new Random().nextInt(actions.size());
 		} else {
 			hits = canHit(tokens, moves);
@@ -40,21 +45,25 @@ public class TFBTandKAF extends Strategy {
 				for (MoveAction actMove : hits) {
 					if (actMove.destination().position() >= anzahlFelder - 6) {
 						/*
+						 * Number 2
 						 * Sonderfall rueckschlagen um in die Homebase zu
 						 * kommen.
 						 */
+						//statistics(2);
 						return actions.indexOf(actMove);
-					} else if (die < 3 && actMove.token().field().position() - die == actMove.destination().position()) {
+					} else if (sortMoves.get(0).equals(actMove)	&& actMove.token().field().position() + die == actMove.destination().position()) {
 						/*
-						 * nach hinten schlagen bei wï¿½rfelwert unter 3
+						 * Number 3
+						 * Mit der vordersten Spielfigur nach vorne schlagen.
 						 */
-						return actions.indexOf(actMove);
-					} else if (die >= 3 && actMove.token().field().position() + die == actMove.destination().position()) {
-						/*
-						 * nach vorne schlagen bei wï¿½rfelwert hoeher gleich 3
-						 */
+						//statistics(3);
 						return actions.indexOf(actMove);
 					} else {
+						/*
+						 * Number 4
+						 * Mit der vorderste Spielfigur ziehen.
+						 */
+						//statistics(4);
 						return actions.indexOf(sortMoves.get(0));
 					}
 				}
@@ -63,22 +72,37 @@ public class TFBTandKAF extends Strategy {
 				for (MoveAction move : moves) {
 					for (Token token : tokens) {
 						if (token.field().inTrackArea()) {
-							if (token.field().position() + 6 < move.destination().position()
-								|| token.field().position() - 6 > move.destination().position()) {
+							if (token.field().position() + 5 < move.destination().position()
+								|| token.field().position() - 5 > move.destination().position()) {
 
 								inDanger.add(move);
 							}
 						}
 					}
 				}
-
-				if (inDanger.isEmpty()) {
-					return actions.indexOf(sortPosition(moves).get(0));
-				} else {
-					return actions.indexOf(inDanger.get(0));
+				if( inDanger.isEmpty()){
+					/*
+					 * Number 4
+					 * Mit der vordersten Spielfigur ziehen.
+					 */
+					//statistics(4);
+					return actions.indexOf( sortPosition(moves).get(0) );
+				}
+				else{
+					/*
+					 * Number 6
+					 * Mit der ersten gefährdeten Spielfigur ziehen.
+					 */
+					//statistics(6);
+					return actions.indexOf( inDanger.get(0) );
 				}
 			}
 		}
+		/*
+		 * Number 4
+		 * Mit der vorderste Spielfigur ziehen.
+		 */
+		//statistics(4);
 		return actions.indexOf(sortMoves.get(0));
 	}
 }

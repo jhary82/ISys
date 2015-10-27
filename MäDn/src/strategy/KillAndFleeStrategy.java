@@ -39,11 +39,21 @@ public class KillAndFleeStrategy extends Strategy {
 			}
 		}
 		if (moves.isEmpty()) {
+			/*
+			 * Number 1
+			 * Keine Zugmoeglichkeit.
+			 */
+			//statistics(1);
 			return new Random().nextInt(actions.size());
 		} else {
 			
 			hits = canHit(tokens, moves);						
 			if(!hits.isEmpty()){
+				/*
+				 * Number 5
+				 * Schlaeg zufaellig eine Spielfigur raus.
+				 */
+				//statistics(5);
 				return actions.indexOf( hits.get( new Random().nextInt(hits.size()) ));
 			}
 			else{
@@ -59,16 +69,23 @@ public class KillAndFleeStrategy extends Strategy {
 						}
 					}
 				}
-				
 				if( inDanger.isEmpty()){
+					/*
+					 * Number 4
+					 * Mit der vordersten Spielfigur ziehen.
+					 */
+					//statistics(4);
 					return actions.indexOf( sortPosition(moves).get(0) );
 				}
 				else{
+					/*
+					 * Number 6
+					 * Mit der ersten gefährdeten Spielfigur ziehen.
+					 */
+					//statistics(6);
 					return actions.indexOf( inDanger.get(0) );
 				}
 			}			
 		}
-		
 	}
-
 }
