@@ -16,10 +16,10 @@ import ludo.Token;
 public class TakeFirstBeatTokenStrategy extends Strategy {
 
 	/**
-	 * Konstruktor für die Strategie.
+	 * Konstruktor fï¿½r die Strategie.
 	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
 	 * @param ownIndex - Den eigenen Index
-	 * @param csvName - Name der Datei für die Statistik
+	 * @param csvName - Name der Datei fï¿½r die Statistik
 	 */
 	public TakeFirstBeatTokenStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
@@ -47,7 +47,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 			 * Number 1
 			 * Keine Zugmoeglichkeit.
 			 */
-			//statistics(1);
+			statistics(1);
 			return new Random().nextInt(actions.size());
 		} else {
 			hits = canHit(tokens, moves);
@@ -61,21 +61,21 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 						 * Sonderfall rueckschlagen um in die Homebase zu
 						 * kommen.
 						 */
-						//statistics(2);
+						statistics(2);
 						return actions.indexOf(actMove);
 					} else if (sortMoves.get(0).equals(actMove)	&& actMove.token().field().position() + die == actMove.destination().position()) {
 						/*
 						 * Number 3
 						 * Mit der vordersten Spielfigur nach vorne schlagen.
 						 */
-						//statistics(3);
+						statistics(3);
 						return actions.indexOf(actMove);
 					} else {
 						/*
 						 * Number 4
 						 * Mit der vorderste Spielfigur ziehen.
 						 */
-						//statistics(4);
+						statistics(4);
 						return actions.indexOf(sortMoves.get(0));
 					}
 				}
@@ -84,7 +84,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 				 * Number 4
 				 * Mit der vorderste Spielfigur ziehen.
 				 */
-				//statistics(4);
+				statistics(4);
 				return actions.indexOf(sortMoves.get(0));
 			}
 		}
@@ -92,7 +92,7 @@ public class TakeFirstBeatTokenStrategy extends Strategy {
 		 * Number4
 		 * Mit der vorderste Spielfigur ziehen.
 		 */
-		//statistics(4);
+		statistics(4);
 		return actions.indexOf(sortMoves.get(0));
 	}
 }

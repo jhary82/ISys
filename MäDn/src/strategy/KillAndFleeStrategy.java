@@ -19,10 +19,10 @@ import ludo.Token;
  */
 public class KillAndFleeStrategy extends Strategy {
 	/**
-	 * Konstruktor für die Strategie.
+	 * Konstruktor fï¿½r die Strategie.
 	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
 	 * @param ownIndex - Den eigenen Index
-	 * @param csvName - Name der Datei für die Statistik
+	 * @param csvName - Name der Datei fï¿½r die Statistik
 	 */
 	public KillAndFleeStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
@@ -49,7 +49,7 @@ public class KillAndFleeStrategy extends Strategy {
 			 * Number 1
 			 * Keine Zugmoeglichkeit.
 			 */
-			//statistics(1);
+			statistics(1);
 			return new Random().nextInt(actions.size());
 		} else {
 			
@@ -59,7 +59,7 @@ public class KillAndFleeStrategy extends Strategy {
 				 * Number 5
 				 * Schlaeg zufaellig eine Spielfigur raus.
 				 */
-				//statistics(5);
+				statistics(5);
 				return actions.indexOf( hits.get( new Random().nextInt(hits.size()) ));
 			}
 			else{
@@ -80,15 +80,15 @@ public class KillAndFleeStrategy extends Strategy {
 					 * Number 4
 					 * Mit der vordersten Spielfigur ziehen.
 					 */
-					//statistics(4);
+					statistics(4);
 					return actions.indexOf( sortPosition(moves).get(0) );
 				}
 				else{
 					/*
 					 * Number 6
-					 * Mit der ersten gefährdeten Spielfigur ziehen.
+					 * Mit der ersten gefï¿½hrdeten Spielfigur ziehen.
 					 */
-					//statistics(6);
+					statistics(6);
 					return actions.indexOf( inDanger.get(0) );
 				}
 			}			

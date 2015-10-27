@@ -55,8 +55,8 @@ public class Turns {
 		File csv = new File(name+".csv");
 		// speichere in CSV-Datei ab
 		  try {			
-			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.print("isWon;countHitChances;countComingOut;turnCount;countSubStrategies;");
+			PrintWriter pw = new PrintWriter(new FileWriter(csv, false));
+			pw.print("isWon;countHitChances;countComingOut;turnCount");
 			int countSub = turns.get(actTurn).getCountSubStrategy().size();
 			for(int i = 1; i <= countSub; i++){
 				pw.print(";"+i);
@@ -67,8 +67,10 @@ public class Turns {
 				pw.print(t.getCountHitChances()+";");
 				pw.print(t.getCountComingOut()+";");
 				pw.print(t.getTurnCount());
+				int max = t.getMaxExecuteSubStrategy();
 				for(int value: t.getCountSubStrategy()){
-					pw.print(";"+value);
+					int erg = (int)(((double)value/(double)max)*100);
+					pw.print(";"+erg);
 				}
 				pw.println();
 			}
@@ -127,9 +129,8 @@ public class Turns {
 	 * @param value
 	 */
 	public void addToSubStrategy(int value){
-		if(value > -1 && value < turns.get(actTurn).getCountSubStrategy().size() ){
-			turns.get(actTurn).addCountSubStrategy(value);
-		}
+		turns.get(actTurn).addMaxExecuteSubStrategy();
+		turns.get(actTurn).addCountSubStrategy(value);		
 	}
 	
 	

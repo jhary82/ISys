@@ -13,17 +13,27 @@ import java.util.List;
  */
 public class Turn {
 
+	/*
+	 * Konstante für Anzahl der Unterstrategien
+	 */
+	private int subStrategies = 6;
+	
 	private boolean won;
 	private int countHitChances;	
 	private int countComingOut;
 	private int turnCount;
 	private List<Integer> countSubStrategy;
+	private int maxExecuteSubStrategy = 0;
 	
+
 	/**
 	 * Konstruktor
 	 */
 	public Turn(){		
 		this.countSubStrategy = new ArrayList<>();
+		for(int i = 0; i < subStrategies; i++){
+			this.countSubStrategy.add(0); 
+		}
 	}
 
 	/**
@@ -89,12 +99,26 @@ public class Turn {
 	}
 
 	/**
-	 * Zaehlt eins hoch an Position f�r countSubStrategy
+	 * Zaehlt eins hoch an Position f�r countSubStrategy
 	 * @param pos
 	 */
-	public void addCountSubStrategy(int pos) {		
+	public void addCountSubStrategy(int pos) {	
+		pos--;
 		this.countSubStrategy.set(pos, this.countSubStrategy.get(pos) + 1);
 	}
 
+	/**
+	 * @return the maxExecuteSubStrategy
+	 */
+	public int getMaxExecuteSubStrategy() {
+		return maxExecuteSubStrategy;
+	}
+
+	/**
+	 * Fügt 1 zu maxExecuteSubStrategy hinzu
+	 */
+	public void addMaxExecuteSubStrategy() {
+		this.maxExecuteSubStrategy = maxExecuteSubStrategy + 1;
+	}
 
 }
