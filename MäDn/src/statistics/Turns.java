@@ -19,11 +19,6 @@ import java.util.List;
 public class Turns {
 	
 	/*
-	 * Zähler für die maximale Anzahl an Runde in einem Spiel
-	 */
-	private static int maxTurnCount = 0;
-	
-	/*
 	 * die aktuelle Runde
 	 */
 	private int actTurn;
@@ -46,9 +41,6 @@ public class Turns {
 	 * Fügt eine neue Runde hinzu
 	 */
 	public void nextTurn(){
-		int size = turns.get(actTurn).getTurnValue().size();
-		setMaxTurnCount(size);
-		turns.get(actTurn).setMyTurnCount( size );
 		actTurn++;
 		turns.add(new Turn());
 	}
@@ -64,26 +56,13 @@ public class Turns {
 		// speichere in CSV-Datei ab
 		  try {			
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.print("isWon;countHitChances;countComingOut;turnCount;myTurnCount");
-			for(int i = 0; i < getMaxTurnCount(); i++){
-				pw.print(";"+i);
-			}
-			pw.println();
-			
+			pw.println("isWon;countHitChances;countComingOut;turnCount");
+					
 			for(Turn t : turns){ 
 				pw.print(t.isWon()?"1;":"0;");
 				pw.print(t.getCountHitChances()+";");
 				pw.print(t.getCountComingOut()+";");
-				pw.print(t.getTurnCount()+";");
-				pw.print(t.getMyTurnCount());
-				List<Integer> list = t.getTurnValue();
-				for(int i = 0; i < t.getMyTurnCount(); i++){
-					pw.print(";"+ list.get(i));	
-				}		
-				for(int i = t.getMyTurnCount(); i < getMaxTurnCount(); i++){
-					pw.print(";0");
-				}
-				pw.println();
+				pw.print(t.getTurnCount()+";");				
 			}
 			pw.flush();
 			pw.close();
@@ -107,16 +86,7 @@ public class Turns {
 		Turn tmp = turns.get(actTurn); 
 		tmp.setCountHitChances(tmp.getCountHitChances()+1);
 	}
-	
-	/**
-	 * Setze den ermittelten Spielwert für aktuellen Turn.
-	 * Der ermittelte Spielwert ergibt sich aus: (alle Tokenwerte / 4).
-	 * @param value
-	 */
-	public void setTurnValue(int value){
-		turns.get(actTurn).addTurnValue(value);
-	}
-	
+		
 	/**
 	 * Setze Anzahl der Runden
 	 * @param tC
@@ -124,8 +94,7 @@ public class Turns {
 	public void setTurnCount(int tC){		
 		turns.get(actTurn).setTurnCount(tC);
 	}
-	
-	
+		
 	/**
 	 * Loesche den letzten Turn
 	 */
@@ -144,22 +113,5 @@ public class Turns {
 		Turn tmp = turns.get(actTurn); 
 		tmp.setCountComingOut( tmp.getCountComingOut() + 1);		
 	}
-	
-	/**
-	 * Gibt die bisher angetroffene maximale Anzahl an Runden eines Spiels zurück
-	 * @return
-	 */
-	public static int getMaxTurnCount(){
-		return maxTurnCount;
-	}
-	
-	/**
-	 * Setzt die bisher angetroffene maximale Anzahl an Runden eines Spiels
-	 * @param value
-	 */
-	public static void setMaxTurnCount(int value){
-		if(value > maxTurnCount){
-			maxTurnCount = value;
-		}
-	}		
+			
 }

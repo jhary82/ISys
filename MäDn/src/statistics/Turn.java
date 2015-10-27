@@ -3,9 +3,6 @@
  */
 package statistics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Speichert für eine Runde statistische Daten
  * @author Simon
@@ -17,14 +14,11 @@ public class Turn {
 	private int countHitChances;	
 	private int countComingOut;
 	private int turnCount;
-	private int myTurnCount;
-	private List<Integer> turnValue;
 	
 	/**
 	 * Konstruktor
 	 */
-	public Turn(){
-		turnValue = new ArrayList<>();		
+	public Turn(){		
 	}
 
 	/**
@@ -81,34 +75,6 @@ public class Turn {
 	public void setTurnCount(int turnCount) {
 		this.turnCount = turnCount;
 	}
-	
-	/**
-	 * @return the myTurnCount
-	 */
-	public int getMyTurnCount() {
-		return myTurnCount;
-	}
 
-	/**
-	 * @param myTurnCount the myTurnCount to set
-	 */
-	public void setMyTurnCount(int myTurnCount) {
-		this.myTurnCount = myTurnCount;
-	}
 
-	/**
-	 * @return the turnValue
-	 */
-	public List<Integer> getTurnValue() {
-		return turnValue;
-	}
-
-	/**
-	 * Fügt einen Wert zur turnValue-Liste hinzu
-	 * @param value
-	 */
-	public void addTurnValue(int value) {
-		this.turnValue.add(value);
-	}
-	
 }

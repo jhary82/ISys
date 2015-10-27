@@ -102,22 +102,19 @@ public abstract class Strategy extends AbstractStrategy {
 		 * sammeln von statistischen Daten
 		 */
 		if(this.evaluate){
-			List<Token> myTokens = new ArrayList<>();
 			/*
 			 * Schlagchance
 			 */
 			if(!hits.isEmpty()){
 				this.turns.addHitChance();
 			}
-			
-			
+						
 			/*
 			 * Berechnung, wie oft ein Token die Startzone verlassen hat
 			 */
 			int inStart = 0;
 			for(Token tmp : tokens){				
-				if( tmp.index() == this.ownIndex){
-					myTokens.add(tmp);
+				if( tmp.index() == this.ownIndex){					
 					if(tmp.field().inStartArea()){
 						inStart++;
 					}
@@ -133,23 +130,19 @@ public abstract class Strategy extends AbstractStrategy {
 			else if(inStart > this.tokensInStart){
 				this.tokensInStart = inStart;
 			}
-			/*
-			 * Ermittele den TurnValue
-			 */
-			int value = 0;
-			for(Token tmp : myTokens) {
-				if( tmp.field().inTrackArea() ){
-					value += tmp.field().position();
-				}
-				else if( tmp.field().inHomeArea() ){
-					value += 100;//TODO hier einen besseren variablen Wert finden
-				}				
-			}
-			turns.setTurnValue(value);			
 			
 		}
 		return hits;
 	}
+	
+	/**
+	 * Zählt, wie oft einzelne Unterstrategien benutzt werden
+	 * @param value
+	 */
+	protected void statistics(int value){
+		
+	}
+	
 	/**
 	 * Eine Methode um die Zuege nach destination und HomeArea zu sortieren.
 	 * Zuege in die HomeArea stehen am Anfang der Liste

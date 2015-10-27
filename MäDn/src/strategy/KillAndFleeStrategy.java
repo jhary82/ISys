@@ -51,8 +51,8 @@ public class KillAndFleeStrategy extends Strategy {
 				for(MoveAction move : moves){
 					for(Token token : tokens){
 						if(token.field().inTrackArea() ){
-							if( token.field().position() + 6 < move.destination().position() ||
-								token.field().position() - 6 > move.destination().position() ){
+							if( token.field().position() + 5 < move.destination().position() ||
+								token.field().position() - 5 > move.destination().position() ){
 								
 								inDanger.add(move);
 							}
