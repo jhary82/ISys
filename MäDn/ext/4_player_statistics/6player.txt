@@ -1,0 +1,33 @@
+gewonne Spiele:  4486 
+Gesamtzahl der Spiele:  10000 
+Gewinnquotient:  0.4486 
+Durchschnittliche Schlagchance bei gewonnen Spielen:  35.4799375835934 
+Durchschnittliche Schlagchance bei verlorenen Spielen:  50.8235400797969 
+Durchschnittliche Herauskommen aus Startzone bei gewonnenen Spielen:  11.2449843958984 
+Durchschnittliche Herauskommen aus Startzone bei verlorenen Spielen:  19.7809212912586 
+Durchschnittliche Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen:  19.4959505633209 
+Durchschnittliche Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen:  19.4388230094525 
+Durchschnittliche Anzahl der eigenen Runden bei gewonnenen Spielen:  85.4268836379848 
+Durchschnittliche Anzahl der eigenen Runden bei verlorenen Spielen:  128.500544069641 
+gewonne Spiele:  4454 
+Gesamtzahl der Spiele:  10000 
+Gewinnquotient:  0.4454 
+Durchschnittliche Schlagchance bei gewonnen Spielen:  36.2224966322407 
+Durchschnittliche Schlagchance bei verlorenen Spielen:  50.9938694554634 
+Durchschnittliche Herauskommen aus Startzone bei gewonnenen Spielen:  11.5682532555007 
+Durchschnittliche Herauskommen aus Startzone bei verlorenen Spielen:  19.690587811035 
+Durchschnittliche Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen:  19.5939558818556 
+Durchschnittliche Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen:  19.5454533457732 
+Durchschnittliche Anzahl der eigenen Runden bei gewonnenen Spielen:  87.6699595868882 
+Durchschnittliche Anzahl der eigenen Runden bei verlorenen Spielen:  128.870537324198 
+gewonne Spiele:  4262 
+Gesamtzahl der Spiele:  10000 
+Gewinnquotient:  0.4262 
+Durchschnittliche Schlagchance bei gewonnen Spielen:  39.1238854997654 
+Durchschnittliche Schlagchance bei verlorenen Spielen:  53.3943882886023 
+Durchschnittliche Herauskommen aus Startzone bei gewonnenen Spielen:  12.5654622243078 
+Durchschnittliche Herauskommen aus Startzone bei verlorenen Spielen:  20.8637155803416 
+Durchschnittliche Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen:  19.6361322558242 
+Durchschnittliche Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen:  19.6585249315125 
+Durchschnittliche Anzahl der eigenen Runden bei gewonnenen Spielen:  100.842092914125 
+Durchschnittliche Anzahl der eigenen Runden bei verlorenen Spielen:  143.083827117463 
