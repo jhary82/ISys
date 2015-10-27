@@ -3,6 +3,9 @@
  */
 package statistics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Speichert fÃ¼r eine Runde statistische Daten
  * @author Simon
@@ -14,11 +17,13 @@ public class Turn {
 	private int countHitChances;	
 	private int countComingOut;
 	private int turnCount;
+	private List<Integer> countSubStrategy;
 	
 	/**
 	 * Konstruktor
 	 */
 	public Turn(){		
+		this.countSubStrategy = new ArrayList<>();
 	}
 
 	/**
@@ -74,6 +79,21 @@ public class Turn {
 	 */
 	public void setTurnCount(int turnCount) {
 		this.turnCount = turnCount;
+	}
+
+	/**
+	 * @return the countSubStrategy
+	 */
+	public List<Integer> getCountSubStrategy() {
+		return countSubStrategy;
+	}
+
+	/**
+	 * Zählt eins hoch an Position für countSubStrategy
+	 * @param pos
+	 */
+	public void addCountSubStrategy(int pos) {		
+		this.countSubStrategy.set(pos, this.countSubStrategy.get(pos) + 1);
 	}
 
 

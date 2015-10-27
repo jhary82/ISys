@@ -140,7 +140,10 @@ public abstract class Strategy extends AbstractStrategy {
 	 * @param value
 	 */
 	protected void statistics(int value){
-		
+		if(!this.evaluate){
+			return;
+		}
+		turns.addToSubStrategy(value);
 	}
 	
 	/**
