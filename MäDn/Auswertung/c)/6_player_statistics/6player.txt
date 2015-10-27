@@ -1,33 +1,63 @@
-gewonne Spiele:  4301 
+gewonne Spiele:  4479 
 Gesamtzahl der Spiele:  10000 
-Gewinnquotient:  0.4301 
-Durchschnittliche Schlagchance bei gewonnen Spielen:  46.3471285747501 
-Durchschnittliche Schlagchance bei verlorenen Spielen:  69.5069310405334 
-Durchschnittliche Herauskommen aus Startzone bei gewonnenen Spielen:  13.745175540572 
-Durchschnittliche Herauskommen aus Startzone bei verlorenen Spielen:  24.8726092296894 
-Durchschnittliche Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen:  13.2595432346512 
-Durchschnittliche Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen:  13.271043589953 
-Durchschnittliche Anzahl der eigenen Runden bei gewonnenen Spielen:  110.197395954429 
-Durchschnittliche Anzahl der eigenen Runden bei verlorenen Spielen:  166.014563958589 
-gewonne Spiele:  4192 
+Gewinnquotient:  0.4479 
+Durchschnittlicher Anteil von  Schlagchance bei gewonnenen Spielen 43.8725161866488 
+Durchschnittlicher Anteil von  Schlagchance bei verlorenen Spielen 68.9462053975729 
+Durchschnittlicher Anteil von  Herauskommen aus StartZone bei gewonnenen Spielen 12.9874972091985 
+Durchschnittlicher Anteil von  Herauskommen aus StartZone bei verlorenen Spielen 24.5294330737185 
+Durchschnittlicher Anteil von  TurnCount insgesamt 1003.442 
+Substrategien:
+Durchschnittlicher Anteil von  keine Zugmöglichkeit bei gewonnenen Spielen 23.9399419513284 
+Durchschnittlicher Anteil von  keine Zugmöglichkeit bei verlorenen Spielen 19.5428364426734 
+Durchschnittlicher Anteil von  Sonderfall zurückschlagen bei gewonnenen Spielen 1.93614646126367 
+Durchschnittlicher Anteil von  Sonderfall zurückschlagen bei verlorenen Spielen 2.24633218619815 
+Durchschnittlicher Anteil von  schlage mit vorderster Figur nach vorne bei gewonnenen Spielen 10.1415494530029 
+Durchschnittlicher Anteil von  schlage mit vorderster Figur nach vorne bei verlorenen Spielen 9.64897663466763 
+Durchschnittlicher Anteil von  ziehe mit vorderster Figur bei gewonnenen Spielen 20.7651261442286 
+Durchschnittlicher Anteil von  ziehe mit vorderster Figur bei verlorenen Spielen 21.5844955623981 
+Durchschnittlicher Anteil von  schlage zufällig eine gegnerische Figur bei gewonnenen Spielen 0 
+Durchschnittlicher Anteil von  schlage zufällig eine gegnerische Figur bei verlorenen Spielen 0 
+Durchschnittlicher Anteil von  ziehe mit ersten gefährdeten Figur bei gewonnenen Spielen 40.8233980799286 
+Durchschnittlicher Anteil von  ziehe mit ersten gefährdeten Figur bei verlorenen Spielen 44.539032783916 
+gewonne Spiele:  4492 
 Gesamtzahl der Spiele:  10000 
-Gewinnquotient:  0.4192 
-Durchschnittliche Schlagchance bei gewonnen Spielen:  48.3148854961832 
-Durchschnittliche Schlagchance bei verlorenen Spielen:  69.0185950413223 
-Durchschnittliche Herauskommen aus Startzone bei gewonnenen Spielen:  14.34375 
-Durchschnittliche Herauskommen aus Startzone bei verlorenen Spielen:  24.4893250688705 
-Durchschnittliche Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen:  13.313857014435 
-Durchschnittliche Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen:  13.3571813763917 
-Durchschnittliche Anzahl der eigenen Runden bei gewonnenen Spielen:  115.763597328244 
-Durchschnittliche Anzahl der eigenen Runden bei verlorenen Spielen:  164.531508264463 
-gewonne Spiele:  3876 
+Gewinnquotient:  0.4492 
+Durchschnittlicher Anteil von  Schlagchance bei gewonnenen Spielen 43.5409617097061 
+Durchschnittlicher Anteil von  Schlagchance bei verlorenen Spielen 68.9622367465505 
+Durchschnittlicher Anteil von  Herauskommen aus StartZone bei gewonnenen Spielen 12.8833481745325 
+Durchschnittlicher Anteil von  Herauskommen aus StartZone bei verlorenen Spielen 24.5492011619463 
+Durchschnittlicher Anteil von  TurnCount insgesamt 1003.0602 
+Substrategien:
+Durchschnittlicher Anteil von  keine Zugmöglichkeit bei gewonnenen Spielen 23.5042297417631 
+Durchschnittlicher Anteil von  keine Zugmöglichkeit bei verlorenen Spielen 19.5791575889615 
+Durchschnittlicher Anteil von  Sonderfall zurückschlagen bei gewonnenen Spielen 1.92386464826358 
+Durchschnittlicher Anteil von  Sonderfall zurückschlagen bei verlorenen Spielen 2.21514161220044 
+Durchschnittlicher Anteil von  schlage mit vorderster Figur nach vorne bei gewonnenen Spielen 10.2230632235085 
+Durchschnittlicher Anteil von  schlage mit vorderster Figur nach vorne bei verlorenen Spielen 9.65541031227306 
+Durchschnittlicher Anteil von  ziehe mit vorderster Figur bei gewonnenen Spielen 62.4142920747996 
+Durchschnittlicher Anteil von  ziehe mit vorderster Figur bei verlorenen Spielen 66.5904139433551 
+Durchschnittlicher Anteil von  schlage zufällig eine gegnerische Figur bei gewonnenen Spielen 0 
+Durchschnittlicher Anteil von  schlage zufällig eine gegnerische Figur bei verlorenen Spielen 0 
+Durchschnittlicher Anteil von  ziehe mit ersten gefährdeten Figur bei gewonnenen Spielen 0 
+Durchschnittlicher Anteil von  ziehe mit ersten gefährdeten Figur bei verlorenen Spielen 0 
+gewonne Spiele:  3842 
 Gesamtzahl der Spiele:  10000 
-Gewinnquotient:  0.3876 
-Durchschnittliche Schlagchance bei gewonnen Spielen:  51.827657378741 
-Durchschnittliche Schlagchance bei verlorenen Spielen:  68.1045068582626 
-Durchschnittliche Herauskommen aus Startzone bei gewonnenen Spielen:  15.5657894736842 
-Durchschnittliche Herauskommen aus Startzone bei verlorenen Spielen:  24.3577726975833 
-Durchschnittliche Anteil eigene Runden zu gesamte Runden bei gewonnenen Spielen:  13.3925033344376 
-Durchschnittliche Anteil eigene Runden zu gesamte Runden bei verlorenen Spielen:  13.4061528863177 
-Durchschnittliche Anzahl der eigenen Runden bei gewonnenen Spielen:  132.350877192982 
-Durchschnittliche Anzahl der eigenen Runden bei verlorenen Spielen:  172.309111691705 
+Gewinnquotient:  0.3842 
+Durchschnittlicher Anteil von  Schlagchance bei gewonnenen Spielen 51.6496616345653 
+Durchschnittlicher Anteil von  Schlagchance bei verlorenen Spielen 67.7534913933095 
+Durchschnittlicher Anteil von  Herauskommen aus StartZone bei gewonnenen Spielen 15.467464862051 
+Durchschnittlicher Anteil von  Herauskommen aus StartZone bei verlorenen Spielen 24.1729457616109 
+Durchschnittlicher Anteil von  TurnCount insgesamt 1169.0771 
+Substrategien:
+Durchschnittlicher Anteil von  keine Zugmöglichkeit bei gewonnenen Spielen 20.2993232691307 
+Durchschnittlicher Anteil von  keine Zugmöglichkeit bei verlorenen Spielen 16.3296524845729 
+Durchschnittlicher Anteil von  Sonderfall zurückschlagen bei gewonnenen Spielen 0 
+Durchschnittlicher Anteil von  Sonderfall zurückschlagen bei verlorenen Spielen 0 
+Durchschnittlicher Anteil von  schlage mit vorderster Figur nach vorne bei gewonnenen Spielen 0 
+Durchschnittlicher Anteil von  schlage mit vorderster Figur nach vorne bei verlorenen Spielen 0 
+Durchschnittlicher Anteil von  ziehe mit vorderster Figur bei gewonnenen Spielen 0.0203019260801666 
+Durchschnittlicher Anteil von  ziehe mit vorderster Figur bei verlorenen Spielen 0.00649561545956479 
+Durchschnittlicher Anteil von  schlage zufällig eine gegnerische Figur bei gewonnenen Spielen 31.485944820406 
+Durchschnittlicher Anteil von  schlage zufällig eine gegnerische Figur bei verlorenen Spielen 32.4943163364729 
+Durchschnittlicher Anteil von  ziehe mit ersten gefährdeten Figur bei gewonnenen Spielen 46.7113482561166 
+Durchschnittlicher Anteil von  ziehe mit ersten gefährdeten Figur bei verlorenen Spielen 49.6654758038324 
