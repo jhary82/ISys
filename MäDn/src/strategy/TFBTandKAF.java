@@ -8,17 +8,17 @@ import ludo.AbstractAction;
 import ludo.MoveAction;
 import ludo.Token;
 /**
- * 
+ * Diese Strategie ist eine Kombination auf den Strategien TakeFirstBeatToken und KillAndFlee.
  * @author Erik und Simon
  *
  */
 public class TFBTandKAF extends Strategy {
 
 	/**
-	 * Konstruktor f�r die Strategie.
+	 * Konstruktor fuer die Strategie.
 	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
 	 * @param ownIndex - Den eigenen Index
-	 * @param csvName - Name der Datei f�r die Statistik
+	 * @param csvName - Name der Datei fuer die Statistik
 	 */
 	public TFBTandKAF(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);

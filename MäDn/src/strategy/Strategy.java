@@ -136,8 +136,8 @@ public abstract class Strategy extends AbstractStrategy {
 	}
 	
 	/**
-	 * Zählt, wie oft einzelne Unterstrategien benutzt werden
-	 * @param value
+	 * Zaehlt, wie oft einzelne Unterstrategien benutzt werden
+	 * @param value - Die Nummer des Zuges.
 	 */
 	protected void statistics(int value){
 		if(!this.evaluate){
@@ -148,7 +148,7 @@ public abstract class Strategy extends AbstractStrategy {
 	
 	/**
 	 * Eine Methode um die Zuege nach destination und HomeArea zu sortieren.
-	 * Zuege in die HomeArea stehen am Anfang der Liste
+	 * Zuege in die HomeArea stehen am Anfang der Liste.
 	 * @param moves - List von allen MoveAction.
 	 * @return - Liste nach destination und ob HomeArea sortiert.
 	 */

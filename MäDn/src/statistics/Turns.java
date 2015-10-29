@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * Sammelt und speichert statistische Daten ueber eine Liste von Runden.
- * @author Simon
+ * @author Erik und Simon
  *
  */
 public class Turns {
@@ -47,7 +47,7 @@ public class Turns {
 		
 	/**
 	 * Speichert die gesammelten statistischen Daten in eine CSV-Datei ab
-	 * @param name der Name der CSV-Datei, Zeitstempel wird automatisch angehangen
+	 * @param name der Name der CSV-Datei
 	 */
 	public void saveToCSV(String name){
 		/*String currentTime = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());		

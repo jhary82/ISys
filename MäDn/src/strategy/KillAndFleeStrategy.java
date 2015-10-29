@@ -19,10 +19,10 @@ import ludo.Token;
  */
 public class KillAndFleeStrategy extends Strategy {
 	/**
-	 * Konstruktor f�r die Strategie.
+	 * Konstruktor fuer die Strategie.
 	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
 	 * @param ownIndex - Den eigenen Index
-	 * @param csvName - Name der Datei f�r die Statistik
+	 * @param csvName - Name der Datei fuer die Statistik
 	 */
 	public KillAndFleeStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
@@ -86,7 +86,7 @@ public class KillAndFleeStrategy extends Strategy {
 				else{
 					/*
 					 * Number 6
-					 * Mit der ersten gef�hrdeten Spielfigur ziehen.
+					 * Mit der ersten gefaehrdeten Spielfigur ziehen.
 					 */
 					statistics(6);
 					return actions.indexOf( inDanger.get(0) );

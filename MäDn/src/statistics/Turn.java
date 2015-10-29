@@ -8,13 +8,13 @@ import java.util.List;
 
 /**
  * Speichert fuer eine Runde statistische Daten
- * @author Simon
+ * @author Erik und Simon
  *
  */
 public class Turn {
 
 	/*
-	 * Konstante für Anzahl der Unterstrategien
+	 * Konstante fuer Anzahl der Unterstrategien
 	 */
 	private int subStrategies = 6;
 	
@@ -99,7 +99,7 @@ public class Turn {
 	}
 
 	/**
-	 * Zaehlt eins hoch an Position f�r countSubStrategy
+	 * Zaehlt eins hoch an Position fuer countSubStrategy
 	 * @param pos
 	 */
 	public void addCountSubStrategy(int pos) {	
@@ -115,7 +115,7 @@ public class Turn {
 	}
 
 	/**
-	 * Fügt 1 zu maxExecuteSubStrategy hinzu
+	 * Fuegt 1 zu maxExecuteSubStrategy hinzu
 	 */
 	public void addMaxExecuteSubStrategy() {
 		this.maxExecuteSubStrategy = maxExecuteSubStrategy + 1;

@@ -9,17 +9,19 @@ import ludo.MoveAction;
 import ludo.Token;
 
 /**
- * 
+ * Diese Strategie versucht durch zurueckschlagen den Weg zur HomeArea abzukuerzen.
+ * Sollte dies nicht moeglich sein, wird mit der vordersten Figur nach vorne gesschlagen,
+ * ansonsten wird, die vorderste Figur nach vorne bewegt.
  * @author Erik und Simon
  *
  */
 public class TakeFirstBeatTokenStrategy extends Strategy {
 
 	/**
-	 * Konstruktor f�r die Strategie.
+	 * Konstruktor fuer die Strategie.
 	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
 	 * @param ownIndex - Den eigenen Index
-	 * @param csvName - Name der Datei f�r die Statistik
+	 * @param csvName - Name der Datei fuer die Statistik
 	 */
 	public TakeFirstBeatTokenStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);

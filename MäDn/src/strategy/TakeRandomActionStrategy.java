@@ -20,10 +20,10 @@ public class TakeRandomActionStrategy extends Strategy{
 		super(false, -1, "");
 	}
 	/**
-	 * Konstruktor für die Strategie.
+	 * Konstruktor fuer die Strategie.
 	 * @param evaluate - true, wenn die Strategie statistisch erfasst werden soll.
 	 * @param ownIndex - Den eigenen Index
-	 * @param csvName - Name der Datei für die Statistik
+	 * @param csvName - Name der Datei fuer die Statistik
 	 */
 	public TakeRandomActionStrategy(boolean evaluate, int ownIndex, String csvName) {
 		super(evaluate, ownIndex, csvName);
