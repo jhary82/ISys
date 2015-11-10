@@ -1,0 +1,15 @@
+{
+	"Students": 80,
+	"A": {
+		"Participants factor": 0.8,
+		"Participants size": 12
+	},
+	"B": {
+		"Participants factor": 0.9,
+		"Participants size": 12
+	},
+	"C": {
+		"Participants factor": 0.85,
+		"Participants size": 12
+	}
+}
