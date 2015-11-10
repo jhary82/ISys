@@ -7,9 +7,9 @@ package io;
  * @author simon
  *
  */
-public final class Parametes {
+public final class Parameters {
 	
-	Parametes() {
+	Parameters() {
 		
 	}
 	
