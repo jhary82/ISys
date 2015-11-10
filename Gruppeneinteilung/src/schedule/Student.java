@@ -35,7 +35,7 @@ public final class Student {
 	 * Setzt die F�cher nach definierten Schl�sseln
 	 * @param p
 	 */
-	private void setSubjectsByKey(Parameters p) {
+	private void setSubjectsByKey(Parameters p ){
 		List<Subject> subs = p.getSubjects();
 		
 		for( Subject sub : subs){

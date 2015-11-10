@@ -60,7 +60,14 @@ public final class Parameters {
 	 * @return
 	 */
 	public List<Subject> getSubjects(){
-		return new LinkedList<Subject>();
+		/*
+		 * TODO für Testzwecke
+		 */
+		List<Subject> list = new LinkedList<>();
+		list.add( new Subject(this) );
+		list.add( new Subject(this) );
+		list.add( new Subject(this) );
+		return list;//new LinkedList<Subject>();
 	}
 	
 	/**
@@ -77,6 +84,9 @@ public final class Parameters {
 	 * @return the countStuds
 	 */
 	public int getCountStudents() {
-		return countStudents;
+		/*
+		 * TODO für TestZwecke
+		 */
+		return 60;//countStudents;
 	}
 }

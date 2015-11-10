@@ -36,7 +36,7 @@ public final class Subject {
 	
 	/**
 	 * Konstruktor
-	 * @param p Parameters
+	 * @param groupSize
 	 */
 	public Subject(Parameters p){
 		this.groupSize = p.getGroupSize();		
