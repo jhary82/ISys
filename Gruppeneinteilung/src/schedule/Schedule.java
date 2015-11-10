@@ -40,7 +40,7 @@ public final class Schedule {
 	 * Konstruktor
 	 */
 	public Schedule(){
-		p = new Parameters();
+		p = new Parameters("parameters.json");
 		p.load();
 		
 		addStudSubs();

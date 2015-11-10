@@ -3,11 +3,18 @@
  */
 package io;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import jdk.nashorn.internal.scripts.JS;
 import schedule.Subject;
 
 /**
@@ -33,10 +40,32 @@ public final class Parameters {
 	private int countStudents;
 	
 	/**
+	 * Inhalt der JSON-Datei.
+	 */
+	private JSONObject jsonInput;
+	
+	/**
 	 * Konstruktor
 	 */
-	public Parameters() {
+	public Parameters(String file) {
 		this.probabilities = new TreeMap<>();
+		
+		FileInputStream fr = null;
+		BufferedReader br = null;
+		String input = "";
+		String line = "";
+		try {
+			fr = new FileInputStream(file);
+			br = new BufferedReader(new InputStreamReader(fr));
+			while((line = br.readLine()) != null ) {
+				input = input + line;
+			}
+			br.close();
+			jsonInput = new JSONObject(input);
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-001: " + e.getMessage());
+		}
+		
 	}
 	
 	/**
@@ -52,7 +81,15 @@ public final class Parameters {
 	 * @return
 	 */
 	public int getProbability(Subject sub){
-		return 0;
+		JSONObject jsub;
+		int prob = 0;
+		try {
+			jsub = jsonInput.getJSONObject(sub.getName());
+			prob = jsub.getInt("Probability");
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-002: " + e.getMessage());
+		}
+		return prob;
 	}
 	
 	/**

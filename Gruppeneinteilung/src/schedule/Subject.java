@@ -70,6 +70,10 @@ public final class Subject {
 		return groups.size();
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	@Override
 	public String toString(){
 		StringBuilder str = new StringBuilder();
