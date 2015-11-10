@@ -48,10 +48,16 @@ public final class Subject {
 	 * @param value
 	 * @return
 	 */
-	public int setCountStudents(int value){
-		int size = 0;
+	public int setCountStudents(int value){		
+		int size = (value / groupSize) + ( value % groupSize != 0? 1 : 0);
 		
-		size = value / groupSize;
+		/*
+		 * Erzeuge neue leere Gruppen
+		 */
+		groups.clear();
+		for( int i = 0; i < size; i++){
+			groups.add( new Group() );
+		}
 		
 		return size;
 	}

@@ -11,6 +11,12 @@ import java.util.Random;
  *
  */
 public final class Student {
+		
+	/**
+	 * Matrikelnummer als Index 
+	 * bei Berechnungen benutzt
+	 */
+	private int id;
 	
 	/**
 	 * Liste der F�cher
@@ -37,5 +43,19 @@ public final class Student {
 			}
 		}
 		
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 }

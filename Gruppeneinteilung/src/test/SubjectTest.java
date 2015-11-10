@@ -22,7 +22,10 @@ public class SubjectTest {
 	@Test
 	public void testSetCountStudents() {
 		Subject sub = new Subject(new Parameters());
-		assertEquals( sub.setCountStudents(100), 7);
+		assertEquals( 9 , sub.setCountStudents(100));
+		assertEquals( 1, sub.setCountStudents(12));
+		assertEquals( 1, sub.setCountStudents(10));
+		assertEquals( 2, sub.setCountStudents(13));
 	}
 
 }
