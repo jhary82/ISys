@@ -35,10 +35,13 @@ public final class Parameters {
 	/**
 	 * Konstruktor
 	 */
-	Parameters() {
+	public Parameters() {
 		this.probabilities = new TreeMap<>();
 	}
 	
+	/**
+	 * TODO bei sinnfreien Werten wie groupsize <= 0 throw Error
+	 */
 	public void load() {
 		
 	}
@@ -64,7 +67,10 @@ public final class Parameters {
 	 * @return the groupSize
 	 */
 	public int getGroupSize() {
-		return groupSize;
+		/*
+		 * TODO für Testzwecke
+		 */
+		return 12;//groupSize;
 	}
 
 	/**
