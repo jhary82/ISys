@@ -13,8 +13,7 @@ import java.util.Random;
 public final class Student {
 		
 	/**
-	 * Matrikelnummer als Index 
-	 * bei Berechnungen benutzt
+	 * Matrikelnummer
 	 */
 	private int id;
 	
@@ -25,8 +24,10 @@ public final class Student {
 	
 	/**
 	 * Konstruktor
+	 * @param p Parameter 
+	 * @param id MatriklNr
 	 */
-	public Student(Parameters p){
+	public Student(Parameters p, int id){
 		this.setSubjectsByKey(p);
 	}
 
@@ -58,4 +59,18 @@ public final class Student {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	@Override
+	public String toString(){
+		return String.valueOf(id);
+	}
+
+	/**
+	 * @return the subjects
+	 */
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+	
+	
 }
