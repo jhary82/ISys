@@ -44,7 +44,9 @@ public final class Group {
 		str.append(groupNr);
 		str.append(" mit ");
 		str.append(students.size());
-		str.append(" Teilnehmern\n");
+		str.append(" Teilnehmern am Termin: ");
+		str.append(timeSlot);
+		str.append("\n");
 		
 		for(Student stud : students){
 			str.append(stud);

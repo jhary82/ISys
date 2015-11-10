@@ -3,6 +3,7 @@
  */
 package schedule;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import io.Parameters;
@@ -39,7 +40,9 @@ public final class Subject {
 	 * @param groupSize
 	 */
 	public Subject(String name, int gs){
-		this.groupSize = gs;		
+		this.groupSize = gs;	
+		this.name = name;
+		groups = new LinkedList<>();
 	}
 	
 	/**
@@ -70,6 +73,9 @@ public final class Subject {
 		return groups.size();
 	}
 	
+	/**
+	 * Gibt Namen zurück
+	 */
 	public String getName() {
 		return name;
 	}
@@ -77,6 +83,12 @@ public final class Subject {
 	@Override
 	public String toString(){
 		StringBuilder str = new StringBuilder();
+		
+		str.append("Fach: ");
+		str.append(name);
+		str.append(" mit ");
+		str.append(countStudents);
+		str.append(" Teilnehmern\n");
 		
 		for(Group g: groups){
 			str.append(g.toString());
@@ -101,5 +113,5 @@ public final class Subject {
 		
 		return false;
 	}
-	
+
 }

@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import io.Parameters;
 import schedule.Schedule;
 
 /**
@@ -20,7 +21,8 @@ public class ScheduleTest {
 	 */
 	@Test
 	public void testSchedule() {
-		Schedule sched = new Schedule();
+		Parameters p = new Parameters("parameters.json");		
+		Schedule sched = new Schedule(p);
 	}
 
 }

@@ -2,6 +2,7 @@ package schedule;
 
 import io.Parameters;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -28,6 +29,7 @@ public final class Student {
 	 * @param id MatriklNr
 	 */
 	public Student(Parameters p, int id){
+		subjects = new LinkedList<>();
 		this.setSubjectsByKey(p);
 	}
 

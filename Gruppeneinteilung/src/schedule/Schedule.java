@@ -6,7 +6,7 @@ package schedule;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 
 import io.Parameters;
 
@@ -38,15 +38,26 @@ public final class Schedule {
 	
 	/**
 	 * Konstruktor
+	 * @param p
 	 */
-	public Schedule(){
-		p = new Parameters("parameters.json");
-		p.load();
+	public Schedule(Parameters p){
+		this.p = p;		
+		students = new LinkedList<>();
+		subjects = new LinkedList<>();
 		
+		/*
+		 * Aufgabenteil 1
+		 */
 		addStudSubs();
 		calcStudentsChoice();
 		calcTimeSlots();
-				
+			
+		/*
+		 * TODO testausgabe alle Gruppen mit Zeitslots
+		 */
+		for(Subject sub : subjects){			
+			System.out.println(sub);
+		}
 	}
 	
 	/**
@@ -66,16 +77,24 @@ public final class Schedule {
 	 * die benötigten Gruppenstärken der einzelnen Fächer
 	 */
 	private void calcStudentsChoice(){
-		Map<Subject, Integer> map = new TreeMap<>();
+		Map<String, Integer> map = new HashMap<>();
 		
 		for(Student stud: this.students){
 			for(Subject sub: stud.getSubjects()){
-				map.put( sub, map.get(sub) );
+				Integer value = map.get(sub.getName() );
+				if( value == null){
+					map.put( sub.getName(), 1);
+				}
+				else{
+					map.put( sub.getName(), value+1);
+				}
+												
 			}			
 		}
 		
 		for(Subject sub: this.subjects){
-			sub.setCountStudents( map.get(sub) );
+			Integer value = map.get(sub.getName() );
+			sub.setCountStudents( value==null? 0: value );
 		}
 	}
 	
@@ -101,7 +120,7 @@ public final class Schedule {
 		 * Berechne für alle Gruppenkonstellationen die Anzahl der sich überschneidenden
 		 * TmeSlots mit Überschneidungsfaktor
 		 */
-		double faktor = 0.5;//TODO aus JSON laden
+		double faktor = 0.25;//TODO aus JSON laden
 		List<Integer> slots = new LinkedList<>();
 		
 		/*
@@ -116,7 +135,7 @@ public final class Schedule {
 		 * B und C
 		 */
 		for(int i = 0; i < this.subjects.size() - 1; i++){
-			for(int a = i; a < this.subjects.size(); a++){
+			for(int a = i+1; a < this.subjects.size(); a++){
 				
 				int value = Math.min(subjects.get(i).getGroupCount(), subjects.get(a).getGroupCount());
 				

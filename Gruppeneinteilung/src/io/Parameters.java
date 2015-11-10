@@ -63,14 +63,7 @@ public final class Parameters {
 		}
 		
 	}
-	
-	/**
-	 * TODO bei sinnfreien Werten wie groupsize <= 0 throw Error
-	 */
-	public void load() {
 		
-	}
-	
 	/**
 	 * Gibt die Belegungswahrscheinlichkeit eines Fachs zurück
 	 * @param sub
@@ -79,7 +72,7 @@ public final class Parameters {
 	public int getProbability(Subject sub){
 		JSONObject jsub;
 		int prob = 0;
-		try {
+		try {			
 			jsub = jsonInput.getJSONObject(sub.getName());
 			prob = jsub.getInt("Probability");
 		} catch (Exception e) {

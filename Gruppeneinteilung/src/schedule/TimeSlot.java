@@ -29,4 +29,8 @@ public final class TimeSlot {
 		return pos;
 	}
 	
+	@Override
+	public String toString(){
+		return "Zeitslot: "+pos;
+	}
 }
