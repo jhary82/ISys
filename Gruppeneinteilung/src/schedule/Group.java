@@ -4,9 +4,9 @@
 package schedule;
 
 /**
- * @author simon
+ * @author skrause
  *
  */
-public final class Subject {
+public final class Group {
 	
 }
