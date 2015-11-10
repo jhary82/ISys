@@ -8,5 +8,13 @@ package io;
  *
  */
 public final class Parametes {
-
+	
+	Parametes() {
+		
+	}
+	
+	public void load() {
+		
+	}
+	
 }
