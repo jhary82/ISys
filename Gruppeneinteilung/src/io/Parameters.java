@@ -89,4 +89,75 @@ public final class Parameters {
 		 */
 		return 60;//countStudents;
 	}
+	/*
+	 
+package io;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import org.json.*;
+import schedule.Subject;
+
+public final class Parameters {
+	
+	private JSONObject jsonInput;
+	private String jstud = "Students";
+	private String jpf = "Participants factor";
+	private String jps = "Participants size";
+	Parameters(String file) {
+		FileInputStream fr = null;
+		BufferedReader br = null;
+		String input = "";
+		String line = "";
+		try {
+			fr = new FileInputStream(file);
+			br = new BufferedReader(new InputStreamReader(fr));
+			while((line = br.readLine()) != null ) {
+				input = input + line;
+			}
+			br.close();
+			jsonInput = new JSONObject(input);
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-001: " + e.getMessage());
+		}
+	}
+	public void load() {
+		
+	}
+	public Subject getSubject(String name) {
+		JSONObject jSub = null;
+		Subject sub = null;
+		int stud;
+		double pf;
+		int ps;
+		double stud_number;
+		try {
+			jSub = jsonInput.getJSONObject(name);
+			stud = jsonInput.getInt(jstud);
+			pf = jSub.getDouble(jpf);
+			ps = jSub.getInt(jps);
+			stud_number = stud * pf;
+			sub = new Subject(name, stud_number, pf, ps);
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-002: " + e.getMessage());
+		}
+		return sub;
+	}
+	
+	public String toString() {
+		return jsonInput.toString();
+	}
+	
+	public static void main(String[] args) {
+		Parameters p = new Parameters("parameters.json");
+		System.out.println(p.toString());
+		Subject a = p.getSubject("A");
+		a.toString();
+	}
+	
 }
+
+	 */
+}
+
