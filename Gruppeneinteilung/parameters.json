@@ -2,14 +2,14 @@
 	"Students": 80,
 	"A": {
 		"Probability": 0.8,
-		"Participants size": 12
+		"Groupsize": 12
 	},
 	"B": {
 		"Probability": 0.9,
-		"Participants size": 12
+		"Groupsize": 12
 	},
 	"C": {
 		"Probability": 0.85,
-		"Participants size": 12
+		"Groupsize": 12
 	}
 }

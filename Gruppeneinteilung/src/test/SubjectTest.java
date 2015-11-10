@@ -21,7 +21,7 @@ public class SubjectTest {
 	 */
 	@Test
 	public void testSetCountStudents() {
-		Subject sub = new Subject(new Parameters("parameters.json"));
+		Subject sub = new Subject("A", 0);
 		assertEquals( 9 , sub.setCountStudents(100));
 		assertEquals( 1, sub.setCountStudents(12));
 		assertEquals( 1, sub.setCountStudents(10));

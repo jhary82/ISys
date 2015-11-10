@@ -10,11 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import jdk.nashorn.internal.scripts.JS;
 import schedule.Subject;
 
 /**
@@ -97,13 +93,24 @@ public final class Parameters {
 	 * @return
 	 */
 	public List<Subject> getSubjects(){
-		/*
-		 * TODO für Testzwecke
-		 */
 		List<Subject> list = new LinkedList<>();
-		list.add( new Subject(this) );
-		list.add( new Subject(this) );
-		list.add( new Subject(this) );
+		int gs;
+		Subject sa;
+		Subject sb;
+		Subject sc;
+		try {
+		gs = jsonInput.getJSONObject("A").getInt("Groupsize");
+		sa = new Subject("A", gs);
+		gs = jsonInput.getJSONObject("B").getInt("Groupsize");
+		sb = new Subject("B", gs);
+		gs = jsonInput.getJSONObject("C").getInt("Groupsize");
+		sc = new Subject("C", gs);
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-001: " + e.getMessage());
+		}
+		list.add(sa);
+		list.add(sb);
+		list.add(sc);
 		return list;//new LinkedList<Subject>();
 	}
 	
@@ -111,20 +118,24 @@ public final class Parameters {
 	 * @return the groupSize
 	 */
 	public int getGroupSize() {
-		/*
-		 * TODO für Testzwecke
-		 */
-		return 12;//groupSize;
+		try {
+			groupSize = jsonInput.getJSONObject("A").getInt("Groupsize");
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
+		}
+		return groupSize;//groupSize;
 	}
 
 	/**
 	 * @return the countStuds
 	 */
 	public int getCountStudents() {
-		/*
-		 * TODO für TestZwecke
-		 */
-		return 60;//countStudents;
+		try {
+			countStudents = jsonInput.getInt("Students");
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
+		}
+		return countStudents;//countStudents;
 	}
 	/*
 	 

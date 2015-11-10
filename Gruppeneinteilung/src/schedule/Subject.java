@@ -38,8 +38,8 @@ public final class Subject {
 	 * Konstruktor
 	 * @param groupSize
 	 */
-	public Subject(Parameters p){
-		this.groupSize = p.getGroupSize();		
+	public Subject(String name, int gs){
+		this.groupSize = gs;		
 	}
 	
 	/**
