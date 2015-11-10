@@ -30,7 +30,7 @@ public final class Parameters {
 	/**
 	 * Anzahl der Studierenden
 	 */
-	private int countStuds;
+	private int countStudents;
 	
 	/**
 	 * Konstruktor
@@ -70,7 +70,7 @@ public final class Parameters {
 	/**
 	 * @return the countStuds
 	 */
-	public int getCountStuds() {
-		return countStuds;
+	public int getCountStudents() {
+		return countStudents;
 	}
 }
