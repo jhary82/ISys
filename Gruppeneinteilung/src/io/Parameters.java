@@ -6,6 +6,7 @@ package io;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +62,6 @@ public final class Parameters {
 		} catch (Exception e) {
 			throw new Error("ErrorCode: Parameters-001: " + e.getMessage());
 		}
-		
 	}
 		
 	/**
@@ -91,6 +91,7 @@ public final class Parameters {
 		Subject sa;
 		Subject sb;
 		Subject sc;
+		//TODO überarbeiten mit Keys und einer Liste.
 		try {
 		gs = jsonInput.getJSONObject("A").getInt("Groupsize");
 		sa = new Subject("A", gs);
@@ -99,7 +100,7 @@ public final class Parameters {
 		gs = jsonInput.getJSONObject("C").getInt("Groupsize");
 		sc = new Subject("C", gs);
 		} catch (Exception e) {
-			throw new Error("ErrorCode: Parameters-001: " + e.getMessage());
+			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
 		}
 		list.add(sa);
 		list.add(sb);
@@ -110,14 +111,14 @@ public final class Parameters {
 	/**
 	 * @return the groupSize
 	 */
-	public int getGroupSize() {
+	/*public int getGroupSize(String name) {
 		try {
-			groupSize = jsonInput.getJSONObject("A").getInt("Groupsize");
+			groupSize = jsonInput.getJSONObject(name).getInt("Groupsize");
 		} catch (Exception e) {
-			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
+			throw new Error("ErrorCode: Parameters-004: " + e.getMessage());
 		}
 		return groupSize;//groupSize;
-	}
+	}*/
 
 	/**
 	 * @return the countStuds
@@ -126,7 +127,7 @@ public final class Parameters {
 		try {
 			countStudents = jsonInput.getInt("Students");
 		} catch (Exception e) {
-			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
+			throw new Error("ErrorCode: Parameters-005: " + e.getMessage());
 		}
 		return countStudents;//countStudents;
 	}
