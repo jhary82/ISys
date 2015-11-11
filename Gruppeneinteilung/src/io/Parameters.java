@@ -42,6 +42,11 @@ public final class Parameters {
 	private JSONObject jsonInput;
 	
 	/**
+	 * Der Überschneidungsfaktor
+	 */
+	private double overlapFactor;
+	
+	/**
 	 * Konstruktor
 	 */
 	public Parameters(String file) {
@@ -109,16 +114,16 @@ public final class Parameters {
 	}
 	
 	/**
-	 * @return the groupSize
+	 * @return the overlapFactor
 	 */
-	/*public int getGroupSize(String name) {
+	public double getOverlapFactor() {
 		try {
-			groupSize = jsonInput.getJSONObject(name).getInt("Groupsize");
+			overlapFactor = jsonInput.getDouble("Overlapfactor");
 		} catch (Exception e) {
 			throw new Error("ErrorCode: Parameters-004: " + e.getMessage());
 		}
-		return groupSize;//groupSize;
-	}*/
+		return overlapFactor;//overlapFactor;
+	}
 
 	/**
 	 * @return the countStuds

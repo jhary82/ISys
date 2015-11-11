@@ -1,5 +1,6 @@
 {
 	"Students": 80,
+	"Overlapfactor": 0.5,
 	"A": {
 		"Probability": 0.8,
 		"Groupsize": 12

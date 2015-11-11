@@ -120,7 +120,7 @@ public final class Schedule {
 		 * Berechne für alle Gruppenkonstellationen die Anzahl der sich überschneidenden
 		 * TmeSlots mit Überschneidungsfaktor
 		 */
-		double faktor = 0.25;//TODO aus JSON laden
+		double faktor = p.getOverlapFactor();
 		List<Integer> slots = new LinkedList<>();
 		
 		/*
