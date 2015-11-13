@@ -54,7 +54,7 @@ public final class Schedule {
 		/*
 		 * Aufgabenteil 2 
 		 */
-		//studToGroupAllocation();
+		studToGroupAllocation();
 			
 		/*
 		 * TODO testausgabe alle Gruppen mit Zeitslots
@@ -84,7 +84,7 @@ public final class Schedule {
 		/*
 		 * setze Fächer/Belegungswahrscheinlichkeiten bei Studierenden ein
 		 */
-		for( int i = 0; i < p.getCountStudents(); i++){
+		for( int i = 0; i < p.getCountStudents(); i++){			
 			students.add( new Student(i, subjects, prob) );
 		}		
 		
@@ -189,7 +189,7 @@ public final class Schedule {
 			for(Subject studSub: stud.getSubjects()){
 				if( !studSub.addStudentToGroup(stud) ){
 					System.out.println("Konflikt, keine passende Gruppe gefunden.");
-					return;
+					continue;
 				}
 			}
 		}

@@ -130,8 +130,7 @@ public final class Subject {
 		 * reservierte Zeitslots
 		 */
 		List<TimeSlot> slots = stud.getReservedTimeSlots();
-		
-		System.out.println(this.groups.size());
+				
 		/*
 		 * suche eine Gruppe mit sich nicht überschneidenden Zeitslot 
 		 */
@@ -147,9 +146,10 @@ public final class Subject {
 					reserved = true;
 				}
 			}
-			if( !reserved ){
+			if( !reserved && !grp.isFull() ){
 				grp.addStudent(stud);
 				stud.addGroup( grp );
+				this.countStudents++;
 				return true; 
 			}			
 		}

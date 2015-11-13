@@ -35,7 +35,8 @@ public final class Student {
 	public Student(int id, List<Subject> subjects, List<Integer> prob){
 		this.subjects = new LinkedList<Subject>();		
 		groups = new LinkedList<>();
-		this.setSubjectsByKey(subjects, prob);
+		this.id = id;
+		this.setSubjectsByKey(subjects, prob);		
 	}
 
 	/**
@@ -68,7 +69,7 @@ public final class Student {
 	
 	@Override
 	public String toString(){
-		return String.valueOf(id);
+		return ""+id;
 	} 
 
 	/**

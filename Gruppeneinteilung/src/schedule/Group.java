@@ -38,6 +38,7 @@ public final class Group {
 	public Group(int nr, int groupSize){
 		students = new LinkedList<>();
 		this.groupNr = nr;
+		this.groupSize = groupSize;
 	}
 	
 	@Override
@@ -54,8 +55,9 @@ public final class Group {
 		
 		for(Student stud : students){
 			str.append(stud.toString());
-			str.append("\n");
+			str.append(", ");
 		}
+		str.append("\n");
 		
 		return str.toString();
 	}
@@ -72,7 +74,7 @@ public final class Group {
 	 * @return true, wenn Gruppe voll ist
 	 */
 	public boolean isFull(){
-		return students.size() == groupSize;
+		return (students.size() == groupSize);
 	}
 	
 	/**
@@ -93,7 +95,7 @@ public final class Group {
 			Student s = students.get(i);
 			if( s == stud){
 				students.remove(i);
-				return true;
+				return true; 
 			}
 		}
 		return false;
