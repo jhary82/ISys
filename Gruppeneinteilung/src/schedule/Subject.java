@@ -6,8 +6,6 @@ package schedule;
 import java.util.LinkedList;
 import java.util.List;
 
-import io.Parameters;
-
 /**
  * @author simon
  *
@@ -71,6 +69,14 @@ public final class Subject {
 	 */
 	public int getGroupCount(){
 		return groups.size();
+	}
+	
+	/**
+	 * Gibt die Gruppen zurück
+	 * @return
+	 */
+	public List<Group> getGroups(){
+		return groups;
 	}
 	
 	/**

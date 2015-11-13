@@ -102,51 +102,59 @@ public final class Schedule {
 	 * Berechnet die max. benötigten TimeSlots und 
 	 * erstellt mit Überschneidungsgrad die Gruppentermine
 	 */
-	private void calcTimeSlots(){
+	private void calcTimeSlots(){		
 		/*
-		 * Anzahl an Gruppen
+		 * alle TimeSlots
 		 */
-		int countGroups = 0;
-		for(Subject sub : this.subjects){
-			countGroups += sub.getGroupCount();			
-		}
-		
-		/*
-		 * setze maximale TimeSlots
-		 */
-		timeSlots = new TimeSlots(countGroups);
+		timeSlots = new TimeSlots(1);
 		
 		/*
 		 * Berechne für alle Gruppenkonstellationen die Anzahl der sich überschneidenden
 		 * TmeSlots mit Überschneidungsfaktor
 		 */
-		double faktor = p.getOverlapFactor();
-		List<Integer> slots = new LinkedList<>();
+		double faktor = p.getOverlapFactor();		
 		
 		/*
 		 * aktueller TimeSlot
 		 */
 		int timePos = 0;
+				
+		/*
+		 * Min gemeinsame Anzahl an Gruppen
+		 */
+		int minCountGroups = this.subjects.get(0).getGroupCount();
+		for(Subject sub: this.subjects){
+			if( sub.getGroupCount() < minCountGroups){
+				minCountGroups = sub.getGroupCount();
+			}
+		}
 		
 		/*
-		 * z.B. 
-		 * A und B -> min gemeinsame Anzahl an Groups * faktor
-		 * A und C
-		 * B und C
+		 * Multiplikation mit Überschneidungsfaktor 
 		 */
-		for(int i = 0; i < this.subjects.size() - 1; i++){
-			for(int a = i+1; a < this.subjects.size(); a++){
-				
-				int value = Math.min(subjects.get(i).getGroupCount(), subjects.get(a).getGroupCount());
-				
-				value *= faktor;
-				
+		minCountGroups *= faktor;
+		
+		/*
+		 * jedes Fach bekommt gemeinsame TimeSlots
+		 */
+		for(Subject sub: this.subjects){				
 				/*
-				 * Trage TimeSlots für beide Gruppen ein
+				 * Trage TimeSlots für Gruppe ein
 				 */
-				for(int b = 0; b < value; b++){
-					subjects.get(i).addTimeSlot( timeSlots.getSlots(timePos) );
-					subjects.get(a).addTimeSlot( timeSlots.getSlots(timePos) );
+			for(int i = 0; i < minCountGroups; i++){
+				sub.addTimeSlot( timeSlots.getSlots(i));
+			}							
+		}
+		
+		timePos = minCountGroups;
+		
+		/*
+		 * fülle restliche Timeslots auf	 
+		 */
+		for(Subject sub: subjects) {
+			for(Group grp: sub.getGroups()){
+				if( grp.getTimeSlot() == null){
+					sub.addTimeSlot( timeSlots.getSlots(timePos) );
 					timePos++;
 				}
 			}

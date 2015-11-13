@@ -33,10 +33,16 @@ public final class TimeSlots {
 
 	/**
 	 * Gibt den TimeSlot an pos im Zeitstrahl zurück
+	 * erweitert die Anzahl der TimeSlots, wenn nötig
 	 * @param pos
 	 * @return
 	 */
 	public TimeSlot getSlots(int pos) {
+		if( pos >= slots.size()){
+			for(int i = slots.size(); i <= pos; i++){
+				slots.add( new TimeSlot(i) );
+			}
+		}
 		return slots.get(pos);
 	}
 }
