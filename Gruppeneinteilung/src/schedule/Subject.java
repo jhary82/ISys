@@ -17,12 +17,7 @@ public final class Subject {
 	 * TODO Name aus JSON eingelesen
 	 */
 	private String name;
-	
-	/**
-	 * Anzahl der teilnehmenden Studierenden
-	 */
-	private int countStudents;
-	
+		
 	/**
 	 * Liste der Gruppen
 	 */
@@ -93,6 +88,10 @@ public final class Subject {
 		str.append("Fach: ");
 		str.append(name);
 		str.append(" mit ");
+		int countStudents = 0;
+		for(Group g : groups){
+			countStudents += g.countStudents();
+		}
 		str.append(countStudents);
 		str.append(" Teilnehmern\n");
 		
@@ -148,12 +147,26 @@ public final class Subject {
 			}
 			if( !reserved && !grp.isFull() ){
 				grp.addStudent(stud);
-				stud.addGroup( grp );
-				this.countStudents++;
-				return true; 
+				stud.addGroup( grp );				
+				return true;  
 			}			
 		}
 		
+		return false;
+	}
+	
+	/**
+	 * Löscht einen Studierenden aus Gruppe
+	 * @param stud
+	 * @return true, wenn herausgelöscht
+	 */
+	public boolean delStudent(Student stud){
+		for(Group grp : groups){
+			if(grp.delStudent(stud)){
+				stud.delGroup(grp);
+				return true;
+			}
+		}
 		return false;
 	}
 

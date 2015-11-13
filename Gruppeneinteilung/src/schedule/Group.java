@@ -63,6 +63,14 @@ public final class Group {
 	}
 	
 	/**
+	 * Gibt die Anzahl der teilnehmenden Studierenden zurück
+	 * @return
+	 */
+	public int countStudents(){
+		return students.size();
+	}
+	
+	/**
 	 * @return the timeSlot
 	 */
 	public TimeSlot getTimeSlot() {
@@ -94,7 +102,7 @@ public final class Group {
 		for(int i = 0; i < students.size(); i++){
 			Student s = students.get(i);
 			if( s == stud){
-				students.remove(i);
+				students.remove(i);				
 				return true; 
 			}
 		}

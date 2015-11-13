@@ -73,10 +73,18 @@ public final class Student {
 	} 
 
 	/**
+	 * Gibt die Fächer zurück und
+	 * sortiert sie dabei zufällig neu
 	 * @return the subjects
 	 */
-	public List<Subject> getSubjects() {
-		return subjects;
+	public List<Subject> getSubjects() {		
+		List<Subject> randSub = new LinkedList<>();
+				
+		while( !subjects.isEmpty() ){						
+			randSub.add( subjects.remove( new Random().nextInt(subjects.size()) ) );
+		}
+		subjects = randSub;
+		return randSub;
 	}
 	
 	/**
@@ -113,6 +121,16 @@ public final class Student {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Löscht den Studierenden aus allen seinen Gruppen 
+	 */
+	public void delFromAllGroups() {
+		for(Group grp : groups){
+			grp.delStudent(this);
+		}		
+		groups.clear();
 	}
 	
 	

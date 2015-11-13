@@ -179,17 +179,44 @@ public final class Schedule {
 		}		
 	}
 	
+	
+	private void stepBack(int pos, int steps, Subject studSub, Student stud){
+		studSub.delStudent(stud);
+		for(int i = pos; i > pos-steps; i--){
+			stud = students.get(i-1);
+			stud.delFromAllGroups();
+		}
+	}
+	
 	/**
 	 * Zuordnung aller Studierenden zu ihren Gruppen
 	 * konfliktfrei 
 	 */
 	private void studToGroupAllocation() {
 		
-		for(Student stud: this.students){
+		int steps = 1;
+		int stepPos = 0;
+		
+		for(int i = 0; i < students.size(); i++){			
+			/*
+			 * jeder Studierende
+			 */
+			Student stud = this.students.get(i);
+			/*
+			 * jedes Fach des Studierenden
+			 */
 			for(Subject studSub: stud.getSubjects()){
+				/*
+				 * füge den Studierenden zu Gruppe des Fachs hinzu
+				 */
 				if( !studSub.addStudentToGroup(stud) ){
-					System.out.println("Konflikt, keine passende Gruppe gefunden.");
-					continue;
+					if(stepPos >= i){
+						stepPos = i;
+						steps++;
+					}
+					stepBack(i, steps, studSub, stud);
+					i = i - steps;
+					break;
 				}
 			}
 		}
