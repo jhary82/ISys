@@ -51,6 +51,10 @@ public final class Schedule {
 		addStudSubs();
 		calcStudentsChoice();
 		calcTimeSlots();
+		/*
+		 * Aufgabenteil 2 
+		 */
+		//studToGroupAllocation();
 			
 		/*
 		 * TODO testausgabe alle Gruppen mit Zeitslots
@@ -59,17 +63,31 @@ public final class Schedule {
 			System.out.println(sub);
 		}
 	}
-	
+	 
 	/**
 	 * Fügt die Studierenden und Fächer hinzu
 	 */
 	private void addStudSubs(){
+		/* 
+		 * setze Fächer
+		 */
+		this.subjects = p.getSubjects();
 		
-		for( int i = 0; i < p.getCountStudents(); i++){
-			students.add( new Student(p,i) );
+		/*
+		 * hole Belegungswahscheinlichkeiten
+		 */
+		List<Integer> prob = new LinkedList<>();
+		for(Subject sub: subjects){
+			prob.add( p.getProbability(sub) );
 		}
 		
-		this.subjects = p.getSubjects();
+		/*
+		 * setze Fächer/Belegungswahrscheinlichkeiten bei Studierenden ein
+		 */
+		for( int i = 0; i < p.getCountStudents(); i++){
+			students.add( new Student(i, subjects, prob) );
+		}		
+		
 	}
 	
 	/**
@@ -148,7 +166,7 @@ public final class Schedule {
 		
 		timePos = minCountGroups;
 		
-		/*
+		/* 
 		 * fülle restliche Timeslots auf	 
 		 */
 		for(Subject sub: subjects) {
@@ -158,25 +176,24 @@ public final class Schedule {
 					timePos++;
 				}
 			}
-		}
+		}		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Zuordnung aller Studierenden zu ihren Gruppen
+	 * konfliktfrei 
+	 */
+	private void studToGroupAllocation() {
+		
+		for(Student stud: this.students){
+			for(Subject studSub: stud.getSubjects()){
+				if( !studSub.addStudentToGroup(stud) ){
+					System.out.println("Konflikt, keine passende Gruppe gefunden.");
+					return;
+				}
+			}
+		}
+		
+	}
 	
 }

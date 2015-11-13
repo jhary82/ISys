@@ -1,6 +1,5 @@
 package schedule;
 
-import io.Parameters;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,28 +23,33 @@ public final class Student {
 	private List<Subject> subjects;
 	
 	/**
+	 * Liste der belegten Gruppen
+	 */
+	private List<Group> groups;
+	
+	/**
 	 * Konstruktor
 	 * @param p Parameter 
 	 * @param id MatriklNr
 	 */
-	public Student(Parameters p, int id){
-		subjects = new LinkedList<>();
-		this.setSubjectsByKey(p);
+	public Student(int id, List<Subject> subjects, List<Integer> prob){
+		this.subjects = new LinkedList<Subject>();		
+		groups = new LinkedList<>();
+		this.setSubjectsByKey(subjects, prob);
 	}
 
 	/**
 	 * Setzt die F�cher nach definierten Schl�sseln
 	 * @param p
 	 */
-	private void setSubjectsByKey(Parameters p ){
-		List<Subject> subs = p.getSubjects();
+	private void setSubjectsByKey(List<Subject> subs, List<Integer> prob ){		
 		
-		for( Subject sub : subs){
-			if( new Random().nextInt( 100 ) >= p.getProbability(sub) ){
-				this.subjects.add(sub);
+		for(int i = 0; i < subs.size(); i++){
+			if( new Random().nextInt( 100 ) <= prob.get(i) ){
+				this.subjects.add( subs.get(i) ); 
 			}
-		}
-		
+		}		
+		 
 	}
 
 	/**
@@ -65,13 +69,49 @@ public final class Student {
 	@Override
 	public String toString(){
 		return String.valueOf(id);
-	}
+	} 
 
 	/**
 	 * @return the subjects
 	 */
 	public List<Subject> getSubjects() {
 		return subjects;
+	}
+	
+	/**
+	 * Gibt eine Liste mit reservierten TimeSlots zurück
+	 * @return
+	 */
+	public List<TimeSlot> getReservedTimeSlots(){
+		List<TimeSlot> slots = new LinkedList<>();
+		for(Group g : groups){
+			slots.add( g.getTimeSlot() );
+		}
+		return slots;
+	}
+	
+	/**
+	 * Fügt Gruppe hinzu
+	 * @param group
+	 */
+	public void addGroup(Group group){
+		groups.add(group);
+	}
+	
+	/**
+	 * Löscht die übergebende Gruppe
+	 * @param group
+	 * @return true, wenn Löschen erfolgreich
+	 */
+	public boolean delGroup(Group group){
+		for(int i = 0; i < groups.size(); i++){
+			Group g = groups.get(i);
+			if( g == group){
+				groups.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

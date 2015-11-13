@@ -27,11 +27,15 @@ public final class Group {
 	 */
 	private TimeSlot timeSlot;
 	
-
+	/**
+	 * Gruppengröße 
+	 */
+	private int groupSize;
+	
 	/**
 	 * Konstruktor
 	 */
-	public Group(int nr){
+	public Group(int nr, int groupSize){
 		students = new LinkedList<>();
 		this.groupNr = nr;
 	}
@@ -49,7 +53,7 @@ public final class Group {
 		str.append("\n");
 		
 		for(Student stud : students){
-			str.append(stud);
+			str.append(stud.toString());
 			str.append("\n");
 		}
 		
@@ -63,6 +67,38 @@ public final class Group {
 		return timeSlot;
 	}
 
+	/**
+	 * 
+	 * @return true, wenn Gruppe voll ist
+	 */
+	public boolean isFull(){
+		return students.size() == groupSize;
+	}
+	
+	/**
+	 * Fügt einen Student zur Gruppe hinzu
+	 * @param stud
+	 */
+	public void addStudent(Student stud){
+		students.add(stud);
+	}
+	
+	/**
+	 * Löscht den übergebenden Studenten aus Gruppe
+	 * @param stud
+	 * @return true, wenn Student erfolgreich gelöscht wurde
+	 */
+	public boolean delStudent(Student stud){
+		for(int i = 0; i < students.size(); i++){
+			Student s = students.get(i);
+			if( s == stud){
+				students.remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 * @param timeSlot the timeSlot to set
 	 */

@@ -6,11 +6,8 @@ package io;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import org.json.JSONObject;
 import schedule.Subject;
 
@@ -19,17 +16,7 @@ import schedule.Subject;
  *
  */
 public final class Parameters {
-		
-	/**
-	 * Map der FÃ¤cher und zugehÃ¶rigen Belegungswahrscheinlichkeiten
-	 * von 0 .. 100 fÃ¼r 0.0 bis 1.0
-	 */
-	private Map<Subject, Integer> probabilities;
 	
-	/**
-	 * Maximale Anzahl an Studs in Gruppe
-	 */
-	private int groupSize;
 
 	/**
 	 * Anzahl der Studierenden
@@ -42,7 +29,7 @@ public final class Parameters {
 	private JSONObject jsonInput;
 	
 	/**
-	 * Der Überschneidungsfaktor
+	 * Der ï¿½berschneidungsfaktor
 	 */
 	private double overlapFactor;
 	
@@ -50,7 +37,7 @@ public final class Parameters {
 	 * Konstruktor
 	 */
 	public Parameters(String file) {
-		this.probabilities = new TreeMap<>();
+		
 		
 		FileInputStream fr = null;
 		BufferedReader br = null;
@@ -96,7 +83,7 @@ public final class Parameters {
 		Subject sa;
 		Subject sb;
 		Subject sc;
-		//TODO überarbeiten mit Keys und einer Liste.
+		//TODO ï¿½berarbeiten mit Keys und einer Liste.
 		try {
 		gs = jsonInput.getJSONObject("A").getInt("Groupsize");
 		sa = new Subject("A", gs);
@@ -110,7 +97,7 @@ public final class Parameters {
 		list.add(sa);
 		list.add(sb);
 		list.add(sc);
-		return list;//new LinkedList<Subject>();
+		return list;
 	}
 	
 	/**
@@ -134,7 +121,7 @@ public final class Parameters {
 		} catch (Exception e) {
 			throw new Error("ErrorCode: Parameters-005: " + e.getMessage());
 		}
-		return countStudents;//countStudents;
+		return countStudents;
 	}
 	/*
 	 

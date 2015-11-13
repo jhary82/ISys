@@ -57,7 +57,7 @@ public final class Subject {
 		 */
 		groups.clear();
 		for( int i = 0; i < size; i++){
-			groups.add( new Group(i) );
+			groups.add( new Group(i, groupSize) );
 		}
 		
 		return size;
@@ -115,6 +115,43 @@ public final class Subject {
 				grp.setTimeSlot(slot);
 				return true;
 			}
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Fügt einen Studierenden zu einer ihm passenden Gruppe hinzu 
+	 * @param stud
+	 * @return false, wenn keine passende Gruppe gefunden
+	 */
+	public boolean addStudentToGroup(Student stud){
+		/*
+		 * reservierte Zeitslots
+		 */
+		List<TimeSlot> slots = stud.getReservedTimeSlots();
+		
+		System.out.println(this.groups.size());
+		/*
+		 * suche eine Gruppe mit sich nicht überschneidenden Zeitslot 
+		 */
+		for(int i = 0; i < this.groups.size(); i++){
+			Group grp = groups.get(i);
+			boolean reserved = false;
+			TimeSlot slot = grp.getTimeSlot();
+			/*
+			 * Überprüfe, ob slot schon belegt wurde
+			 */
+			for(TimeSlot reservedSlot: slots){
+				if( reservedSlot == slot){
+					reserved = true;
+				}
+			}
+			if( !reserved ){
+				grp.addStudent(stud);
+				stud.addGroup( grp );
+				return true; 
+			}			
 		}
 		
 		return false;
