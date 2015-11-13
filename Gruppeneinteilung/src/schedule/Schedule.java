@@ -195,7 +195,6 @@ public final class Schedule {
 	private void studToGroupAllocation() {
 		
 		int steps = 1;
-		int stepPos = 0;
 		
 		for(int i = 0; i < students.size(); i++){			
 			/*
@@ -209,11 +208,7 @@ public final class Schedule {
 				/*
 				 * füge den Studierenden zu Gruppe des Fachs hinzu
 				 */
-				if( !studSub.addStudentToGroup(stud) ){
-					if(stepPos >= i){
-						stepPos = i;
-						steps++;
-					}
+				if( !studSub.addStudentToGroup(stud) ){					
 					stepBack(i, steps, studSub, stud);
 					i = i - steps;
 					break;
