@@ -6,6 +6,7 @@ package schedule;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.HashMap;
 
 import io.Parameters;
@@ -180,18 +181,41 @@ public final class Schedule {
 	}	
 	
 	/**
+	 * Löscht count zufällige Elemente aus occupied und fügt diese this.students hinzu
+	 */
+	private void delFromOccupied(int count, List<Student> occupied){		
+		for(int i = 0; i < count; i++){
+			if(occupied.isEmpty()){
+				return;
+			}
+			Student stud = occupied.remove( new Random().nextInt( occupied.size() )) ;
+			if( stud != null){
+				students.add( stud );
+				stud.delFromAllGroups();
+			}
+			else{
+				return;
+			}
+		}
+	}
+	
+	/**
 	 * Zuordnung aller Studierenden zu ihren Gruppen
 	 * konfliktfrei 
 	 */
 	private void studToGroupAllocation() {
 		
-		int steps = 1;
-		
-		for(int i = 0; i < students.size(); i++){			
-			/*
-			 * jeder Studierende
-			 */
-			Student stud = this.students.get(i);
+		/*
+		 * abgearbeitete Studierende
+		 */
+		List<Student> occupied = new LinkedList<>();
+				
+		int steps = 0;		
+		/*
+		 * jeder Studierende
+		 */
+		while( !students.isEmpty() ){
+			Student stud = this.students.remove( new Random().nextInt(students.size()));
 			/*
 			 * jedes Fach des Studierenden
 			 */
@@ -199,17 +223,31 @@ public final class Schedule {
 				/*
 				 * füge den Studierenden zu Gruppe des Fachs hinzu
 				 */
-				if( !studSub.addStudentToGroup(stud) ){
-
-					stud = students.get(i);
+				if( !studSub.addStudentToGroup(stud) ){				
+					/*
+					 * lösche den letzten
+					 */
 					stud.delFromAllGroups();
+					students.add(stud);					
+					
+					steps++;
+					if(steps % 2 == 0){						
+						/*
+						 * lösche x weitere
+						 */
+						delFromOccupied(1, occupied);						
+					}
 										
-					i = i - 1;					
 					break;
+				}				
+				else{
+					occupied.add(stud);
 				}
 			}
+			
 		}
 		
+		students = occupied;					
 	}
 	
 }
