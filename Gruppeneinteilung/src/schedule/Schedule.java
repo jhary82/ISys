@@ -56,7 +56,11 @@ public final class Schedule {
 		 * Aufgabenteil 2 
 		 */
 		studToGroupAllocation();
-			
+		/*
+		 * Aufgabenteil 3	
+		 */
+		studToGroupAllocationWithPriority(0.5);
+		
 		/*
 		 * TODO testausgabe alle Gruppen mit Zeitslots
 		 */
@@ -64,7 +68,7 @@ public final class Schedule {
 			System.out.println(sub);
 		}
 	}
-	 
+	
 	/**
 	 * Fügt die Studierenden und Fächer hinzu
 	 */
@@ -248,6 +252,17 @@ public final class Schedule {
 		}
 		
 		students = occupied;					
+	}
+	
+	/**
+	 * Erstellt die Gruppenzuordnung anhand der gegebenen Studierendenpräferenzen
+	 * mit dem Schwellwert d
+	 * @param d
+	 * @return true, wenn keine Konflikte aufgetreten sind
+	 */
+	private boolean studToGroupAllocationWithPriority(double d) {
+		
+		return true;
 	}
 	
 }
