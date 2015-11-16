@@ -3,7 +3,6 @@
  */
 package schedule;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -86,15 +85,57 @@ public class Solution {
 	public PriorityQueue<ChangeTask> getChangeTaskList() {
 		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
 		
+		/*
+		 * für alle Fächer
+		 */
 		for( Subject sub : this.subjects ){
+			/*
+			 * für alle Gruppen
+			 */
 			for( Group group : sub.getGroups()){
-				
+				/*
+				 * für Studierende der Gruppe
+				 */
 				for(Student stud: group.getStudents()){
-				//	stud  
+					/*
+					 * für alle Studierenden
+					 * TODO hier ist noch Optimierungspotential
+					 */
+					for(Student oneOfAll: this.students){
+						if(oneOfAll == stud){
+							continue;
+						}
+						if( canChange( stud, oneOfAll) ){
+							double value = calculateChangeValue( stud, oneOfAll);
+							pq.add( new ChangeTask(stud, group, oneOfAll, oneOfAll.getGroup(sub), this, value) );
+						}
+					}
 				}
 			}
 		}
 		
 		return pq;
+	}
+
+	/**
+	 * Berechnet für das StudentenTupel die Veränderung des Lösungsraumswerts
+	 * @param stud
+	 * @param oneOfAll
+	 * @return
+	 */
+	private double calculateChangeValue(Student stud, Student oneOfAll) {
+		// TODO Auto-generated method stub
+		return 0.0;
+	}
+
+	/**
+	 * 	Berechnet, ob für die Kombination von Studenten ein Tausch möglich ist
+	 * @param stud
+	 * @param oneOfAll
+	 * @return
+	 */
+	private boolean canChange(Student stud, Student oneOfAll) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

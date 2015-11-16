@@ -54,19 +54,23 @@ public class ChangeTasks {
 		 * Schleife bis "beste" Lösung gefunden
 		 */
 		while( !pq.isEmpty() && maxValue < pq.peek().getSolution().getValue()){
+			System.out.println(maxValue);
 			/*
 			 * berechne für jede Solution die Liste von möglichen Änderungen
 		 	*/
 			for(Solution solution : this.solutions ){
 				pq.addAll( solution.getChangeTaskList() );
 			}
-			
+						
 			this.solutions.clear();
 			/*
-			 * füge ersten x-Solutions zu neuen StartSolutions hinzu
+			 * Führe ersten x-ChangeTasks aus und 
+			 * füge deren Solutions zu neuen StartSolutions hinzu
 			 */
 			for(int i = 0; i < limit; i++){
-				this.solutions.add( pq.poll().getSolution() );
+				ChangeTask task = pq.poll();
+				task.execute();
+				this.solutions.add( task.getSolution() );
 			}
 		}
 		

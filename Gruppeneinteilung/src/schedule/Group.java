@@ -33,12 +33,18 @@ public final class Group {
 	private int groupSize;
 	
 	/**
+	 * Das Fach der Gruppe
+	 */
+	private Subject subject;
+	
+	/**
 	 * Konstruktor
 	 */
-	public Group(int nr, int groupSize){
+	public Group(int nr, int groupSize, Subject subject){
 		students = new LinkedList<>();
 		this.groupNr = nr;
 		this.groupSize = groupSize;
+		this.subject = subject;
 	}
 	
 	@Override
@@ -122,6 +128,14 @@ public final class Group {
 	public List<Student> getStudents() {
 		return students;
 	}
+
+	/**
+	 * @return the subject
+	 */
+	public Subject getSubject() {
+		return subject;
+	}
+
 
 	
 }

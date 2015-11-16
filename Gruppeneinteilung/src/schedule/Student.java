@@ -127,6 +127,21 @@ public final class Student {
 		}		
 		groups.clear();
 	}
+
+
+	/**
+	 * Gibt die Gruppe des übergebenden Fachs zurück
+	 * @param sub
+	 * @return null, wenn keine Gruppe für das Fach definiert
+	 */
+	public Group getGroup(Subject sub) {
+		for( Group grp : groups){
+			if( grp.getSubject() == sub){
+				return grp;
+			}
+		}
+		return null;
+	}
 	
 	
 }

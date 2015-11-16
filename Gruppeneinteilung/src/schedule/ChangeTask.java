@@ -98,4 +98,12 @@ public class ChangeTask implements Comparable<ChangeTask>{
 		return changeValue;
 	}
 
+	/**
+	 * Führe Änderung durch
+	 */
+	public void execute() {
+		//TODO Änderungen ausführen 
+		
+	}
+
 }
