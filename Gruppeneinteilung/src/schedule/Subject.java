@@ -52,7 +52,7 @@ public final class Subject {
 		 */
 		groups.clear();
 		for( int i = 0; i < size; i++){
-			groups.add( new Group(i, groupSize) );
+			groups.add( new Group(i, groupSize, this) );
 		}
 		
 		return size;

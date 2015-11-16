@@ -3,6 +3,7 @@ package schedule;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -26,6 +27,11 @@ public final class Student {
 	 * Liste der belegten Gruppen
 	 */
 	private List<Group> groups;
+	
+	/**
+	 * Map aller Präferenzen des Studenten
+	 */
+	private Map<Student, Double> preferences;
 	
 	/**
 	 * Konstruktor mit FÃ¤cherwahrscheinlichkeiten
@@ -143,5 +149,8 @@ public final class Student {
 		return null;
 	}
 	
+	public double f(Student student) {
+		return 0;
+	}
 	
 }
