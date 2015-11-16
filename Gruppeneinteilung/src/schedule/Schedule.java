@@ -26,24 +26,14 @@ public final class Schedule {
 	 * Alle Parameter
 	 */
 	private Parameters p;
-	
-	/**
-	 * Die Lösungsräume für Local Beam Search
-	 */
-	private List<Solution> solutions;
-	
-	/**
-	 * Position in der SolutionensListe
-	 */
-	private int solutionPos;
-	
+		
 	/**
 	 * Konstruktor
 	 * @param p
 	 */
 	public Schedule(Parameters p){
 		this.p = p;		
-		solutions = new LinkedList<>();
+		List<Solution> solutions = new LinkedList<>();
 		/*
 		 * erstelle drei Lösungsräume
 		 */
@@ -71,12 +61,12 @@ public final class Schedule {
 		/*
 		 * Aufgabenteil 3	
 		 */
-		
-				
+		Solution bestSolution = localBeamSearch( solutions );
+						
 		/*
 		 * Ausgabe alle Gruppen mit Zeitslots
 		 */
-		System.out.println(solutions.get(solutionPos));		
+		System.out.println( bestSolution );		
 		
 	}
 	
@@ -270,6 +260,19 @@ public final class Schedule {
 		students = occupied;					
 	}
 	
-	
+	/**
+	 * Aufruf des Local Beam Search Algorithmus
+	 * @param solutions
+	 * @return null, wenn leere Liste übergeben wurde
+	 */
+	private Solution localBeamSearch(List<Solution> solutions) {
+		if( solutions.isEmpty() ){
+			return null;
+		}
+		else{
+			ChangeTasks changes = new ChangeTasks( solutions );		
+			return changes.getBestSolution();
+		}
+	}
 	
 }

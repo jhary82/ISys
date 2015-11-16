@@ -67,4 +67,13 @@ public class Solution {
 	public void setSubjects(List<Subject> subjects) {
 		this.subjects = subjects;
 	}
+	
+	/**
+	 * Berechnet den Wert dieses Lösungsraums aus
+	 * @return
+	 */
+	public double getValue(){
+		// TODO anpassen
+		return 0.0;
+	}
 }
