@@ -16,16 +16,6 @@ import io.Parameters;
  *
  */
 public final class Schedule {
-
-	/**
-	 * Alle Studierenden
-	 */
-	private List<Student> students;
-	
-	/**
-	 * Alle Fächer
-	 */
-	private List<Subject> subjects;
 	
 	/**
 	 * Alle TimeSlots
@@ -38,46 +28,55 @@ public final class Schedule {
 	private Parameters p;
 	
 	/**
+	 * Die drei Lösungsräume und EndLösungsraum für Local Beam Search
+	 */
+	private Solution solA, solB, solC, solExit;
+	
+	/**
 	 * Konstruktor
 	 * @param p
 	 */
 	public Schedule(Parameters p){
 		this.p = p;		
-		students = new LinkedList<>();
-		subjects = new LinkedList<>();
+		solA = new Solution();
+		solB = new Solution();
+		solC = new Solution();
+		solExit = null;
 		
 		/*
 		 * Aufgabenteil 1
 		 */
-		addStudSubs();
-		calcStudentsChoice();
-		calcTimeSlots();
+		addStudSubs(solA);
+		calcStudentsChoice(solA);
+		calcTimeSlots(solA);
+		/*
+		 * clone solA -> solB und solC
+		 */
+		//solB = solA.clone();
+		//solC = solA.clone();
 		/*
 		 * Aufgabenteil 2 
 		 */
-		studToGroupAllocation();
+		studToGroupAllocation(solA);
 		/*
 		 * Aufgabenteil 3	
 		 */
-		studToGroupAllocationWithPriority(0.5);
+		
 		
 		/*
-		 * TODO testausgabe alle Gruppen mit Zeitslots
+		 * Ausgabe alle Gruppen mit Zeitslots
 		 */
-		for(Subject sub : subjects){			
-			System.out.println(sub);
-		}
+		System.out.println(solA);
+		
 	}
 	
 	/**
 	 * Fügt die Studierenden und Fächer hinzu
 	 */
-	private void addStudSubs(){
-		/* 
-		 * setze Fächer
-		 */
-		this.subjects = p.getSubjects();
-		
+	private void addStudSubs(Solution sol){		
+		List<Subject> subjects = p.getSubjects();
+		List<Student> students = new LinkedList<>();
+				
 		/*
 		 * hole Belegungswahscheinlichkeiten
 		 */
@@ -93,16 +92,21 @@ public final class Schedule {
 			students.add( new Student(i, subjects, prob) );
 		}		
 		
+		/*
+		 * fügt Students und Subject zu Solution hinzu
+		 */
+		sol.setStudents(students);
+		sol.setSubjects(subjects);		
 	}
 	
 	/**
 	 * Berechnet, auf Basis von welche Studierenden, welche Fächer belegen,
 	 * die benötigten Gruppenstärken der einzelnen Fächer
 	 */
-	private void calcStudentsChoice(){
+	private void calcStudentsChoice(Solution sol){
 		Map<String, Integer> map = new HashMap<>();
 		
-		for(Student stud: this.students){
+		for(Student stud: sol.getStudents()){
 			for(Subject sub: stud.getSubjects()){
 				Integer value = map.get(sub.getName() );
 				if( value == null){
@@ -115,7 +119,7 @@ public final class Schedule {
 			}			
 		}
 		
-		for(Subject sub: this.subjects){
+		for(Subject sub: sol.getSubjects()){
 			Integer value = map.get(sub.getName() );
 			sub.setCountStudents( value==null? 0: value );
 		}
@@ -125,7 +129,8 @@ public final class Schedule {
 	 * Berechnet die max. benötigten TimeSlots und 
 	 * erstellt mit Überschneidungsgrad die Gruppentermine
 	 */
-	private void calcTimeSlots(){		
+	private void calcTimeSlots(Solution sol){		
+		List<Subject> subjects = sol.getSubjects();
 		/*
 		 * alle TimeSlots
 		 */
@@ -145,8 +150,8 @@ public final class Schedule {
 		/*
 		 * Min gemeinsame Anzahl an Gruppen
 		 */
-		int minCountGroups = this.subjects.get(0).getGroupCount();
-		for(Subject sub: this.subjects){
+		int minCountGroups = subjects.get(0).getGroupCount();
+		for(Subject sub: sol.getSubjects()){
 			if( sub.getGroupCount() < minCountGroups){
 				minCountGroups = sub.getGroupCount();
 			}
@@ -160,7 +165,7 @@ public final class Schedule {
 		/*
 		 * jedes Fach bekommt gemeinsame TimeSlots
 		 */
-		for(Subject sub: this.subjects){				
+		for(Subject sub: subjects){				
 				/*
 				 * Trage TimeSlots für Gruppe ein
 				 */
@@ -187,7 +192,7 @@ public final class Schedule {
 	/**
 	 * Löscht count zufällige Elemente aus occupied und fügt diese this.students hinzu
 	 */
-	private void delFromOccupied(int count, List<Student> occupied){		
+	private void delFromOccupied(int count, List<Student> occupied, List<Student> students){		
 		for(int i = 0; i < count; i++){
 			if(occupied.isEmpty()){
 				return;
@@ -207,8 +212,9 @@ public final class Schedule {
 	 * Zuordnung aller Studierenden zu ihren Gruppen
 	 * konfliktfrei 
 	 */
-	private void studToGroupAllocation() {
+	private void studToGroupAllocation(Solution sol) {
 		
+		List<Student> students = sol.getStudents();
 		/*
 		 * abgearbeitete Studierende
 		 */
@@ -219,7 +225,7 @@ public final class Schedule {
 		 * jeder Studierende
 		 */
 		while( !students.isEmpty() ){
-			Student stud = this.students.remove( new Random().nextInt(students.size()));
+			Student stud = students.remove( new Random().nextInt(students.size()));
 			/*
 			 * jedes Fach des Studierenden
 			 */
@@ -239,7 +245,7 @@ public final class Schedule {
 						/*
 						 * lösche x weitere
 						 */
-						delFromOccupied(1, occupied);						
+						delFromOccupied(1, occupied, students);						
 					}
 										
 					break;
@@ -254,15 +260,6 @@ public final class Schedule {
 		students = occupied;					
 	}
 	
-	/**
-	 * Erstellt die Gruppenzuordnung anhand der gegebenen Studierendenpräferenzen
-	 * mit dem Schwellwert d
-	 * @param d
-	 * @return true, wenn keine Konflikte aufgetreten sind
-	 */
-	private boolean studToGroupAllocationWithPriority(double d) {
-		
-		return true;
-	}
+	
 	
 }

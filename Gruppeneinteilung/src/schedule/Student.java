@@ -28,9 +28,10 @@ public final class Student {
 	private List<Group> groups;
 	
 	/**
-	 * Konstruktor
-	 * @param p Parameter 
-	 * @param id MatriklNr
+	 * Konstruktor mit Fächerwahrscheinlichkeiten
+	 * @param id
+	 * @param subjects
+	 * @param prob
 	 */
 	public Student(int id, List<Subject> subjects, List<Integer> prob){
 		this.subjects = new LinkedList<Subject>();		
@@ -38,7 +39,19 @@ public final class Student {
 		this.id = id;
 		this.setSubjectsByKey(subjects, prob);		
 	}
+	
+	/**
+	 * Konstruktor ohne Fächerwahrscheinlichkeiten
+	 * @param id
+	 * @param subjects
+	 */
+	public Student(int id, List<Subject> subjects){
+		this.subjects = subjects;
+		this.id = id;
+		groups = new LinkedList<>();
+	}
 
+	
 	/**
 	 * Setzt die F�cher nach definierten Schl�sseln
 	 * @param p

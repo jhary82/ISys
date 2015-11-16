@@ -13,8 +13,7 @@ import java.util.List;
 public final class Subject {
 	
 	/**
-	 * Name des Fachs
-	 * TODO Name aus JSON eingelesen
+	 * Name des Fachs 
 	 */
 	private String name;
 		
