@@ -40,17 +40,6 @@ public final class Student {
 		this.setSubjectsByKey(subjects, prob);		
 	}
 	
-	/**
-	 * Konstruktor ohne Fächerwahrscheinlichkeiten
-	 * @param id
-	 * @param subjects
-	 */
-	public Student(int id, List<Subject> subjects){
-		this.subjects = subjects;
-		this.id = id;
-		groups = new LinkedList<>();
-	}
-
 	
 	/**
 	 * Setzt die F�cher nach definierten Schl�sseln

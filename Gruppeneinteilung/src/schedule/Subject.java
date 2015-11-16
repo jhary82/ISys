@@ -29,7 +29,8 @@ public final class Subject {
 	
 	/**
 	 * Konstruktor
-	 * @param groupSize
+	 * @param name Name
+	 * @param gs groupSize
 	 */
 	public Subject(String name, int gs){
 		this.groupSize = gs;	
@@ -167,6 +168,13 @@ public final class Subject {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * @return the groupSize
+	 */
+	public int getGroupSize() {
+		return groupSize;
 	}
 
 }

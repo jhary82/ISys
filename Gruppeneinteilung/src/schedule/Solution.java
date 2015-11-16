@@ -6,11 +6,12 @@ package schedule;
 import java.util.LinkedList;
 import java.util.List;
 
+
 /**
  * @author skrause
  *
  */
-public class Solution implements Cloneable{
+public class Solution {
 
 	/**
 	 * Alle Studierenden
@@ -37,22 +38,6 @@ public class Solution implements Cloneable{
 			str.append(sub);
 		}
 		return str.toString();
-	}
-
-	
-	public Solution clone(){
-		Solution sol = new Solution();
-		List<Student> students = new LinkedList<>();
-		List<Subject> subjects = new LinkedList<>();
-		
-		/*
-		
-		for(Student stud : this.students){
-			Student studNew = new Student(stud.getId(), stud.getSubjects());
-			students.add(studNew);
-		}*/
-		
-		return sol;
 	}
 
 	/**

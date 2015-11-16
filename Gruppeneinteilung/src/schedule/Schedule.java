@@ -28,9 +28,14 @@ public final class Schedule {
 	private Parameters p;
 	
 	/**
-	 * Die drei Lösungsräume und EndLösungsraum für Local Beam Search
+	 * Die Lösungsräume für Local Beam Search
 	 */
-	private Solution solA, solB, solC, solExit;
+	private List<Solution> solutions;
+	
+	/**
+	 * Position in der SolutionensListe
+	 */
+	private int solutionPos;
 	
 	/**
 	 * Konstruktor
@@ -38,35 +43,40 @@ public final class Schedule {
 	 */
 	public Schedule(Parameters p){
 		this.p = p;		
-		solA = new Solution();
-		solB = new Solution();
-		solC = new Solution();
-		solExit = null;
+		solutions = new LinkedList<>();
+		/*
+		 * erstelle drei Lösungsräume
+		 */
+		for(int i = 0; i < 3; i++){
+			Solution sol = new Solution();
+			solutions.add(sol);
+		}
 		
 		/*
-		 * Aufgabenteil 1
+		 * für alle Lösungsräume
 		 */
-		addStudSubs(solA);
-		calcStudentsChoice(solA);
-		calcTimeSlots(solA);
-		/*
-		 * clone solA -> solB und solC
-		 */
-		//solB = solA.clone();
-		//solC = solA.clone();
-		/*
-		 * Aufgabenteil 2 
-		 */
-		studToGroupAllocation(solA);
+		for(Solution sol : solutions){
+			/*
+			 * Aufgabenteil 1
+			 */
+			addStudSubs(sol);
+			calcStudentsChoice(sol);
+			calcTimeSlots(sol);
+			/*
+			 * Aufgabenteil 2 
+			 */
+			studToGroupAllocation(sol);
+		}
+				
 		/*
 		 * Aufgabenteil 3	
 		 */
 		
-		
+				
 		/*
 		 * Ausgabe alle Gruppen mit Zeitslots
 		 */
-		System.out.println(solA);
+		System.out.println(solutions.get(solutionPos));		
 		
 	}
 	
