@@ -3,8 +3,10 @@
  */
 package schedule;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 
 /**
@@ -75,5 +77,24 @@ public class Solution {
 	public double getValue(){
 		// TODO anpassen
 		return 0.0;
+	}
+
+	/**
+	 * Gibt eine Liste aller möglichen Tausch-Möglichkeiten zurück
+	 * @return
+	 */
+	public PriorityQueue<ChangeTask> getChangeTaskList() {
+		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
+		
+		for( Subject sub : this.subjects ){
+			for( Group group : sub.getGroups()){
+				
+				for(Student stud: group.getStudents()){
+				//	stud  
+				}
+			}
+		}
+		
+		return pq;
 	}
 }

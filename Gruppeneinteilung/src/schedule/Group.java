@@ -115,4 +115,13 @@ public final class Group {
 	public void setTimeSlot(TimeSlot timeSlot) {
 		this.timeSlot = timeSlot;
 	}
+
+	/**
+	 * @return the students
+	 */
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	
 }

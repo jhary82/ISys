@@ -61,7 +61,7 @@ public final class Schedule {
 		/*
 		 * Aufgabenteil 3	
 		 */
-		Solution bestSolution = localBeamSearch( solutions );
+		Solution bestSolution = solutions.get(0);//TODO localBeamSearch( solutions );
 						
 		/*
 		 * Ausgabe alle Gruppen mit Zeitslots
