@@ -92,22 +92,30 @@ public class Solution {
 			/*
 			 * für alle Gruppen
 			 */
-			for( Group group : sub.getGroups()){
+			for( Group fromGroup : sub.getGroups()){
 				/*
 				 * für Studierende der Gruppe
 				 */
-				for(Student stud: group.getStudents()){
+				for(Student fromStudent: fromGroup.getStudents()){
 					/*
-					 * für alle Studierenden
-					 * TODO hier ist noch Optimierungspotential
+					 * für alle anderen Gruppen und deren Studierenden
 					 */
-					for(Student oneOfAll: this.students){
-						if(oneOfAll == stud){
+					for(Group toGroup : sub.getGroups()){
+						if( toGroup == fromGroup){
 							continue;
 						}
-						if( canChange( stud, oneOfAll) ){
-							double value = calculateChangeValue( stud, oneOfAll);
-							pq.add( new ChangeTask(stud, group, oneOfAll, oneOfAll.getGroup(sub), this, value) );
+						else{
+							for(Student toStudent: toGroup.getStudents()){
+								if(toStudent == fromStudent){
+									continue;
+								}
+								else{
+									if( canChange( fromStudent, toStudent) ){
+										double value = calculateChangeValue( fromStudent, toStudent);
+										pq.add( new ChangeTask(fromStudent, fromGroup, toStudent, toStudent.getGroup(sub), this, value) );
+									}
+								}
+							}
 						}
 					}
 				}
