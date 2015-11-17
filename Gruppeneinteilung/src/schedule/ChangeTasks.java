@@ -46,6 +46,7 @@ public final class ChangeTasks implements Serializable{
 	 */
 	public Solution getBestSolution() {		
 		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
+		
 		/*
 		 * Abbruchwert,
 		 * letzter Wert des Lösungsraums
@@ -56,7 +57,7 @@ public final class ChangeTasks implements Serializable{
 		/*
 		 * Schleife bis "beste" Lösung gefunden
 		 */
-		do{			
+		while( lastValue < solutions.get(0).getValue() ){			
 			lastValue = solutions.get(0).getValue();
 			lastSolution = solutions.get(0);
 			/*
@@ -87,8 +88,8 @@ public final class ChangeTasks implements Serializable{
 				task.execute();
 				this.solutions.add( (Solution) task.getSolution().copy() );
 			}
-			System.out.println(lastValue+" > "+ solutions.get(0).getValue()+ "?");			
-		}while( lastValue < solutions.get(0).getValue() );
+			System.out.println(lastValue+" > "+ solutions.get(0).getValue());			
+		}
 				
 		return lastSolution;
 	}

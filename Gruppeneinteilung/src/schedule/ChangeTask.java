@@ -60,7 +60,7 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 		 * mit 100 multipliziert, falls zu kleine Werte auftreten
 		 * und bei -0.3 auf 0 gerundet wird
 		 */
-		return  (int) ((this.changeValue*100) - (arg0.getChangeValue()*100)) ;		
+		return  (int) ( (this.changeValue*100) - (arg0.getChangeValue()*100) ) ;		
 	}
 
 	/**
