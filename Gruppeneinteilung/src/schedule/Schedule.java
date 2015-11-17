@@ -177,7 +177,7 @@ public final class Schedule {
 			Student stud = occupied.remove( new Random().nextInt( occupied.size() )) ;
 			if( stud != null){
 				students.add( stud );
-				stud.delFromAllGroups();
+				stud.delFromAllGroups(); 
 			}
 			else{
 				return;

@@ -10,7 +10,7 @@ import java.util.List;
  * @author skrause
  *
  */
-public final class Group {
+public final class Group{
 	
 	/**
 	 * Liste der teilnehmenden Studierenden
@@ -39,6 +39,9 @@ public final class Group {
 	
 	/**
 	 * Konstruktor
+	 * @param nr
+	 * @param groupSize
+	 * @param subject
 	 */
 	public Group(int nr, int groupSize, Subject subject){
 		students = new LinkedList<>();
@@ -160,6 +163,4 @@ public final class Group {
 		return subject;
 	}
 
-
-	
 }

@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  * @author skrause
  *
  */
-public class Solution implements Cloneable{
+public final class Solution implements Cloneable{
 
 	/**
 	 * Alle Studierenden
@@ -84,10 +84,21 @@ public class Solution implements Cloneable{
 		double value = 0.0;
 		for(Subject sub: this.subjects){
 			for(Group grp: sub.getGroups()){
-				for(Student stud : grp.getStudents()){
-					value += stud.rateGroup(grp, this.preferences);
-				}
+				value += getGroupValue(grp);
 			}
+		}
+		return value;
+	}
+	
+	/**
+	 * Berechnet den Wert einer Gruppe aus
+	 * @param grp
+	 * @return
+	 */
+	private double getGroupValue(Group grp){
+		double value = 0.0;
+		for(Student stud : grp.getStudents()){
+			value += stud.rateGroup(grp, this.preferences);
 		}
 		return value;
 	}
@@ -110,21 +121,16 @@ public class Solution implements Cloneable{
 				/*
 				 * für Studierende der Gruppe
 				 */
-				for(Student fromStudent: fromGroup.getStudents()){
+				for(int i = 0; i < fromGroup.getStudents().size(); i++){
+					Student fromStudent = fromGroup.getStudents().get(i);
 					/*
 					 * für alle anderen Gruppen und deren Studierenden
 					 */
 					for(Group toGroup : sub.getGroups()){
-						if( toGroup == fromGroup){
-							continue;
-						}
-						else{
+						if( toGroup != fromGroup){							
 							for(Student toStudent: toGroup.getStudents()){
-								if(toStudent == fromStudent){
-									continue;
-								}
-								else{
-									double value = canChange(fromStudent, fromGroup, toStudent, toStudent.getGroup(sub));
+								if(toStudent != fromStudent){
+									double value = canChange((Student)fromStudent, (Group)fromGroup, (Student)toStudent, (Group)toStudent.getGroup(sub));									
 									if( value != 0.0 ){										
 										pq.add( new ChangeTask(fromStudent, fromGroup, toStudent, toStudent.getGroup(sub), this, value) );
 									} 
@@ -149,39 +155,43 @@ public class Solution implements Cloneable{
 	 * @return 0.0, wenn kein Tausch möglich
 	 */
 	private double canChange(Student fromStudent, Group fromGroup, Student toStudent, Group toGroup) {
-		double oldValue = this.getValue();
-		double newValue = 0.0;
 		/*
-		 * lösche beide Studierenden raus
+		 * Überprüfe, ob Wechsel möglich ist
 		 */
-		fromStudent.delGroup(fromGroup);
-		fromGroup.delStudent(fromStudent);
-		toStudent.delGroup(toGroup);
-		toGroup.delStudent(toStudent);
-		/*
-		 * Überprüfe, ob Einfügen möglich ist und berechne newValue
-		 */
-		if( fromGroup.addStudent(toStudent) ){
-			if(toGroup.addStudent(fromStudent)){
-				newValue = this.getValue();
-				/*
-				 * mache Tausch rückgängig
-				 */
-				fromStudent.delGroup(toGroup);
-				fromGroup.delStudent(toStudent);
-				toStudent.delGroup(fromGroup);
-				toGroup.delStudent(fromStudent);
-				return newValue - oldValue;
+		boolean possible = false;
+		for(TimeSlot slot : fromStudent.getReservedTimeSlots()){
+			if(slot == fromGroup.getTimeSlot()){
+				continue;
 			}
-			else{
-				toStudent.delGroup(fromGroup);
-				fromGroup.delStudent(toStudent);
-				return 0.0;
-			}			
+			if(slot == toGroup.getTimeSlot()){
+				possible = true;
+			}
 		}
-		else {
+		if( !possible){
 			return 0.0;
-		}		
+		}
+		
+		possible = false;
+		for(TimeSlot slot : toStudent.getReservedTimeSlots()){
+			if(slot == toGroup.getTimeSlot()){
+				continue;
+			}
+			if(slot == fromGroup.getTimeSlot()){
+				possible = true;
+			}
+		}
+		if( !possible ){
+			return 0.0;
+		} 
+		/*
+		 * TODO hier weitermachen
+		 * Erstelle Dummy-Grps für Berechnung der "neuen" Werte
+		 */
+		double fromValue = this.getGroupValue(fromGroup);
+		double toValue = this.getGroupValue(toGroup);
+		
+		
+		return 0.0;
 	}
 	
 	@Override

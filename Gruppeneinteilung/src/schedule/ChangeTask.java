@@ -7,7 +7,7 @@ package schedule;
  * @author skrause
  *
  */
-public class ChangeTask implements Comparable<ChangeTask>{
+public final class ChangeTask implements Comparable<ChangeTask>{
 
 	/**
 	 * 

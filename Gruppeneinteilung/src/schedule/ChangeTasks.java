@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * @author skrause
  *
  */
-public class ChangeTasks {
+public final class ChangeTasks {
 
 	/**
 	 * Liste von Lösungsräumen
