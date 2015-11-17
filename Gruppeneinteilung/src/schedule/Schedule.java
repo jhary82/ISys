@@ -26,7 +26,12 @@ public final class Schedule {
 	 * Alle Parameter
 	 */
 	private Parameters p;
-		
+	
+	/**
+	 * Matrix von den Präferenzen von Studenten
+	 */
+	private double[][] preferences;
+	
 	/**
 	 * Konstruktor
 	 * @param p
@@ -223,6 +228,16 @@ public final class Schedule {
 		}
 		
 		students = occupied;					
+	}
+	
+	private void addPreferences() {
+		int countStud = p.getCountStudents();
+		preferences = new double[countStud][countStud];
+		for(int i = 0; i < countStud/2; i++) {
+			for(int j = 0; j < countStud/2; i++) {
+				preferences[i][j] = 0.5;
+			}
+		}
 	}
 	
 	/**
