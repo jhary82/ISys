@@ -29,11 +29,6 @@ public final class Student {
 	private List<Group> groups;
 	
 	/**
-	 * Map aller Präferenzen des Studenten
-	 */
-	private Map<Student, Double> preferences;
-	
-	/**
 	 * Konstruktor mit FÃ¤cherwahrscheinlichkeiten
 	 * @param id
 	 * @param subjects
@@ -150,26 +145,15 @@ public final class Student {
 	}
 	
 	/**
-	 * Setz die Praeferenz des Studenten zu einem andern Studenten
-	 * @param stud
-	 * @param pref
-	 */
-	public void setPreferences(Student stud, double pref) {
-		if(!preferences.containsKey(stud)) {
-			preferences.put(stud, pref);
-		}
-	}
-	
-	/**
 	 * Gibt den Präferenzwert zurueck.
 	 * @param stud
 	 * @return
 	 */
-	public double f(Student stud) {
+	/*public double f(Student stud) {
 		if(preferences.containsKey(stud)) {
 			return preferences.get(stud).doubleValue();
 		}
 		return 0;
-	}
+	}*/
 	
 }

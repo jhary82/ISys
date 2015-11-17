@@ -33,11 +33,17 @@ public final class Schedule {
 	private double[][] preferences;
 	
 	/**
+	 * Zufallsgenerator
+	 */
+	private static Random random = new Random();
+	
+	/**
 	 * Konstruktor
 	 * @param p
 	 */
 	public Schedule(Parameters p){
 		this.p = p;
+		buildPreferences();
 	}
 	
 	/**
@@ -230,14 +236,39 @@ public final class Schedule {
 		students = occupied;					
 	}
 	
-	private void addPreferences() {
+	private void buildPreferences() {
 		int countStud = p.getCountStudents();
 		preferences = new double[countStud][countStud];
-		for(int i = 0; i < countStud/2; i++) {
-			for(int j = 0; j < countStud/2; i++) {
-				preferences[i][j] = 0.5;
+		for(int i = 0; i < countStud; i++) {
+			for(int j = 0; j < countStud; j++) {
+				if(i == j) {
+					preferences[i][j] = -1.0;
+				}else if(i <= j) {
+					// do nothing
+				} else {
+					double pref = random.nextDouble();
+					pref = Math.round(100.0 * pref) / 100.0;
+					preferences[i][j] = pref;
+					preferences[j][i] = pref;
+				}
 			}
 		}
+	}
+	
+	/**
+	 * Gibt die Matrix mit den Präferenzen zurück.
+	 * @return
+	 */
+	public double[][] getPreferences() {
+		return preferences;
+	}
+	
+	/**
+	 * Gibt das Random zurück
+	 * @return
+	 */
+	public Random getRandom() {
+		return random;
 	}
 	
 	/**
