@@ -5,6 +5,7 @@ package schedule;
 
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 /**
  * @author skrause
@@ -64,7 +65,14 @@ public final class ChangeTasks {
 			for(Solution solution : this.solutions ){
 				pq.addAll( solution.getChangeTaskList() );
 			}
-						
+			
+			/*
+			 * sollte keine Änderungsliste erstellt werden können, nehme eine der vorhandenen Lösungsräume
+			 */
+			if( pq.isEmpty() ){
+				return solutions.get(new Random().nextInt(solutions.size()));
+			}
+			
 			this.solutions.clear();
 			/*
 			 * Führe ersten x-ChangeTasks aus und 
@@ -79,7 +87,8 @@ public final class ChangeTasks {
 					e.printStackTrace();
 				}
 			}
-		}while( maxValue < pq.peek().getSolution().getValue());
+			System.out.println(maxValue+" > "+pq.peek().getSolution().getValue());
+		}while( maxValue > pq.peek().getSolution().getValue());
 				
 		return solutions.get(0);
 	}

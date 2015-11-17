@@ -152,7 +152,7 @@ public final class Solution implements Cloneable{
 	 * @param toStudent
 	 * @param fromGroup
 	 * @param toGroup
-	 * @return 0.0, wenn kein Tausch möglich
+	 * @return 0.0, wenn kein Tausch möglich oder keine Verbesserung bringt
 	 */
 	private double canChange(Student fromStudent, Group fromGroup, Student toStudent, Group toGroup) {
 		/*
@@ -189,9 +189,48 @@ public final class Solution implements Cloneable{
 		 */
 		double fromValue = this.getGroupValue(fromGroup);
 		double toValue = this.getGroupValue(toGroup);
+		double newFromValue = 0.0;
+		double newToValue = 0.0;
+		/*
+		 * Berechne neuen Gruppenwert,
+		 * wenn toStudent in fromGroup wäre
+		 */
+		for(int i = 0; i < fromGroup.getStudents().size(); i++){
+			Student stud = fromGroup.getStudents().get(i);
+			if(stud == fromStudent){
+				stud = toStudent;
+			}
+			for(int a = 0; a < fromGroup.getStudents().size(); a++){
+				Student otherStud = fromGroup.getStudents().get(a);
+				if( otherStud == fromStudent){
+					continue;
+				}
+				else{
+					newFromValue += preferences[stud.getId()][otherStud.getId()];
+				}
+			}
+		}
+		/*
+		 * Berechne neuen Gruppenwert,
+		 * wenn fromStudent in toGroup wäre
+		 */
+		for(int i = 0; i < toGroup.getStudents().size(); i++){
+			Student stud = toGroup.getStudents().get(i);
+			if(stud == toStudent){
+				stud = fromStudent;
+			}
+			for(int a = 0; a < toGroup.getStudents().size(); a++){
+				Student otherStud = toGroup.getStudents().get(a);
+				if( otherStud == toStudent){
+					continue;
+				}
+				else{
+					newFromValue += preferences[stud.getId()][otherStud.getId()];
+				}
+			}
+		}
 		
-		
-		return 0.0;
+		return -newFromValue - newToValue + fromValue + toValue;
 	}
 	
 	@Override

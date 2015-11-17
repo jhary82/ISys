@@ -154,7 +154,12 @@ public final class Student {
 	public double rateGroup(Group grp, double[][] preferences) {
 		double value = 0.0;
 		for( Student stud : grp.getStudents()){
-			value += preferences[this.id][stud.getId()];
+			if( stud == this){
+				continue;
+			}
+			else{
+				value += preferences[this.id][stud.getId()];
+			}
 		}
 		return value;
 	}
