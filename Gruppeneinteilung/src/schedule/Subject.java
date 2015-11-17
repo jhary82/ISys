@@ -139,26 +139,6 @@ public final class Subject implements Serializable{
 		return false;
 	}
 	
-	/**
-	 * Löscht einen Studierenden aus Gruppe
-	 * @param stud
-	 * @return true, wenn herausgelöscht
-	 */
-	public boolean delStudent(Student stud){
-		for(Group grp : groups){
-			if(grp.delStudent(stud)){
-				stud.delGroup(grp);
-				return true;
-			}
-		}
-		return false;
-	}
 
-	/**
-	 * @return the groupSize
-	 */
-	public int getGroupSize() {
-		return groupSize;
-	}
 
 }

@@ -30,13 +30,7 @@ public final class Schedule {
 	/**
 	 * Matrix von den Pr�ferenzen von Studenten
 	 */
-	private double[][] preferences;
-	
-	/**
-	 * Zufallsgenerator
-	 * TODO warum muß dies eine globale statische Variable sein?
-	 */
-	private static Random random = new Random();
+	private double[][] preferences;	
 	
 	/**
 	 * Konstruktor
@@ -247,7 +241,7 @@ public final class Schedule {
 				}else if(i <= j) {
 					// do nothing
 				} else {
-					double pref = random.nextDouble();
+					double pref = new Random().nextDouble();
 					pref = Math.round(100.0 * pref) / 100.0;
 					preferences[i][j] = pref;
 					preferences[j][i] = pref;
@@ -263,16 +257,7 @@ public final class Schedule {
 	public double[][] getPreferences() {
 		return preferences;
 	}
-	
-	/**
-	 * Gibt das Random zur�ck
-	 * @return
-	 * TODO wofür wird das gebraucht?
-	 */
-	public Random getRandom() {
-		return random;
-	}
-	
+		
 	/**
 	 * Aufruf des Local Beam Search Algorithmus
 	 * @param solutions

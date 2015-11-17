@@ -27,14 +27,7 @@ public final class TimeSlot implements Serializable{
 	public TimeSlot(int pos){
 		this.pos = pos;		
 	}
-	
-	/**
-	 * @return the pos
-	 */
-	public int getPos() {
-		return pos;
-	}
-	
+		
 	@Override
 	public String toString(){
 		return "Zeitslot: "+pos;
