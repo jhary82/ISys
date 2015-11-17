@@ -3,6 +3,7 @@
  */
 package schedule;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,8 +11,13 @@ import java.util.List;
  * @author simon
  *
  */
-public final class Subject {
+public final class Subject implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Name des Fachs 
 	 */

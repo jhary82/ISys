@@ -3,11 +3,18 @@
  */
 package schedule;
 
+import java.io.Serializable;
+
 /**
  * @author skrause
  *
  */
-public final class ChangeTask implements Comparable<ChangeTask>{
+public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
@@ -57,34 +64,6 @@ public final class ChangeTask implements Comparable<ChangeTask>{
 	}
 
 	/**
-	 * @return the fromStudent
-	 */
-	public Student getFromStudent() {
-		return fromStudent;
-	}
-
-	/**
-	 * @return the toStudent
-	 */
-	public Student getToStudent() {
-		return toStudent;
-	}
-
-	/**
-	 * @return the fromGroup
-	 */
-	public Group getFromGroup() {
-		return fromGroup;
-	}
-
-	/**
-	 * @return the toGroup
-	 */
-	public Group getToGroup() {
-		return toGroup;
-	}
-
-	/**
 	 * @return the solution
 	 */
 	public Solution getSolution() {
@@ -113,7 +92,7 @@ public final class ChangeTask implements Comparable<ChangeTask>{
 		 * und füge in neue Gruppe ein
 		 */
 		fromGroup.addStudent(toStudent);
-		toGroup.addStudent(fromStudent);		
+		toGroup.addStudent(fromStudent);
 	}
 
 }

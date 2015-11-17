@@ -3,12 +3,18 @@
  */
 package schedule;
 
+import java.io.Serializable;
+
 /**
  * @author skrause
  *
  */
-public final class TimeSlot {
+public final class TimeSlot implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * Position im Zeitstrahl dieses Slots
 	 */

@@ -3,6 +3,12 @@
  */
 package schedule;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -12,7 +18,12 @@ import java.util.PriorityQueue;
  * @author skrause
  *
  */
-public final class Solution implements Cloneable{
+public final class Solution implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Alle Studierenden
@@ -167,7 +178,7 @@ public final class Solution implements Cloneable{
 				possible = true;
 			}
 		}
-		if( !possible){
+		if( possible){
 			return 0.0;
 		}
 		
@@ -180,13 +191,10 @@ public final class Solution implements Cloneable{
 				possible = true;
 			}
 		}
-		if( !possible ){
+		if( possible ){
 			return 0.0;
 		} 
-		/*
-		 * TODO hier weitermachen
-		 * Erstelle Dummy-Grps für Berechnung der "neuen" Werte
-		 */
+		
 		double fromValue = this.getGroupValue(fromGroup);
 		double toValue = this.getGroupValue(toGroup);
 		double newFromValue = 0.0;
@@ -233,9 +241,31 @@ public final class Solution implements Cloneable{
 		return -newFromValue - newToValue + fromValue + toValue;
 	}
 	
-	@Override
-	public Object clone() throws CloneNotSupportedException{
-		return super.clone();
+	/**
+	 * Kopiert diese Instanz
+	 * @return
+	 */
+	public Solution copy(){	
+		Solution sol = null;
+		try {
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(bos);
+			oos.writeObject(this);
+			oos.flush();
+			oos.close();
+			bos.close();
+			byte[] byteData = bos.toByteArray();
+
+			/*
+			 * Restore your class from a stream of bytes:
+			 */
+			ByteArrayInputStream bais = new ByteArrayInputStream(byteData);
+			sol = (Solution) new ObjectInputStream(bais).readObject();
+		} catch (ClassNotFoundException | IOException e) {
+			e.printStackTrace();
+		} 
+		return sol;
+
 	}
 	
 }

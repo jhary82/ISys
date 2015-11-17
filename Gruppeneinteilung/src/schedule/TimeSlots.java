@@ -3,6 +3,7 @@
  */
 package schedule;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,8 +12,12 @@ import java.util.List;
  * @author skrause
  *
  */
-public final class TimeSlots {
+public final class TimeSlots implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * Liste der TimeSlots
 	 */

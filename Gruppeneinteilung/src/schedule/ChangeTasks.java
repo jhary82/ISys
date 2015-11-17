@@ -3,6 +3,7 @@
  */
 package schedule;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
@@ -11,7 +12,11 @@ import java.util.Random;
  * @author skrause
  *
  */
-public final class ChangeTasks {
+public final class ChangeTasks implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Liste von Lösungsräumen
@@ -42,19 +47,18 @@ public final class ChangeTasks {
 	public Solution getBestSolution() {		
 		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
 		/*
-		 * Maximaler SolutionValue zum Start
+		 * Abbruchwert,
+		 * letzter Wert des Lösungsraums
 		 */
-		double maxValue = 0.0;
-		for(Solution solution : this.solutions ){
-			if( solution.getValue() > maxValue){
-				maxValue = solution.getValue();
-			}
-		}
-		
+		double lastValue = 0.0;
+		Solution lastSolution = null;
+				
 		/*
 		 * Schleife bis "beste" Lösung gefunden
 		 */
 		do{			
+			lastValue = solutions.get(0).getValue();
+			lastSolution = solutions.get(0);
 			/*
 			 * leere PriorityQueue
 			 */
@@ -65,7 +69,7 @@ public final class ChangeTasks {
 			for(Solution solution : this.solutions ){
 				pq.addAll( solution.getChangeTaskList() );
 			}
-			
+			//System.out.println("pq.size = " + pq.size()); TODO Raum möglicher Änderungen für DEBUG-Zwecke
 			/*
 			 * sollte keine Änderungsliste erstellt werden können, nehme eine der vorhandenen Lösungsräume
 			 */
@@ -81,16 +85,12 @@ public final class ChangeTasks {
 			for(int i = 0; i < limit; i++){
 				ChangeTask task = pq.poll();
 				task.execute();
-				try {
-					this.solutions.add( (Solution) task.getSolution().clone() );
-				} catch (CloneNotSupportedException e) {
-					e.printStackTrace();
-				}
+				this.solutions.add( (Solution) task.getSolution().copy() );
 			}
-			System.out.println(maxValue+" > "+pq.peek().getSolution().getValue());
-		}while( maxValue > pq.peek().getSolution().getValue());
+			System.out.println(lastValue+" > "+ solutions.get(0).getValue()+ "?");			
+		}while( lastValue < solutions.get(0).getValue() );
 				
-		return solutions.get(0);
+		return lastSolution;
 	}
 
 }
