@@ -23,13 +23,20 @@ public class Solution implements Cloneable{
 	 * Alle Fächer
 	 */
 	private List<Subject> subjects;
+		
+	/**
+	 * Matrix von den Pr�ferenzen von Studenten
+	 */
+	private double[][] preferences;
 	
 	/**
-	 * 
+	 * Konstruktor
+	 * @param pref Präferenzen der Studierenden
 	 */
-	public Solution() {
+	public Solution(double[][] pref) {
 		students = new LinkedList<>();
 		subjects = new LinkedList<>();
+		this.preferences = pref;
 	}
 	
 	@Override 
@@ -74,8 +81,15 @@ public class Solution implements Cloneable{
 	 * @return
 	 */
 	public double getValue(){
-		// TODO anpassen
-		return 0.0;
+		double value = 0.0;
+		for(Subject sub: this.subjects){
+			for(Group grp: sub.getGroups()){
+				for(Student stud : grp.getStudents()){
+					value += stud.rateGroup(grp, this.preferences);
+				}
+			}
+		}
+		return value;
 	}
 
 	/**
@@ -110,10 +124,10 @@ public class Solution implements Cloneable{
 									continue;
 								}
 								else{
-									if( canChange( fromStudent, toStudent) ){
-										double value = calculateChangeValue( fromStudent, toStudent);
+									double value = canChange(fromStudent, fromGroup, toStudent, toStudent.getGroup(sub));
+									if( value != 0.0 ){										
 										pq.add( new ChangeTask(fromStudent, fromGroup, toStudent, toStudent.getGroup(sub), this, value) );
-									}
+									} 
 								}
 							}
 						}
@@ -126,25 +140,48 @@ public class Solution implements Cloneable{
 	}
 
 	/**
-	 * Berechnet für das StudentenTupel die Veränderung des Lösungsraumswerts
-	 * @param stud
-	 * @param oneOfAll
-	 * @return
+	 * Berechnet, ob für die Kombination von Studenten ein Tausch möglich ist
+	 * und Berechnet für das StudentenTupel die Veränderung des Lösungsraumswerts
+	 * @param fromStudent
+	 * @param toStudent
+	 * @param fromGroup
+	 * @param toGroup
+	 * @return 0.0, wenn kein Tausch möglich
 	 */
-	private double calculateChangeValue(Student stud, Student oneOfAll) {
-		// TODO Auto-generated method stub
-		return 0.0;
-	}
-
-	/**
-	 * 	Berechnet, ob für die Kombination von Studenten ein Tausch möglich ist
-	 * @param stud
-	 * @param oneOfAll
-	 * @return
-	 */
-	private boolean canChange(Student stud, Student oneOfAll) {
-		// TODO Auto-generated method stub
-		return false;
+	private double canChange(Student fromStudent, Group fromGroup, Student toStudent, Group toGroup) {
+		double oldValue = this.getValue();
+		double newValue = 0.0;
+		/*
+		 * lösche beide Studierenden raus
+		 */
+		fromStudent.delGroup(fromGroup);
+		fromGroup.delStudent(fromStudent);
+		toStudent.delGroup(toGroup);
+		toGroup.delStudent(toStudent);
+		/*
+		 * Überprüfe, ob Einfügen möglich ist und berechne newValue
+		 */
+		if( fromGroup.addStudent(toStudent) ){
+			if(toGroup.addStudent(fromStudent)){
+				newValue = this.getValue();
+				/*
+				 * mache Tausch rückgängig
+				 */
+				fromStudent.delGroup(toGroup);
+				fromGroup.delStudent(toStudent);
+				toStudent.delGroup(fromGroup);
+				toGroup.delStudent(fromStudent);
+				return newValue - oldValue;
+			}
+			else{
+				toStudent.delGroup(fromGroup);
+				fromGroup.delStudent(toStudent);
+				return 0.0;
+			}			
+		}
+		else {
+			return 0.0;
+		}		
 	}
 	
 	@Override

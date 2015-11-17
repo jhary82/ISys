@@ -125,33 +125,11 @@ public final class Subject {
 	 * @return false, wenn keine passende Gruppe gefunden
 	 */
 	public boolean addStudentToGroup(Student stud){
-		/*
-		 * reservierte Zeitslots
-		 */
-		List<TimeSlot> slots = stud.getReservedTimeSlots();
-				
-		/*
-		 * suche eine Gruppe mit sich nicht überschneidenden Zeitslot 
-		 */
-		for(int i = 0; i < this.groups.size(); i++){
-			Group grp = groups.get(i);
-			boolean reserved = false;
-			TimeSlot slot = grp.getTimeSlot();
-			/*
-			 * Überprüfe, ob slot schon belegt wurde
-			 */
-			for(TimeSlot reservedSlot: slots){
-				if( reservedSlot == slot){
-					reserved = true;
-				}
+		for(Group grp: this.groups){
+			if( grp.addStudent(stud) ){
+				return true;
 			}
-			if( !reserved && !grp.isFull() ){
-				grp.addStudent(stud);
-				stud.addGroup( grp );				
-				return true;  
-			}			
 		}
-		
 		return false;
 	}
 	

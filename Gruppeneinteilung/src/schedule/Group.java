@@ -95,8 +95,32 @@ public final class Group {
 	 * Fügt einen Student zur Gruppe hinzu
 	 * @param stud
 	 */
-	public void addStudent(Student stud){
-		students.add(stud);
+	public boolean addStudent(Student stud){		
+		/*
+		 * reservierte Zeitslots
+		 */
+		List<TimeSlot> slots = stud.getReservedTimeSlots();
+				
+		/*
+		 * suche eine Gruppe mit sich nicht überschneidenden Zeitslot 
+		 */
+		boolean reserved = false;		
+		/*
+		 * Überprüfe, ob slot schon belegt wurde
+		 */
+		for(TimeSlot reservedSlot: slots){
+			if( reservedSlot == this.timeSlot){
+				reserved = true;
+			}
+		}
+		if( !reserved && !this.isFull() ){
+			students.add(stud);
+			stud.addGroup( this );				
+			return true;  
+		}			
+		
+		
+		return false;
 	}
 	
 	/**

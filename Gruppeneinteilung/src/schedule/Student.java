@@ -3,7 +3,6 @@ package schedule;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 /**
@@ -143,17 +142,22 @@ public final class Student {
 		}
 		return null;
 	}
-	
+
+
 	/**
-	 * Gibt den Präferenzwert zurueck.
-	 * @param stud
+	 * Berechnet aus der Ã¼bergebenden Gruppe aus,
+	 * wie gern er mit diesen Leuten in dieser Gruppe ist
+	 * @param grp
+	 * @param preferences
 	 * @return
 	 */
-	/*public double f(Student stud) {
-		if(preferences.containsKey(stud)) {
-			return preferences.get(stud).doubleValue();
+	public double rateGroup(Group grp, double[][] preferences) {
+		double value = 0.0;
+		for( Student stud : grp.getStudents()){
+			value += preferences[this.id][stud.getId()];
 		}
-		return 0;
-	}*/
+		return value;
+	}
+	
 	
 }

@@ -28,12 +28,13 @@ public final class Schedule {
 	private Parameters p;
 	
 	/**
-	 * Matrix von den Präferenzen von Studenten
+	 * Matrix von den Prï¿½ferenzen von Studenten
 	 */
 	private double[][] preferences;
 	
 	/**
 	 * Zufallsgenerator
+	 * TODO warum muÃŸ dies eine globale statische Variable sein?
 	 */
 	private static Random random = new Random();
 	
@@ -256,7 +257,7 @@ public final class Schedule {
 	}
 	
 	/**
-	 * Gibt die Matrix mit den Präferenzen zurück.
+	 * Gibt die Matrix mit den Prï¿½ferenzen zurï¿½ck.
 	 * @return
 	 */
 	public double[][] getPreferences() {
@@ -264,8 +265,9 @@ public final class Schedule {
 	}
 	
 	/**
-	 * Gibt das Random zurück
+	 * Gibt das Random zurï¿½ck
 	 * @return
+	 * TODO wofÃ¼r wird das gebraucht?
 	 */
 	public Random getRandom() {
 		return random;
@@ -297,7 +299,7 @@ public final class Schedule {
 		 * erstelle drei LÃ¶sungsrÃ¤ume
 		 */
 		for(int i = 0; i < value; i++){
-			Solution sol = new Solution();
+			Solution sol = new Solution(this.getPreferences());
 			solutions.add(sol);
 		}
 		
@@ -314,22 +316,14 @@ public final class Schedule {
 			/*
 			 * Aufgabenteil 2 
 			 */
-			studToGroupAllocation(sol);
-		}
-				
+			studToGroupAllocation(sol);			
+		}				
+		
 		/*
 		 * Aufgabenteil 3	
 		 */
-		//return solutions.get(0);//TODO localBeamSearch( solutions );
-		Solution sol = null;
-		try {
-			sol = (Solution) solutions.get(0).clone();
-		} catch (CloneNotSupportedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		solutions.clear();
-		return sol;
+		return localBeamSearch( solutions );
+		
 						
 	}
 	

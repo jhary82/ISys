@@ -102,8 +102,18 @@ public class ChangeTask implements Comparable<ChangeTask>{
 	 * Führe Änderung durch
 	 */
 	public void execute() {
-		//TODO Änderungen ausführen 
-		
+		/*
+		 * lösche altes Tupel raus
+		 */
+		fromStudent.delGroup(fromGroup);
+		fromGroup.delStudent(fromStudent);
+		toStudent.delGroup(toGroup);
+		toGroup.delStudent(toStudent);
+		/*
+		 * und füge in neue Gruppe ein
+		 */
+		fromGroup.addStudent(toStudent);
+		toGroup.addStudent(fromStudent);		
 	}
 
 }

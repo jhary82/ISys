@@ -33,12 +33,12 @@ public class ChangeTasks {
 	}
 	
 	/**
-	 * Berechnet den "besten" Lösungsraum
+	 *  Berechnet den "besten" Lösungsraum
 	 * mit Local Beam Search
+	 * @param pref Präferenzen der Studierenden
 	 * @return
 	 */
-	public Solution getBestSolution() {
-		Solution sol = new Solution();
+	public Solution getBestSolution() {		
 		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
 		/*
 		 * Maximaler SolutionValue zum Start
@@ -53,8 +53,11 @@ public class ChangeTasks {
 		/*
 		 * Schleife bis "beste" Lösung gefunden
 		 */
-		while( !pq.isEmpty() && maxValue < pq.peek().getSolution().getValue()){
-			System.out.println(maxValue);
+		do{			
+			/*
+			 * leere PriorityQueue
+			 */
+			pq.clear();			
 			/*
 			 * berechne für jede Solution die Liste von möglichen Änderungen
 		 	*/
@@ -70,12 +73,15 @@ public class ChangeTasks {
 			for(int i = 0; i < limit; i++){
 				ChangeTask task = pq.poll();
 				task.execute();
-				this.solutions.add( task.getSolution() );
+				try {
+					this.solutions.add( (Solution) task.getSolution().clone() );
+				} catch (CloneNotSupportedException e) {
+					e.printStackTrace();
+				}
 			}
-		}
-		
-		
-		return sol;
+		}while( maxValue < pq.peek().getSolution().getValue());
+				
+		return solutions.get(0);
 	}
 
 }
