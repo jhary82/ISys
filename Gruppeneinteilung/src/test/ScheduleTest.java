@@ -3,7 +3,7 @@
  */
 package test;
 
-import static org.junit.Assert.*;
+
 
 import org.junit.Test;
 
@@ -23,6 +23,7 @@ public class ScheduleTest {
 	public void testSchedule() {
 		Parameters p = new Parameters("parameters.json");		
 		Schedule sched = new Schedule(p);
+		System.out.println(sched.calculateSolution(3).toString());
 	}
 
 }

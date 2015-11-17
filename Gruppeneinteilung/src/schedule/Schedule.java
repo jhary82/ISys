@@ -32,42 +32,7 @@ public final class Schedule {
 	 * @param p
 	 */
 	public Schedule(Parameters p){
-		this.p = p;		
-		List<Solution> solutions = new LinkedList<>();
-		/*
-		 * erstelle drei Lösungsräume
-		 */
-		for(int i = 0; i < 3; i++){
-			Solution sol = new Solution();
-			solutions.add(sol);
-		}
-		
-		/*
-		 * für alle Lösungsräume
-		 */
-		for(Solution sol : solutions){
-			/*
-			 * Aufgabenteil 1
-			 */
-			addStudSubs(sol);
-			calcStudentsChoice(sol);
-			calcTimeSlots(sol);
-			/*
-			 * Aufgabenteil 2 
-			 */
-			studToGroupAllocation(sol);
-		}
-				
-		/*
-		 * Aufgabenteil 3	
-		 */
-		Solution bestSolution = solutions.get(0);//TODO localBeamSearch( solutions );
-						
-		/*
-		 * Ausgabe alle Gruppen mit Zeitslots
-		 */
-		System.out.println( bestSolution );		
-		
+		this.p = p;
 	}
 	
 	/**
@@ -273,6 +238,44 @@ public final class Schedule {
 			ChangeTasks changes = new ChangeTasks( solutions );		
 			return changes.getBestSolution();
 		}
+	}
+	
+	/**
+	 * Berechnet einen Lösungsraum
+	 * @param value Anzahl der verwendeten LocalBeamSearch-Suchen
+	 * @return
+	 */
+	public Solution calculateSolution(int value){
+		List<Solution> solutions = new LinkedList<>();
+		/*
+		 * erstelle drei Lösungsräume
+		 */
+		for(int i = 0; i < value; i++){
+			Solution sol = new Solution();
+			solutions.add(sol);
+		}
+		
+		/*
+		 * für alle Lösungsräume
+		 */
+		for(Solution sol : solutions){
+			/*
+			 * Aufgabenteil 1
+			 */
+			addStudSubs(sol);
+			calcStudentsChoice(sol);
+			calcTimeSlots(sol);
+			/*
+			 * Aufgabenteil 2 
+			 */
+			studToGroupAllocation(sol);
+		}
+				
+		/*
+		 * Aufgabenteil 3	
+		 */
+		return solutions.get(0);//TODO localBeamSearch( solutions );
+						
 	}
 	
 }
