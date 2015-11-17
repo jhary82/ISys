@@ -32,7 +32,7 @@ public final class Schedule {
 	 * @param p
 	 */
 	public Schedule(Parameters p){
-		this.p = p;		
+		this.p = p;
 		List<Solution> solutions = new LinkedList<>();
 		/*
 		 * erstelle drei Lösungsräume
@@ -76,7 +76,7 @@ public final class Schedule {
 	private void addStudSubs(Solution sol){		
 		List<Subject> subjects = p.getSubjects();
 		List<Student> students = new LinkedList<>();
-				
+		
 		/*
 		 * hole Belegungswahscheinlichkeiten
 		 */
