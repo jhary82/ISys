@@ -320,7 +320,16 @@ public final class Schedule {
 		/*
 		 * Aufgabenteil 3	
 		 */
-		return solutions.get(0);//TODO localBeamSearch( solutions );
+		//return solutions.get(0);//TODO localBeamSearch( solutions );
+		Solution sol = null;
+		try {
+			sol = (Solution) solutions.get(0).clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		solutions.clear();
+		return sol;
 						
 	}
 	

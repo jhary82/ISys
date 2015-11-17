@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  * @author skrause
  *
  */
-public class Solution {
+public class Solution implements Cloneable{
 
 	/**
 	 * Alle Studierenden
@@ -146,4 +146,10 @@ public class Solution {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
+	}
+	
 }
