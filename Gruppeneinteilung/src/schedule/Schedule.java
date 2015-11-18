@@ -268,7 +268,7 @@ public final class Schedule {
 			return null;
 		}
 		else{
-			ChangeTasks changes = new ChangeTasks( solutions );		
+			LocalBeamSearch changes = new LocalBeamSearch( solutions );		
 			return changes.getBestSolution();
 		}
 	}

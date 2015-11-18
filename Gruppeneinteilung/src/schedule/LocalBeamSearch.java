@@ -12,7 +12,7 @@ import java.util.Random;
  * @author skrause
  *
  */
-public final class ChangeTasks implements Serializable{
+public final class LocalBeamSearch implements Serializable{
 	/**
 	 * 
 	 */
@@ -33,7 +33,7 @@ public final class ChangeTasks implements Serializable{
 	 * @param solutions 
 	 * 
 	 */
-	public ChangeTasks(List<Solution> solutions) {
+	public LocalBeamSearch(List<Solution> solutions) {
 		this.solutions = solutions;
 		this.limit = solutions.size();
 	}
@@ -70,7 +70,7 @@ public final class ChangeTasks implements Serializable{
 			for(Solution solution : this.solutions ){
 				pq.addAll( solution.getChangeTaskList() );
 			}
-			//System.out.println("pq.size = " + pq.size()); TODO Raum möglicher Änderungen für DEBUG-Zwecke
+			System.out.println("pq.size = " + pq.size()); 
 			/*
 			 * sollte keine Änderungsliste erstellt werden können, nehme eine der vorhandenen Lösungsräume
 			 */

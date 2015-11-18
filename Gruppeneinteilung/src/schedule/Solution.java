@@ -140,9 +140,9 @@ public final class Solution implements Serializable{
 					for(Group toGroup : sub.getGroups()){
 						if( toGroup != fromGroup){							
 							for(Student toStudent: toGroup.getStudents()){
-								if(toStudent != fromStudent){
-									double value = canChange((Student)fromStudent, (Group)fromGroup, (Student)toStudent, (Group)toStudent.getGroup(sub));									
-									if( value != 0.0 ){										
+								if(toStudent != fromStudent){																		
+									if( canChange((Student)fromStudent, (Group)fromGroup, (Student)toStudent, (Group)toStudent.getGroup(sub)) ){
+										double value = changeValue((Student)fromStudent, (Group)fromGroup, (Student)toStudent, (Group)toStudent.getGroup(sub));
 										pq.add( new ChangeTask(fromStudent, fromGroup, toStudent, toStudent.getGroup(sub), this, value) );
 									} 
 								}
@@ -158,14 +158,13 @@ public final class Solution implements Serializable{
 
 	/**
 	 * Berechnet, ob für die Kombination von Studenten ein Tausch möglich ist
-	 * und Berechnet für das StudentenTupel die Veränderung des Lösungsraumswerts
 	 * @param fromStudent
 	 * @param toStudent
 	 * @param fromGroup
 	 * @param toGroup
-	 * @return 0.0, wenn kein Tausch möglich oder keine Verbesserung bringt
+	 * @return false, wenn kein Tausch möglich oder keine Verbesserung bringt
 	 */
-	private double canChange(Student fromStudent, Group fromGroup, Student toStudent, Group toGroup) {
+	private boolean canChange(Student fromStudent, Group fromGroup, Student toStudent, Group toGroup) {
 		/*
 		 * Überprüfe, ob Wechsel möglich ist
 		 */
@@ -179,7 +178,7 @@ public final class Solution implements Serializable{
 			}
 		}
 		if( possible){
-			return 0.0;
+			return !possible;
 		}
 		
 		possible = false;
@@ -191,10 +190,19 @@ public final class Solution implements Serializable{
 				possible = true;
 			}
 		}
-		if( possible ){
-			return 0.0;
-		} 
 		
+		return !possible;
+	}
+	
+	/**
+	 * Berechnet für das StudentenTupel den Wert der Veränderung des Lösungsraumswerts
+	 * @param fromStudent
+	 * @param fromGroup
+	 * @param toStudent
+	 * @param toGroup
+	 * @return
+	 */
+	private double changeValue(Student fromStudent, Group fromGroup, Student toStudent, Group toGroup) {		
 		double fromValue = this.getGroupValue(fromGroup);
 		double toValue = this.getGroupValue(toGroup);
 		double newFromValue = 0.0;
