@@ -102,8 +102,8 @@ public final class Parameters {
 		try {
 			Iterator<?> keys = jsonInput.keys();
 			while(keys.hasNext() ) {
+			String key = (String)keys.next();
 				for(int i = 0; i < count; i++) {
-				    String key = (String)keys.next();
 				    if ( jsonInput.get(key) instanceof JSONObject ) {
 				    	gs = jsonInput.getJSONObject(key).getInt("Groupsize");
 				    	list.add(new Subject(key+i, gs));
