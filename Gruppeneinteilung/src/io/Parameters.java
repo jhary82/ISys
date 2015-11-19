@@ -116,18 +116,6 @@ public final class Parameters {
 		return list;
 	}*/
 	
-	/*public void setSubject(Subject sub, int prob) {
-		String name = sub.getName();
-		JSONObject jSub = new JSONObject();
-		try {
-			jSub.put("Probability", prob);
-			jSub.put("Groupsize", sub.getGroupCount());
-			jsonInput.put(name, jSub);
-		} catch (Exception e) {
-			
-		}
-	}*/
-	
 	/**
 	 * @return the overlapFactor
 	 */

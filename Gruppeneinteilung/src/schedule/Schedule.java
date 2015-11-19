@@ -38,7 +38,7 @@ public final class Schedule {
 	 */
 	public Schedule(Parameters p){
 		this.p = p;
-		buildPreferences();
+		buildPreferences(0.5, 1.0);
 	}
 	
 	/**
@@ -231,7 +231,7 @@ public final class Schedule {
 		students = occupied;					
 	}
 	
-	private void buildPreferences() {
+	private void buildPreferences(double min, double max) {
 		int countStud = p.getCountStudents();
 		preferences = new double[countStud][countStud];
 		for(int i = 0; i < countStud; i++) {
@@ -241,8 +241,11 @@ public final class Schedule {
 				}else if(i <= j) {
 					// do nothing
 				} else {
-					double pref = new Random().nextDouble();
-					pref = Math.round(100.0 * pref) / 100.0;
+					double pref = 0.0;
+					do {
+						pref = new Random().nextDouble();
+						pref = Math.round(100.0 * pref) / 100.0;
+					} while (!(pref >= min && pref <= max));
 					preferences[i][j] = pref;
 					preferences[j][i] = pref;
 				}

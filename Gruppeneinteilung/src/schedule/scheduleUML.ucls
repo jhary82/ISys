@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.9" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+<class-diagram version="1.1.8" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="schedule.Subject" project="Gruppeneinteilung" 
     file="/Gruppeneinteilung/src/schedule/Subject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="609" y="429"/>    
+    <position height="-1" width="-1" x="605" y="546"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="schedule.Student" project="Gruppeneinteilung" 
     file="/Gruppeneinteilung/src/schedule/Student.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="603" y="255"/>    
+    <position height="-1" width="-1" x="581" y="152"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,10 +40,10 @@
   <association id="5">    
     <end type="SOURCE" refId="3" navigable="false">      
       <attribute id="6" name="subjects">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-4" y="117"/>      
       </attribute>      
       <multiplicity id="7" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-4" y="117"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
