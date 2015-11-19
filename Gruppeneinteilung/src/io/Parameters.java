@@ -96,6 +96,38 @@ public final class Parameters {
 		return list;
 	}
 	
+	/*public List<Subject> getSubjects(int count){
+		List<Subject> list = new LinkedList<>();
+		int gs;
+		try {
+			Iterator<?> keys = jsonInput.keys();
+			while(keys.hasNext() ) {
+				for(int i = 0; i < count; i++) {
+				    String key = (String)keys.next();
+				    if ( jsonInput.get(key) instanceof JSONObject ) {
+				    	gs = jsonInput.getJSONObject(key).getInt("Groupsize");
+				    	list.add(new Subject(key+i, gs));
+				    }
+				}
+			}
+		} catch (Exception e) {
+			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
+		}
+		return list;
+	}*/
+	
+	/*public void setSubject(Subject sub, int prob) {
+		String name = sub.getName();
+		JSONObject jSub = new JSONObject();
+		try {
+			jSub.put("Probability", prob);
+			jSub.put("Groupsize", sub.getGroupCount());
+			jsonInput.put(name, jSub);
+		} catch (Exception e) {
+			
+		}
+	}*/
+	
 	/**
 	 * @return the overlapFactor
 	 */
