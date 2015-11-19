@@ -6,6 +6,7 @@ package io;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
@@ -80,23 +81,18 @@ public final class Parameters {
 	public List<Subject> getSubjects(){
 		List<Subject> list = new LinkedList<>();
 		int gs;
-		Subject sa;
-		Subject sb;
-		Subject sc;
-		//TODO �berarbeiten mit Keys und einer Liste.
 		try {
-		gs = jsonInput.getJSONObject("A").getInt("Groupsize");
-		sa = new Subject("A", gs);
-		gs = jsonInput.getJSONObject("B").getInt("Groupsize");
-		sb = new Subject("B", gs);
-		gs = jsonInput.getJSONObject("C").getInt("Groupsize");
-		sc = new Subject("C", gs);
+			Iterator<?> keys = jsonInput.keys();
+			while( keys.hasNext() ) {
+			    String key = (String)keys.next();
+			    if ( jsonInput.get(key) instanceof JSONObject ) {
+			    	gs = jsonInput.getJSONObject(key).getInt("Groupsize");
+			    	list.add(new Subject(key, gs));
+			    }
+			}
 		} catch (Exception e) {
 			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
 		}
-		list.add(sa);
-		list.add(sb);
-		list.add(sc);
 		return list;
 	}
 	
