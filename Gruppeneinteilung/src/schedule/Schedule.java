@@ -33,6 +33,11 @@ public final class Schedule {
 	private double[][] preferences;	
 	
 	/**
+	 * Zufallszahlengenerator
+	 */
+	private static Random random = new Random(); 
+	
+	/**
 	 * Konstruktor
 	 * @param p
 	 */
@@ -168,7 +173,7 @@ public final class Schedule {
 			if(occupied.isEmpty()){
 				return;
 			}
-			Student stud = occupied.remove( new Random().nextInt( occupied.size() )) ;
+			Student stud = occupied.remove(random.nextInt( occupied.size() )) ;
 			if( stud != null){
 				students.add( stud );
 				stud.delFromAllGroups(); 
@@ -196,7 +201,7 @@ public final class Schedule {
 		 * jeder Studierende
 		 */
 		while( !students.isEmpty() ){
-			Student stud = students.remove( new Random().nextInt(students.size()));
+			Student stud = students.remove(random.nextInt(students.size()));
 			/*
 			 * jedes Fach des Studierenden
 			 */
@@ -243,7 +248,7 @@ public final class Schedule {
 				} else {
 					double pref = 0.0;
 					do {
-						pref = new Random().nextDouble();
+						pref = random.nextDouble();
 						pref = Math.round(100.0 * pref) / 100.0;
 					} while (!(pref >= min && pref <= max));
 					preferences[i][j] = pref;
@@ -260,7 +265,15 @@ public final class Schedule {
 	public double[][] getPreferences() {
 		return preferences;
 	}
-		
+	
+	/**
+	 * Gibt den Zufallszahlengenerator zurück.
+	 * @return
+	 */
+	public static Random getRandom() {
+		return random;
+	}
+
 	/**
 	 * Aufruf des Local Beam Search Algorithmus
 	 * @param solutions

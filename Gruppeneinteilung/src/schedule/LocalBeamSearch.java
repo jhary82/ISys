@@ -6,7 +6,6 @@ package schedule;
 import java.io.Serializable;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Random;
 
 /**
  * @author skrause
@@ -44,7 +43,7 @@ public final class LocalBeamSearch implements Serializable{
 	 * @param pref Präferenzen der Studierenden
 	 * @return
 	 */
-	public Solution getBestSolution() {		
+	public Solution getBestSolution() {
 		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
 		
 		/*
@@ -75,7 +74,7 @@ public final class LocalBeamSearch implements Serializable{
 			 * sollte keine Änderungsliste erstellt werden können, nehme eine der vorhandenen Lösungsräume
 			 */
 			if( pq.isEmpty() ){
-				return solutions.get(new Random().nextInt(solutions.size()));
+				return solutions.get(Schedule.getRandom().nextInt(solutions.size()));
 			}
 			
 			this.solutions.clear();

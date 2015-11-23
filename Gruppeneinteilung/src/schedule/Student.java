@@ -4,7 +4,6 @@ package schedule;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * 
@@ -54,7 +53,7 @@ public final class Student implements Serializable {
 	private void setSubjectsByKey(List<Subject> subs, List<Integer> prob ){		
 		
 		for(int i = 0; i < subs.size(); i++){
-			if( new Random().nextInt( 100 ) <= prob.get(i) ){
+			if(Schedule.getRandom().nextInt( 100 ) <= prob.get(i) ){
 				this.subjects.add( subs.get(i) ); 
 			}
 		}		
@@ -82,7 +81,7 @@ public final class Student implements Serializable {
 		List<Subject> randSub = new LinkedList<>();
 				
 		while( !subjects.isEmpty() ){						
-			randSub.add( subjects.remove( new Random().nextInt(subjects.size()) ) );
+			randSub.add( subjects.remove(Schedule.getRandom().nextInt(subjects.size()) ) );
 		}
 		subjects = randSub;
 		return randSub;
