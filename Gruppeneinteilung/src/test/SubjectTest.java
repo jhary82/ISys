@@ -1,17 +1,14 @@
-/**
- * 
- */
 package test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import io.Parameters;
 import schedule.Subject;
 
 /**
- * @author skrause
+ * Eine Test-Klasse für die Faecher
+ * @author Erik und Simon
  *
  */
 public class SubjectTest {

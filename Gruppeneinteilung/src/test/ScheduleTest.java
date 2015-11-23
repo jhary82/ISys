@@ -1,17 +1,14 @@
-/**
- * 
- */
 package test;
-
-
 
 import org.junit.Test;
 
 import io.Parameters;
+
 import schedule.Schedule;
 
 /**
- * @author skrause
+ * Eine Test-Klasse für die Gruppeneinteilung
+ * @author Erik und Simon
  *
  */
 public class ScheduleTest {
