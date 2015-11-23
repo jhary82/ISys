@@ -1,13 +1,13 @@
 package schedule;
 
-
 import java.io.Serializable;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 
- * @author simon
+ * Eine Klasse f�r einen Studenten
+ * @author Erik und Simon
  *
  */
 public final class Student implements Serializable {
@@ -23,7 +23,7 @@ public final class Student implements Serializable {
 	private int id;
 	
 	/**
-	 * Liste der F�cher
+	 * Liste der Faecher
 	 */
 	private List<Subject> subjects;
 	
@@ -33,7 +33,7 @@ public final class Student implements Serializable {
 	private List<Group> groups;
 	
 	/**
-	 * Konstruktor mit Fächerwahrscheinlichkeiten
+	 * Konstruktor mit Faecherwahrscheinlichkeiten
 	 * @param id
 	 * @param subjects
 	 * @param prob
@@ -47,7 +47,7 @@ public final class Student implements Serializable {
 	
 	
 	/**
-	 * Setzt die F�cher nach definierten Schl�sseln
+	 * Setzt die Faecher nach definierten Schluesseln
 	 * @param p
 	 */
 	private void setSubjectsByKey(List<Subject> subs, List<Integer> prob ){		
@@ -61,6 +61,7 @@ public final class Student implements Serializable {
 	}
 
 	/**
+	 * Gibt die Martrikelnummer zurueck
 	 * @return the id
 	 */
 	public int getId() {
@@ -73,8 +74,8 @@ public final class Student implements Serializable {
 	} 
 
 	/**
-	 * Gibt die Fächer zurück und
-	 * sortiert sie dabei zufällig neu
+	 * Gibt die Faecher zurueck und
+	 * sortiert sie dabei zufaellig neu
 	 * @return the subjects
 	 */
 	public List<Subject> getSubjects() {		
@@ -88,7 +89,7 @@ public final class Student implements Serializable {
 	}
 	
 	/**
-	 * Gibt eine Liste mit reservierten TimeSlots zurück
+	 * Gibt eine Liste mit reservierten TimeSlots zurueck
 	 * @return
 	 */
 	public List<TimeSlot> getReservedTimeSlots(){
@@ -100,7 +101,7 @@ public final class Student implements Serializable {
 	}
 	
 	/**
-	 * Fügt Gruppe hinzu
+	 * Fuegt Gruppe hinzu
 	 * @param group
 	 */
 	public void addGroup(Group group){
@@ -108,9 +109,9 @@ public final class Student implements Serializable {
 	}
 	
 	/**
-	 * Löscht die übergebende Gruppe
+	 * Loescht die uebergebende Gruppe
 	 * @param group
-	 * @return true, wenn Löschen erfolgreich
+	 * @return true, wenn Loeschen erfolgreich
 	 */
 	public boolean delGroup(Group group){
 		for(int i = 0; i < groups.size(); i++){
@@ -124,7 +125,7 @@ public final class Student implements Serializable {
 	}
 
 	/**
-	 * Löscht den Studierenden aus allen seinen Gruppen 
+	 * Loescht den Studierenden aus allen seinen Gruppen 
 	 */
 	public void delFromAllGroups() {
 		for(Group grp : groups){
@@ -135,9 +136,9 @@ public final class Student implements Serializable {
 
 
 	/**
-	 * Gibt die Gruppe des übergebenden Fachs zurück
+	 * Gibt die Gruppe des uebergebenden Fachs zurueck
 	 * @param sub
-	 * @return null, wenn keine Gruppe für das Fach definiert
+	 * @return null, wenn keine Gruppe fuer das Fach definiert
 	 */
 	public Group getGroup(Subject sub) {
 		for( Group grp : groups){
@@ -150,7 +151,7 @@ public final class Student implements Serializable {
 
 
 	/**
-	 * Berechnet aus der übergebenden Gruppe aus,
+	 * Berechnet aus der uebergebenden Gruppe aus,
 	 * wie gern er mit diesen Leuten in dieser Gruppe ist
 	 * @param grp
 	 * @param preferences

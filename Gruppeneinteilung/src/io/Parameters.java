@@ -1,19 +1,20 @@
-/**
- * 
- */
 package io;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.json.JSONObject;
+
 import schedule.Subject;
 
 /**
- * @author simon
+ * Eine Klasse um die erforderlichen Parameter aus der JSON zu lesen.
+ * @author Erik und Simon
  *
  */
 public final class Parameters {
@@ -30,7 +31,7 @@ public final class Parameters {
 	private JSONObject jsonInput;
 	
 	/**
-	 * Der �berschneidungsfaktor
+	 * Der Ueberschneidungsfaktor
 	 */
 	private double overlapFactor;
 	
@@ -58,7 +59,7 @@ public final class Parameters {
 	}
 		
 	/**
-	 * Gibt die Belegungswahrscheinlichkeit eines Fachs zurück
+	 * Gibt die Belegungswahrscheinlichkeit eines Fachs zurueck
 	 * @param sub
 	 * @return
 	 */
@@ -75,7 +76,7 @@ public final class Parameters {
 	}
 	
 	/**
-	 * Gibt eine Liste der Belegungsfächer zurück
+	 * Gibt eine Liste der Belegungsfaecher zurueck
 	 * @return
 	 */
 	public List<Subject> getSubjects(){
@@ -95,28 +96,9 @@ public final class Parameters {
 		}
 		return list;
 	}
-	
-	/*public List<Subject> getSubjects(int count){
-		List<Subject> list = new LinkedList<>();
-		int gs;
-		try {
-			Iterator<?> keys = jsonInput.keys();
-			while(keys.hasNext() ) {
-			String key = (String)keys.next();
-				for(int i = 0; i < count; i++) {
-				    if ( jsonInput.get(key) instanceof JSONObject ) {
-				    	gs = jsonInput.getJSONObject(key).getInt("Groupsize");
-				    	list.add(new Subject(key+i, gs));
-				    }
-				}
-			}
-		} catch (Exception e) {
-			throw new Error("ErrorCode: Parameters-003: " + e.getMessage());
-		}
-		return list;
-	}*/
-	
+
 	/**
+	 * Gibt den Ueberschneidungsfaktor zurueck
 	 * @return the overlapFactor
 	 */
 	public double getOverlapFactor() {
@@ -125,10 +107,11 @@ public final class Parameters {
 		} catch (Exception e) {
 			throw new Error("ErrorCode: Parameters-004: " + e.getMessage());
 		}
-		return overlapFactor;//overlapFactor;
+		return overlapFactor;
 	}
 
 	/**
+	 * Gibt die Anzahl der Studenten zurueck
 	 * @return the countStuds
 	 */
 	public int getCountStudents() {

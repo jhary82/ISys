@@ -1,15 +1,13 @@
-/**
- * 
- */
 package schedule;
 
 import java.io.Serializable;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 
- * @author skrause
+ * Eine Wrapper-Klasse fuer die Klasse TimeSlot
+ * @author Erik
  *
  */
 public final class TimeSlots implements Serializable{
@@ -37,8 +35,8 @@ public final class TimeSlots implements Serializable{
 	}
 
 	/**
-	 * Gibt den TimeSlot an pos im Zeitstrahl zurück
-	 * erweitert die Anzahl der TimeSlots, wenn nötig
+	 * Gibt den TimeSlot an pos im Zeitstrahl zurueck
+	 * erweitert die Anzahl der TimeSlots, wenn noetig
 	 * @param pos
 	 * @return
 	 */

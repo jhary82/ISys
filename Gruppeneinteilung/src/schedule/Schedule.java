@@ -1,6 +1,3 @@
-/**
- * 
- */
 package schedule;
 
 import java.util.LinkedList;
@@ -12,7 +9,9 @@ import java.util.HashMap;
 import io.Parameters;
 
 /**
- * @author simon
+ * Eine Klasse fuer die Verteilung der Studenten auf die Faecher
+ * in die einzelnen Gruppen
+ * @author Erik und Simon
  *
  */
 public final class Schedule {
@@ -28,7 +27,7 @@ public final class Schedule {
 	private Parameters p;
 	
 	/**
-	 * Matrix von den Pr�ferenzen von Studenten
+	 * Matrix von den Praeferenzen von Studenten
 	 */
 	private double[][] preferences;	
 	
@@ -47,7 +46,7 @@ public final class Schedule {
 	}
 	
 	/**
-	 * Fügt die Studierenden und Fächer hinzu
+	 * Fuegt die Studierenden und Faecher hinzu
 	 */
 	private void addStudSubs(Solution sol){		
 		List<Subject> subjects = p.getSubjects();
@@ -62,22 +61,22 @@ public final class Schedule {
 		}
 		
 		/*
-		 * setze Fächer/Belegungswahrscheinlichkeiten bei Studierenden ein
+		 * setze Faecher/Belegungswahrscheinlichkeiten bei Studierenden ein
 		 */
 		for( int i = 0; i < p.getCountStudents(); i++){			
 			students.add( new Student(i, subjects, prob) );
 		}		
 		
 		/*
-		 * fügt Students und Subject zu Solution hinzu
+		 * fuegt Students und Subject zu Solution hinzu
 		 */
 		sol.setStudents(students);
 		sol.setSubjects(subjects);		
 	}
 	
 	/**
-	 * Berechnet, auf Basis von welche Studierenden, welche Fächer belegen,
-	 * die benötigten Gruppenstärken der einzelnen Fächer
+	 * Berechnet, auf Basis von welche Studierenden, welche Faecher belegen,
+	 * die benoetigten Gruppenstaerken der einzelnen Faecher
 	 */
 	private void calcStudentsChoice(Solution sol){
 		Map<String, Integer> map = new HashMap<>();
@@ -102,8 +101,8 @@ public final class Schedule {
 	}
 	
 	/**
-	 * Berechnet die max. benötigten TimeSlots und 
-	 * erstellt mit Überschneidungsgrad die Gruppentermine
+	 * Berechnet die max. benoetigten TimeSlots und 
+	 * erstellt mit Ueberschneidungsgrad die Gruppentermine
 	 */
 	private void calcTimeSlots(Solution sol){		
 		List<Subject> subjects = sol.getSubjects();
@@ -113,8 +112,8 @@ public final class Schedule {
 		timeSlots = new TimeSlots(1);
 		
 		/*
-		 * Berechne für alle Gruppenkonstellationen die Anzahl der sich überschneidenden
-		 * TmeSlots mit Überschneidungsfaktor
+		 * Berechne fuer alle Gruppenkonstellationen die Anzahl der sich ueberschneidenden
+		 * TmeSlots mit Ueberschneidungsfaktor
 		 */
 		double faktor = p.getOverlapFactor();		
 		
@@ -134,7 +133,7 @@ public final class Schedule {
 		}
 		
 		/*
-		 * Multiplikation mit Überschneidungsfaktor 
+		 * Multiplikation mit Ueberschneidungsfaktor 
 		 */
 		minCountGroups *= faktor;
 		
@@ -143,7 +142,7 @@ public final class Schedule {
 		 */
 		for(Subject sub: subjects){				
 				/*
-				 * Trage TimeSlots für Gruppe ein
+				 * Trage TimeSlots fuer Gruppe ein
 				 */
 			for(int i = 0; i < minCountGroups; i++){
 				sub.addTimeSlot( timeSlots.getSlots(i));
@@ -153,7 +152,7 @@ public final class Schedule {
 		timePos = minCountGroups;
 		
 		/* 
-		 * fülle restliche Timeslots auf	 
+		 * fuelle restliche Timeslots auf	 
 		 */
 		for(Subject sub: subjects) {
 			for(Group grp: sub.getGroups()){
@@ -166,7 +165,7 @@ public final class Schedule {
 	}	
 	
 	/**
-	 * Löscht count zufällige Elemente aus occupied und fügt diese this.students hinzu
+	 * Loescht count zufaellige Elemente aus occupied und fuegt diese this.students hinzu
 	 */
 	private void delFromOccupied(int count, List<Student> occupied, List<Student> students){		
 		for(int i = 0; i < count; i++){
@@ -207,11 +206,11 @@ public final class Schedule {
 			 */
 			for(Subject studSub: stud.getSubjects()){
 				/*
-				 * füge den Studierenden zu Gruppe des Fachs hinzu
+				 * fuege den Studierenden zu Gruppe des Fachs hinzu
 				 */
 				if( !studSub.addStudentToGroup(stud) ){				
 					/*
-					 * lösche den letzten
+					 * loesche den letzten
 					 */
 					stud.delFromAllGroups();
 					students.add(stud);					
@@ -219,7 +218,7 @@ public final class Schedule {
 					steps++;
 					if(steps % 2 == 0){						
 						/*
-						 * lösche x weitere
+						 * loesche x weitere
 						 */
 						delFromOccupied(1, occupied, students);						
 					}
@@ -236,6 +235,11 @@ public final class Schedule {
 		students = occupied;					
 	}
 	
+	/**
+	 * Erstelle die Praeferenzen fuer die Studenten
+	 * @param min minimalhoehe der Praeferenz
+	 * @param max maximalhoehe der Praeferenz
+	 */
 	private void buildPreferences(double min, double max) {
 		int countStud = p.getCountStudents();
 		preferences = new double[countStud][countStud];
@@ -244,7 +248,7 @@ public final class Schedule {
 				if(i == j) {
 					preferences[i][j] = -1.0;
 				}else if(i <= j) {
-					// do nothing
+					// do nothing - da die Matrix an der Hauptdiagonalen gespielgelt wird.
 				} else {
 					double pref = 0.0;
 					do {
@@ -259,7 +263,7 @@ public final class Schedule {
 	}
 	
 	/**
-	 * Gibt die Matrix mit den Pr�ferenzen zur�ck.
+	 * Gibt die Matrix mit den Praeferenzen zurueck.
 	 * @return
 	 */
 	public double[][] getPreferences() {
@@ -267,7 +271,7 @@ public final class Schedule {
 	}
 	
 	/**
-	 * Gibt den Zufallszahlengenerator zur�ck.
+	 * Gibt den Zufallszahlengenerator zurueck.
 	 * @return
 	 */
 	public static Random getRandom() {
@@ -277,7 +281,7 @@ public final class Schedule {
 	/**
 	 * Aufruf des Local Beam Search Algorithmus
 	 * @param solutions
-	 * @return null, wenn leere Liste übergeben wurde
+	 * @return null, wenn leere Liste uebergeben wurde
 	 */
 	private Solution localBeamSearch(List<Solution> solutions) {
 		if( solutions.isEmpty() ){
@@ -290,14 +294,14 @@ public final class Schedule {
 	}
 	
 	/**
-	 * Berechnet einen Lösungsraum
+	 * Berechnet einen Loesungsraum
 	 * @param value Anzahl der verwendeten LocalBeamSearch-Suchen
 	 * @return
 	 */
 	public Solution calculateSolution(int value){
 		List<Solution> solutions = new LinkedList<>();
 		/*
-		 * erstelle drei Lösungsräume
+		 * erstelle drei Loesungsraeume
 		 */
 		for(int i = 0; i < value; i++){
 			Solution sol = new Solution(this.getPreferences());
@@ -305,7 +309,7 @@ public final class Schedule {
 		}
 		
 		/*
-		 * für alle Lösungsräume
+		 * fuer alle Loesungsraeume
 		 */
 		for(Solution sol : solutions){
 			/*

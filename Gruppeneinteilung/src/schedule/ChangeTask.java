@@ -1,12 +1,10 @@
-/**
- * 
- */
 package schedule;
 
 import java.io.Serializable;
 
 /**
- * @author skrause
+ * Eine Klasse f�r die Vertauschung von Studenten.
+ * @author Erik und Simon
  *
  */
 public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
@@ -17,22 +15,22 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Die Studenten 
 	 */
 	private Student fromStudent, toStudent;
 	
 	/**
-	 * 
+	 * Die Gruppen
 	 */
 	private Group fromGroup, toGroup;
 	
 	/**
-	 * der Lösungsraum, auf dem die Änderung stattfindet
+	 * der Loesungsraum, auf dem die Aenderung stattfindet
 	 */
 	private Solution solution;
 	
 	/**
-	 * der Wert (+/-) der Veränderung
+	 * der Wert (+/-) der Veraenderung
 	 */
 	private double changeValue;
 	
@@ -78,18 +76,18 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 	}
 
 	/**
-	 * Führe Änderung durch
+	 * Fuehre Aenderung durch
 	 */
 	public void execute() {
 		/*
-		 * lösche altes Tupel raus
+		 * loesche altes Tupel raus
 		 */
 		fromStudent.delGroup(fromGroup);
 		fromGroup.delStudent(fromStudent);
 		toStudent.delGroup(toGroup);
 		toGroup.delStudent(toStudent);
 		/*
-		 * und füge in neue Gruppe ein
+		 * und fuege in neue Gruppe ein
 		 */
 		fromGroup.addStudent(toStudent);
 		toGroup.addStudent(fromStudent);

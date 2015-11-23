@@ -1,6 +1,3 @@
-/**
- * 
- */
 package schedule;
 
 import java.io.ByteArrayInputStream;
@@ -9,13 +6,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
 
 /**
- * @author skrause
+ * Eine Klasse fuer den Loesungsraum
+ * @author Erik und Simon
  *
  */
 public final class Solution implements Serializable{
@@ -31,18 +30,18 @@ public final class Solution implements Serializable{
 	private List<Student> students;
 	
 	/**
-	 * Alle Fächer
+	 * Alle Faecher
 	 */
 	private List<Subject> subjects;
 		
 	/**
-	 * Matrix von den Pr�ferenzen von Studenten
+	 * Matrix von den Praeferenzen von Studenten
 	 */
 	private double[][] preferences;
 	
 	/**
 	 * Konstruktor
-	 * @param pref Präferenzen der Studierenden
+	 * @param pref Praeferenzen der Studierenden
 	 */
 	public Solution(double[][] pref) {
 		students = new LinkedList<>();
@@ -60,6 +59,7 @@ public final class Solution implements Serializable{
 	}
 
 	/**
+	 * Gibt eine Liste von allen Studenten zurueck
 	 * @return the students
 	 */
 	public List<Student> getStudents() {
@@ -67,6 +67,7 @@ public final class Solution implements Serializable{
 	}
 
 	/**
+	 * Legt eine Liste von Studenten fest
 	 * @param students the students to set
 	 */
 	public void setStudents(List<Student> students) {
@@ -74,6 +75,7 @@ public final class Solution implements Serializable{
 	}
 
 	/**
+	 * Gibt alle Faecher zurueck
 	 * @return the subjects
 	 */
 	public List<Subject> getSubjects() {
@@ -81,6 +83,7 @@ public final class Solution implements Serializable{
 	}
 
 	/**
+	 * Legt eine Liste von Faechern fest
 	 * @param subjects the subjects to set
 	 */
 	public void setSubjects(List<Subject> subjects) {
@@ -88,7 +91,7 @@ public final class Solution implements Serializable{
 	}
 	
 	/**
-	 * Berechnet den Wert dieses Lösungsraums aus
+	 * Berechnet den Wert dieses Loesungsraums aus
 	 * @return
 	 */
 	public double getValue(){
@@ -115,27 +118,27 @@ public final class Solution implements Serializable{
 	}
 
 	/**
-	 * Gibt eine Liste aller möglichen Tausch-Möglichkeiten zurück
+	 * Gibt eine Liste aller moeglichen Tausch-Moeglichkeiten zurueck
 	 * @return
 	 */
 	public PriorityQueue<ChangeTask> getChangeTaskList() {
 		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
 		
 		/*
-		 * für alle Fächer
+		 * fuer alle Faecher
 		 */
 		for( Subject sub : this.subjects ){
 			/*
-			 * für alle Gruppen
+			 * fuer alle Gruppen
 			 */
 			for( Group fromGroup : sub.getGroups()){
 				/*
-				 * für Studierende der Gruppe
+				 * fuer Studierende der Gruppe
 				 */
 				for(int i = 0; i < fromGroup.getStudents().size(); i++){
 					Student fromStudent = fromGroup.getStudents().get(i);
 					/*
-					 * für alle anderen Gruppen und deren Studierenden
+					 * fuer alle anderen Gruppen und deren Studierenden
 					 */
 					for(Group toGroup : sub.getGroups()){
 						if( toGroup != fromGroup){							
@@ -157,16 +160,16 @@ public final class Solution implements Serializable{
 	}
 
 	/**
-	 * Berechnet, ob für die Kombination von Studenten ein Tausch möglich ist
+	 * Berechnet, ob fuer die Kombination von Studenten ein Tausch moeglich ist
 	 * @param fromStudent
 	 * @param toStudent
 	 * @param fromGroup
 	 * @param toGroup
-	 * @return false, wenn kein Tausch möglich oder keine Verbesserung bringt
+	 * @return false, wenn kein Tausch moeglich oder keine Verbesserung bringt
 	 */
 	private boolean canChange(Student fromStudent, Group fromGroup, Student toStudent, Group toGroup) {
 		/*
-		 * Überprüfe, ob Wechsel möglich ist
+		 * Ueberpruefe, ob Wechsel moeglich ist
 		 */
 		boolean possible = false;
 		for(TimeSlot slot : fromStudent.getReservedTimeSlots()){
@@ -195,7 +198,7 @@ public final class Solution implements Serializable{
 	}
 	
 	/**
-	 * Berechnet für das StudentenTupel den Wert der Veränderung des Lösungsraumswerts
+	 * Berechnet fuer das StudentenTupel den Wert der Veraenderung des Loesungsraumswerts
 	 * @param fromStudent
 	 * @param fromGroup
 	 * @param toStudent
@@ -209,7 +212,7 @@ public final class Solution implements Serializable{
 		double newToValue = 0.0;
 		/*
 		 * Berechne neuen Gruppenwert,
-		 * wenn toStudent in fromGroup wäre
+		 * wenn toStudent in fromGroup waere
 		 */
 		for(int i = 0; i < fromGroup.getStudents().size(); i++){
 			Student stud = fromGroup.getStudents().get(i);
@@ -228,7 +231,7 @@ public final class Solution implements Serializable{
 		}
 		/*
 		 * Berechne neuen Gruppenwert,
-		 * wenn fromStudent in toGroup wäre
+		 * wenn fromStudent in toGroup waere
 		 */
 		for(int i = 0; i < toGroup.getStudents().size(); i++){
 			Student stud = toGroup.getStudents().get(i);

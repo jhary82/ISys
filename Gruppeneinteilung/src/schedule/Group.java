@@ -1,14 +1,13 @@
-/**
- * 
- */
 package schedule;
 
 import java.io.Serializable;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author skrause
+ * Eine Klasse f�r die Gruppe von Studenten
+ * @author Erik und Simon
  *
  */
 public final class Group implements Serializable{
@@ -34,7 +33,7 @@ public final class Group implements Serializable{
 	private TimeSlot timeSlot;
 	
 	/**
-	 * Gruppengröße 
+	 * Gruppengroesse 
 	 */
 	private int groupSize;
 	
@@ -78,7 +77,7 @@ public final class Group implements Serializable{
 	}
 	
 	/**
-	 * Gibt die Anzahl der teilnehmenden Studierenden zurück
+	 * Gibt die Anzahl der teilnehmenden Studierenden zurueck
 	 * @return
 	 */
 	public int countStudents(){
@@ -86,6 +85,7 @@ public final class Group implements Serializable{
 	}
 	
 	/**
+	 * Gibt den TimeSlot zurueck
 	 * @return the timeSlot
 	 */
 	public TimeSlot getTimeSlot() {
@@ -93,7 +93,7 @@ public final class Group implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Ueberprueft ob die Gruppe voll ist
 	 * @return true, wenn Gruppe voll ist
 	 */
 	public boolean isFull(){
@@ -101,7 +101,7 @@ public final class Group implements Serializable{
 	}
 	
 	/**
-	 * Fügt einen Student zur Gruppe hinzu
+	 * Fuegt einen Student zur Gruppe hinzu
 	 * @param stud
 	 */
 	public boolean addStudent(Student stud){		
@@ -111,11 +111,11 @@ public final class Group implements Serializable{
 		List<TimeSlot> slots = stud.getReservedTimeSlots();
 				
 		/*
-		 * suche eine Gruppe mit sich nicht überschneidenden Zeitslot 
+		 * suche eine Gruppe mit sich nicht Ueberschneidenden Zeitslot 
 		 */
 		boolean reserved = false;		
 		/*
-		 * Überprüfe, ob slot schon belegt wurde
+		 * Ueberpruefe, ob slot schon belegt wurde
 		 */
 		for(TimeSlot reservedSlot: slots){
 			if( reservedSlot == this.timeSlot){
@@ -133,9 +133,9 @@ public final class Group implements Serializable{
 	}
 	
 	/**
-	 * Löscht den übergebenden Studenten aus Gruppe
+	 * Loescht den Uebergebenden Studenten aus Gruppe
 	 * @param stud
-	 * @return true, wenn Student erfolgreich gelöscht wurde
+	 * @return true, wenn Student erfolgreich geloescht wurde
 	 */
 	public boolean delStudent(Student stud){
 		for(int i = 0; i < students.size(); i++){
@@ -149,6 +149,7 @@ public final class Group implements Serializable{
 	}
 	
 	/**
+	 * Setzt den Timeslot
 	 * @param timeSlot the timeSlot to set
 	 */
 	public void setTimeSlot(TimeSlot timeSlot) {
@@ -156,6 +157,7 @@ public final class Group implements Serializable{
 	}
 
 	/**
+	 * Gibt die Liste aller Studenten zurueck
 	 * @return the students
 	 */
 	public List<Student> getStudents() {
@@ -163,6 +165,7 @@ public final class Group implements Serializable{
 	}
 
 	/**
+	 * Gibt das Fach zurueck
 	 * @return the subject
 	 */
 	public Subject getSubject() {

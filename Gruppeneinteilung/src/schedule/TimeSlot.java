@@ -1,12 +1,10 @@
-/**
- * 
- */
 package schedule;
 
 import java.io.Serializable;
 
 /**
- * @author skrause
+ * Eine Klasse fuer einen Time Slot
+ * @author Erik und Simon
  *
  */
 public final class TimeSlot implements Serializable{

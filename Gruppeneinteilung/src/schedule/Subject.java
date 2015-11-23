@@ -1,14 +1,13 @@
-/**
- * 
- */
 package schedule;
 
 import java.io.Serializable;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author simon
+ * Eine Klasse f�r das Fach
+ * @author Erik und Simon
  *
  */
 public final class Subject implements Serializable{
@@ -29,7 +28,7 @@ public final class Subject implements Serializable{
 	private List<Group> groups;
 	
 	/**
-	 * Gruppengröße
+	 * Gruppengroesse
 	 */
 	private int groupSize;
 	
@@ -46,7 +45,7 @@ public final class Subject implements Serializable{
 	
 	/**
 	 * Setzt die Anzahl der teilnehmenden Studierenden
-	 * und gibt die benötigte Anzahl der Gruppen zurück
+	 * und gibt die benoetigte Anzahl der Gruppen zurueck
 	 * @param value
 	 * @return
 	 */
@@ -65,7 +64,7 @@ public final class Subject implements Serializable{
 	}
 	
 	/**
-	 * Gibt die Anzahl der Gruppen zurück
+	 * Gibt die Anzahl der Gruppen zurueck
 	 * @return
 	 */
 	public int getGroupCount(){
@@ -73,7 +72,7 @@ public final class Subject implements Serializable{
 	}
 	
 	/**
-	 * Gibt die Gruppen zurück
+	 * Gibt die Gruppen zurueck
 	 * @return
 	 */
 	public List<Group> getGroups(){
@@ -81,7 +80,7 @@ public final class Subject implements Serializable{
 	}
 	
 	/**
-	 * Gibt Namen zurück
+	 * Gibt Namen zurueck
 	 */
 	public String getName() {
 		return name;
@@ -109,9 +108,9 @@ public final class Subject implements Serializable{
 	}
 	
 	/**
-	 * Fügt einen TimeSlot zu einer Gruppe hinzu
+	 * Fuegt einen TimeSlot zu einer Gruppe hinzu
 	 * @param slot 
-	 * @return false, wenn kein Slot mehr hinzugefügt werden konnte
+	 * @return false, wenn kein Slot mehr hinzugefuegt werden konnte
 	 */
 	public boolean addTimeSlot(TimeSlot slot){		
 		
@@ -126,7 +125,7 @@ public final class Subject implements Serializable{
 	}
 	
 	/**
-	 * Fügt einen Studierenden zu einer ihm passenden Gruppe hinzu 
+	 * Fuegt einen Studierenden zu einer ihm passenden Gruppe hinzu 
 	 * @param stud
 	 * @return false, wenn keine passende Gruppe gefunden
 	 */
@@ -138,7 +137,4 @@ public final class Subject implements Serializable{
 		}
 		return false;
 	}
-	
-
-
 }

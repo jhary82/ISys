@@ -1,14 +1,13 @@
-/**
- * 
- */
 package schedule;
 
 import java.io.Serializable;
+
 import java.util.List;
 import java.util.PriorityQueue;
 
 /**
- * @author skrause
+ * Eine Klasse f�r den Local Beam Search
+ * @author Erik und Simon
  *
  */
 public final class LocalBeamSearch implements Serializable{
@@ -18,12 +17,12 @@ public final class LocalBeamSearch implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Liste von Lösungsräumen
+	 * Liste von Loesungsraeumen
 	 */
 	private List<Solution> solutions;
 	
 	/**
-	 * Grenzwert für Local Beam Search
+	 * Grenzwert fuer Local Beam Search
 	 */
 	private int limit;
 	
@@ -38,9 +37,9 @@ public final class LocalBeamSearch implements Serializable{
 	}
 	
 	/**
-	 *  Berechnet den "besten" Lösungsraum
+	 * Berechnet den "besten" Loesungsraum
 	 * mit Local Beam Search
-	 * @param pref Präferenzen der Studierenden
+	 * @param pref Praeferenzen der Studierenden
 	 * @return
 	 */
 	public Solution getBestSolution() {
@@ -48,13 +47,13 @@ public final class LocalBeamSearch implements Serializable{
 		
 		/*
 		 * Abbruchwert,
-		 * letzter Wert des Lösungsraums
+		 * letzter Wert des Loesungsraums
 		 */
 		double lastValue = 0.0;
 		Solution lastSolution = null;
 				
 		/*
-		 * Schleife bis "beste" Lösung gefunden
+		 * Schleife bis "beste" Loesung gefunden
 		 */
 		while( lastValue < solutions.get(0).getValue() ){			
 			lastValue = solutions.get(0).getValue();
@@ -64,14 +63,14 @@ public final class LocalBeamSearch implements Serializable{
 			 */
 			pq.clear();			
 			/*
-			 * berechne für jede Solution die Liste von möglichen Änderungen
+			 * berechne fuer jede Solution die Liste von moeglichen Aenderungen
 		 	*/
 			for(Solution solution : this.solutions ){
 				pq.addAll( solution.getChangeTaskList() );
 			}
 			System.out.println("pq.size = " + pq.size()); 
 			/*
-			 * sollte keine Änderungsliste erstellt werden können, nehme eine der vorhandenen Lösungsräume
+			 * sollte keine Aenderungsliste erstellt werden koennen, nehme eine der vorhandenen Loesungsraeume
 			 */
 			if( pq.isEmpty() ){
 				return solutions.get(Schedule.getRandom().nextInt(solutions.size()));
@@ -79,8 +78,8 @@ public final class LocalBeamSearch implements Serializable{
 			
 			this.solutions.clear();
 			/*
-			 * Führe ersten x-ChangeTasks aus und 
-			 * füge deren Solutions zu neuen StartSolutions hinzu
+			 * Fuehre ersten x-ChangeTasks aus und 
+			 * fuege deren Solutions zu neuen StartSolutions hinzu
 			 */
 			for(int i = 0; i < limit; i++){
 				ChangeTask task = pq.poll();
