@@ -1,212 +1,325 @@
-Fach: A mit 326 Teilnehmern
+pq.size = 1269512
+15623.959999999995 > 15629.119999999995
+pq.size = 1259990
+15629.119999999995 > 15633.039999999995
+pq.size = 1259550
+15633.039999999995 > 15637.239999999996
+pq.size = 1259592
+15637.239999999996 > 15640.099999999995
+pq.size = 1259574
+15640.099999999995 > 15643.399999999996
+pq.size = 1259574
+15643.399999999996 > 15647.639999999996
+pq.size = 1259574
+15647.639999999996 > 15651.119999999995
+pq.size = 1259574
+15651.119999999995 > 15654.099999999995
+pq.size = 1259520
+15654.099999999995 > 15658.059999999996
+pq.size = 1259520
+15658.059999999996 > 15661.979999999996
+pq.size = 1259520
+15661.979999999996 > 15667.259999999997
+pq.size = 1259556
+15667.259999999997 > 15670.379999999996
+pq.size = 1259172
+15670.379999999996 > 15674.079999999996
+pq.size = 1259172
+15674.079999999996 > 15678.059999999996
+pq.size = 1258812
+15678.059999999996 > 15680.699999999995
+pq.size = 1258812
+15680.699999999995 > 15683.459999999995
+pq.size = 1258812
+15683.459999999995 > 15687.499999999996
+pq.size = 1258812
+15687.499999999996 > 15689.439999999997
+pq.size = 1258812
+15689.439999999997 > 15692.539999999995
+pq.size = 1258812
+15692.539999999995 > 15696.659999999996
+pq.size = 1258746
+15696.659999999996 > 15698.819999999996
+pq.size = 1258746
+15698.819999999996 > 15701.899999999996
+pq.size = 1258764
+15701.899999999996 > 15704.799999999996
+pq.size = 1258764
+15704.799999999996 > 15707.079999999996
+pq.size = 1258788
+15707.079999999996 > 15709.839999999997
+pq.size = 1258668
+15709.839999999997 > 15712.199999999997
+pq.size = 1258668
+15712.199999999997 > 15717.539999999997
+pq.size = 1258758
+15717.539999999997 > 15721.279999999997
+pq.size = 1258746
+15721.279999999997 > 15723.799999999996
+pq.size = 1258776
+15723.799999999996 > 15725.759999999997
+pq.size = 1258830
+15725.759999999997 > 15729.039999999995
+pq.size = 1258866
+15729.039999999995 > 15734.099999999997
+pq.size = 1258866
+15734.099999999997 > 15735.079999999996
+pq.size = 1258572
+15735.079999999996 > 15737.459999999995
+pq.size = 1258572
+15737.459999999995 > 15740.539999999995
+pq.size = 1258572
+15740.539999999995 > 15743.319999999996
+pq.size = 1258422
+15743.319999999996 > 15745.959999999995
+pq.size = 1258326
+15745.959999999995 > 15748.659999999996
+pq.size = 1258134
+15748.659999999996 > 15750.639999999996
+pq.size = 1258122
+15750.639999999996 > 15753.259999999997
+pq.size = 1258014
+15753.259999999997 > 15755.739999999996
+pq.size = 1257840
+15755.739999999996 > 15758.179999999997
+pq.size = 1257840
+15758.179999999997 > 15760.599999999997
+pq.size = 1257840
+15760.599999999997 > 15763.199999999995
+pq.size = 1257738
+15763.199999999995 > 15768.519999999995
+pq.size = 1257738
+15768.519999999995 > 15771.239999999996
+pq.size = 1257342
+15771.239999999996 > 15773.559999999996
+pq.size = 1257342
+15773.559999999996 > 15776.219999999996
+pq.size = 1257396
+15776.219999999996 > 15778.679999999997
+pq.size = 1257396
+15778.679999999997 > 15780.499999999996
+pq.size = 1257396
+15780.499999999996 > 15782.739999999996
+pq.size = 1257528
+15782.739999999996 > 15784.979999999996
+pq.size = 1257528
+15784.979999999996 > 15787.359999999995
+pq.size = 1257504
+15787.359999999995 > 15790.039999999995
+pq.size = 1257504
+15790.039999999995 > 15791.539999999995
+pq.size = 1257504
+15791.539999999995 > 15792.979999999996
+pq.size = 1258696
+15792.979999999996 > 15795.079999999996
+pq.size = 1257466
+15795.079999999996 > 15784.979999999996
+Fach: SWT1 P mit 363 Teilnehmern
 Gruppe Nr.: 0 mit 12 Teilnehmern am Termin: Zeitslot: 0
-11, 346, 160, 41, 347, 68, 320, 340, 150, 144, 319, 314, 
+327, 360, 101, 169, 233, 181, 291, 167, 257, 283, 112, 206, 
 Gruppe Nr.: 1 mit 12 Teilnehmern am Termin: Zeitslot: 1
-392, 104, 176, 77, 331, 40, 246, 178, 116, 124, 190, 188, 
+372, 122, 50, 332, 151, 186, 15, 377, 227, 285, 215, 251, 
 Gruppe Nr.: 2 mit 12 Teilnehmern am Termin: Zeitslot: 2
-328, 212, 181, 166, 45, 100, 311, 129, 355, 115, 317, 139, 
+248, 307, 188, 158, 244, 265, 119, 271, 212, 114, 66, 339, 
 Gruppe Nr.: 3 mit 12 Teilnehmern am Termin: Zeitslot: 3
-245, 388, 344, 199, 342, 173, 391, 206, 213, 367, 231, 156, 
+321, 51, 216, 363, 362, 107, 311, 104, 25, 312, 234, 96, 
 Gruppe Nr.: 4 mit 12 Teilnehmern am Termin: Zeitslot: 4
-396, 315, 102, 223, 134, 257, 62, 194, 50, 335, 138, 210, 
+120, 47, 184, 361, 218, 346, 64, 366, 336, 13, 103, 274, 
 Gruppe Nr.: 5 mit 12 Teilnehmern am Termin: Zeitslot: 5
-96, 44, 39, 215, 35, 152, 27, 170, 353, 354, 98, 158, 
+299, 228, 44, 53, 269, 219, 12, 225, 278, 48, 34, 334, 
 Gruppe Nr.: 6 mit 12 Teilnehmern am Termin: Zeitslot: 6
-10, 374, 187, 336, 330, 308, 341, 365, 318, 99, 312, 200, 
+192, 180, 217, 322, 157, 247, 150, 357, 177, 319, 179, 398, 
 Gruppe Nr.: 7 mit 12 Teilnehmern am Termin: Zeitslot: 7
-109, 63, 84, 376, 251, 322, 332, 268, 92, 91, 122, 209, 
+302, 27, 313, 388, 166, 8, 343, 338, 267, 58, 71, 394, 
 Gruppe Nr.: 8 mit 12 Teilnehmern am Termin: Zeitslot: 8
-393, 303, 22, 275, 244, 94, 313, 132, 143, 282, 198, 66, 
+305, 370, 320, 318, 164, 368, 72, 19, 106, 230, 205, 349, 
 Gruppe Nr.: 9 mit 12 Teilnehmern am Termin: Zeitslot: 9
-281, 345, 18, 83, 159, 53, 301, 87, 36, 397, 119, 56, 
+315, 364, 100, 237, 173, 280, 387, 344, 191, 352, 333, 197, 
 Gruppe Nr.: 10 mit 12 Teilnehmern am Termin: Zeitslot: 10
-218, 247, 298, 204, 233, 5, 90, 296, 371, 361, 203, 37, 
+317, 49, 115, 135, 138, 379, 223, 335, 67, 168, 296, 245, 
 Gruppe Nr.: 11 mit 12 Teilnehmern am Termin: Zeitslot: 11
-334, 112, 338, 48, 306, 186, 292, 386, 145, 360, 259, 220, 
+174, 118, 355, 255, 40, 147, 211, 99, 143, 221, 277, 231, 
 Gruppe Nr.: 12 mit 12 Teilnehmern am Termin: Zeitslot: 12
-149, 177, 43, 171, 321, 398, 289, 121, 327, 242, 271, 32, 
+314, 207, 381, 392, 330, 187, 393, 270, 328, 200, 348, 121, 
 Gruppe Nr.: 13 mit 12 Teilnehmern am Termin: Zeitslot: 13
-264, 227, 162, 57, 2, 286, 108, 23, 368, 280, 269, 125, 
+45, 252, 165, 3, 38, 154, 193, 325, 57, 62, 126, 198, 
 Gruppe Nr.: 14 mit 12 Teilnehmern am Termin: Zeitslot: 14
-136, 378, 31, 221, 97, 85, 399, 230, 305, 240, 252, 30, 
+39, 83, 131, 240, 308, 86, 61, 140, 54, 37, 129, 345, 
 Gruppe Nr.: 15 mit 12 Teilnehmern am Termin: Zeitslot: 15
-165, 288, 260, 33, 217, 351, 228, 291, 358, 42, 161, 235, 
+236, 259, 31, 326, 88, 373, 382, 375, 263, 292, 256, 52, 
 Gruppe Nr.: 16 mit 12 Teilnehmern am Termin: Zeitslot: 16
-352, 304, 385, 64, 201, 78, 356, 113, 118, 88, 59, 117, 
+41, 380, 161, 0, 298, 289, 132, 347, 16, 199, 76, 242, 
 Gruppe Nr.: 17 mit 12 Teilnehmern am Termin: Zeitslot: 17
-310, 364, 24, 375, 295, 29, 34, 54, 164, 157, 270, 123, 
+385, 232, 28, 329, 1, 383, 2, 384, 74, 77, 264, 63, 
 Gruppe Nr.: 18 mit 12 Teilnehmern am Termin: Zeitslot: 18
-105, 28, 256, 216, 236, 65, 16, 272, 243, 12, 192, 180, 
+253, 288, 46, 272, 162, 32, 75, 190, 163, 33, 293, 17, 
 Gruppe Nr.: 19 mit 12 Teilnehmern am Termin: Zeitslot: 19
-70, 239, 26, 219, 211, 163, 197, 366, 205, 297, 294, 384, 
+374, 185, 159, 249, 282, 316, 224, 395, 20, 273, 111, 95, 
 Gruppe Nr.: 20 mit 12 Teilnehmern am Termin: Zeitslot: 20
-258, 323, 189, 135, 284, 290, 214, 17, 93, 255, 131, 168, 
+9, 35, 81, 14, 5, 142, 196, 189, 303, 241, 21, 160, 
 Gruppe Nr.: 21 mit 12 Teilnehmern am Termin: Zeitslot: 21
-89, 395, 174, 337, 184, 142, 324, 13, 253, 179, 225, 285, 
+91, 276, 170, 108, 213, 290, 92, 84, 222, 139, 125, 144, 
 Gruppe Nr.: 22 mit 12 Teilnehmern am Termin: Zeitslot: 22
-248, 0, 3, 1, 148, 195, 394, 95, 141, 363, 128, 370, 
+369, 94, 378, 78, 358, 24, 137, 309, 178, 250, 134, 98, 
 Gruppe Nr.: 23 mit 12 Teilnehmern am Termin: Zeitslot: 23
-279, 348, 263, 106, 6, 267, 81, 58, 130, 82, 226, 46, 
+353, 110, 42, 146, 195, 203, 337, 70, 304, 235, 284, 239, 
 Gruppe Nr.: 24 mit 12 Teilnehmern am Termin: Zeitslot: 24
-389, 283, 151, 47, 241, 8, 316, 80, 254, 237, 357, 325, 
+342, 136, 340, 258, 87, 11, 148, 113, 89, 152, 359, 287, 
 Gruppe Nr.: 25 mit 12 Teilnehmern am Termin: Zeitslot: 25
-326, 369, 277, 261, 238, 114, 300, 250, 299, 167, 7, 185, 
+69, 214, 294, 331, 194, 36, 10, 281, 145, 310, 153, 65, 
 Gruppe Nr.: 26 mit 12 Teilnehmern am Termin: Zeitslot: 26
-147, 153, 349, 362, 234, 55, 276, 383, 343, 333, 52, 49, 
-Gruppe Nr.: 27 mit 2 Teilnehmern am Termin: Zeitslot: 27
-19, 154, 
-Fach: B mit 365 Teilnehmern
-Gruppe Nr.: 0 mit 12 Teilnehmern am Termin: Zeitslot: 0
-309, 176, 212, 255, 161, 357, 342, 173, 293, 196, 315, 391, 
-Gruppe Nr.: 1 mit 12 Teilnehmern am Termin: Zeitslot: 1
-339, 316, 73, 125, 245, 346, 146, 203, 166, 388, 344, 120, 
-Gruppe Nr.: 2 mit 12 Teilnehmern am Termin: Zeitslot: 2
-318, 392, 104, 11, 140, 121, 231, 243, 331, 160, 302, 199, 
-Gruppe Nr.: 3 mit 12 Teilnehmern am Termin: Zeitslot: 3
-328, 186, 77, 181, 285, 45, 100, 41, 311, 371, 52, 185, 
-Gruppe Nr.: 4 mit 12 Teilnehmern am Termin: Zeitslot: 4
-81, 347, 320, 92, 374, 144, 327, 96, 20, 44, 38, 158, 
-Gruppe Nr.: 5 mit 12 Teilnehmern am Termin: Zeitslot: 5
-396, 254, 361, 68, 10, 157, 192, 305, 102, 223, 126, 276, 
-Gruppe Nr.: 6 mit 12 Teilnehmern am Termin: Zeitslot: 6
-128, 270, 39, 282, 190, 257, 215, 35, 152, 167, 76, 2, 
-Gruppe Nr.: 7 mit 12 Teilnehmern am Termin: Zeitslot: 7
-397, 127, 383, 27, 170, 187, 336, 393, 308, 229, 303, 345, 
-Gruppe Nr.: 8 mit 12 Teilnehmern am Termin: Zeitslot: 8
-330, 40, 272, 109, 63, 281, 84, 376, 220, 251, 18, 180, 
-Gruppe Nr.: 9 mit 12 Teilnehmern am Termin: Zeitslot: 9
-116, 22, 75, 208, 69, 32, 367, 218, 280, 12, 265, 54, 
-Gruppe Nr.: 10 mit 12 Teilnehmern am Termin: Zeitslot: 10
-83, 275, 313, 370, 292, 132, 118, 88, 53, 334, 235, 252, 
-Gruppe Nr.: 11 mit 12 Teilnehmern am Termin: Zeitslot: 11
-319, 159, 301, 149, 113, 154, 130, 111, 247, 177, 298, 34, 
-Gruppe Nr.: 12 mit 12 Teilnehmern am Termin: Zeitslot: 12
-82, 363, 204, 51, 233, 5, 278, 90, 61, 209, 93, 296, 
-Gruppe Nr.: 13 mit 12 Teilnehmern am Termin: Zeitslot: 13
-123, 72, 30, 48, 381, 306, 355, 43, 136, 171, 335, 101, 
-Gruppe Nr.: 14 mit 12 Teilnehmern am Termin: Zeitslot: 14
-172, 86, 321, 398, 183, 317, 21, 107, 264, 373, 226, 162, 
-Gruppe Nr.: 15 mit 12 Teilnehmern am Termin: Zeitslot: 15
-57, 307, 286, 155, 380, 297, 87, 108, 213, 333, 352, 322, 
-Gruppe Nr.: 16 mit 12 Teilnehmern am Termin: Zeitslot: 28
-268, 60, 387, 377, 62, 31, 200, 71, 221, 97, 49, 85, 
-Gruppe Nr.: 17 mit 12 Teilnehmern am Termin: Zeitslot: 29
-19, 399, 165, 288, 15, 368, 260, 33, 217, 351, 228, 237, 
-Gruppe Nr.: 18 mit 12 Teilnehmern am Termin: Zeitslot: 30
-291, 358, 262, 269, 80, 304, 385, 4, 91, 64, 201, 23, 
-Gruppe Nr.: 19 mit 12 Teilnehmern am Termin: Zeitslot: 31
-131, 382, 310, 59, 24, 95, 375, 74, 295, 365, 29, 266, 
-Gruppe Nr.: 20 mit 12 Teilnehmern am Termin: Zeitslot: 32
-139, 386, 25, 105, 28, 314, 256, 216, 36, 42, 236, 141, 
-Gruppe Nr.: 21 mit 12 Teilnehmern am Termin: Zeitslot: 33
-14, 194, 65, 16, 70, 239, 26, 219, 211, 163, 197, 366, 
-Gruppe Nr.: 22 mit 12 Teilnehmern am Termin: Zeitslot: 34
-242, 372, 205, 230, 225, 175, 258, 210, 98, 323, 135, 273, 
-Gruppe Nr.: 23 mit 12 Teilnehmern am Termin: Zeitslot: 35
-325, 287, 284, 58, 50, 290, 214, 89, 395, 174, 337, 354, 
-Gruppe Nr.: 24 mit 12 Teilnehmern am Termin: Zeitslot: 36
-9, 184, 138, 324, 13, 384, 253, 103, 248, 0, 246, 134, 
-Gruppe Nr.: 25 mit 12 Teilnehmern am Termin: Zeitslot: 37
-3, 188, 1, 148, 117, 195, 46, 279, 207, 240, 143, 137, 
-Gruppe Nr.: 26 mit 12 Teilnehmern am Termin: Zeitslot: 38
-106, 150, 156, 274, 178, 6, 267, 164, 343, 79, 389, 145, 
-Gruppe Nr.: 27 mit 12 Teilnehmern am Termin: Zeitslot: 39
-283, 110, 151, 47, 241, 8, 224, 206, 198, 353, 326, 369, 
-Gruppe Nr.: 28 mit 12 Teilnehmern am Termin: Zeitslot: 40
-277, 261, 390, 238, 202, 37, 350, 114, 99, 299, 56, 17, 
-Gruppe Nr.: 29 mit 12 Teilnehmern am Termin: Zeitslot: 41
-147, 359, 153, 341, 67, 7, 169, 360, 362, 249, 234, 312, 
-Gruppe Nr.: 30 mit 5 Teilnehmern am Termin: Zeitslot: 42
-294, 271, 300, 348, 191, 
-Fach: C mit 346 Teilnehmern
-Gruppe Nr.: 0 mit 12 Teilnehmern am Termin: Zeitslot: 0
-339, 125, 77, 181, 222, 285, 243, 45, 331, 388, 302, 52, 
-Gruppe Nr.: 1 mit 12 Teilnehmern am Termin: Zeitslot: 1
-318, 309, 328, 11, 232, 140, 100, 160, 199, 311, 371, 81, 
-Gruppe Nr.: 2 mit 12 Teilnehmern am Termin: Zeitslot: 2
-296, 73, 186, 245, 346, 119, 146, 203, 41, 344, 122, 342, 
-Gruppe Nr.: 3 mit 12 Teilnehmern am Termin: Zeitslot: 3
-392, 104, 316, 255, 161, 121, 357, 293, 396, 347, 315, 259, 
-Gruppe Nr.: 4 mit 12 Teilnehmern am Termin: Zeitslot: 4
-173, 254, 391, 361, 68, 10, 157, 305, 271, 39, 126, 215, 
-Gruppe Nr.: 5 mit 12 Teilnehmern am Termin: Zeitslot: 5
-320, 92, 374, 327, 20, 128, 38, 270, 282, 134, 257, 397, 
-Gruppe Nr.: 6 mit 12 Teilnehmern am Termin: Zeitslot: 6
-144, 96, 158, 223, 127, 193, 383, 27, 170, 393, 272, 109, 
-Gruppe Nr.: 7 mit 12 Teilnehmern am Termin: Zeitslot: 7
-35, 152, 167, 76, 330, 40, 281, 220, 18, 22, 75, 69, 
-Gruppe Nr.: 8 mit 12 Teilnehmern am Termin: Zeitslot: 8
-308, 116, 229, 345, 340, 32, 332, 367, 218, 83, 265, 168, 
-Gruppe Nr.: 9 mit 12 Teilnehmern am Termin: Zeitslot: 9
-63, 303, 84, 376, 251, 180, 275, 244, 94, 313, 292, 132, 
-Gruppe Nr.: 10 mit 12 Teilnehmern am Termin: Zeitslot: 10
-319, 159, 301, 191, 149, 182, 112, 66, 154, 111, 177, 82, 
-Gruppe Nr.: 11 mit 12 Teilnehmern am Termin: Zeitslot: 11
-53, 252, 363, 204, 233, 141, 5, 329, 278, 90, 61, 123, 
-Gruppe Nr.: 12 mit 12 Teilnehmern am Termin: Zeitslot: 12
-334, 235, 113, 130, 338, 72, 179, 30, 48, 381, 306, 136, 
-Gruppe Nr.: 13 mit 12 Teilnehmern am Termin: Zeitslot: 13
-209, 93, 172, 86, 321, 398, 183, 289, 317, 107, 373, 307, 
-Gruppe Nr.: 14 mit 12 Teilnehmern am Termin: Zeitslot: 14
-43, 335, 227, 57, 380, 297, 87, 213, 333, 352, 60, 377, 
-Gruppe Nr.: 15 mit 12 Teilnehmern am Termin: Zeitslot: 15
-264, 378, 268, 62, 31, 200, 71, 221, 97, 49, 85, 399, 
-Gruppe Nr.: 16 mit 12 Teilnehmern am Termin: Zeitslot: 43
-165, 288, 15, 368, 260, 217, 351, 228, 237, 291, 358, 262, 
-Gruppe Nr.: 17 mit 12 Teilnehmern am Termin: Zeitslot: 44
-269, 80, 304, 91, 64, 201, 23, 78, 131, 356, 382, 310, 
-Gruppe Nr.: 18 mit 12 Teilnehmern am Termin: Zeitslot: 45
-59, 24, 17, 95, 375, 74, 295, 365, 139, 34, 386, 105, 
-Gruppe Nr.: 19 mit 12 Teilnehmern am Termin: Zeitslot: 46
-28, 314, 256, 216, 36, 236, 14, 194, 65, 16, 70, 239, 
-Gruppe Nr.: 20 mit 12 Teilnehmern am Termin: Zeitslot: 47
-26, 219, 211, 163, 197, 242, 372, 205, 230, 175, 258, 98, 
-Gruppe Nr.: 21 mit 12 Teilnehmern am Termin: Zeitslot: 48
-323, 273, 325, 287, 58, 50, 290, 214, 89, 395, 174, 337, 
-Gruppe Nr.: 22 mit 12 Teilnehmern am Termin: Zeitslot: 49
-354, 9, 184, 138, 142, 324, 13, 384, 253, 103, 185, 248, 
-Gruppe Nr.: 23 mit 12 Teilnehmern am Termin: Zeitslot: 50
-0, 246, 3, 188, 148, 117, 195, 46, 394, 279, 207, 348, 
-Gruppe Nr.: 24 mit 12 Teilnehmern am Termin: Zeitslot: 51
-263, 240, 143, 106, 150, 156, 274, 178, 6, 267, 133, 164, 
-Gruppe Nr.: 25 mit 12 Teilnehmern am Termin: Zeitslot: 52
-124, 343, 115, 79, 389, 145, 283, 151, 47, 241, 8, 224, 
-Gruppe Nr.: 26 mit 12 Teilnehmern am Termin: Zeitslot: 53
-206, 198, 326, 369, 277, 261, 390, 238, 202, 37, 114, 300, 
-Gruppe Nr.: 27 mit 12 Teilnehmern am Termin: Zeitslot: 54
-250, 99, 299, 56, 147, 359, 153, 341, 67, 7, 349, 169, 
-Gruppe Nr.: 28 mit 10 Teilnehmern am Termin: Zeitslot: 55
-360, 362, 249, 234, 55, 312, 276, 137, 294, 54, 
+117, 116, 90, 229, 254, 149, 226, 155, 30, 351, 268, 390, 
+Gruppe Nr.: 27 mit 12 Teilnehmern am Termin: Zeitslot: 27
+18, 156, 59, 376, 297, 128, 127, 133, 386, 68, 82, 350, 
+Gruppe Nr.: 28 mit 12 Teilnehmern am Termin: Zeitslot: 28
+365, 341, 354, 323, 105, 124, 210, 29, 279, 123, 182, 275, 
+Gruppe Nr.: 29 mit 12 Teilnehmern am Termin: Zeitslot: 29
+260, 6, 201, 43, 204, 79, 85, 266, 397, 238, 109, 97, 
+Gruppe Nr.: 30 mit 3 Teilnehmern am Termin: Zeitslot: 30
+243, 396, 23, 
 Fach: D mit 400 Teilnehmern
 Gruppe Nr.: 0 mit 25 Teilnehmern am Termin: Zeitslot: 0
-318, 392, 104, 328, 296, 232, 73, 186, 245, 140, 119, 146, 121, 231, 166, 100, 344, 120, 199, 311, 371, 129, 81, 396, 254, 
+394, 287, 307, 216, 372, 122, 244, 119, 362, 15, 377, 107, 311, 271, 114, 264, 47, 98, 102, 251, 277, 391, 184, 299, 192, 
 Gruppe Nr.: 1 mit 25 Teilnehmern am Termin: Zeitslot: 1
-212, 161, 181, 222, 243, 45, 357, 41, 302, 122, 52, 342, 173, 293, 196, 347, 315, 259, 391, 361, 68, 320, 92, 10, 374, 
+327, 248, 101, 188, 169, 181, 291, 158, 257, 265, 197, 212, 104, 350, 25, 312, 120, 130, 228, 44, 53, 361, 180, 269, 217, 
 Gruppe Nr.: 2 mit 25 Teilnehmern am Termin: Zeitslot: 2
-339, 309, 316, 176, 77, 255, 285, 388, 144, 327, 96, 20, 128, 44, 157, 192, 38, 158, 305, 102, 270, 271, 223, 39, 282, 
+273, 321, 51, 233, 167, 332, 283, 151, 363, 231, 93, 227, 322, 182, 125, 157, 218, 219, 346, 64, 366, 12, 225, 198, 247, 
 Gruppe Nr.: 3 mit 25 Teilnehmern am Termin: Zeitslot: 3
-11, 125, 346, 203, 331, 160, 126, 134, 190, 257, 215, 397, 35, 152, 127, 167, 76, 193, 383, 27, 170, 187, 336, 393, 330, 
+360, 76, 50, 112, 186, 245, 278, 23, 242, 275, 150, 357, 177, 302, 27, 313, 82, 388, 166, 8, 343, 338, 267, 58, 71, 
 Gruppe Nr.: 4 mit 25 Teilnehmern am Termin: Zeitslot: 4
-40, 272, 308, 109, 116, 63, 229, 281, 303, 84, 376, 220, 345, 251, 18, 180, 22, 75, 208, 69, 340, 322, 32, 332, 367, 
+305, 370, 183, 320, 199, 318, 164, 368, 72, 4, 19, 106, 230, 205, 315, 364, 60, 209, 96, 100, 237, 173, 280, 17, 387, 
 Gruppe Nr.: 5 mit 25 Teilnehmern am Termin: Zeitslot: 5
-218, 280, 83, 12, 265, 275, 244, 168, 94, 313, 370, 292, 132, 319, 118, 88, 159, 53, 301, 191, 149, 334, 182, 112, 235, 
+344, 191, 317, 352, 49, 115, 215, 135, 138, 379, 223, 335, 63, 67, 389, 168, 174, 118, 355, 65, 97, 255, 314, 175, 40, 
 Gruppe Nr.: 6 mit 25 Teilnehmern am Termin: Zeitslot: 6
-66, 113, 154, 252, 130, 111, 247, 177, 82, 363, 298, 204, 51, 233, 141, 5, 329, 278, 90, 61, 338, 209, 123, 72, 179, 
+207, 147, 381, 211, 99, 143, 392, 221, 330, 187, 393, 286, 270, 328, 171, 200, 348, 45, 13, 252, 339, 165, 3, 38, 154, 
 Gruppe Nr.: 7 mit 25 Teilnehmern am Termin: Zeitslot: 7
-93, 30, 48, 381, 306, 355, 43, 136, 171, 172, 335, 101, 86, 321, 398, 183, 289, 317, 21, 107, 264, 373, 226, 227, 162, 
+193, 333, 325, 57, 62, 39, 83, 131, 240, 308, 103, 86, 61, 140, 54, 37, 390, 236, 126, 259, 31, 326, 367, 88, 373, 
 Gruppe Nr.: 8 mit 25 Teilnehmern am Termin: Zeitslot: 8
-57, 307, 2, 286, 155, 380, 297, 87, 108, 213, 333, 378, 352, 268, 60, 387, 377, 62, 31, 200, 71, 221, 97, 49, 85, 
+382, 375, 263, 292, 256, 41, 21, 380, 161, 111, 0, 298, 289, 371, 132, 345, 347, 16, 385, 301, 232, 28, 329, 1, 383, 
 Gruppe Nr.: 9 mit 25 Teilnehmern am Termin: Zeitslot: 9
-19, 399, 165, 288, 15, 368, 260, 33, 217, 351, 228, 237, 291, 358, 262, 269, 80, 304, 385, 4, 91, 64, 201, 23, 78, 
+2, 384, 74, 234, 77, 134, 253, 288, 95, 46, 272, 162, 32, 75, 190, 163, 33, 293, 374, 262, 179, 185, 243, 26, 139, 
 Gruppe Nr.: 10 mit 25 Teilnehmern am Termin: Zeitslot: 10
-131, 356, 382, 310, 59, 364, 24, 17, 95, 375, 74, 295, 365, 29, 139, 34, 386, 25, 105, 28, 314, 256, 216, 36, 42, 
+159, 249, 282, 316, 224, 73, 395, 20, 9, 35, 81, 109, 14, 5, 142, 196, 246, 189, 303, 241, 121, 91, 310, 276, 48, 
 Gruppe Nr.: 11 mit 25 Teilnehmern am Termin: Zeitslot: 11
-236, 14, 194, 65, 16, 70, 239, 26, 219, 211, 163, 197, 366, 242, 372, 205, 230, 225, 175, 258, 210, 98, 323, 189, 135, 
+170, 319, 108, 208, 213, 202, 80, 290, 92, 84, 222, 369, 398, 94, 378, 78, 358, 24, 296, 137, 309, 178, 250, 353, 110, 
 Gruppe Nr.: 12 mit 25 Teilnehmern am Termin: Zeitslot: 12
-273, 325, 287, 284, 58, 50, 290, 214, 89, 395, 174, 337, 354, 9, 184, 138, 142, 324, 13, 384, 253, 103, 185, 248, 0, 
+42, 146, 195, 203, 66, 337, 70, 304, 235, 284, 342, 136, 340, 52, 258, 172, 324, 87, 11, 22, 148, 113, 89, 152, 300, 
 Gruppe Nr.: 13 mit 25 Teilnehmern am Termin: Zeitslot: 13
-246, 3, 188, 1, 148, 117, 195, 46, 394, 279, 207, 348, 263, 240, 143, 106, 150, 156, 274, 178, 6, 267, 133, 164, 124, 
+359, 141, 55, 206, 69, 129, 214, 399, 294, 331, 144, 194, 36, 10, 220, 281, 145, 117, 116, 90, 229, 254, 149, 274, 226, 
 Gruppe Nr.: 14 mit 25 Teilnehmern am Termin: Zeitslot: 14
-343, 115, 79, 389, 145, 283, 110, 151, 47, 241, 8, 224, 206, 198, 353, 326, 369, 277, 261, 390, 238, 202, 37, 350, 114, 
+155, 30, 351, 268, 18, 156, 59, 376, 334, 297, 128, 160, 295, 127, 133, 7, 386, 68, 365, 341, 354, 323, 105, 124, 153, 
 Gruppe Nr.: 15 mit 25 Teilnehmern am Termin: Zeitslot: 15
-300, 250, 99, 299, 56, 147, 359, 153, 341, 67, 7, 349, 169, 360, 362, 249, 234, 55, 312, 379, 276, 137, 266, 294, 54, 
+306, 210, 29, 279, 56, 123, 396, 260, 6, 201, 43, 356, 204, 34, 79, 85, 266, 336, 397, 238, 349, 176, 261, 285, 239, 
+Fach: VSys P mit 348 Teilnehmern
+Gruppe Nr.: 0 mit 12 Teilnehmern am Termin: Zeitslot: 0
+273, 321, 248, 158, 332, 231, 186, 245, 227, 212, 25, 312, 
+Gruppe Nr.: 1 mit 12 Teilnehmern am Termin: Zeitslot: 1
+51, 216, 76, 167, 283, 363, 119, 362, 93, 107, 311, 114, 
+Gruppe Nr.: 2 mit 12 Teilnehmern am Termin: Zeitslot: 2
+327, 360, 101, 372, 122, 50, 112, 377, 104, 350, 264, 120, 
+Gruppe Nr.: 3 mit 12 Teilnehmern am Termin: Zeitslot: 3
+394, 307, 188, 169, 233, 257, 244, 265, 47, 98, 102, 251, 
+Gruppe Nr.: 4 mit 12 Teilnehmern am Termin: Zeitslot: 4
+277, 391, 192, 228, 269, 322, 225, 198, 247, 23, 275, 150, 
+Gruppe Nr.: 5 mit 12 Teilnehmern am Termin: Zeitslot: 5
+184, 361, 180, 217, 157, 218, 346, 366, 242, 302, 313, 166, 
+Gruppe Nr.: 6 mit 12 Teilnehmern am Termin: Zeitslot: 6
+299, 182, 125, 64, 278, 27, 82, 343, 338, 58, 370, 183, 
+Gruppe Nr.: 7 mit 12 Teilnehmern am Termin: Zeitslot: 7
+305, 320, 199, 72, 19, 60, 209, 96, 237, 17, 344, 191, 
+Gruppe Nr.: 8 mit 12 Teilnehmern am Termin: Zeitslot: 8
+8, 267, 71, 4, 315, 100, 173, 280, 352, 115, 215, 138, 
+Gruppe Nr.: 9 mit 12 Teilnehmern am Termin: Zeitslot: 9
+164, 368, 106, 230, 205, 317, 49, 135, 379, 63, 67, 168, 
+Gruppe Nr.: 10 mit 12 Teilnehmern am Termin: Zeitslot: 10
+389, 174, 118, 355, 65, 97, 255, 314, 381, 211, 99, 392, 
+Gruppe Nr.: 11 mit 12 Teilnehmern am Termin: Zeitslot: 11
+335, 175, 207, 330, 187, 393, 286, 270, 328, 171, 200, 348, 
+Gruppe Nr.: 12 mit 12 Teilnehmern am Termin: Zeitslot: 12
+147, 45, 252, 339, 165, 3, 38, 193, 325, 57, 62, 83, 
+Gruppe Nr.: 13 mit 12 Teilnehmern am Termin: Zeitslot: 13
+13, 39, 131, 240, 308, 103, 86, 61, 140, 54, 37, 390, 
+Gruppe Nr.: 14 mit 12 Teilnehmern am Termin: Zeitslot: 14
+236, 126, 259, 31, 326, 367, 88, 373, 382, 375, 263, 292, 
+Gruppe Nr.: 15 mit 12 Teilnehmern am Termin: Zeitslot: 15
+41, 21, 380, 111, 0, 298, 289, 371, 132, 345, 347, 16, 
+Gruppe Nr.: 16 mit 12 Teilnehmern am Termin: Zeitslot: 31
+256, 301, 232, 28, 329, 1, 383, 384, 74, 234, 77, 46, 
+Gruppe Nr.: 17 mit 12 Teilnehmern am Termin: Zeitslot: 32
+162, 32, 75, 190, 163, 33, 293, 374, 262, 179, 185, 243, 
+Gruppe Nr.: 18 mit 12 Teilnehmern am Termin: Zeitslot: 33
+26, 139, 159, 249, 282, 316, 224, 73, 395, 20, 9, 35, 
+Gruppe Nr.: 19 mit 12 Teilnehmern am Termin: Zeitslot: 34
+81, 109, 14, 5, 142, 246, 303, 241, 121, 91, 310, 276, 
+Gruppe Nr.: 20 mit 12 Teilnehmern am Termin: Zeitslot: 35
+48, 170, 319, 108, 213, 80, 290, 92, 84, 222, 369, 398, 
+Gruppe Nr.: 21 mit 12 Teilnehmern am Termin: Zeitslot: 36
+94, 378, 78, 358, 24, 296, 137, 178, 250, 353, 110, 146, 
+Gruppe Nr.: 22 mit 12 Teilnehmern am Termin: Zeitslot: 37
+195, 203, 66, 304, 235, 284, 342, 136, 340, 258, 172, 324, 
+Gruppe Nr.: 23 mit 12 Teilnehmern am Termin: Zeitslot: 38
+87, 11, 22, 148, 113, 89, 152, 359, 55, 206, 69, 129, 
+Gruppe Nr.: 24 mit 12 Teilnehmern am Termin: Zeitslot: 39
+214, 399, 294, 144, 194, 36, 220, 281, 145, 117, 116, 90, 
+Gruppe Nr.: 25 mit 12 Teilnehmern am Termin: Zeitslot: 40
+229, 254, 149, 274, 226, 155, 30, 351, 268, 18, 59, 376, 
+Gruppe Nr.: 26 mit 12 Teilnehmern am Termin: Zeitslot: 41
+297, 128, 160, 295, 127, 133, 7, 386, 68, 365, 341, 354, 
+Gruppe Nr.: 27 mit 12 Teilnehmern am Termin: Zeitslot: 42
+105, 124, 153, 306, 210, 29, 279, 56, 123, 260, 6, 201, 
+Gruppe Nr.: 28 mit 12 Teilnehmern am Termin: Zeitslot: 43
+43, 356, 204, 34, 85, 266, 336, 238, 349, 176, 261, 285, 
+Fach: BeSy P mit 312 Teilnehmern
+Gruppe Nr.: 0 mit 12 Teilnehmern am Termin: Zeitslot: 0
+51, 188, 50, 265, 151, 363, 93, 197, 104, 350, 120, 130, 
+Gruppe Nr.: 1 mit 12 Teilnehmern am Termin: Zeitslot: 1
+321, 360, 307, 233, 244, 112, 231, 245, 264, 47, 98, 391, 
+Gruppe Nr.: 2 mit 12 Teilnehmern am Termin: Zeitslot: 2
+394, 287, 169, 216, 181, 291, 76, 257, 362, 186, 107, 311, 
+Gruppe Nr.: 3 mit 12 Teilnehmern am Termin: Zeitslot: 3
+273, 327, 248, 101, 167, 158, 122, 332, 377, 227, 114, 184, 
+Gruppe Nr.: 4 mit 12 Teilnehmern am Termin: Zeitslot: 4
+25, 299, 44, 53, 180, 217, 182, 157, 219, 12, 278, 242, 
+Gruppe Nr.: 5 mit 12 Teilnehmern am Termin: Zeitslot: 5
+192, 322, 125, 64, 247, 23, 275, 150, 177, 27, 82, 388, 
+Gruppe Nr.: 6 mit 12 Teilnehmern am Termin: Zeitslot: 6
+228, 225, 198, 302, 166, 8, 267, 71, 305, 320, 199, 318, 
+Gruppe Nr.: 7 mit 12 Teilnehmern am Termin: Zeitslot: 7
+370, 164, 368, 4, 106, 230, 205, 315, 364, 100, 173, 280, 
+Gruppe Nr.: 8 mit 12 Teilnehmern am Termin: Zeitslot: 8
+343, 338, 209, 96, 237, 17, 387, 344, 191, 317, 49, 135, 
+Gruppe Nr.: 9 mit 12 Teilnehmern am Termin: Zeitslot: 9
+19, 115, 215, 138, 223, 335, 389, 118, 355, 65, 97, 255, 
+Gruppe Nr.: 10 mit 12 Teilnehmern am Termin: Zeitslot: 10
+175, 40, 207, 147, 143, 221, 187, 393, 286, 328, 200, 348, 
+Gruppe Nr.: 11 mit 12 Teilnehmern am Termin: Zeitslot: 11
+379, 168, 314, 381, 392, 45, 13, 252, 165, 3, 154, 333, 
+Gruppe Nr.: 12 mit 12 Teilnehmern am Termin: Zeitslot: 12
+99, 39, 240, 308, 103, 140, 54, 37, 390, 236, 126, 259, 
+Gruppe Nr.: 13 mit 12 Teilnehmern am Termin: Zeitslot: 13
+31, 367, 88, 373, 382, 375, 263, 292, 41, 21, 380, 161, 
+Gruppe Nr.: 14 mit 12 Teilnehmern am Termin: Zeitslot: 14
+111, 0, 289, 371, 132, 347, 16, 385, 301, 28, 1, 383, 
+Gruppe Nr.: 15 mit 12 Teilnehmern am Termin: Zeitslot: 15
+2, 74, 234, 77, 134, 253, 288, 95, 46, 272, 32, 75, 
+Gruppe Nr.: 16 mit 12 Teilnehmern am Termin: Zeitslot: 44
+190, 163, 33, 374, 185, 243, 26, 139, 159, 249, 282, 316, 
+Gruppe Nr.: 17 mit 12 Teilnehmern am Termin: Zeitslot: 45
+224, 73, 395, 20, 9, 35, 81, 109, 14, 142, 196, 303, 
+Gruppe Nr.: 18 mit 12 Teilnehmern am Termin: Zeitslot: 46
+241, 91, 310, 170, 319, 208, 213, 80, 290, 92, 84, 398, 
+Gruppe Nr.: 19 mit 12 Teilnehmern am Termin: Zeitslot: 47
+94, 378, 358, 309, 178, 250, 353, 42, 66, 337, 235, 342, 
+Gruppe Nr.: 20 mit 12 Teilnehmern am Termin: Zeitslot: 48
+136, 340, 52, 258, 172, 11, 22, 148, 113, 89, 152, 359, 
+Gruppe Nr.: 21 mit 12 Teilnehmern am Termin: Zeitslot: 49
+141, 55, 206, 69, 399, 294, 331, 194, 36, 10, 220, 281, 
+Gruppe Nr.: 22 mit 12 Teilnehmern am Termin: Zeitslot: 50
+145, 116, 90, 229, 254, 149, 274, 226, 155, 30, 351, 268, 
+Gruppe Nr.: 23 mit 12 Teilnehmern am Termin: Zeitslot: 51
+156, 59, 334, 128, 160, 295, 127, 133, 7, 386, 68, 365, 
+Gruppe Nr.: 24 mit 12 Teilnehmern am Termin: Zeitslot: 52
+341, 354, 323, 124, 153, 306, 210, 29, 279, 56, 123, 260, 
+Gruppe Nr.: 25 mit 12 Teilnehmern am Termin: Zeitslot: 53
+6, 356, 204, 79, 85, 266, 336, 397, 349, 176, 285, 239, 
+

@@ -1,20 +1,20 @@
 {
 	"Students": 80,
 	"Overlapfactor": 1.0,
-	"A": {
+	"BeSy P": {
 		"Probability": 80,
 		"Groupsize": 12
 	},
-	"B": {
+	"SWT1 P": {
 		"Probability": 90,
 		"Groupsize": 12
 	},
-	"C": {
+	"VSys P": {
 		"Probability": 85,
 		"Groupsize": 12
 	},
 	"D": {
 		"Probability": 99,
-		"Groupsize": 12
+		"Groupsize": 25
 	}
 }
