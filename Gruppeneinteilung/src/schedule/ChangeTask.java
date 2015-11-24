@@ -3,7 +3,7 @@ package schedule;
 import java.io.Serializable;
 
 /**
- * Eine Klasse für die Vertauschung von Studenten.
+ * Eine Klasse fï¿½r die Vertauschung von Studenten.
  * @author Erik und Simon
  *
  */
@@ -78,7 +78,7 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 	/**
 	 * Fuehre Aenderung durch
 	 */
-	public void execute(Solution sol) {
+	public boolean execute(Solution sol) {
 		/*
 		 * loesche altes Tupel raus
 		 */
@@ -104,6 +104,10 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 			}
 		}
 			
+		if(fStudent == null || tStudent == null || fGroup == null || tGroup == null){
+			return false;
+		}
+		
 		fStudent.delGroup(fGroup);
 		fGroup.delStudent(fStudent);
 		tStudent.delGroup(tGroup);
@@ -111,8 +115,10 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 		/*
 		 * und fuege in neue Gruppe ein
 		 */
-		fromGroup.addStudent(toStudent);
-		toGroup.addStudent(fromStudent);
+		fGroup.addStudent(tStudent);
+		tGroup.addStudent(fStudent);
+		return true;
 	}
+	
 
 }

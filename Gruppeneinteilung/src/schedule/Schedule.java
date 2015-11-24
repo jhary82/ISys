@@ -321,11 +321,8 @@ public final class Schedule {
 			calcTimeSlots(sol);
 			/*
 			 * Aufgabenteil 2 
-			 */
-			System.out.println(sol.getStudents().size());
-			studToGroupAllocation(sol);
-			System.out.println(sol.getStudents().size());
-			return null;
+			 */			
+			studToGroupAllocation(sol);			
 		}				
 		
 		/*
