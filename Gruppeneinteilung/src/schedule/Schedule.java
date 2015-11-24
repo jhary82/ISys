@@ -205,7 +205,7 @@ public final class Schedule {
 			 * jedes Fach des Studierenden
 			 */
 			for(Subject studSub: stud.getSubjects()){
-				/*
+				/*  
 				 * fuege den Studierenden zu Gruppe des Fachs hinzu
 				 */
 				if( !studSub.addStudentToGroup(stud) ){				
@@ -321,7 +321,10 @@ public final class Schedule {
 			/*
 			 * Aufgabenteil 2 
 			 */
-			studToGroupAllocation(sol);			
+			System.out.println(sol.getStudents().size());
+			studToGroupAllocation(sol);
+			System.out.println(sol.getStudents().size());
+			return null;
 		}				
 		
 		/*

@@ -28,6 +28,11 @@ public final class Group implements Serializable{
 	private int groupNr;
 	
 	/**
+	 * Name des zugehörigen Faches
+	 */
+	private String subjectName;
+	
+	/**
 	 * der verwendete TimeSlot;
 	 */
 	private TimeSlot timeSlot;
@@ -48,8 +53,9 @@ public final class Group implements Serializable{
 	 * @param groupSize
 	 * @param subject
 	 */
-	public Group(int nr, int groupSize, Subject subject){
+	public Group(String subjectName, int nr, int groupSize, Subject subject){
 		students = new LinkedList<>();
+		this.subjectName = subjectName;
 		this.groupNr = nr;
 		this.groupSize = groupSize;
 		this.subject = subject;
@@ -170,6 +176,13 @@ public final class Group implements Serializable{
 	 */
 	public Subject getSubject() {
 		return subject;
+	}
+
+	/**
+	 * Gibt FachName + Gruppennummer als ID zurück
+	 */
+	public String getID() {
+		return subjectName + this.groupNr;
 	}
 
 }

@@ -81,10 +81,11 @@ public final class LocalBeamSearch implements Serializable{
 			 * Fuehre ersten x-ChangeTasks aus und 
 			 * fuege deren Solutions zu neuen StartSolutions hinzu
 			 */
-			for(int i = 0; i < limit; i++){
+			for(int i = 0; i < limit; i++){ 
 				ChangeTask task = pq.poll();
-				task.execute();
-				this.solutions.add( (Solution) task.getSolution().copy() );
+				Solution newSol = (Solution) task.getSolution().copy();
+				task.execute(newSol);
+				this.solutions.add( newSol );
 			}
 			System.out.println(lastValue+" > "+ solutions.get(0).getValue());			
 		}
