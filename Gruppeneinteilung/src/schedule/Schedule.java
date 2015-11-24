@@ -232,7 +232,7 @@ public final class Schedule {
 				occupied.add(stud);
 			}			
 		}
-		students.clear();
+		
 		students.addAll(occupied);					
 	}
 	
