@@ -201,6 +201,7 @@ public final class Schedule {
 		 */
 		while( !students.isEmpty() ){
 			Student stud = students.remove(random.nextInt(students.size()));
+			boolean added = true;
 			/*
 			 * jedes Fach des Studierenden
 			 */
@@ -215,24 +216,24 @@ public final class Schedule {
 					stud.delFromAllGroups();
 					students.add(stud);					
 					
-					steps++;
+					steps++;					
 					if(steps % 2 == 0){						
 						/*
 						 * loesche x weitere
 						 */
 						delFromOccupied(1, occupied, students);						
 					}
-										
+									
+					added = false; 
 					break;
 				}				
-				else{
-					occupied.add(stud);
-				}
 			}
-			
+			if(added){
+				occupied.add(stud);
+			}			
 		}
-		
-		students = occupied;					
+		students.clear();
+		students.addAll(occupied);					
 	}
 	
 	/**
