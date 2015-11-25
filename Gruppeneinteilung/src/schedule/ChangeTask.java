@@ -3,7 +3,7 @@ package schedule;
 import java.io.Serializable;
 
 /**
- * Eine Klasse für die Vertauschung von Studenten.
+ * Eine Klasse fï¿½r die Vertauschung von Studenten.
  * @author Erik und Simon
  *
  */
@@ -78,19 +78,47 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 	/**
 	 * Fuehre Aenderung durch
 	 */
-	public void execute() {
+	public boolean execute(Solution sol) {
 		/*
 		 * loesche altes Tupel raus
 		 */
-		fromStudent.delGroup(fromGroup);
-		fromGroup.delStudent(fromStudent);
-		toStudent.delGroup(toGroup);
-		toGroup.delStudent(toStudent);
+		Student fStudent = null, tStudent = null;
+		Group fGroup = null, tGroup = null;
+		for(Subject sub : sol.getSubjects()){
+			for(Group grp : sub.getGroups()){
+				if( grp.getID().compareTo( fromGroup.getID()) > 0){
+					fGroup = grp;
+				}
+				if( grp.getID().compareTo( toGroup.getID()) > 0){
+					tGroup = grp;
+				}
+			}		
+		} 
+		
+		for(Student stud : sol.getStudents()){
+			if( stud.getId() == fromStudent.getId()){
+				fStudent = stud;
+			}
+			if( stud.getId() == toStudent.getId()){
+				tStudent = stud;
+			}
+		}
+			
+		if(fStudent == null || tStudent == null || fGroup == null || tGroup == null){
+			return false;
+		}
+		
+		fStudent.delGroup(fGroup);
+		fGroup.delStudent(fStudent);
+		tStudent.delGroup(tGroup);
+		tGroup.delStudent(tStudent);
 		/*
 		 * und fuege in neue Gruppe ein
 		 */
-		fromGroup.addStudent(toStudent);
-		toGroup.addStudent(fromStudent);
+		fGroup.addStudent(tStudent);
+		tGroup.addStudent(fStudent);
+		return true;
 	}
+	
 
 }

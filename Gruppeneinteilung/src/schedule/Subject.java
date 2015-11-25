@@ -57,7 +57,7 @@ public final class Subject implements Serializable{
 		 */
 		groups.clear();
 		for( int i = 0; i < size; i++){
-			groups.add( new Group(i, groupSize, this) );
+			groups.add( new Group(this.name, i, groupSize, this) );
 		}
 		
 		return size;

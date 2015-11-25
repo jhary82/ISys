@@ -12,9 +12,12 @@
 	"VSys P": {
 		"Probability": 85,
 		"Groupsize": 12
+<<<<<<< HEAD
 	},
 	"D": {
 		"Probability": 99,
 		"Groupsize": 25
+=======
+>>>>>>> origin/master
 	}
 }

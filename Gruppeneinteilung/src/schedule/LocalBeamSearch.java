@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /**
- * Eine Klasse für den Local Beam Search
+ * Eine Klasse fï¿½r den Local Beam Search
  * @author Erik und Simon
  *
  */
@@ -61,14 +61,14 @@ public final class LocalBeamSearch implements Serializable{
 			/*
 			 * leere PriorityQueue
 			 */
-			pq.clear();			
+			pq.clear();			 
 			/*
 			 * berechne fuer jede Solution die Liste von moeglichen Aenderungen
 		 	*/
 			for(Solution solution : this.solutions ){
 				pq.addAll( solution.getChangeTaskList() );
 			}
-			System.out.println("pq.size = " + pq.size()); 
+			System.out.println("pq.size = " + pq.size());			
 			/*
 			 * sollte keine Aenderungsliste erstellt werden koennen, nehme eine der vorhandenen Loesungsraeume
 			 */
@@ -83,12 +83,13 @@ public final class LocalBeamSearch implements Serializable{
 			 */
 			for(int i = 0; i < limit; i++){
 				ChangeTask task = pq.poll();
-				task.execute();
-				this.solutions.add( (Solution) task.getSolution().copy() );
+				Solution newSol = (Solution) task.getSolution().copy();				
+				task.execute(newSol);
+				this.solutions.add( newSol );				
 			}
-			System.out.println(lastValue+" > "+ solutions.get(0).getValue());			
+			System.out.println(lastValue+" > "+ solutions.get(0).getValue() + " ?");			
 		}
-				
+		
 		return lastSolution;
 	}
 
