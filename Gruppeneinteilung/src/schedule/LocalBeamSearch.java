@@ -83,9 +83,9 @@ public final class LocalBeamSearch implements Serializable{
 			 */
 			for(int i = 0; i < limit; i++){
 				ChangeTask task = pq.poll();
-				Solution newSol = (Solution) task.getSolution().copy();				
-				task.execute(newSol);
-				this.solutions.add( newSol );				
+				task.execute();
+				this.solutions.add( task.getSolution().copy() );
+				task.reExecute();
 			}
 			System.out.println(lastValue+" > "+ solutions.get(0).getValue() + " ?");			
 		}
