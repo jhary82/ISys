@@ -78,46 +78,37 @@ public final class ChangeTask implements Comparable<ChangeTask>, Serializable{
 	/**
 	 * Fuehre Aenderung durch
 	 */
-	public boolean execute(Solution sol) {
+	public void execute() {
 		/*
 		 * loesche altes Tupel raus
-		 */
-		Student fStudent = null, tStudent = null;
-		Group fGroup = null, tGroup = null;
-		for(Subject sub : sol.getSubjects()){
-			for(Group grp : sub.getGroups()){
-				if( grp.getID().compareTo( fromGroup.getID()) > 0){
-					fGroup = grp;
-				}
-				if( grp.getID().compareTo( toGroup.getID()) > 0){
-					tGroup = grp;
-				}
-			}		
-		} 
-		
-		for(Student stud : sol.getStudents()){
-			if( stud.getId() == fromStudent.getId()){
-				fStudent = stud;
-			}
-			if( stud.getId() == toStudent.getId()){
-				tStudent = stud;
-			}
-		}
-			
-		if(fStudent == null || tStudent == null || fGroup == null || tGroup == null){
-			return false;
-		}
-		
-		fStudent.delGroup(fGroup);
-		fGroup.delStudent(fStudent);
-		tStudent.delGroup(tGroup);
-		tGroup.delStudent(tStudent);
+		 */		
+		fromStudent.delGroup(fromGroup);
+		fromGroup.delStudent(fromStudent);
+		toStudent.delGroup(toGroup);
+		toGroup.delStudent(toStudent);
 		/*
 		 * und fuege in neue Gruppe ein
 		 */
-		fGroup.addStudent(tStudent);
-		tGroup.addStudent(fStudent);
-		return true;
+		fromGroup.addStudent(toStudent);
+		toGroup.addStudent(fromStudent);		
+	}
+	
+	/**
+	 * mache Aenderung rueckgaengig
+	 */
+	public void reExecute() {
+		/*
+		 * loesche altes Tupel raus
+		 */		
+		fromStudent.delGroup(toGroup);
+		fromGroup.delStudent(toStudent);
+		toStudent.delGroup(fromGroup);
+		toGroup.delStudent(fromStudent);
+		/*
+		 * und fuege in neue Gruppe ein
+		 */
+		fromGroup.addStudent(fromStudent);
+		toGroup.addStudent(toStudent);		
 	}
 	
 
