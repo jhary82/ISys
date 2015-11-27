@@ -118,29 +118,54 @@ public final class Solution implements Serializable{
 	}
 
 	/**
-	 * Gibt eine Liste aller moeglichen Tausch-Moeglichkeiten zurueck
+	 * Gibt eine Liste von Tausch-Moeglichkeiten zurueck
 	 * @return
 	 */
 	public PriorityQueue<ChangeTask> getChangeTaskList() {
 		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
+
+		int j = 0;
+		for(int k = 0; k <= 1000; k++) {
+			if(k < 1000 && j < 200) {
+				Subject sub = this.subjects.get(Schedule.getRandom().nextInt(this.subjects.size()));
+				Group fromGroup = sub.getGroups().get(Schedule.getRandom().nextInt(sub.getGroupCount()));
+				Student fromStudent = fromGroup.getStudents().get(Schedule.getRandom().nextInt(fromGroup.countStudents()));
+				Group toGroup = sub.getGroups().get(Schedule.getRandom().nextInt(sub.getGroupCount()));
+				if (toGroup != fromGroup) {
+					Student toStudent = toGroup.getStudents().get(Schedule.getRandom().nextInt(toGroup.countStudents()));
+					if (toStudent != fromStudent) {
+						if (canChange(fromStudent, fromGroup, toStudent, toGroup)) {
+							j++;
+							double value = changeValue(fromStudent, fromGroup, toStudent, toGroup);
+							ChangeTask ct = new ChangeTask(fromStudent, fromGroup, toStudent, toGroup, this, value);
+							if (!pq.contains(ct)) {
+								pq.add(ct);
+							}
+						}
+					}
+				}
+			} else {
+				return pq;
+			}
+		}
 		
 		/*
 		 * fuer alle Faecher
 		 */
-		for( Subject sub : this.subjects ){
+		//for( Subject sub : this.subjects ){
 			/*
 			 * fuer alle Gruppen
 			 */
-			for( Group fromGroup : sub.getGroups()){
+			//for( Group fromGroup : sub.getGroups()){
 				/*
 				 * fuer Studierende der Gruppe
 				 */
-				for(int i = 0; i < fromGroup.getStudents().size(); i++){
-					Student fromStudent = fromGroup.getStudents().get(i);
+				//for(int i = 0; i < fromGroup.getStudents().size(); i++){
+					//Student fromStudent = fromGroup.getStudents().get(i);
 					/*
 					 * fuer alle anderen Gruppen und deren Studierenden
 					 */
-					for(Group toGroup : sub.getGroups()){
+					/*for(Group toGroup : sub.getGroups()){
 						if( toGroup != fromGroup){							
 							for(Student toStudent: toGroup.getStudents()){
 								if(toStudent != fromStudent){																		
@@ -154,7 +179,7 @@ public final class Solution implements Serializable{
 					}
 				}
 			}
-		}
+		}*/
 		
 		return pq;
 	}
