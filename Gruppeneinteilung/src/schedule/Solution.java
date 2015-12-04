@@ -147,25 +147,35 @@ public final class Solution implements Serializable{
 			} else {
 				return pq;
 			}
-		}
-		
+		}		
+	
+		return pq;
+	}
+	
+	/**
+	 * Gibt eine Liste von Tausch-Moeglichkeiten zurueck
+	 * @return
+	 */
+	public PriorityQueue<ChangeTask> getChangeTaskList2() {
+		PriorityQueue<ChangeTask> pq = new PriorityQueue<>();
+
 		/*
 		 * fuer alle Faecher
 		 */
-		//for( Subject sub : this.subjects ){
+		for( Subject sub : this.subjects ){
 			/*
 			 * fuer alle Gruppen
 			 */
-			//for( Group fromGroup : sub.getGroups()){
+			for( Group fromGroup : sub.getGroups()){
 				/*
 				 * fuer Studierende der Gruppe
 				 */
-				//for(int i = 0; i < fromGroup.getStudents().size(); i++){
-					//Student fromStudent = fromGroup.getStudents().get(i);
+				for(int i = 0; i < fromGroup.getStudents().size(); i++){
+					Student fromStudent = fromGroup.getStudents().get(i);
 					/*
 					 * fuer alle anderen Gruppen und deren Studierenden
 					 */
-					/*for(Group toGroup : sub.getGroups()){
+					for(Group toGroup : sub.getGroups()){
 						if( toGroup != fromGroup){							
 							for(Student toStudent: toGroup.getStudents()){
 								if(toStudent != fromStudent){																		
@@ -179,7 +189,7 @@ public final class Solution implements Serializable{
 					}
 				}
 			}
-		}*/
+		}
 		
 		return pq;
 	}

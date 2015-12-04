@@ -56,9 +56,10 @@ public final class Schedule {
 		 * hole Belegungswahscheinlichkeiten
 		 */
 		List<Integer> prob = new LinkedList<>();
-		for(Subject sub: subjects){
+		subjects.forEach( sub -> prob.add( p.getProbability(sub) ) );
+		/*for(Subject sub: subjects){
 			prob.add( p.getProbability(sub) );
-		}
+		}*/
 		
 		/*
 		 * setze Faecher/Belegungswahrscheinlichkeiten bei Studierenden ein
