@@ -12,9 +12,5 @@
 	"VSys P": {
 		"Probability": 85,
 		"Groupsize": 12
-	},
-	"D": {
-		"Probability": 99,
-		"Groupsize": 25
 	}
 }
