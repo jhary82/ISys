@@ -1,0 +1,17 @@
+BRACK=4
+RBRACK=5
+NUMBER=8
+QUES=6
+DOT=1
+KOM=2
+CITE=7
+WS=10
+NL=9
+AUS=3
+'.'=1
+','=2
+'['=5
+'('=4
+'!'=3
+'\n'=9
+'?'=6
