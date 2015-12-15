@@ -1,7 +1,9 @@
 BRACK=4
 RBRACK=5
 NUMBER=8
+WORD=11
 QUES=6
+TEST=12
 DOT=1
 KOM=2
 CITE=7
@@ -14,4 +16,5 @@ AUS=3
 '('=4
 '!'=3
 '\n'=9
+'�'=12
 '?'=6
