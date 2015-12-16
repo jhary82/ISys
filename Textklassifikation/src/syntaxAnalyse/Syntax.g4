@@ -1,5 +1,16 @@
-lexer grammar Syntax;
+grammar Syntax;
 
+stat: symbol*				#symbolStat;				
+
+symbol: DOT					#dotStat
+	| KOM					#komStat
+	| AUS					#ausStat
+	| BRACK					#brackStat
+	| RBRACK				#rbrackStat
+	| QUES					#quesStat
+	| CITE					#citeStat
+	| NUMBER				#numberStat
+	;
 
 WS: [ \t\r] -> skip;
 DOT: '.';

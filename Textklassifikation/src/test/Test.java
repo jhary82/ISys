@@ -8,8 +8,8 @@ import java.nio.charset.StandardCharsets;
 
 import org.antlr.v4.runtime.*;
 
-import syntaxAnalyse.Syntax;
-import static syntaxAnalyse.Syntax.*;
+import syntaxAnalyse.SyntaxLexer;
+import static syntaxAnalyse.SyntaxLexer.*;
 
 /**
  * @author Erik
@@ -30,7 +30,7 @@ public class Test {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				Syntax lexer = new Syntax(input);
+				SyntaxLexer lexer = new SyntaxLexer(input);
 				Token t = lexer.nextToken();
 				while (t.getType() != Token.EOF) {
 					switch (t.getType()) {
