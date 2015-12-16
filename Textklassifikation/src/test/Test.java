@@ -4,6 +4,7 @@
 package test;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import org.antlr.v4.runtime.*;
 
@@ -24,12 +25,11 @@ public class Test {
 		if (args.length > 0) {
 			for (int i = 0; i < args.length; i++) {
 				try {
-					input = new ANTLRFileStream(args[i], "UTF-8");
+					input = new ANTLRFileStream(args[i], StandardCharsets.US_ASCII.name());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				System.out.println(args[i]);
 				Syntax lexer = new Syntax(input);
 				Token t = lexer.nextToken();
 				while (t.getType() != Token.EOF) {
