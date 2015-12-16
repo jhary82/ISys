@@ -12,7 +12,7 @@ import syntaxAnalyse.SyntaxLexer;
 import static syntaxAnalyse.SyntaxLexer.*;
 
 /**
- * @author Erik
+ * @author Erik und Simon
  *
  */
 public class Test {
