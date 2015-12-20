@@ -89,6 +89,18 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNlStat(@NotNull SyntaxParser.NlStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNlStat(@NotNull SyntaxParser.NlStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBrackStat(@NotNull SyntaxParser.BrackStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -108,6 +120,18 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDotStat(@NotNull SyntaxParser.DotStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

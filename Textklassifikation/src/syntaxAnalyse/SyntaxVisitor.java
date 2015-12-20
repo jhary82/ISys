@@ -54,6 +54,13 @@ public interface SyntaxVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAusStat(@NotNull SyntaxParser.AusStatContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code nlStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNlStat(@NotNull SyntaxParser.NlStatContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code brackStat}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
@@ -67,6 +74,13 @@ public interface SyntaxVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDotStat(@NotNull SyntaxParser.DotStatContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code wordStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWordStat(@NotNull SyntaxParser.WordStatContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code rbrackStat}
 	 * labeled alternative in {@link SyntaxParser#symbol}.

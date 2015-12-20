@@ -81,6 +81,18 @@ public interface SyntaxListener extends ParseTreeListener {
 	 */
 	void exitAusStat(@NotNull SyntaxParser.AusStatContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code nlStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void enterNlStat(@NotNull SyntaxParser.NlStatContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nlStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void exitNlStat(@NotNull SyntaxParser.NlStatContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code brackStat}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
@@ -104,6 +116,18 @@ public interface SyntaxListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDotStat(@NotNull SyntaxParser.DotStatContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code wordStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void enterWordStat(@NotNull SyntaxParser.WordStatContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code wordStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void exitWordStat(@NotNull SyntaxParser.WordStatContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code rbrackStat}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
