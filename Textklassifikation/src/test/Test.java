@@ -50,6 +50,7 @@ public class Test {
 				System.out.println(lexer.getInputStream().getText(Interval.of(0, 100)));
 				ParseTree tree = parser.stat();
 				Visitor visitor = new Visitor();
+				System.out.println(tree.getText());
 				visitor.visit(tree);
 				System.out.println("Text: " + args[i]);
 				for (int count : visitor.getCountSymbols()) {
