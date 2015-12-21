@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.Interval;
@@ -19,6 +20,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 import syntaxAnalyse.SyntaxLexer;
 import syntaxAnalyse.SyntaxParser;
+import visitor.Analyse;
 import visitor.Visitor;
 
 /**
@@ -50,12 +52,26 @@ public class Test {
 				System.out.println(lexer.getInputStream().getText(Interval.of(0, 100)));
 				ParseTree tree = parser.stat();
 				Visitor visitor = new Visitor();
-				System.out.println(tree.getText());
 				visitor.visit(tree);
 				System.out.println("Text: " + args[i]);
 				for (int count : visitor.getCountSymbols()) {
 					System.out.print(count + " ");
 				}
+				
+				System.out.println();				
+				
+				System.out.println("Analyse");
+				Analyse ana = new Analyse(visitor.getCountSymbols());
+				List<Integer> a = ana.berechneMetriken();
+				for (int j : a) {
+					System.out.print(j + " ");
+				}
+				System.out.println();
+				String temp = args[i].split("/")[3];
+				String dateiName = temp.substring(0, temp.length()-4);
+				System.out.println(dateiName);
+				String pfad = "Auswertung/" + dateiName;
+				ana.saveToCSV(pfad);
 			}
 		}
 
