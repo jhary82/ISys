@@ -21,15 +21,24 @@ public class Analyse {
 	
 	public Analyse(List<Integer> list) {
 		this.counts = list;
-	}
-	
-	public List<Integer> berechneMetriken() {
 		berechne();
-		return this.counts;
 	}
-	
+	/*
+	 * 	- Anzahl von ,.!?[( 										fertig
+		- Wie viele Zitate? (Anzahl / 2 von " oder >> << ) 			fertig
+		- Wie viele Absätze gibt es? 								fertig
+		- Zahlenfolgen vierstellig und sonstige						
+		- Satzlänge, wieviele Wörter pro Satz						fertig
+		- Wieviele Nebensätze ( Anzahl , zwischen zwei Punkten)		fertig
+		- und wenn Du Lust hast, noch die typischen Vergangen- und
+		Gegenwartsendungen
+	 */
 	private void berechne() {
-		counts.set(0, counts.get(KOM)/counts.get(DOT)); // Durchschnittliche Nebensätze im Satz.
+		int anzahlZitate = counts.get(CITE)/2; //Anzahl Zitate
+		int anzahlNebensätze = counts.get(DOT)/counts.get(KOM); // Durchschnittliche Nebensätze im Satz.
+		int satzlänge = counts.get(WORD)/counts.get(DOT);	// Satzlänge, wieviele Wörter pro Satz.
+		counts.set(0, anzahlNebensätze); 
+		counts.set(CITE, anzahlZitate);
 	}
 	
 	public void saveToCSV(String name){
@@ -38,10 +47,11 @@ public class Analyse {
 		File csv = new File(name+".csv");
 		// speichere in CSV-Datei ab
 		  try {			
-			PrintWriter pw = new PrintWriter(new FileWriter(csv, false));
+			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
 			for (int count : this.counts) {
 				pw.print(count+";");
 			}
+			pw.println();
 			pw.flush();
 			pw.close();
 		} catch (IOException e) {

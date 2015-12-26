@@ -4,11 +4,14 @@
 package test;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -33,48 +36,61 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CharStream input = null;
-		FileReader fr;
-		BufferedReader reader;
-		if (args.length > 0) {
-			for (int i = 0; i < args.length; i++) {
-				try {
-					//fr = new FileReader(args[i]);
-					reader = new BufferedReader(new InputStreamReader(new FileInputStream(args[i])));
-					input = new ANTLRInputStream(reader);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				SyntaxLexer lexer = new SyntaxLexer(input);
-				CommonTokenStream tokens = new CommonTokenStream(lexer);
-				SyntaxParser parser = new SyntaxParser(tokens);
-				System.out.println(lexer.getInputStream().getText(Interval.of(0, 100)));
-				ParseTree tree = parser.stat();
-				Visitor visitor = new Visitor();
-				visitor.visit(tree);
-				System.out.println("Text: " + args[i]);
-				for (int count : visitor.getCountSymbols()) {
-					System.out.print(count + " ");
-				}
-				
-				System.out.println();				
-				
-				System.out.println("Analyse");
-				Analyse ana = new Analyse(visitor.getCountSymbols());
-				List<Integer> a = ana.berechneMetriken();
-				for (int j : a) {
-					System.out.print(j + " ");
-				}
-				System.out.println();
-				String temp = args[i].split("/")[3];
-				String dateiName = temp.substring(0, temp.length()-4);
-				System.out.println(dateiName);
-				String pfad = "Auswertung/" + dateiName;
-				ana.saveToCSV(pfad);
-			}
+		
+		
+		File[] trainFilme = new File("Datensatz_1_2015-12-14/Filme/Training/").listFiles();
+		File[] trainNachrichten = new File("Datensatz_1_2015-12-14/Nachrichten/Training/").listFiles();
+		File fCsv = new File("Auswertung/Film.csv");
+		File nCsv = new File("Auswertung/Nachrichten.csv");
+		if(fCsv.exists()) {
+			fCsv.delete();
 		}
-
+		if(nCsv.exists()) {
+			nCsv.delete();
+		}
+		makeUeberschriften("Auswertung/Film.csv");
+		makeUeberschriften("Auswertung/Nachrichten.csv");
+		
+		texteEinlesen(trainFilme, "Film");
+		texteEinlesen(trainNachrichten, "Nachrichten");
+		
 	}
-
+	
+	/*
+	 * INDEX: DOT=1,KOM=2,AUS=3,BRACK=4,RBRACK=5,QUES=6,CITE=7,NUMBER=8,WORD=9,NL=10
+	 */
+	private static void makeUeberschriften(String csv) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
+			pw.println(";DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;;;NL");
+			pw.flush();
+			pw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static void texteEinlesen(File[] texte, String name) {
+		CharStream input = null;
+		BufferedReader reader;
+		for (int i = 0; i < texte.length; i++) {
+			try {
+				reader = new BufferedReader(new InputStreamReader(new FileInputStream(texte[i])));
+				input = new ANTLRInputStream(reader);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			SyntaxLexer lexer = new SyntaxLexer(input);
+			CommonTokenStream tokens = new CommonTokenStream(lexer);
+			SyntaxParser parser = new SyntaxParser(tokens);
+			ParseTree tree = parser.stat();
+			Visitor visitor = new Visitor();
+			visitor.visit(tree);
+			Analyse ana = new Analyse(visitor.getCountSymbols());
+			ana.saveToCSV("Auswertung/" + name);
+		}
+	}
+	
 }
