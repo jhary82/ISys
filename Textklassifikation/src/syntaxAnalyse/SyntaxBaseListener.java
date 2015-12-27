@@ -77,6 +77,18 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAusStat(@NotNull SyntaxParser.AusStatContext ctx) { }
 	/**
 	 * {@inheritDoc}

@@ -3,8 +3,6 @@
  */
 package visitor;
 
-import static syntaxAnalyse.SyntaxLexer.*;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,18 +25,19 @@ public class Analyse {
 	 * 	- Anzahl von ,.!?[( 										fertig
 		- Wie viele Zitate? (Anzahl / 2 von " oder >> << ) 			fertig
 		- Wie viele Absätze gibt es? 								fertig
-		- Zahlenfolgen vierstellig und sonstige						
+		- Zahlenfolgen vierstellig und sonstige						fertig
 		- Satzlänge, wieviele Wörter pro Satz						fertig
 		- Wieviele Nebensätze ( Anzahl , zwischen zwei Punkten)		fertig
 		- und wenn Du Lust hast, noch die typischen Vergangen- und
 		Gegenwartsendungen
 	 */
 	private void berechne() {
-		int anzahlZitate = counts.get(CITE)/2; //Anzahl Zitate
-		int anzahlNebensätze = counts.get(DOT)/counts.get(KOM); // Durchschnittliche Nebensätze im Satz.
-		int satzlänge = counts.get(WORD)/counts.get(DOT);	// Satzlänge, wieviele Wörter pro Satz.
+		int anzahlZitate = counts.get(7)/2; //Anzahl Zitate
+		int anzahlNebensätze = counts.get(1)/counts.get(2); // Durchschnittliche Nebensätze im Satz.
+		int satzlänge = counts.get(9)/counts.get(1);	// Satzlänge, wieviele Wörter pro Satz.
 		counts.set(0, anzahlNebensätze); 
-		counts.set(CITE, anzahlZitate);
+		counts.set(7, anzahlZitate);
+		counts.set(13, satzlänge);
 	}
 	
 	public void saveToCSV(String name){
@@ -48,9 +47,10 @@ public class Analyse {
 		// speichere in CSV-Datei ab
 		  try {			
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			for (int count : this.counts) {
-				pw.print(count+";");
+			for (int i = 0; i < counts.size()-1; i++) {
+				pw.print(counts.get(i)+";");
 			}
+			pw.print(counts.get(counts.size()-1));
 			pw.println();
 			pw.flush();
 			pw.close();

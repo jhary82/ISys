@@ -195,6 +195,27 @@ public class SyntaxParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class NumberDotStatContext extends SymbolContext {
+		public TerminalNode NUMBER(int i) {
+			return getToken(SyntaxParser.NUMBER, i);
+		}
+		public TerminalNode DOT() { return getToken(SyntaxParser.DOT, 0); }
+		public List<TerminalNode> NUMBER() { return getTokens(SyntaxParser.NUMBER); }
+		public NumberDotStatContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumberDotStat(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumberDotStat(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNumberDotStat(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class AusStatContext extends SymbolContext {
 		public TerminalNode AUS() { return getToken(SyntaxParser.AUS, 0); }
 		public AusStatContext(SymbolContext ctx) { copyFrom(ctx); }
@@ -302,80 +323,87 @@ public class SyntaxParser extends Parser {
 		SymbolContext _localctx = new SymbolContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_symbol);
 		try {
-			setState(20);
-			switch (_input.LA(1)) {
-			case DOT:
+			setState(23);
+			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
+			case 1:
 				_localctx = new DotStatContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(10); match(DOT);
 				}
 				break;
-			case KOM:
+			case 2:
 				_localctx = new KomStatContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(11); match(KOM);
 				}
 				break;
-			case AUS:
+			case 3:
 				_localctx = new AusStatContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(12); match(AUS);
 				}
 				break;
-			case BRACK:
+			case 4:
 				_localctx = new BrackStatContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(13); match(BRACK);
 				}
 				break;
-			case RBRACK:
+			case 5:
 				_localctx = new RbrackStatContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(14); match(RBRACK);
 				}
 				break;
-			case QUES:
+			case 6:
 				_localctx = new QuesStatContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(15); match(QUES);
 				}
 				break;
-			case CITE:
+			case 7:
 				_localctx = new CiteStatContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(16); match(CITE);
 				}
 				break;
-			case NUMBER:
-				_localctx = new NumberStatContext(_localctx);
+			case 8:
+				_localctx = new NumberDotStatContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
 				setState(17); match(NUMBER);
+				setState(18); match(DOT);
+				setState(19); match(NUMBER);
 				}
 				break;
-			case WORD:
-				_localctx = new WordStatContext(_localctx);
+			case 9:
+				_localctx = new NumberStatContext(_localctx);
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(18); match(WORD);
+				setState(20); match(NUMBER);
 				}
 				break;
-			case NL:
-				_localctx = new NlStatContext(_localctx);
+			case 10:
+				_localctx = new WordStatContext(_localctx);
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(19); match(NL);
+				setState(21); match(WORD);
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+			case 11:
+				_localctx = new NlStatContext(_localctx);
+				enterOuterAlt(_localctx, 11);
+				{
+				setState(22); match(NL);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -390,15 +418,16 @@ public class SyntaxParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\16\31\4\2\t\2\4\3"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\16\34\4\2\t\2\4\3"+
 		"\t\3\3\2\7\2\b\n\2\f\2\16\2\13\13\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\5\3\27\n\3\3\3\2\2\4\2\4\2\2 \2\t\3\2\2\2\4\26\3\2\2\2\6\b\5\4"+
-		"\3\2\7\6\3\2\2\2\b\13\3\2\2\2\t\7\3\2\2\2\t\n\3\2\2\2\n\3\3\2\2\2\13\t"+
-		"\3\2\2\2\f\27\7\3\2\2\r\27\7\4\2\2\16\27\7\5\2\2\17\27\7\6\2\2\20\27\7"+
-		"\7\2\2\21\27\7\b\2\2\22\27\7\t\2\2\23\27\7\n\2\2\24\27\7\13\2\2\25\27"+
-		"\7\f\2\2\26\f\3\2\2\2\26\r\3\2\2\2\26\16\3\2\2\2\26\17\3\2\2\2\26\20\3"+
-		"\2\2\2\26\21\3\2\2\2\26\22\3\2\2\2\26\23\3\2\2\2\26\24\3\2\2\2\26\25\3"+
-		"\2\2\2\27\5\3\2\2\2\4\t\26";
+		"\3\3\3\3\3\3\3\3\3\5\3\32\n\3\3\3\2\2\4\2\4\2\2$\2\t\3\2\2\2\4\31\3\2"+
+		"\2\2\6\b\5\4\3\2\7\6\3\2\2\2\b\13\3\2\2\2\t\7\3\2\2\2\t\n\3\2\2\2\n\3"+
+		"\3\2\2\2\13\t\3\2\2\2\f\32\7\3\2\2\r\32\7\4\2\2\16\32\7\5\2\2\17\32\7"+
+		"\6\2\2\20\32\7\7\2\2\21\32\7\b\2\2\22\32\7\t\2\2\23\24\7\n\2\2\24\25\7"+
+		"\3\2\2\25\32\7\n\2\2\26\32\7\n\2\2\27\32\7\13\2\2\30\32\7\f\2\2\31\f\3"+
+		"\2\2\2\31\r\3\2\2\2\31\16\3\2\2\2\31\17\3\2\2\2\31\20\3\2\2\2\31\21\3"+
+		"\2\2\2\31\22\3\2\2\2\31\23\3\2\2\2\31\26\3\2\2\2\31\27\3\2\2\2\31\30\3"+
+		"\2\2\2\32\5\3\2\2\2\4\t\31";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

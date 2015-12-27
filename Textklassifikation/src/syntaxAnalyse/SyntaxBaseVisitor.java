@@ -53,6 +53,13 @@ public class SyntaxBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitAusStat(@NotNull SyntaxParser.AusStatContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

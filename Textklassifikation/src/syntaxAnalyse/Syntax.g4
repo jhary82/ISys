@@ -11,7 +11,8 @@ symbol
 	| RBRACK				#rbrackStat
 	| QUES					#quesStat
 	| CITE					#citeStat
-	| NUMBER				#numberStat
+	| NUMBER DOT NUMBER 	#numberDotStat
+	| NUMBER 				#numberStat
 	| WORD					#wordStat
 	| NL					#nlStat
 	;

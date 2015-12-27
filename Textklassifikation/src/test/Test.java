@@ -6,19 +6,12 @@ package test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.io.Reader;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import syntaxAnalyse.SyntaxLexer;
@@ -57,12 +50,13 @@ public class Test {
 	}
 	
 	/*
-	 * INDEX: DOT=1,KOM=2,AUS=3,BRACK=4,RBRACK=5,QUES=6,CITE=7,NUMBER=8,WORD=9,NL=10
+	 * anzahlNebensätze;DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;NUMBERwithDOT;WORD;NL;NUMBERrest;NUMBERfour;Satzlänge;Vergangenheit
+	 * INDEX: anzahlNebensätze=0;DOT=1;KOM=2;AUS=3;BRACK=4;RBRACK=5;QUES=6;CITE=7;NUMBERwithDOT=8;WORD=9;NL=10;NUMBERrest=11;NUMBERfour=12;Satzlänge=13;Vergangenheit=14
 	 */
 	private static void makeUeberschriften(String csv) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.println(";DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;;;NL");
+			pw.println("anzahlNebensätze;DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;NUMBERwithDOT;WORD;NL;NUMBERrest;NUMBERfour;Satzlänge;Vergangenheit");
 			pw.flush();
 			pw.close();
 		} catch (IOException e) {

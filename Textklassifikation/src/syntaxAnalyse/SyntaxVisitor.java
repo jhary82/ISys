@@ -47,6 +47,13 @@ public interface SyntaxVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitQuesStat(@NotNull SyntaxParser.QuesStatContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code numberDotStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ausStat}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree

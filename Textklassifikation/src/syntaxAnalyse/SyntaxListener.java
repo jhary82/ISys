@@ -69,6 +69,18 @@ public interface SyntaxListener extends ParseTreeListener {
 	 */
 	void exitQuesStat(@NotNull SyntaxParser.QuesStatContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code numberDotStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code numberDotStat}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code ausStat}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
