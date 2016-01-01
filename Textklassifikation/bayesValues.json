@@ -1,0 +1,350 @@
+{
+	"Film": {
+		"Kom":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  61 ,
+				"Value":  0.1
+			} ,
+			 "Value2" :{
+				"BorderLow":  61 ,
+				"BorderHigh":  100 ,
+				"Value":  0.7
+			} ,
+			 "Value3" :{
+				"BorderLow":  100 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.2
+			} ,
+		},
+		"DOT":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  61 ,
+				"Value":  0.3
+			} ,
+			 "Value2" :{
+				"BorderLow":  61 ,
+				"BorderHigh":  71 ,
+				"Value":  0.25
+			} ,
+			 "Value3" :{
+				"BorderLow":  71 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.45
+			} ,
+		},
+		"AUS":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  2 ,
+				"Value":  0.9
+			} ,
+			 "Value2" :{
+				"BorderLow":  2 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.1
+			} ,
+		},
+		"QUES":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  3 ,
+				"Value":  0.95
+			} ,
+			 "Value2" :{
+				"BorderLow":  3 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.05
+			} ,
+		},
+		"CITE":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  5 ,
+				"Value":  0.7
+			} ,
+			 "Value2" :{
+				"BorderLow":  5 ,
+				"BorderHigh":  15 ,
+				"Value":  0.2
+			} ,
+			 "Value3" :{
+				"BorderLow":  15 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.1
+			} ,
+		},
+		"Satzlaenge":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  17 ,
+				"Value":  0.25
+			} ,
+			 "Value2" :{
+				"BorderLow":  17 ,
+				"BorderHigh":  20 ,
+				"Value":  0.45
+			} ,
+			 "Value3" :{
+				"BorderLow":  20 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.3
+			} ,
+		},
+		"Vergangenheit":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  20 ,
+				"Value":  0.35
+			} ,
+			 "Value2" :{
+				"BorderLow":  20 ,
+				"BorderHigh":  25 ,
+				"Value":  0.3
+			} ,
+			 "Value3" :{
+				"BorderLow":  25 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.35
+			} ,
+		},
+		"NUMBERwithDOT":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  2 ,
+				"Value":  0.95
+			} ,
+			 "Value2" :{
+				"BorderLow":  2 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.05
+			} ,
+		},
+		"NL":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  10 ,
+				"Value":  0.1
+			} ,
+			 "Value2" :{
+				"BorderLow":  10 ,
+				"BorderHigh":  15 ,
+				"Value":  0.55
+			} ,
+			 "Value3" :{
+				"BorderLow":  15 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.35
+			} ,
+		},
+		"NUMBERfour":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  10 ,
+				"Value":  0.85
+			} ,
+			 "Value2" :{
+				"BorderLow":  10 ,
+				"BorderHigh":  40 ,
+				"Value":  0.1
+			} ,
+			 "Value3" :{
+				"BorderLow":  40 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.05
+			} ,
+		},
+		"NUMBERrest":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  6 ,
+				"Value":  0.5
+			} ,
+			 "Value2" :{
+				"BorderLow":  6 ,
+				"BorderHigh":  10 ,
+				"Value":  0.2
+			} ,
+			 "Value3" :{
+				"BorderLow":  10 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.3
+			}
+		}
+	}
+	"News": {
+		"Kom":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  60 ,
+				"Value":  0.05
+			} ,
+			 "Value2" :{
+				"BorderLow":  60 ,
+				"BorderHigh":  141 ,
+				"Value":  0.9
+			} ,
+			 "Value3" :{
+				"BorderLow":  141 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.05
+			} ,
+		},
+		"DOT":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  81 ,
+				"Value":  0.5
+			} ,
+			 "Value2" :{
+				"BorderLow":  81 ,
+				"BorderHigh":  121 ,
+				"Value":  0.45
+			} ,
+			 "Value3" :{
+				"BorderLow":  121 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.05
+			} ,
+		},
+		"AUS":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  1 ,
+				"Value":  0.5
+			} ,
+			 "Value2" :{
+				"BorderLow":  1 ,
+				"BorderHigh":  5 ,
+				"Value":  0.4
+			} ,
+			 "Value3" :{
+				"BorderLow":  5 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.1
+			} ,
+		},
+		"QUES":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  3 ,
+				"Value":  0.4
+			} ,
+			 "Value2" :{
+				"BorderLow":  3 ,
+				"BorderHigh":  10 ,
+				"Value":  0.45
+			} ,
+			 "Value3" :{
+				"BorderLow":  10 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.15
+			} ,
+		},
+		"CITE":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  20 ,
+				"Value":  0.8
+			} ,
+			 "Value2" :{
+				"BorderLow":  20 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.2
+			} ,
+		},
+		"Satzlaenge":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  18 ,
+				"Value":  0.75
+			} ,
+			 "Value2" :{
+				"BorderLow":  18 ,
+				"BorderHigh":  23 ,
+				"Value":  0.2
+			} ,
+			 "Value3" :{
+				"BorderLow":  23 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.05
+			} ,
+		},
+		"Vergangenheit":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  10 ,
+				"Value":  0.05
+			} ,
+			 "Value2" :{
+				"BorderLow":  10 ,
+				"BorderHigh":  30 ,
+				"Value":  0.75
+			} ,
+			 "Value3" :{
+				"BorderLow":  30 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.2
+			} ,
+		},
+		"NUMBERwithDOT":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  2 ,
+				"Value":  0.75
+			} ,
+			 "Value2" :{
+				"BorderLow":  2 ,
+				"BorderHigh":  5 ,
+				"Value":  0.2
+			} ,
+			 "Value3" :{
+				"BorderLow":  5 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.05
+			} ,
+		},
+		"NL":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  15 ,
+				"Value":  0.1
+			} ,
+			 "Value2" :{
+				"BorderLow":  15 ,
+				"BorderHigh":  25 ,
+				"Value":  0.75
+			} ,
+			 "Value3" :{
+				"BorderLow":  25 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.15
+			} ,
+		},
+		"NUMBERfour":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  5 ,
+				"Value":  0.7
+			} ,
+			 "Value2" :{
+				"BorderLow":  5 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.3
+			} ,
+		},
+		"NUMBERrest":{
+			 "Value1" :{
+				"BorderLow":  0 ,
+				"BorderHigh":  11 ,
+				"Value":  0.7
+			} ,
+			 "Value2" :{
+				"BorderLow":  11 ,
+				"BorderHigh":  10000 ,
+				"Value":  0.3
+			}
+		}
+	}
+}
