@@ -25,6 +25,24 @@ import visitor.Visitor;
  */
 public class Learning {
 
+	/*
+	 * Konstante Werte
+	 */
+	public static int DOT = 0;
+	public static int COMMA = 1;
+	public static int EXCLAMATION = 2;
+	public static int BRACK = 3;
+	public static int QUESTION = 4;
+	public static int CITE = 5;
+	public static int NUMBER_WITH_DOT = 6;
+	public static int WORDS = 7;
+	public static int NL = 8;
+	public static int NUMBER_REST = 9;
+	public static int NUMBER_FOUR = 10;
+	public static int SENTENCE_LENGHT = 11;
+	public static int PAST = 12;
+		
+	
 	/**
 	 * @param args
 	 */
