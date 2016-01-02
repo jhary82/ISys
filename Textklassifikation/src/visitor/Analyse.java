@@ -16,9 +16,11 @@ import java.util.List;
 public class Analyse {
 	
 	private List<Integer> counts = null;
+	private Visitor visitor;
 	
-	public Analyse(List<Integer> list) {
+	public Analyse(List<Integer> list, Visitor visitor) {
 		this.counts = list;
+		this.visitor = visitor;
 		berechne();
 	}
 	/*
@@ -32,12 +34,10 @@ public class Analyse {
 		Gegenwartsendungen
 	 */
 	private void berechne() {
-		int anzahlZitate = counts.get(7)/2; //Anzahl Zitate
-		int anzahlNebensaetze = counts.get(1)/counts.get(2); // Durchschnittliche Nebens�tze im Satz.
-		int satzlaenge = counts.get(9)/counts.get(1);	// Satzl�nge, wieviele W�rter pro Satz.
-		counts.set(0, anzahlNebensaetze); 
-		counts.set(7, anzahlZitate);
-		counts.set(13, satzlaenge);
+		int anzahlZitate = counts.get(visitor.CITE)/2; //Anzahl Zitate
+		int satzlaenge = counts.get(visitor.WORDS)/counts.get(visitor.DOT);	// Satzl�nge, wieviele W�rter pro Satz.
+		counts.set(visitor.CITE, anzahlZitate);
+		counts.set(visitor.SENTENCE_LENGTH, satzlaenge);
 	}
 	
 	public void saveToCSV(String name){
