@@ -24,20 +24,20 @@ public class Analyse {
 	/*
 	 * 	- Anzahl von ,.!?[( 										fertig
 		- Wie viele Zitate? (Anzahl / 2 von " oder >> << ) 			fertig
-		- Wie viele Absätze gibt es? 								fertig
+		- Wie viele Absï¿½tze gibt es? 								fertig
 		- Zahlenfolgen vierstellig und sonstige						fertig
-		- Satzlänge, wieviele Wörter pro Satz						fertig
-		- Wieviele Nebensätze ( Anzahl , zwischen zwei Punkten)		fertig
+		- Satzlï¿½nge, wieviele Wï¿½rter pro Satz						fertig
+		- Wieviele Nebensï¿½tze ( Anzahl , zwischen zwei Punkten)		fertig
 		- und wenn Du Lust hast, noch die typischen Vergangen- und
 		Gegenwartsendungen
 	 */
 	private void berechne() {
 		int anzahlZitate = counts.get(7)/2; //Anzahl Zitate
-		int anzahlNebensätze = counts.get(1)/counts.get(2); // Durchschnittliche Nebensätze im Satz.
-		int satzlänge = counts.get(9)/counts.get(1);	// Satzlänge, wieviele Wörter pro Satz.
-		counts.set(0, anzahlNebensätze); 
+		int anzahlNebensaetze = counts.get(1)/counts.get(2); // Durchschnittliche Nebensï¿½tze im Satz.
+		int satzlaenge = counts.get(9)/counts.get(1);	// Satzlï¿½nge, wieviele Wï¿½rter pro Satz.
+		counts.set(0, anzahlNebensaetze); 
 		counts.set(7, anzahlZitate);
-		counts.set(13, satzlänge);
+		counts.set(13, satzlaenge);
 	}
 	
 	public void saveToCSV(String name){
