@@ -7,7 +7,7 @@ package apply;
 import java.util.LinkedList;
 import java.util.List;
 
-import learning.Learning;
+import visitor.Visitor;
 
 import org.jdom2.DataConversionException;
 import org.jdom2.Element;
@@ -53,37 +53,40 @@ public final class Classifier_Class {
 	 */
 	private void loadFromElement(Element elem) throws DataConversionException {
 		for(Element obj : elem.getChild("comma").getChildren()){
-			list.get(Learning.COMMA).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.COMMA).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("dot").getChildren()){
-			list.get(Learning.DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("exclamation").getChildren()){
-			list.get(Learning.EXCLAMATION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.EXCLAMATION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("question").getChildren()){
-			list.get(Learning.QUESTION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.QUESTION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("cite").getChildren()){
-			list.get(Learning.CITE).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.CITE).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("sentence_length").getChildren()){
-			list.get(Learning.SENTENCE_LENGTH).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.SENTENCE_LENGTH).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("past").getChildren()){
-			list.get(Learning.PAST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.PAST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("number_with_dot").getChildren()){
-			list.get(Learning.NUMBER_WITH_DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.NUMBER_WITH_DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("nl").getChildren()){
-			list.get(Learning.NL).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.NL).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("number_four").getChildren()){
-			list.get(Learning.NUMBER_FOUR).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.NUMBER_FOUR).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("number_rest").getChildren()){
-			list.get(Learning.NUMBER_REST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Visitor.NUMBER_REST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+		}
+		for(Element obj : elem.getChild("brack").getChildren()){			
+			list.get(Visitor.BRACK).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		
 	}
@@ -96,7 +99,7 @@ public final class Classifier_Class {
 	 */
 	public double getValue(int value, int chooseValue) {		
 		
-		for(Attribut attr : list.get(chooseValue) ){
+		for(Attribut attr : list.get(chooseValue) ){			
 			if(value < attr.getHigh() && value >= attr.getLow() ){
 				return attr.getValue();
 			}
@@ -129,10 +132,10 @@ public final class Classifier_Class {
 		 * @param high obere Intervallgrenze
 		 * @param value Wahrscheinlichkeitswert
 		 */
-		private Attribut(int low, int high, int value){
+		private Attribut(int low, int high, double value){
 			this.low = low;
 			this.high = high;
-			this.value = -Math.log(value);
+			this.value = -Math.log(value);			
 		}
 		
 		/**

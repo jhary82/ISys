@@ -37,7 +37,7 @@ public class Visitor extends AbstractParseTreeVisitor<String> implements SyntaxV
 	 */
 	//private int[] countSymbols = new int[11];
 
-	private List<Integer> countSymbols = Arrays.asList(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+	private List<Integer> countSymbols = Arrays.asList(0,0,0,0,0,0,0,0,0,0,0,0,0);
 	
 	@Override
 	public String visitSymbolStat(SymbolStatContext ctx) {
@@ -118,7 +118,7 @@ public class Visitor extends AbstractParseTreeVisitor<String> implements SyntaxV
 				text.endsWith("ten")*/ || text.endsWith("tet")/*||
 				text.endsWith("st")*/ /*|| text.endsWith("en")*/ /*||
 				text.endsWith("t")*/) {
-			// es kann sich um Präteritum handeln
+			// es kann sich um Prï¿½teritum handeln
 			this.countSymbols.set(PAST, this.countSymbols.get(PAST)+1);
 		}
 		this.countSymbols.set(WORDS, this.countSymbols.get(WORDS)+1);

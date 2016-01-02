@@ -15,7 +15,7 @@ evaluate <- function(m) {
 	hist( m$NUMBER_WITH_DOT, main="Zahlen mit Punkten enthalten" )
 	hist( m$NL, main="Anzahl von nl" )
 	hist( m$NUMBER_FOUR, main="vierstellige Zahlen(Jahreszahlen)" )
-	hist( m$NUMBER_Rest, main="restliche Zahlen" )
+	hist( m$NUMBER_REST, main="restliche Zahlen" )
 	hist( m$BRACK, main="Anzahl an Klammern")
 }
 

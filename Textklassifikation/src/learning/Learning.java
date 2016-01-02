@@ -59,7 +59,7 @@ public class Learning {
 	private static void makeUeberschriften(String csv) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.println("anzahlNebens�tze;DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;NUMBERwithDOT;WORD;NL;NUMBERrest;NUMBERfour;Satzl�nge;Vergangenheit");
+			pw.println("DOT;COMMA;EXCLAMATION;BRACK;QUESTION;CITE;NUMBER_WITH_DOT;WORDS;NL;NUMBER_REST;NUMBER_FOUR;SENTENCE_LENGTH;PAST");
 			pw.flush();
 			pw.close();
 		} catch (IOException e) {
