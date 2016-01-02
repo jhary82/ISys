@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import learning.Learning;
+
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -38,11 +40,11 @@ public final class Classifier {
 	/**
 	 * Klasse der Textdatei
 	 */
-	public static int FILM = 0;
+	final public static int FILM = 0;
 	/**
 	 * Klasse der Textdatei
 	 */
-	public static int NEWS = 1;
+	final public static int NEWS = 1;
 	
 	/**
 	 * Klassifizierungsattribute für Nachrichten
@@ -112,12 +114,12 @@ public final class Classifier {
 		/*
 		 * berechne Film-Wert
 		 */
-		filmValue += film.getDotValue(attributs.get(2));
+		filmValue += film.getValue(attributs.get(Learning.COMMA), Learning.COMMA);
 		
 		/*
 		 * berechne News-Wert
 		 */
-		newsValue += news.getDotValue(attributs.get(2));
+		newsValue += news.getValue(attributs.get(Learning.COMMA), Learning.COMMA);
 		
 		if( filmValue >= newsValue){
 			return FILM;

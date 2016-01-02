@@ -6,6 +6,8 @@ package apply;
 import java.util.ArrayList;
 import java.util.List;
 
+import learning.Learning;
+
 import org.jdom2.DataConversionException;
 import org.jdom2.Element;
 
@@ -127,8 +129,13 @@ public final class Classifier_Class {
 		
 	}
 
-	public double getDotValue(int value) {
-		for(Attribut attr : kom){
+	public double getValue(int value, int chooseValue) {
+		List<Attribut> list = null;
+		switch(chooseValue){
+			case(Learning.DOT): list = this.dot; break;
+			case(Learning.COMMA): list = this.kom; break;
+		}
+		for(Attribut attr : list){
 			if(value < attr.getHigh() && value >= attr.getLow() ){
 				return attr.getValue();
 			}

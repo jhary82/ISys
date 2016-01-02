@@ -28,19 +28,19 @@ public class Learning {
 	/*
 	 * Konstante Werte
 	 */
-	public static int DOT = 0;
-	public static int COMMA = 1;
-	public static int EXCLAMATION = 2;
-	public static int BRACK = 3;
-	public static int QUESTION = 4;
-	public static int CITE = 5;
-	public static int NUMBER_WITH_DOT = 6;
-	public static int WORDS = 7;
-	public static int NL = 8;
-	public static int NUMBER_REST = 9;
-	public static int NUMBER_FOUR = 10;
-	public static int SENTENCE_LENGHT = 11;
-	public static int PAST = 12;
+	final public static int DOT = 0;
+	final public static int COMMA = 1;
+	final public static int EXCLAMATION = 2;
+	final public static int BRACK = 3;
+	final public static int QUESTION = 4;
+	final public static int CITE = 5;
+	final public static int NUMBER_WITH_DOT = 6;
+	final public static int WORDS = 7;
+	final public static int NL = 8;
+	final public static int NUMBER_REST = 9;
+	final public static int NUMBER_FOUR = 10;
+	final public static int SENTENCE_LENGTH = 11;
+	final public static int PAST = 12;
 		
 	
 	/**
