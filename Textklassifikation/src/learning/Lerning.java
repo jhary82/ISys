@@ -1,7 +1,7 @@
 /**
  * 
  */
-package test;
+package learning;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +23,7 @@ import visitor.Visitor;
  * @author Erik und Simon
  *
  */
-public class Test {
+public class Lerning {
 
 	/**
 	 * @param args
@@ -50,13 +50,13 @@ public class Test {
 	}
 	
 	/*
-	 * anzahlNebensätze;DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;NUMBERwithDOT;WORD;NL;NUMBERrest;NUMBERfour;Satzlänge;Vergangenheit
-	 * INDEX: anzahlNebensätze=0;DOT=1;KOM=2;AUS=3;BRACK=4;RBRACK=5;QUES=6;CITE=7;NUMBERwithDOT=8;WORD=9;NL=10;NUMBERrest=11;NUMBERfour=12;Satzlänge=13;Vergangenheit=14
+	 * anzahlNebensï¿½tze;DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;NUMBERwithDOT;WORD;NL;NUMBERrest;NUMBERfour;Satzlï¿½nge;Vergangenheit
+	 * INDEX: anzahlNebensï¿½tze=0;DOT=1;KOM=2;AUS=3;BRACK=4;RBRACK=5;QUES=6;CITE=7;NUMBERwithDOT=8;WORD=9;NL=10;NUMBERrest=11;NUMBERfour=12;Satzlï¿½nge=13;Vergangenheit=14
 	 */
 	private static void makeUeberschriften(String csv) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.println("anzahlNebensätze;DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;NUMBERwithDOT;WORD;NL;NUMBERrest;NUMBERfour;Satzlänge;Vergangenheit");
+			pw.println("anzahlNebensï¿½tze;DOT;KOM;AUS;BRACK;RBRACK;QUES;CITE;NUMBERwithDOT;WORD;NL;NUMBERrest;NUMBERfour;Satzlï¿½nge;Vergangenheit");
 			pw.flush();
 			pw.close();
 		} catch (IOException e) {
