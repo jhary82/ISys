@@ -3,7 +3,8 @@
  */
 package apply;
 
-import java.util.ArrayList;
+
+import java.util.LinkedList;
 import java.util.List;
 
 import learning.Learning;
@@ -19,66 +20,24 @@ import org.jdom2.Element;
 public final class Classifier_Class {
 	
 	/**
-	 * Anzahl der Kommata
+	 * Liste von Listen von Attributen,
+	 * speichert die Eigenschaften 	
 	 */
-	private List<Attribut> kom;
-	/**
-	 * Anzahl der Punkte
-	 */
-	private List<Attribut> dot;
-	/**
-	 * Anzahl der Ausrufezeichen
-	 */
-	private List<Attribut> aus;
-	/**
-	 * Anzahl der Fragezeichen
-	 */
-	private List<Attribut> ques;
-	/**
-	 * Anzahl der Zitate
-	 */
-	private List<Attribut> cite;
-	/**
-	 * Satzlaengen
-	 */
-	private List<Attribut> satzlaenge;
-	/**
-	 * Anzahl der Vergangenheitsformen
-	 */
-	private List<Attribut> vergangenheit;
-	/**
-	 * Zahlen mit Punk enthalten
-	 */
-	private List<Attribut> numberWithDot;
-	/**
-	 * Anzahl von NewLine
-	 */
-	private List<Attribut> nl;
-	/**
-	 * Anzahl von vierstelligen Zahlen
-	 */
-	private List<Attribut> numberFour;
-	/**
-	 * Restliche Zahlen
-	 */
-	private List<Attribut> numberRest;
+	private List<List<Attribut>> list;
 	
 	/**
 	 * Konstruktor
 	 * @param elem Wurzelknoten einer Eigenschaft(z.B. Film)
 	 */
 	public Classifier_Class(Element elem) {
-		this.kom = new ArrayList<>();
-		this.dot = new ArrayList<>();
-		this.aus = new ArrayList<>();
-		this.ques = new ArrayList<>();
-		this.cite = new ArrayList<>();
-		this.satzlaenge = new ArrayList<>();
-		this.vergangenheit = new ArrayList<>();
-		this.numberWithDot = new ArrayList<>();
-		this.nl = new ArrayList<>();
-		this.numberFour = new ArrayList<>();
-		this.numberRest = new ArrayList<>();		
+		list = new LinkedList<>();		
+		
+		/*
+		 * erzeuge neue Eintraege für alle Konstanten
+		 */
+		for(int i = 0; i < 13; i++){
+			list.add( new LinkedList<>());
+		}
 		
 		try {
 			loadFromElement(elem);
@@ -93,11 +52,11 @@ public final class Classifier_Class {
 	 * @throws DataConversionException 
 	 */
 	private void loadFromElement(Element elem) throws DataConversionException {
-		for(Element obj : elem.getChild("kom").getChildren()){
-			kom.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("comma").getChildren()){
+			list.get(Learning.COMMA).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
 		for(Element obj : elem.getChild("dot").getChildren()){
-			dot.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Learning.DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
 		for(Element obj : elem.getChild("aus").getChildren()){
 			aus.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
