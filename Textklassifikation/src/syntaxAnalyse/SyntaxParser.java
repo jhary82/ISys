@@ -17,16 +17,16 @@ public class SyntaxParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		DOT=1, COMMA=2, EXCLAMATION=3, BRACK=4, RBRACK=5, COLON=6, QUES=7, CITE=8, 
-		NUMBER=9, WORD=10, NL=11, SKIPED=12, WS=13;
+		DOT=1, COMMA=2, EXCLAMATION=3, BRACK=4, RBRACK=5, QUES=6, CITE=7, NUMBER=8, 
+		WORD=9, NL=10, SKIPED=11, WS=12;
 	public static final String[] tokenNames = {
-		"<INVALID>", "'.'", "COMMA", "'!'", "'('", "'['", "':'", "'?'", "CITE", 
-		"NUMBER", "WORD", "'\n'", "SKIPED", "WS"
+		"<INVALID>", "'.'", "COMMA", "'!'", "'('", "'['", "'?'", "CITE", "NUMBER", 
+		"WORD", "'\n'", "SKIPED", "WS"
 	};
 	public static final int
-		RULE_stat = 0, RULE_sentence = 1, RULE_seperatorSymbol = 2, RULE_symbol = 3;
+		RULE_stat = 0, RULE_sentence = 1, RULE_subSentence = 2, RULE_symbol = 3;
 	public static final String[] ruleNames = {
-		"stat", "sentence", "seperatorSymbol", "symbol"
+		"stat", "sentence", "subSentence", "symbol"
 	};
 
 	@Override
@@ -49,31 +49,30 @@ public class SyntaxParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class StatContext extends ParserRuleContext {
-		public StatContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public TerminalNode EOF() { return getToken(SyntaxParser.EOF, 0); }
+		public SymbolContext symbol(int i) {
+			return getRuleContext(SymbolContext.class,i);
 		}
-		@Override public int getRuleIndex() { return RULE_stat; }
-	 
-		public StatContext() { }
-		public void copyFrom(StatContext ctx) {
-			super.copyFrom(ctx);
-		}
-	}
-	public static class SentenceStatContext extends StatContext {
 		public SentenceContext sentence(int i) {
 			return getRuleContext(SentenceContext.class,i);
+		}
+		public List<SymbolContext> symbol() {
+			return getRuleContexts(SymbolContext.class);
 		}
 		public List<SentenceContext> sentence() {
 			return getRuleContexts(SentenceContext.class);
 		}
-		public SentenceStatContext(StatContext ctx) { copyFrom(ctx); }
+		public StatContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_stat; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterSentenceStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterStat(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitSentenceStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitStat(this);
 		}
 	}
 
@@ -82,22 +81,32 @@ public class SyntaxParser extends Parser {
 		enterRule(_localctx, 0, RULE_stat);
 		int _la;
 		try {
-			_localctx = new SentenceStatContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(11);
+			setState(10); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DOT) | (1L << COMMA) | (1L << EXCLAMATION) | (1L << COLON) | (1L << QUES))) != 0)) {
+			do {
 				{
-				{
-				setState(8); sentence();
+				setState(10);
+				switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
+				case 1:
+					{
+					setState(8); sentence();
+					}
+					break;
+				case 2:
+					{
+					setState(9); symbol();
+					}
+					break;
 				}
 				}
-				setState(13);
+				setState(12); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			}
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DOT) | (1L << COMMA) | (1L << EXCLAMATION) | (1L << BRACK) | (1L << RBRACK) | (1L << QUES) | (1L << CITE) | (1L << NUMBER) | (1L << WORD) | (1L << NL))) != 0) );
+			setState(14); match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -112,21 +121,14 @@ public class SyntaxParser extends Parser {
 	}
 
 	public static class SentenceContext extends ParserRuleContext {
-		public List<SeperatorSymbolContext> seperatorSymbol() {
-			return getRuleContexts(SeperatorSymbolContext.class);
-		}
-		public List<TerminalNode> WORD() { return getTokens(SyntaxParser.WORD); }
 		public SymbolContext symbol(int i) {
 			return getRuleContext(SymbolContext.class,i);
 		}
 		public List<SymbolContext> symbol() {
 			return getRuleContexts(SymbolContext.class);
 		}
-		public SeperatorSymbolContext seperatorSymbol(int i) {
-			return getRuleContext(SeperatorSymbolContext.class,i);
-		}
-		public TerminalNode WORD(int i) {
-			return getToken(SyntaxParser.WORD, i);
+		public SubSentenceContext subSentence() {
+			return getRuleContext(SubSentenceContext.class,0);
 		}
 		public SentenceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -149,33 +151,20 @@ public class SyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			setState(14); seperatorSymbol();
 			setState(19);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BRACK) | (1L << RBRACK) | (1L << CITE) | (1L << NUMBER) | (1L << WORD) | (1L << NL))) != 0)) {
 				{
-				setState(17);
-				switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
-				case 1:
-					{
-					setState(15); match(WORD);
-					}
-					break;
-				case 2:
-					{
-					setState(16); symbol();
-					}
-					break;
+				{
+				setState(16); symbol();
 				}
 				}
 				setState(21);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(22); seperatorSymbol();
-			}
+			setState(22); subSentence();
 			}
 		}
 		catch (RecognitionException re) {
@@ -189,117 +178,132 @@ public class SyntaxParser extends Parser {
 		return _localctx;
 	}
 
-	public static class SeperatorSymbolContext extends ParserRuleContext {
-		public SeperatorSymbolContext(ParserRuleContext parent, int invokingState) {
+	public static class SubSentenceContext extends ParserRuleContext {
+		public SubSentenceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_seperatorSymbol; }
+		@Override public int getRuleIndex() { return RULE_subSentence; }
 	 
-		public SeperatorSymbolContext() { }
-		public void copyFrom(SeperatorSymbolContext ctx) {
+		public SubSentenceContext() { }
+		public void copyFrom(SubSentenceContext ctx) {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class ExclamationStatContext extends SeperatorSymbolContext {
-		public TerminalNode EXCLAMATION() { return getToken(SyntaxParser.EXCLAMATION, 0); }
-		public ExclamationStatContext(SeperatorSymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterExclamationStat(this);
+	public static class CommaContext extends SubSentenceContext {
+		public SymbolContext symbol(int i) {
+			return getRuleContext(SymbolContext.class,i);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitExclamationStat(this);
-		}
-	}
-	public static class QuesStatContext extends SeperatorSymbolContext {
-		public TerminalNode QUES() { return getToken(SyntaxParser.QUES, 0); }
-		public QuesStatContext(SeperatorSymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterQuesStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitQuesStat(this);
-		}
-	}
-	public static class CommaStatContext extends SeperatorSymbolContext {
 		public TerminalNode COMMA() { return getToken(SyntaxParser.COMMA, 0); }
-		public CommaStatContext(SeperatorSymbolContext ctx) { copyFrom(ctx); }
+		public List<SymbolContext> symbol() {
+			return getRuleContexts(SymbolContext.class);
+		}
+		public List<SubSentenceContext> subSentence() {
+			return getRuleContexts(SubSentenceContext.class);
+		}
+		public SubSentenceContext subSentence(int i) {
+			return getRuleContext(SubSentenceContext.class,i);
+		}
+		public CommaContext(SubSentenceContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterCommaStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterComma(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitCommaStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitComma(this);
 		}
 	}
-	public static class ColonStatContext extends SeperatorSymbolContext {
-		public TerminalNode COLON() { return getToken(SyntaxParser.COLON, 0); }
-		public ColonStatContext(SeperatorSymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterColonStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitColonStat(this);
-		}
-	}
-	public static class DotStatContext extends SeperatorSymbolContext {
+	public static class DotContext extends SubSentenceContext {
 		public TerminalNode DOT() { return getToken(SyntaxParser.DOT, 0); }
-		public DotStatContext(SeperatorSymbolContext ctx) { copyFrom(ctx); }
+		public DotContext(SubSentenceContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterDotStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterDot(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitDotStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitDot(this);
+		}
+	}
+	public static class QuestionContext extends SubSentenceContext {
+		public TerminalNode EXCLAMATION() { return getToken(SyntaxParser.EXCLAMATION, 0); }
+		public TerminalNode QUES() { return getToken(SyntaxParser.QUES, 0); }
+		public QuestionContext(SubSentenceContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterQuestion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitQuestion(this);
 		}
 	}
 
-	public final SeperatorSymbolContext seperatorSymbol() throws RecognitionException {
-		SeperatorSymbolContext _localctx = new SeperatorSymbolContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_seperatorSymbol);
+	public final SubSentenceContext subSentence() throws RecognitionException {
+		SubSentenceContext _localctx = new SubSentenceContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_subSentence);
+		int _la;
 		try {
-			setState(29);
+			int _alt;
+			setState(38);
 			switch (_input.LA(1)) {
 			case DOT:
-				_localctx = new DotStatContext(_localctx);
+				_localctx = new DotContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(24); match(DOT);
 				}
 				break;
 			case COMMA:
-				_localctx = new CommaStatContext(_localctx);
+				_localctx = new CommaContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(25); match(COMMA);
+				setState(29);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BRACK) | (1L << RBRACK) | (1L << CITE) | (1L << NUMBER) | (1L << WORD) | (1L << NL))) != 0)) {
+					{
+					{
+					setState(26); symbol();
+					}
+					}
+					setState(31);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(33); 
+				_errHandler.sync(this);
+				_alt = 1;
+				do {
+					switch (_alt) {
+					case 1:
+						{
+						{
+						setState(32); subSentence();
+						}
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					setState(35); 
+					_errHandler.sync(this);
+					_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				}
 				break;
 			case EXCLAMATION:
-				_localctx = new ExclamationStatContext(_localctx);
+			case QUES:
+				_localctx = new QuestionContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(26); match(EXCLAMATION);
+				setState(37);
+				_la = _input.LA(1);
+				if ( !(_la==EXCLAMATION || _la==QUES) ) {
+				_errHandler.recoverInline(this);
 				}
-				break;
-			case QUES:
-				_localctx = new QuesStatContext(_localctx);
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(27); match(QUES);
-				}
-				break;
-			case COLON:
-				_localctx = new ColonStatContext(_localctx);
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(28); match(COLON);
+				consume();
 				}
 				break;
 			default:
@@ -328,150 +332,163 @@ public class SyntaxParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class CiteStatContext extends SymbolContext {
-		public TerminalNode CITE() { return getToken(SyntaxParser.CITE, 0); }
-		public CiteStatContext(SymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterCiteStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitCiteStat(this);
-		}
-	}
-	public static class NumberStatContext extends SymbolContext {
-		public TerminalNode NUMBER() { return getToken(SyntaxParser.NUMBER, 0); }
-		public NumberStatContext(SymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumberStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumberStat(this);
-		}
-	}
-	public static class NumberDotStatContext extends SymbolContext {
+	public static class Number_with_dotContext extends SymbolContext {
 		public TerminalNode NUMBER(int i) {
 			return getToken(SyntaxParser.NUMBER, i);
 		}
 		public TerminalNode DOT() { return getToken(SyntaxParser.DOT, 0); }
 		public List<TerminalNode> NUMBER() { return getTokens(SyntaxParser.NUMBER); }
-		public NumberDotStatContext(SymbolContext ctx) { copyFrom(ctx); }
+		public Number_with_dotContext(SymbolContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumberDotStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumber_with_dot(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumberDotStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumber_with_dot(this);
 		}
 	}
-	public static class NlStatContext extends SymbolContext {
-		public TerminalNode NL() { return getToken(SyntaxParser.NL, 0); }
-		public NlStatContext(SymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNlStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNlStat(this);
-		}
-	}
-	public static class BrackStatContext extends SymbolContext {
+	public static class BrackContext extends SymbolContext {
 		public TerminalNode BRACK() { return getToken(SyntaxParser.BRACK, 0); }
-		public BrackStatContext(SymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterBrackStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitBrackStat(this);
-		}
-	}
-	public static class WordStatContext extends SymbolContext {
-		public TerminalNode WORD() { return getToken(SyntaxParser.WORD, 0); }
-		public WordStatContext(SymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterWordStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitWordStat(this);
-		}
-	}
-	public static class RbrackStatContext extends SymbolContext {
 		public TerminalNode RBRACK() { return getToken(SyntaxParser.RBRACK, 0); }
-		public RbrackStatContext(SymbolContext ctx) { copyFrom(ctx); }
+		public BrackContext(SymbolContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterRbrackStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterBrack(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitRbrackStat(this);
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitBrack(this);
+		}
+	}
+	public static class NumberRestContext extends SymbolContext {
+		public TerminalNode NUMBER() { return getToken(SyntaxParser.NUMBER, 0); }
+		public NumberRestContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumberRest(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumberRest(this);
+		}
+	}
+	public static class Number_fourContext extends SymbolContext {
+		public TerminalNode NUMBER(int i) {
+			return getToken(SyntaxParser.NUMBER, i);
+		}
+		public List<TerminalNode> NUMBER() { return getTokens(SyntaxParser.NUMBER); }
+		public Number_fourContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumber_four(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumber_four(this);
+		}
+	}
+	public static class CiteContext extends SymbolContext {
+		public TerminalNode CITE() { return getToken(SyntaxParser.CITE, 0); }
+		public CiteContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterCite(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitCite(this);
+		}
+	}
+	public static class WordContext extends SymbolContext {
+		public TerminalNode WORD() { return getToken(SyntaxParser.WORD, 0); }
+		public WordContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterWord(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitWord(this);
+		}
+	}
+	public static class NlContext extends SymbolContext {
+		public TerminalNode NL() { return getToken(SyntaxParser.NL, 0); }
+		public NlContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNl(this);
 		}
 	}
 
 	public final SymbolContext symbol() throws RecognitionException {
 		SymbolContext _localctx = new SymbolContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_symbol);
+		int _la;
 		try {
-			setState(40);
-			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+			setState(52);
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
-				_localctx = new BrackStatContext(_localctx);
+				_localctx = new BrackContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(31); match(BRACK);
+				setState(40);
+				_la = _input.LA(1);
+				if ( !(_la==BRACK || _la==RBRACK) ) {
+				_errHandler.recoverInline(this);
+				}
+				consume();
 				}
 				break;
 			case 2:
-				_localctx = new RbrackStatContext(_localctx);
+				_localctx = new CiteContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(32); match(RBRACK);
+				setState(41); match(CITE);
 				}
 				break;
 			case 3:
-				_localctx = new CiteStatContext(_localctx);
+				_localctx = new Number_with_dotContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(33); match(CITE);
+				setState(42); match(NUMBER);
+				setState(43); match(DOT);
+				setState(44); match(NUMBER);
 				}
 				break;
 			case 4:
-				_localctx = new NumberDotStatContext(_localctx);
+				_localctx = new NumberRestContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(34); match(NUMBER);
-				setState(35); match(DOT);
-				setState(36); match(NUMBER);
+				setState(45); match(NUMBER);
 				}
 				break;
 			case 5:
-				_localctx = new NumberStatContext(_localctx);
+				_localctx = new Number_fourContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(37); match(NUMBER);
+				setState(46); match(NUMBER);
+				setState(47); match(NUMBER);
+				setState(48); match(NUMBER);
+				setState(49); match(NUMBER);
 				}
 				break;
 			case 6:
-				_localctx = new WordStatContext(_localctx);
+				_localctx = new WordContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(38); match(WORD);
+				setState(50); match(WORD);
 				}
 				break;
 			case 7:
-				_localctx = new NlStatContext(_localctx);
+				_localctx = new NlContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(39); match(NL);
+				setState(51); match(NL);
 				}
 				break;
 			}
@@ -488,19 +505,23 @@ public class SyntaxParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17-\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\3\2\7\2\f\n\2\f\2\16\2\17\13\2\3\3\3\3\3\3\7\3\24\n"+
-		"\3\f\3\16\3\27\13\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\5\4 \n\4\3\5\3\5\3\5\3"+
-		"\5\3\5\3\5\3\5\3\5\3\5\5\5+\n\5\3\5\2\2\6\2\4\6\b\2\2\65\2\r\3\2\2\2\4"+
-		"\20\3\2\2\2\6\37\3\2\2\2\b*\3\2\2\2\n\f\5\4\3\2\13\n\3\2\2\2\f\17\3\2"+
-		"\2\2\r\13\3\2\2\2\r\16\3\2\2\2\16\3\3\2\2\2\17\r\3\2\2\2\20\25\5\6\4\2"+
-		"\21\24\7\f\2\2\22\24\5\b\5\2\23\21\3\2\2\2\23\22\3\2\2\2\24\27\3\2\2\2"+
-		"\25\23\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31\5\6\4\2"+
-		"\31\5\3\2\2\2\32 \7\3\2\2\33 \7\4\2\2\34 \7\5\2\2\35 \7\t\2\2\36 \7\b"+
-		"\2\2\37\32\3\2\2\2\37\33\3\2\2\2\37\34\3\2\2\2\37\35\3\2\2\2\37\36\3\2"+
-		"\2\2 \7\3\2\2\2!+\7\6\2\2\"+\7\7\2\2#+\7\n\2\2$%\7\13\2\2%&\7\3\2\2&+"+
-		"\7\13\2\2\'+\7\13\2\2(+\7\f\2\2)+\7\r\2\2*!\3\2\2\2*\"\3\2\2\2*#\3\2\2"+
-		"\2*$\3\2\2\2*\'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+\t\3\2\2\2\7\r\23\25\37*";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\169\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\2\3\2\3\3\7\3\24\n"+
+		"\3\f\3\16\3\27\13\3\3\3\3\3\3\4\3\4\3\4\7\4\36\n\4\f\4\16\4!\13\4\3\4"+
+		"\6\4$\n\4\r\4\16\4%\3\4\5\4)\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3"+
+		"\5\3\5\3\5\5\5\67\n\5\3\5\2\2\6\2\4\6\b\2\4\4\2\5\5\b\b\3\2\6\7A\2\f\3"+
+		"\2\2\2\4\25\3\2\2\2\6(\3\2\2\2\b\66\3\2\2\2\n\r\5\4\3\2\13\r\5\b\5\2\f"+
+		"\n\3\2\2\2\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\20"+
+		"\3\2\2\2\20\21\7\2\2\3\21\3\3\2\2\2\22\24\5\b\5\2\23\22\3\2\2\2\24\27"+
+		"\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31"+
+		"\5\6\4\2\31\5\3\2\2\2\32)\7\3\2\2\33\37\7\4\2\2\34\36\5\b\5\2\35\34\3"+
+		"\2\2\2\36!\3\2\2\2\37\35\3\2\2\2\37 \3\2\2\2 #\3\2\2\2!\37\3\2\2\2\"$"+
+		"\5\6\4\2#\"\3\2\2\2$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&)\3\2\2\2\')\t\2\2\2"+
+		"(\32\3\2\2\2(\33\3\2\2\2(\'\3\2\2\2)\7\3\2\2\2*\67\t\3\2\2+\67\7\t\2\2"+
+		",-\7\n\2\2-.\7\3\2\2.\67\7\n\2\2/\67\7\n\2\2\60\61\7\n\2\2\61\62\7\n\2"+
+		"\2\62\63\7\n\2\2\63\67\7\n\2\2\64\67\7\13\2\2\65\67\7\f\2\2\66*\3\2\2"+
+		"\2\66+\3\2\2\2\66,\3\2\2\2\66/\3\2\2\2\66\60\3\2\2\2\66\64\3\2\2\2\66"+
+		"\65\3\2\2\2\67\t\3\2\2\2\t\f\16\25\37%(\66";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

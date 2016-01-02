@@ -7,7 +7,7 @@ package apply;
 import java.util.LinkedList;
 import java.util.List;
 
-import visitor.Visitor;
+import listener.AnalysisListener;
 
 import org.jdom2.DataConversionException;
 import org.jdom2.Element;
@@ -53,40 +53,34 @@ public final class Classifier_Class {
 	 */
 	private void loadFromElement(Element elem) throws DataConversionException {
 		for(Element obj : elem.getChild("comma").getChildren()){
-			list.get(Visitor.COMMA).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.COMMA).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("dot").getChildren()){
-			list.get(Visitor.DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
-		}
-		for(Element obj : elem.getChild("exclamation").getChildren()){
-			list.get(Visitor.EXCLAMATION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
-		}
+			list.get(AnalysisListener.DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+		}		
 		for(Element obj : elem.getChild("question").getChildren()){
-			list.get(Visitor.QUESTION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.QUESTION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("cite").getChildren()){
-			list.get(Visitor.CITE).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.CITE).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("sentence_length").getChildren()){
-			list.get(Visitor.SENTENCE_LENGTH).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
-		}
-		for(Element obj : elem.getChild("past").getChildren()){
-			list.get(Visitor.PAST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
-		}
+			list.get(AnalysisListener.SENTENCE_LENGTH_AVG).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+		}		
 		for(Element obj : elem.getChild("number_with_dot").getChildren()){
-			list.get(Visitor.NUMBER_WITH_DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.NUMBER_WITH_DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("nl").getChildren()){
-			list.get(Visitor.NL).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.NL).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("number_four").getChildren()){
-			list.get(Visitor.NUMBER_FOUR).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.NUMBER_FOUR).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("number_rest").getChildren()){
-			list.get(Visitor.NUMBER_REST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.NUMBER_REST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		for(Element obj : elem.getChild("brack").getChildren()){			
-			list.get(Visitor.BRACK).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+			list.get(AnalysisListener.BRACK).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		
 	}

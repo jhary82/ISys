@@ -1,29 +1,26 @@
 grammar Syntax;
 
 stat
-	: sentence*				#sentenceStat		 
+	: (sentence	| symbol)+ EOF 							 
 	;
 
 sentence
-	: (seperatorSymbol (WORD|symbol)* seperatorSymbol)
-	;
-				
-seperatorSymbol
- 	: DOT					#dotStat
-	| COMMA					#commaStat
-	| EXCLAMATION			#exclamationStat
-	| QUES					#quesStat
-	| COLON					#colonStat
-	;
+	: symbol* subSentence;
 	
+subSentence
+	: DOT						 #Dot
+	| COMMA symbol* subSentence+ #Comma
+	| (EXCLAMATION|QUES)		 #Question
+	;
+					
 symbol
-	: BRACK					#brackStat	
-	| RBRACK				#rbrackStat	
-	| CITE					#citeStat
-	| NUMBER DOT NUMBER 	#numberDotStat 
-	| NUMBER 				#numberStat
-	| WORD					#wordStat 
-	| NL					#nlStat
+	: (BRACK|RBRACK)			#brack		
+	| CITE						#cite
+	| NUMBER DOT NUMBER 		#number_with_dot  
+	| NUMBER 					#numberRest
+	| NUMBER NUMBER NUMBER NUMBER #number_four
+	| WORD						#word 
+	| NL						#nl
 	;
 	
 DOT: '.';
@@ -31,7 +28,6 @@ COMMA: ',' | ';';
 EXCLAMATION: '!';
 BRACK: '(';
 RBRACK: '[';
-COLON: ':'; 
 QUES: '?';
 CITE: ('>>' | '<<' | '"' | '\'' | '\u201c' | '\u201d' | '\u201e' | '\u201f'
 	| '\u00bb' // �
