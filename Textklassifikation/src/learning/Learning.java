@@ -23,7 +23,7 @@ import visitor.Visitor;
  * @author Erik und Simon
  *
  */
-public class Lerning {
+public class Learning {
 
 	/**
 	 * @param args
