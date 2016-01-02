@@ -17,13 +17,13 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSymbolStat(@NotNull SyntaxParser.SymbolStatContext ctx) { }
+	@Override public void enterSentence(@NotNull SyntaxParser.SentenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSymbolStat(@NotNull SyntaxParser.SymbolStatContext ctx) { }
+	@Override public void exitSentence(@NotNull SyntaxParser.SentenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -41,18 +41,6 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterKomStat(@NotNull SyntaxParser.KomStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitKomStat(@NotNull SyntaxParser.KomStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterNumberStat(@NotNull SyntaxParser.NumberStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -60,18 +48,6 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNumberStat(@NotNull SyntaxParser.NumberStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQuesStat(@NotNull SyntaxParser.QuesStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQuesStat(@NotNull SyntaxParser.QuesStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -89,13 +65,73 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAusStat(@NotNull SyntaxParser.AusStatContext ctx) { }
+	@Override public void enterColonStat(@NotNull SyntaxParser.ColonStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAusStat(@NotNull SyntaxParser.AusStatContext ctx) { }
+	@Override public void exitColonStat(@NotNull SyntaxParser.ColonStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSentenceStat(@NotNull SyntaxParser.SentenceStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSentenceStat(@NotNull SyntaxParser.SentenceStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExclamationStat(@NotNull SyntaxParser.ExclamationStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExclamationStat(@NotNull SyntaxParser.ExclamationStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterQuesStat(@NotNull SyntaxParser.QuesStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitQuesStat(@NotNull SyntaxParser.QuesStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommaStat(@NotNull SyntaxParser.CommaStatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommaStat(@NotNull SyntaxParser.CommaStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -132,18 +168,6 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDotStat(@NotNull SyntaxParser.DotStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

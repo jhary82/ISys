@@ -1,46 +1,56 @@
 grammar Syntax;
 
+stat
+	: sentence*				#sentenceStat		 
+	;
 
-stat: symbol*				#symbolStat;				
-
-symbol
-	: DOT					#dotStat
-	| KOM					#komStat
-	| AUS					#ausStat
-	| BRACK					#brackStat
-	| RBRACK				#rbrackStat
+sentence
+	: (seperatorSymbol (WORD|symbol)* seperatorSymbol)
+	;
+				
+seperatorSymbol
+ 	: DOT					#dotStat
+	| COMMA					#commaStat
+	| EXCLAMATION			#exclamationStat
 	| QUES					#quesStat
+	| COLON					#colonStat
+	;
+	
+symbol
+	: BRACK					#brackStat	
+	| RBRACK				#rbrackStat	
 	| CITE					#citeStat
-	| NUMBER DOT NUMBER 	#numberDotStat
+	| NUMBER DOT NUMBER 	#numberDotStat 
 	| NUMBER 				#numberStat
-	| WORD					#wordStat
+	| WORD					#wordStat 
 	| NL					#nlStat
 	;
 	
 DOT: '.';
-KOM: ',';
-AUS: '!';
+COMMA: ',' | ';';
+EXCLAMATION: '!';
 BRACK: '(';
 RBRACK: '[';
+COLON: ':'; 
 QUES: '?';
 CITE: ('>>' | '<<' | '"' | '\'' | '\u201c' | '\u201d' | '\u201e' | '\u201f'
-	| '\u00bb' // »
-	| '\u00ab' // «
+	| '\u00bb' // пїЅ
+	| '\u00ab' // пїЅ
 	);
 NUMBER: DIGIT+;
 WORD: LETTER+;
 NL: '\n';
-SKIPED: ([-:)\]/;=*&бсн’] | '\u002d' | '\u2010' | '\u2011' | '\u2012' | '\u2013' | '\u2014' | '\u2015' | '\u2026'
-		| '\u00d0' // Р
-		| '\u00ea' // к
-		| '\u00e8' // и
-		| '\u00f3' // у
-		| '\u00e1' // б
-		| '\u2019' // ’
-		| '\u00ca' // К
-		| '\u00e0' // а
-		| '\u00f1' // с
-		| '\u00ed' // н
+SKIPED: ([-:)\]/;=*&пїЅпїЅпїЅ] | '\u002d' | '\u2010' | '\u2011' | '\u2012' | '\u2013' | '\u2014' | '\u2015' | '\u2026'
+		| '\u00d0' // пїЅ
+		| '\u00ea' // пїЅ
+		| '\u00e8' // пїЅ
+		| '\u00f3' // пїЅ
+		| '\u00e1' // пїЅ
+		| '\u2019' // пїЅ
+		| '\u00ca' // пїЅ
+		| '\u00e0' // пїЅ
+		| '\u00f1' // пїЅ
+		| '\u00ed' // пїЅ
 		) -> skip;
 WS: ([ \t\r]|'\u00a0' | '\u00ad') -> skip;
 fragment LETTER: [a-zA-Z]|'\u00c4'|'\u00e4'|'\u00d6'|'\u00f6'|'\u00dc'|'\u00fc'|'\u00df'|'\u00E9';

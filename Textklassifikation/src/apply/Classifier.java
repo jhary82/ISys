@@ -113,35 +113,35 @@ public final class Classifier {
 		double filmValue = 0, newsValue = 0;
 		/*
 		 * berechne Film-Wert
-		 */
-		filmValue += film.getValue(attributs.get(Visitor.COMMA), Visitor.COMMA);
+		 */		
 		filmValue += film.getValue(attributs.get(Visitor.DOT), Visitor.DOT);
-		filmValue += film.getValue(attributs.get(Visitor.EXCLAMATION), Visitor.EXCLAMATION);
+		filmValue += film.getValue(attributs.get(Visitor.COMMA), Visitor.COMMA);
+		//filmValue += film.getValue(attributs.get(Visitor.EXCLAMATION), Visitor.EXCLAMATION);
 		filmValue += film.getValue(attributs.get(Visitor.BRACK), Visitor.BRACK);
-		filmValue += film.getValue(attributs.get(Visitor.QUESTION), Visitor.QUESTION);
+		//filmValue += film.getValue(attributs.get(Visitor.QUESTION), Visitor.QUESTION);
 		filmValue += film.getValue(attributs.get(Visitor.CITE), Visitor.CITE);
 		filmValue += film.getValue(attributs.get(Visitor.NUMBER_WITH_DOT), Visitor.NUMBER_WITH_DOT);
-		filmValue += film.getValue(attributs.get(Visitor.NL), Visitor.NL);
+		//filmValue += film.getValue(attributs.get(Visitor.NL), Visitor.NL);
 		filmValue += film.getValue(attributs.get(Visitor.NUMBER_REST), Visitor.NUMBER_REST);
 		filmValue += film.getValue(attributs.get(Visitor.NUMBER_FOUR), Visitor.NUMBER_FOUR);
-		filmValue += film.getValue(attributs.get(Visitor.SENTENCE_LENGTH), Visitor.SENTENCE_LENGTH);
-		filmValue += film.getValue(attributs.get(Visitor.PAST), Visitor.PAST);
+		//filmValue += film.getValue(attributs.get(Visitor.SENTENCE_LENGTH), Visitor.SENTENCE_LENGTH);
+		//filmValue += film.getValue(attributs.get(Visitor.PAST), Visitor.PAST);
 		
 		/*
 		 * berechne News-Wert
-		 */
-		newsValue += news.getValue(attributs.get(Visitor.COMMA), Visitor.COMMA);
+		 */		
 		newsValue += news.getValue(attributs.get(Visitor.DOT), Visitor.DOT);
-		newsValue += news.getValue(attributs.get(Visitor.EXCLAMATION), Visitor.EXCLAMATION);
+		newsValue += news.getValue(attributs.get(Visitor.COMMA), Visitor.COMMA);
+		//newsValue += news.getValue(attributs.get(Visitor.EXCLAMATION), Visitor.EXCLAMATION);
 		newsValue += news.getValue(attributs.get(Visitor.BRACK), Visitor.BRACK);
-		newsValue += news.getValue(attributs.get(Visitor.QUESTION), Visitor.QUESTION);
+		//newsValue += news.getValue(attributs.get(Visitor.QUESTION), Visitor.QUESTION);
 		newsValue += news.getValue(attributs.get(Visitor.CITE), Visitor.CITE);
 		newsValue += news.getValue(attributs.get(Visitor.NUMBER_WITH_DOT), Visitor.NUMBER_WITH_DOT);
-		newsValue += news.getValue(attributs.get(Visitor.NL), Visitor.NL);
+		//newsValue += news.getValue(attributs.get(Visitor.NL), Visitor.NL);
 		newsValue += news.getValue(attributs.get(Visitor.NUMBER_REST), Visitor.NUMBER_REST);
 		newsValue += news.getValue(attributs.get(Visitor.NUMBER_FOUR), Visitor.NUMBER_FOUR);
-		newsValue += news.getValue(attributs.get(Visitor.SENTENCE_LENGTH), Visitor.SENTENCE_LENGTH);
-		newsValue += news.getValue(attributs.get(Visitor.PAST), Visitor.PAST);
+		//newsValue += news.getValue(attributs.get(Visitor.SENTENCE_LENGTH), Visitor.SENTENCE_LENGTH);
+		//newsValue += news.getValue(attributs.get(Visitor.PAST), Visitor.PAST);
 		
 		if( filmValue >= newsValue){
 			return FILM;
@@ -181,8 +181,8 @@ public final class Classifier {
 				news++;
 			}
 		}
-		double quot = ((double)film / ((double)film+(double)news) )*100;
-		System.out.println(film+ " / "+(film+news) +" | " +quot +" % richtig erkannt." );
+		double quot1 = ((double)film / ((double)film+(double)news) )*100;
+		System.out.println("Klasse Filme: "+film+ " / "+(film+news) +" | " +quot1 +" % richtig erkannt." );
 		
 		/*
 		 * werte die Nachrichten aus
@@ -198,9 +198,11 @@ public final class Classifier {
 				news++;
 			}
 		}
-		quot = ((double)news / ((double)film+(double)news) )*100;
-		System.out.println(news+ " / "+(film+news) +" | " +quot +" % richtig erkannt." );
+		double quot2 = ((double)news / ((double)film+(double)news) )*100;
+		System.out.println("Klasse Nachrichten: "+news+ " / "+(film+news) +" | " +quot2 +" % richtig erkannt." );
 		
+		double quot = (quot1 + quot2 )/2;
+		System.out.println("Insgesamt: "+quot+" % richtig erkannt.");
 	}
 
 

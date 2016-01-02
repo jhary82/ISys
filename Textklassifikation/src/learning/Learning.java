@@ -59,7 +59,7 @@ public class Learning {
 	private static void makeUeberschriften(String csv) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.println("DOT;COMMA;EXCLAMATION;BRACK;QUESTION;CITE;NUMBER_WITH_DOT;WORDS;NL;NUMBER_REST;NUMBER_FOUR;SENTENCE_LENGTH;PAST");
+			pw.println("DOT;COMMA;EXCLAMATION;BRACK;QUESTION;CITE;NUMBER_WITH_DOT;WORDS;NL;NUMBER_REST;NUMBER_FOUR;SENTENCE_LENGTH;PAST;SUB_SENTENCES");
 			pw.flush();
 			pw.close();
 		} catch (IOException e) {
@@ -85,8 +85,9 @@ public class Learning {
 			ParseTree tree = parser.stat();
 			Visitor visitor = new Visitor();
 			visitor.visit(tree);
-			Analyse ana = new Analyse(visitor.getCountSymbols(), visitor);
-			ana.saveToCSV("Auswertung/" + name);
+			visitor.getCountSymbols().forEach( e -> System.out.println(e));
+			/*Analyse ana = new Analyse(visitor.getCountSymbols(), visitor);
+			ana.saveToCSV("Auswertung/" + name);*/
 		}
 	}
 	
