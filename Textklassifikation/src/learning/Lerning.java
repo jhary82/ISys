@@ -65,7 +65,7 @@ public class Lerning {
 		}
 	}
 	
-	public static void texteEinlesen(File[] texte, String name) {
+	private static void texteEinlesen(File[] texte, String name) {
 		CharStream input = null;
 		BufferedReader reader;
 		for (int i = 0; i < texte.length; i++) {

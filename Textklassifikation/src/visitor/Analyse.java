@@ -59,4 +59,12 @@ public class Analyse {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return gibt die berechneten Haeufigkeiten zurueck
+	 */
+	public List<Integer> getCounts(){
+		return this.counts;
+	}
+	
 }
