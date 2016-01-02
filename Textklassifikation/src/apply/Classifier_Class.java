@@ -58,43 +58,45 @@ public final class Classifier_Class {
 		for(Element obj : elem.getChild("dot").getChildren()){
 			list.get(Learning.DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
-		for(Element obj : elem.getChild("aus").getChildren()){
-			aus.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("exclamation").getChildren()){
+			list.get(Learning.EXCLAMATION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
-		for(Element obj : elem.getChild("ques").getChildren()){
-			ques.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("question").getChildren()){
+			list.get(Learning.QUESTION).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
 		for(Element obj : elem.getChild("cite").getChildren()){
-			cite.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Learning.CITE).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
-		for(Element obj : elem.getChild("satzlaenge").getChildren()){
-			satzlaenge.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("sentence_length").getChildren()){
+			list.get(Learning.SENTENCE_LENGTH).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
-		for(Element obj : elem.getChild("vergangenheit").getChildren()){
-			vergangenheit.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("past").getChildren()){
+			list.get(Learning.PAST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
-		for(Element obj : elem.getChild("numberwithdot").getChildren()){
-			numberWithDot.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("number_with_dot").getChildren()){
+			list.get(Learning.NUMBER_WITH_DOT).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
 		for(Element obj : elem.getChild("nl").getChildren()){
-			nl.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+			list.get(Learning.NL).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
-		for(Element obj : elem.getChild("numberfour").getChildren()){
-			numberFour.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("number_four").getChildren()){
+			list.get(Learning.NUMBER_FOUR).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
-		for(Element obj : elem.getChild("numberrest").getChildren()){
-			numberRest.add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
+		for(Element obj : elem.getChild("number_rest").getChildren()){
+			list.get(Learning.NUMBER_REST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue(), obj.getAttribute("low").getIntValue()) );
 		}
 		
 	}
 
-	public double getValue(int value, int chooseValue) {
-		List<Attribut> list = null;
-		switch(chooseValue){
-			case(Learning.DOT): list = this.dot; break;
-			case(Learning.COMMA): list = this.kom; break;
-		}
-		for(Attribut attr : list){
+	/**
+	 * Gibt für den übergebenden Wert die richtige Wahrscheinlichkeit zurück
+	 * @param value "Messwert"
+	 * @param chooseValue zu verwendene Eigenschaft
+	 * @return
+	 */
+	public double getValue(int value, int chooseValue) {		
+		
+		for(Attribut attr : list.get(chooseValue) ){
 			if(value < attr.getHigh() && value >= attr.getLow() ){
 				return attr.getValue();
 			}
