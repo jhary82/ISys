@@ -1,0 +1,110 @@
+<brain>
+<film>
+<kom>
+<value1 low='0' high='61' value='0.1'/>
+<Value2 low='61' high='100' value='0.7'/>
+<Value3 low='100' high='10000' value='0.2'/>
+</kom>
+<dot>
+<Value1 low='0' high='61' value='0.3'/>
+<Value2 low='61' high='71' value='0.25'/>
+<Value3 low='71' high='10000' value='0.45'/>
+</dot>
+<aus>
+<Value1 low='0' high='2' value='0.9'/>
+<Value2 low='2' high='10000' value='0.1'/>
+</aus>
+<ques>
+<Value1 low='0' high='3' value='0.95'/>
+<Value2 low='3' high='10000' value='0.05'/>
+</ques>
+<cite>
+<Value1 low='0' high='5' value='0.7'/>
+<Value2 low='5' high='15' value='0.2'/>
+<Value3 low='15' high='10000' value='0.1'/>
+</cite>
+<satzlaenge>
+<Value1 low='0' high='17' value='0.25'/>
+<Value2 low='17' high='20' value='0.45'/>
+<Value3 low='20' high='10000' value='0.3'/>
+</satzlaenge>
+<vergangenheit>
+<Value1 low='0' high='20' value='0.35'/>
+<Value2 low='20' high='25' value='0.3'/>
+<Value3 low='25' high='10000' value='0.35'/>
+</vergangenheit>
+<numberwithdot>
+<Value1 low='0' high='2' value='0.95'/>
+<Value2 low='2' high='10000' value='0.05'/>
+</numberwithdot>
+<nl>
+<Value1 low='0' high='10' value='0.1'/>
+<Value2 low='10' high='15' value='0.55'/>
+<Value3 low='15' high='10000' value='0.35'/>
+</nl>
+<numberfour>
+<Value1 low='0' high='10' value='0.85'/>
+<Value2 low='10' high='40' value='0.1'/>
+<Value3 low='40' high='10000' value='0.05'/>
+</numberfour>
+<numberrest>
+<Value1 low='0' high='6' value='0.5'/>
+<Value2 low='6' high='10' value='0.2'/>
+<Value3 low='10' high='10000' value='0.3'/>
+</numberrest>
+</film>
+<news>
+<kom>
+<Value1 low='0' high='60' value='0.05'/>
+<Value2 low='60' high='141' value='0.9'/>
+<Value3 low='141' high='10000' value='0.05'/>
+</kom>
+<dot>
+<Value1 low='0' high='81' value='0.5'/>
+<Value2 low='81' high='121' value='0.45'/>
+<Value3 low='121' high='10000' value='0.05'/>
+</dot>
+<aus>
+<Value1 low='0' high='1' value='0.5'/>
+<Value2 low='1' high='5' value='0.4'/>
+<Value3 low='5' high='10000' value='0.1'/>
+</aus>
+<ques>
+<Value1 low='0' high='3' value='0.4'/>
+<Value2 low='3' high='10' value='0.45'/>
+<Value3 low='10' high='10000' value='0.15'/>
+</ques>
+<cite>
+<Value1 low='0' high='20' value='0.8'/>
+<Value2 low='20' high='10000' value='0.2'/>
+</cite>
+<satzlaenge>
+<Value1 low='0' high='18' value='0.75'/>
+<Value2 low='18' high='23' value='0.2'/>
+<Value3 low='23' high='10000' value='0.05'/>
+</satzlaenge>
+<vergangenheit>
+<Value1 low='0' high='10' value='0.05'/>
+<Value2 low='10' high='30' value='0.75'/>
+<Value3 low='30' high='10000' value='0.2'/>
+</vergangenheit>
+<numberwithdot>
+<Value1 low='0' high='2' value='0.75'/>
+<Value2 low='2' high='5' value='0.2'/>
+<Value3 low='5' high='10000' value='0.05'/>
+</numberwithdot>
+<nl>
+<Value1 low='0' high='15' value='0.1'/>
+<Value2 low='15' high='25' value='0.75'/>
+<Value3 low='25' high='10000' value='0.15'/>
+</nl>
+<numberfour>
+<Value1 low='0' high='5' value='0.7'/>
+<Value2 low='5' high='10000' value='0.3'/>
+</numberfour>
+<numberrest>
+<Value1 low='0' high='11' value='0.7'/>
+<Value2 low='11' high='10000' value='0.3'/>
+</numberrest>
+</news>
+</brain>
