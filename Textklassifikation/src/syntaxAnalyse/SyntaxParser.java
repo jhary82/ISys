@@ -75,6 +75,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitSymbolStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitSymbolStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final StatContext stat() throws RecognitionException {
@@ -133,6 +138,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitCiteStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitCiteStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class KomStatContext extends SymbolContext {
 		public TerminalNode KOM() { return getToken(SyntaxParser.KOM, 0); }
@@ -144,6 +154,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitKomStat(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitKomStat(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class NumberStatContext extends SymbolContext {
@@ -157,6 +172,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumberStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNumberStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class QuesStatContext extends SymbolContext {
 		public TerminalNode QUES() { return getToken(SyntaxParser.QUES, 0); }
@@ -168,6 +188,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitQuesStat(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitQuesStat(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class NumberDotStatContext extends SymbolContext {
@@ -185,6 +210,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumberDotStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNumberDotStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class AusStatContext extends SymbolContext {
 		public TerminalNode AUS() { return getToken(SyntaxParser.AUS, 0); }
@@ -196,6 +226,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitAusStat(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitAusStat(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class NlStatContext extends SymbolContext {
@@ -209,6 +244,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNlStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNlStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class BrackStatContext extends SymbolContext {
 		public TerminalNode BRACK() { return getToken(SyntaxParser.BRACK, 0); }
@@ -220,6 +260,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitBrackStat(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitBrackStat(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class DotStatContext extends SymbolContext {
@@ -233,6 +278,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitDotStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitDotStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class WordStatContext extends SymbolContext {
 		public TerminalNode WORD() { return getToken(SyntaxParser.WORD, 0); }
@@ -245,6 +295,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitWordStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitWordStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class RbrackStatContext extends SymbolContext {
 		public TerminalNode RBRACK() { return getToken(SyntaxParser.RBRACK, 0); }
@@ -256,6 +311,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitRbrackStat(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitRbrackStat(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

@@ -23,62 +23,53 @@ public class Visitor extends AbstractParseTreeVisitor<String> implements SyntaxV
 	
 	@Override
 	public String visitSymbolStat(SymbolStatContext ctx) {
-		// TODO Auto-generated method stub
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitDotStat(DotStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(1, this.countSymbols.get(1)+1);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitKomStat(KomStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(2, this.countSymbols.get(2)+1);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitAusStat(AusStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(3, this.countSymbols.get(3)+1);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitBrackStat(BrackStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(4, this.countSymbols.get(4)+1);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitRbrackStat(RbrackStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(5, this.countSymbols.get(5)+1);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitQuesStat(QuesStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(6, this.countSymbols.get(6)+1);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitCiteStat(CiteStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(7, this.countSymbols.get(7)+1);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public String visitNumberStat(NumberStatContext ctx) {
-		// TODO Auto-generated method stub
 		if(ctx.getText().length() == 4) {
 			// 12
 			this.countSymbols.set(12, this.countSymbols.get(12)+1);
@@ -98,7 +89,6 @@ public class Visitor extends AbstractParseTreeVisitor<String> implements SyntaxV
 	
 	@Override
 	public String visitWordStat(WordStatContext ctx) {
-		// TODO Auto-generated method stub
 		String text = ctx.getText();
 		/*
 		 * 	| WORD ('te'|'test'|'ten'|'tet'|'st'|'en'|'t') #wordPreat
@@ -119,7 +109,6 @@ public class Visitor extends AbstractParseTreeVisitor<String> implements SyntaxV
 	
 	@Override
 	public String visitNlStat(NlStatContext ctx) {
-		// TODO Auto-generated method stub
 		this.countSymbols.set(10, this.countSymbols.get(10)+1);
 		return visitChildren(ctx);
 	}
