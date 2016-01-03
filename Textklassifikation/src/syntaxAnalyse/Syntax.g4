@@ -18,7 +18,8 @@ symbol
 	| CITE						#cite
 	| NUMBER DOT NUMBER 		#number_with_dot  
 	| NUMBER 					#number	
-	| WORD						#word 
+	| WORD						#word
+	| NOUN						#noun 
 	| NL						#nl
 	;
 	
@@ -33,7 +34,8 @@ CITE: ('>>' | '<<' | '"' | '\'' | '\u201c' | '\u201d' | '\u201e' | '\u201f'
 	| '\u00ab' // �
 	);
 NUMBER: DIGIT+;
-WORD: LETTER+;
+NOUN: CAPITAL_LETTER LETTER*;
+WORD: CAPITAL_LETTER? LETTER*;
 NL: '\n';
 SKIPED: ([-:)\]/;=*&���] | '\u002d' | '\u2010' | '\u2011' | '\u2012' | '\u2013' | '\u2014' | '\u2015' | '\u2026'
 		| '\u00d0' // �
@@ -48,5 +50,6 @@ SKIPED: ([-:)\]/;=*&���] | '\u002d' | '\u2010' | '\u2011' | '\u2012' | '\u
 		| '\u00ed' // �
 		) -> skip;
 WS: ([ \t\r]|'\u00a0' | '\u00ad') -> skip;
-fragment LETTER: [a-zA-Z]|'\u00c4'|'\u00e4'|'\u00d6'|'\u00f6'|'\u00dc'|'\u00fc'|'\u00df'|'\u00E9';
+fragment CAPITAL_LETTER: [A-Z];
+fragment LETTER: [a-z]|'\u00c4'|'\u00e4'|'\u00d6'|'\u00f6'|'\u00dc'|'\u00fc'|'\u00df'|'\u00E9';
 fragment DIGIT: [0-9];

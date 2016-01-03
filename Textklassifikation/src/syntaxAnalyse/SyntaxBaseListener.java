@@ -113,6 +113,18 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNoun(@NotNull SyntaxParser.NounContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNoun(@NotNull SyntaxParser.NounContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterQuestion(@NotNull SyntaxParser.QuestionContext ctx) { }
 	/**
 	 * {@inheritDoc}
