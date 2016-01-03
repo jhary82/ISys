@@ -9,147 +9,131 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface SyntaxListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by the {@code symbolStat}
-	 * labeled alternative in {@link SyntaxParser#stat}.
+	 * Enter a parse tree produced by {@link SyntaxParser#sentence}.
 	 * @param ctx the parse tree
 	 */
-	void enterSymbolStat(@NotNull SyntaxParser.SymbolStatContext ctx);
+	void enterSentence(@NotNull SyntaxParser.SentenceContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code symbolStat}
-	 * labeled alternative in {@link SyntaxParser#stat}.
+	 * Exit a parse tree produced by {@link SyntaxParser#sentence}.
 	 * @param ctx the parse tree
 	 */
-	void exitSymbolStat(@NotNull SyntaxParser.SymbolStatContext ctx);
+	void exitSentence(@NotNull SyntaxParser.SentenceContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code citeStat}
+	 * Enter a parse tree produced by the {@code number_with_dot}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void enterCiteStat(@NotNull SyntaxParser.CiteStatContext ctx);
+	void enterNumber_with_dot(@NotNull SyntaxParser.Number_with_dotContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code citeStat}
+	 * Exit a parse tree produced by the {@code number_with_dot}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void exitCiteStat(@NotNull SyntaxParser.CiteStatContext ctx);
+	void exitNumber_with_dot(@NotNull SyntaxParser.Number_with_dotContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code komStat}
+	 * Enter a parse tree produced by the {@code Comma}
+	 * labeled alternative in {@link SyntaxParser#subSentence}.
+	 * @param ctx the parse tree
+	 */
+	void enterComma(@NotNull SyntaxParser.CommaContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Comma}
+	 * labeled alternative in {@link SyntaxParser#subSentence}.
+	 * @param ctx the parse tree
+	 */
+	void exitComma(@NotNull SyntaxParser.CommaContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code number}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void enterKomStat(@NotNull SyntaxParser.KomStatContext ctx);
+	void enterNumber(@NotNull SyntaxParser.NumberContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code komStat}
+	 * Exit a parse tree produced by the {@code number}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void exitKomStat(@NotNull SyntaxParser.KomStatContext ctx);
+	void exitNumber(@NotNull SyntaxParser.NumberContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code numberStat}
+	 * Enter a parse tree produced by {@link SyntaxParser#stat}.
+	 * @param ctx the parse tree
+	 */
+	void enterStat(@NotNull SyntaxParser.StatContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SyntaxParser#stat}.
+	 * @param ctx the parse tree
+	 */
+	void exitStat(@NotNull SyntaxParser.StatContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code brack}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumberStat(@NotNull SyntaxParser.NumberStatContext ctx);
+	void enterBrack(@NotNull SyntaxParser.BrackContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code numberStat}
+	 * Exit a parse tree produced by the {@code brack}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumberStat(@NotNull SyntaxParser.NumberStatContext ctx);
+	void exitBrack(@NotNull SyntaxParser.BrackContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code quesStat}
+	 * Enter a parse tree produced by the {@code Dot}
+	 * labeled alternative in {@link SyntaxParser#subSentence}.
+	 * @param ctx the parse tree
+	 */
+	void enterDot(@NotNull SyntaxParser.DotContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Dot}
+	 * labeled alternative in {@link SyntaxParser#subSentence}.
+	 * @param ctx the parse tree
+	 */
+	void exitDot(@NotNull SyntaxParser.DotContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cite}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void enterQuesStat(@NotNull SyntaxParser.QuesStatContext ctx);
+	void enterCite(@NotNull SyntaxParser.CiteContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code quesStat}
+	 * Exit a parse tree produced by the {@code cite}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void exitQuesStat(@NotNull SyntaxParser.QuesStatContext ctx);
+	void exitCite(@NotNull SyntaxParser.CiteContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code numberDotStat}
+	 * Enter a parse tree produced by the {@code Question}
+	 * labeled alternative in {@link SyntaxParser#subSentence}.
+	 * @param ctx the parse tree
+	 */
+	void enterQuestion(@NotNull SyntaxParser.QuestionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Question}
+	 * labeled alternative in {@link SyntaxParser#subSentence}.
+	 * @param ctx the parse tree
+	 */
+	void exitQuestion(@NotNull SyntaxParser.QuestionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code word}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx);
+	void enterWord(@NotNull SyntaxParser.WordContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code numberDotStat}
+	 * Exit a parse tree produced by the {@code word}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx);
+	void exitWord(@NotNull SyntaxParser.WordContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code ausStat}
+	 * Enter a parse tree produced by the {@code nl}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void enterAusStat(@NotNull SyntaxParser.AusStatContext ctx);
+	void enterNl(@NotNull SyntaxParser.NlContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code ausStat}
+	 * Exit a parse tree produced by the {@code nl}
 	 * labeled alternative in {@link SyntaxParser#symbol}.
 	 * @param ctx the parse tree
 	 */
-	void exitAusStat(@NotNull SyntaxParser.AusStatContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code nlStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterNlStat(@NotNull SyntaxParser.NlStatContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code nlStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitNlStat(@NotNull SyntaxParser.NlStatContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code brackStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterBrackStat(@NotNull SyntaxParser.BrackStatContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code brackStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitBrackStat(@NotNull SyntaxParser.BrackStatContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code dotStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterDotStat(@NotNull SyntaxParser.DotStatContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code dotStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitDotStat(@NotNull SyntaxParser.DotStatContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code wordStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterWordStat(@NotNull SyntaxParser.WordStatContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code wordStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitWordStat(@NotNull SyntaxParser.WordStatContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code rbrackStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterRbrackStat(@NotNull SyntaxParser.RbrackStatContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code rbrackStat}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitRbrackStat(@NotNull SyntaxParser.RbrackStatContext ctx);
+	void exitNl(@NotNull SyntaxParser.NlContext ctx);
 }

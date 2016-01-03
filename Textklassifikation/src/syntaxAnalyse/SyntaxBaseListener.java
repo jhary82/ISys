@@ -17,145 +17,133 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSymbolStat(@NotNull SyntaxParser.SymbolStatContext ctx) { }
+	@Override public void enterSentence(@NotNull SyntaxParser.SentenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSymbolStat(@NotNull SyntaxParser.SymbolStatContext ctx) { }
+	@Override public void exitSentence(@NotNull SyntaxParser.SentenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCiteStat(@NotNull SyntaxParser.CiteStatContext ctx) { }
+	@Override public void enterNumber_with_dot(@NotNull SyntaxParser.Number_with_dotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCiteStat(@NotNull SyntaxParser.CiteStatContext ctx) { }
+	@Override public void exitNumber_with_dot(@NotNull SyntaxParser.Number_with_dotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterKomStat(@NotNull SyntaxParser.KomStatContext ctx) { }
+	@Override public void enterComma(@NotNull SyntaxParser.CommaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitKomStat(@NotNull SyntaxParser.KomStatContext ctx) { }
+	@Override public void exitComma(@NotNull SyntaxParser.CommaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumberStat(@NotNull SyntaxParser.NumberStatContext ctx) { }
+	@Override public void enterNumber(@NotNull SyntaxParser.NumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNumberStat(@NotNull SyntaxParser.NumberStatContext ctx) { }
+	@Override public void exitNumber(@NotNull SyntaxParser.NumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterQuesStat(@NotNull SyntaxParser.QuesStatContext ctx) { }
+	@Override public void enterStat(@NotNull SyntaxParser.StatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitQuesStat(@NotNull SyntaxParser.QuesStatContext ctx) { }
+	@Override public void exitStat(@NotNull SyntaxParser.StatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx) { }
+	@Override public void enterBrack(@NotNull SyntaxParser.BrackContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNumberDotStat(@NotNull SyntaxParser.NumberDotStatContext ctx) { }
+	@Override public void exitBrack(@NotNull SyntaxParser.BrackContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAusStat(@NotNull SyntaxParser.AusStatContext ctx) { }
+	@Override public void enterDot(@NotNull SyntaxParser.DotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAusStat(@NotNull SyntaxParser.AusStatContext ctx) { }
+	@Override public void exitDot(@NotNull SyntaxParser.DotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNlStat(@NotNull SyntaxParser.NlStatContext ctx) { }
+	@Override public void enterCite(@NotNull SyntaxParser.CiteContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNlStat(@NotNull SyntaxParser.NlStatContext ctx) { }
+	@Override public void exitCite(@NotNull SyntaxParser.CiteContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBrackStat(@NotNull SyntaxParser.BrackStatContext ctx) { }
+	@Override public void enterQuestion(@NotNull SyntaxParser.QuestionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBrackStat(@NotNull SyntaxParser.BrackStatContext ctx) { }
+	@Override public void exitQuestion(@NotNull SyntaxParser.QuestionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDotStat(@NotNull SyntaxParser.DotStatContext ctx) { }
+	@Override public void enterWord(@NotNull SyntaxParser.WordContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDotStat(@NotNull SyntaxParser.DotStatContext ctx) { }
+	@Override public void exitWord(@NotNull SyntaxParser.WordContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
+	@Override public void enterNl(@NotNull SyntaxParser.NlContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWordStat(@NotNull SyntaxParser.WordStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRbrackStat(@NotNull SyntaxParser.RbrackStatContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRbrackStat(@NotNull SyntaxParser.RbrackStatContext ctx) { }
+	@Override public void exitNl(@NotNull SyntaxParser.NlContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

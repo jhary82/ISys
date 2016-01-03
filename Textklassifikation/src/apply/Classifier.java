@@ -5,14 +5,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
 import java.util.List;
 
-import visitor.Visitor;
+import listener.AnalysisListener;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -20,7 +22,6 @@ import org.jdom2.input.SAXBuilder;
 
 import syntaxAnalyse.SyntaxLexer;
 import syntaxAnalyse.SyntaxParser;
-import visitor.Analyse;
 
 
 /**
@@ -97,12 +98,15 @@ public final class Classifier {
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		SyntaxParser parser = new SyntaxParser(tokens);
 		ParseTree tree = parser.stat();
-		Visitor visitor = new Visitor();
-		visitor.visit(tree);
-		Analyse ana = new Analyse(visitor.getCountSymbols(), visitor);
-		return ana.getCounts();
+		
+		ParseTreeWalker walker = new ParseTreeWalker(); // create standard walker
+		List<Integer> list = new LinkedList<>();
+		AnalysisListener extractor = new AnalysisListener(list);
+		walker.walk(extractor, tree);		
+		
+		return list;
 	}
-
+	
 	/**
 	 * Klassifiziert mit uebergebenden Attributen,
 	 * ob ein Film oder eine Nachricht vorliegt
@@ -113,35 +117,35 @@ public final class Classifier {
 		double filmValue = 0, newsValue = 0;
 		/*
 		 * berechne Film-Wert
-		 */
-		filmValue += film.getValue(attributs.get(Visitor.COMMA), Visitor.COMMA);
-		filmValue += film.getValue(attributs.get(Visitor.DOT), Visitor.DOT);
-		filmValue += film.getValue(attributs.get(Visitor.EXCLAMATION), Visitor.EXCLAMATION);
-		filmValue += film.getValue(attributs.get(Visitor.BRACK), Visitor.BRACK);
-		filmValue += film.getValue(attributs.get(Visitor.QUESTION), Visitor.QUESTION);
-		filmValue += film.getValue(attributs.get(Visitor.CITE), Visitor.CITE);
-		filmValue += film.getValue(attributs.get(Visitor.NUMBER_WITH_DOT), Visitor.NUMBER_WITH_DOT);
-		filmValue += film.getValue(attributs.get(Visitor.NL), Visitor.NL);
-		filmValue += film.getValue(attributs.get(Visitor.NUMBER_REST), Visitor.NUMBER_REST);
-		filmValue += film.getValue(attributs.get(Visitor.NUMBER_FOUR), Visitor.NUMBER_FOUR);
-		filmValue += film.getValue(attributs.get(Visitor.SENTENCE_LENGTH), Visitor.SENTENCE_LENGTH);
-		filmValue += film.getValue(attributs.get(Visitor.PAST), Visitor.PAST);
+		 */		
+		filmValue += film.getValue(attributs.get(AnalysisListener.DOT), AnalysisListener.DOT);
+		filmValue += film.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
+		filmValue += film.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
+		filmValue += film.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
+		filmValue += film.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
+		filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
+
 		
 		/*
 		 * berechne News-Wert
-		 */
-		newsValue += news.getValue(attributs.get(Visitor.COMMA), Visitor.COMMA);
-		newsValue += news.getValue(attributs.get(Visitor.DOT), Visitor.DOT);
-		newsValue += news.getValue(attributs.get(Visitor.EXCLAMATION), Visitor.EXCLAMATION);
-		newsValue += news.getValue(attributs.get(Visitor.BRACK), Visitor.BRACK);
-		newsValue += news.getValue(attributs.get(Visitor.QUESTION), Visitor.QUESTION);
-		newsValue += news.getValue(attributs.get(Visitor.CITE), Visitor.CITE);
-		newsValue += news.getValue(attributs.get(Visitor.NUMBER_WITH_DOT), Visitor.NUMBER_WITH_DOT);
-		newsValue += news.getValue(attributs.get(Visitor.NL), Visitor.NL);
-		newsValue += news.getValue(attributs.get(Visitor.NUMBER_REST), Visitor.NUMBER_REST);
-		newsValue += news.getValue(attributs.get(Visitor.NUMBER_FOUR), Visitor.NUMBER_FOUR);
-		newsValue += news.getValue(attributs.get(Visitor.SENTENCE_LENGTH), Visitor.SENTENCE_LENGTH);
-		newsValue += news.getValue(attributs.get(Visitor.PAST), Visitor.PAST);
+		 */		
+		newsValue += news.getValue(attributs.get(AnalysisListener.DOT), AnalysisListener.DOT);
+		newsValue += news.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
+		newsValue += news.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
+		newsValue += news.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
+		newsValue += news.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
+		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
+		newsValue += news.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
+		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
+		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
+		newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
+		newsValue += news.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
+		
 		
 		if( filmValue >= newsValue){
 			return FILM;
@@ -174,6 +178,7 @@ public final class Classifier {
 		int film = 0, news = 0;
 		for( int i = 0; i < testFilme.length; i++){
 			List<Integer> attributs = classifier.parseText( testFilme[i] );
+			
 			if( classifier.classify( attributs ) == Classifier.FILM){				
 				film++;
 			}
@@ -181,8 +186,8 @@ public final class Classifier {
 				news++;
 			}
 		}
-		double quot = ((double)film / ((double)film+(double)news) )*100;
-		System.out.println(film+ " / "+(film+news) +" | " +quot +" % richtig erkannt." );
+		double quot1 = ((double)film / ((double)film+(double)news) )*100;
+		System.out.println("Klasse Filme: "+film+ " / "+(film+news) +" | " +quot1 +" % richtig erkannt." );
 		
 		/*
 		 * werte die Nachrichten aus
@@ -198,9 +203,11 @@ public final class Classifier {
 				news++;
 			}
 		}
-		quot = ((double)news / ((double)film+(double)news) )*100;
-		System.out.println(news+ " / "+(film+news) +" | " +quot +" % richtig erkannt." );
+		double quot2 = ((double)news / ((double)film+(double)news) )*100;
+		System.out.println("Klasse Nachrichten: "+news+ " / "+(film+news) +" | " +quot2 +" % richtig erkannt." );
 		
+		double quot = (quot1 + quot2 )/2;
+		System.out.println("Insgesamt: "+quot+" % richtig erkannt.");
 	}
 
 
