@@ -101,6 +101,18 @@ public interface SyntaxListener extends ParseTreeListener {
 	 */
 	void exitCite(@NotNull SyntaxParser.CiteContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code noun}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void enterNoun(@NotNull SyntaxParser.NounContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code noun}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void exitNoun(@NotNull SyntaxParser.NounContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Question}
 	 * labeled alternative in {@link SyntaxParser#subSentence}.
 	 * @param ctx the parse tree

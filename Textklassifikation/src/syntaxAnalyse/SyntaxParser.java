@@ -18,10 +18,10 @@ public class SyntaxParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		DOT=1, COMMA=2, EXCLAMATION=3, BRACK=4, RBRACK=5, QUES=6, CITE=7, NUMBER=8, 
-		WORD=9, NL=10, SKIPED=11, WS=12;
+		NOUN=9, WORD=10, NL=11, SKIPED=12, WS=13;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'.'", "COMMA", "'!'", "'('", "'['", "'?'", "CITE", "NUMBER", 
-		"WORD", "'\n'", "SKIPED", "WS"
+		"NOUN", "WORD", "'\n'", "SKIPED", "WS"
 	};
 	public static final int
 		RULE_stat = 0, RULE_sentence = 1, RULE_subSentence = 2, RULE_symbol = 3;
@@ -105,7 +105,7 @@ public class SyntaxParser extends Parser {
 				setState(12); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DOT) | (1L << COMMA) | (1L << EXCLAMATION) | (1L << BRACK) | (1L << RBRACK) | (1L << QUES) | (1L << CITE) | (1L << NUMBER) | (1L << WORD) | (1L << NL))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DOT) | (1L << COMMA) | (1L << EXCLAMATION) | (1L << BRACK) | (1L << RBRACK) | (1L << QUES) | (1L << CITE) | (1L << NUMBER) | (1L << NOUN) | (1L << WORD) | (1L << NL))) != 0) );
 			setState(14); match(EOF);
 			}
 		}
@@ -154,7 +154,7 @@ public class SyntaxParser extends Parser {
 			setState(19);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BRACK) | (1L << RBRACK) | (1L << CITE) | (1L << NUMBER) | (1L << WORD) | (1L << NL))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BRACK) | (1L << RBRACK) | (1L << CITE) | (1L << NUMBER) | (1L << NOUN) | (1L << WORD) | (1L << NL))) != 0)) {
 				{
 				{
 				setState(16); symbol();
@@ -262,7 +262,7 @@ public class SyntaxParser extends Parser {
 				setState(29);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BRACK) | (1L << RBRACK) | (1L << CITE) | (1L << NUMBER) | (1L << WORD) | (1L << NL))) != 0)) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BRACK) | (1L << RBRACK) | (1L << CITE) | (1L << NUMBER) | (1L << NOUN) | (1L << WORD) | (1L << NL))) != 0)) {
 					{
 					{
 					setState(26); symbol();
@@ -385,6 +385,18 @@ public class SyntaxParser extends Parser {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitCite(this);
 		}
 	}
+	public static class NounContext extends SymbolContext {
+		public TerminalNode NOUN() { return getToken(SyntaxParser.NOUN, 0); }
+		public NounContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNoun(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNoun(this);
+		}
+	}
 	public static class WordContext extends SymbolContext {
 		public TerminalNode WORD() { return getToken(SyntaxParser.WORD, 0); }
 		public WordContext(SymbolContext ctx) { copyFrom(ctx); }
@@ -415,7 +427,7 @@ public class SyntaxParser extends Parser {
 		enterRule(_localctx, 6, RULE_symbol);
 		int _la;
 		try {
-			setState(48);
+			setState(49);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				_localctx = new BrackContext(_localctx);
@@ -460,10 +472,17 @@ public class SyntaxParser extends Parser {
 				}
 				break;
 			case 6:
-				_localctx = new NlContext(_localctx);
+				_localctx = new NounContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(47); match(NL);
+				setState(47); match(NOUN);
+				}
+				break;
+			case 7:
+				_localctx = new NlContext(_localctx);
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(48); match(NL);
 				}
 				break;
 			}
@@ -480,22 +499,22 @@ public class SyntaxParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\16\65\4\2\t\2\4\3"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17\66\4\2\t\2\4\3"+
 		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\2\3\2\3\3\7\3\24"+
 		"\n\3\f\3\16\3\27\13\3\3\3\3\3\3\4\3\4\3\4\7\4\36\n\4\f\4\16\4!\13\4\3"+
-		"\4\6\4$\n\4\r\4\16\4%\3\4\5\4)\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5"+
-		"\63\n\5\3\5\2\2\6\2\4\6\b\2\4\4\2\5\5\b\b\3\2\6\7<\2\f\3\2\2\2\4\25\3"+
-		"\2\2\2\6(\3\2\2\2\b\62\3\2\2\2\n\r\5\4\3\2\13\r\5\b\5\2\f\n\3\2\2\2\f"+
-		"\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\20\3\2\2\2\20\21"+
-		"\7\2\2\3\21\3\3\2\2\2\22\24\5\b\5\2\23\22\3\2\2\2\24\27\3\2\2\2\25\23"+
-		"\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31\5\6\4\2\31\5"+
-		"\3\2\2\2\32)\7\3\2\2\33\37\7\4\2\2\34\36\5\b\5\2\35\34\3\2\2\2\36!\3\2"+
-		"\2\2\37\35\3\2\2\2\37 \3\2\2\2 #\3\2\2\2!\37\3\2\2\2\"$\5\6\4\2#\"\3\2"+
-		"\2\2$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&)\3\2\2\2\')\t\2\2\2(\32\3\2\2\2(\33"+
-		"\3\2\2\2(\'\3\2\2\2)\7\3\2\2\2*\63\t\3\2\2+\63\7\t\2\2,-\7\n\2\2-.\7\3"+
-		"\2\2.\63\7\n\2\2/\63\7\n\2\2\60\63\7\13\2\2\61\63\7\f\2\2\62*\3\2\2\2"+
-		"\62+\3\2\2\2\62,\3\2\2\2\62/\3\2\2\2\62\60\3\2\2\2\62\61\3\2\2\2\63\t"+
-		"\3\2\2\2\t\f\16\25\37%(\62";
+		"\4\6\4$\n\4\r\4\16\4%\3\4\5\4)\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5"+
+		"\5\5\64\n\5\3\5\2\2\6\2\4\6\b\2\4\4\2\5\5\b\b\3\2\6\7>\2\f\3\2\2\2\4\25"+
+		"\3\2\2\2\6(\3\2\2\2\b\63\3\2\2\2\n\r\5\4\3\2\13\r\5\b\5\2\f\n\3\2\2\2"+
+		"\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\20\3\2\2\2\20"+
+		"\21\7\2\2\3\21\3\3\2\2\2\22\24\5\b\5\2\23\22\3\2\2\2\24\27\3\2\2\2\25"+
+		"\23\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31\5\6\4\2\31"+
+		"\5\3\2\2\2\32)\7\3\2\2\33\37\7\4\2\2\34\36\5\b\5\2\35\34\3\2\2\2\36!\3"+
+		"\2\2\2\37\35\3\2\2\2\37 \3\2\2\2 #\3\2\2\2!\37\3\2\2\2\"$\5\6\4\2#\"\3"+
+		"\2\2\2$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&)\3\2\2\2\')\t\2\2\2(\32\3\2\2\2"+
+		"(\33\3\2\2\2(\'\3\2\2\2)\7\3\2\2\2*\64\t\3\2\2+\64\7\t\2\2,-\7\n\2\2-"+
+		".\7\3\2\2.\64\7\n\2\2/\64\7\n\2\2\60\64\7\f\2\2\61\64\7\13\2\2\62\64\7"+
+		"\r\2\2\63*\3\2\2\2\63+\3\2\2\2\63,\3\2\2\2\63/\3\2\2\2\63\60\3\2\2\2\63"+
+		"\61\3\2\2\2\63\62\3\2\2\2\64\t\3\2\2\2\t\f\16\25\37%(\63";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

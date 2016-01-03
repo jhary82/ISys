@@ -31,6 +31,8 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	final public static int NUMBER_FOUR = 8;
 	final public static int SENTENCE_LENGTH_AVG = 9;	
 	final public static int SUB_SENTENCES = 10;
+	final public static int PAST = 11;
+	final public static int NOUN = 12;
 	
 	/**
 	 * Indizes der Liste der Eigenschaften sind die obigen	
@@ -47,7 +49,7 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	 */
 	public AnalysisListener(List<Integer> list) {
 		symbols = list;
-		for(int i = 0; i <= SUB_SENTENCES; i++){
+		for(int i = 0; i <= 12; i++){
 			symbols.add(0);
 		}
 	}
@@ -116,10 +118,29 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	}
 		
 	@Override
-	public void enterWord(@NotNull SyntaxParser.WordContext ctx) { 
+	public void enterWord(@NotNull SyntaxParser.WordContext ctx) {		
+		String text = ctx.getText();
+		/*
+		 * 	| WORD ('te'|'test'|'ten'|'tet'|'st'|'en'|'t') #wordPreat
+		 */
+		if(text.startsWith("ge") && (text.endsWith("t")||text.endsWith("en"))) {
+			// es kann sich um Partizip II handeln.
+			symbols.set(PAST, symbols.get(PAST)+1);
+		} else if(/*text.endsWith("te") || */text.endsWith("test") /*||
+				text.endsWith("ten")*/ || text.endsWith("tet")/*||
+				text.endsWith("st")*/ /*|| text.endsWith("en")*/ /*||
+				text.endsWith("t")*/) {
+			// es kann sich um Pr�teritum handeln
+			symbols.set(PAST, symbols.get(PAST)+1);
+		}		
 		words++;
 	}
 
+	@Override
+	public void enterNoun(@NotNull SyntaxParser.NounContext ctx) {
+		symbols.set(NOUN, symbols.get(NOUN)+1);
+	}
+	
 	/*
 	 * Bei Beenden von stat berechne Mittelwerte
 	 */
