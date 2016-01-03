@@ -85,6 +85,12 @@ public final class Classifier_Class {
 		for(Element obj : elem.getChild("sub_sentences").getChildren()){			
 			list.get(AnalysisListener.SUB_SENTENCES).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
+		for(Element obj : elem.getChild("past").getChildren()){			
+			list.get(AnalysisListener.PAST).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+		}
+		for(Element obj : elem.getChild("noun").getChildren()){			
+			list.get(AnalysisListener.NOUN).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+		}
 		
 	}
 

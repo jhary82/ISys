@@ -119,32 +119,36 @@ public final class Classifier {
 		 * berechne Film-Wert
 		 */		
 		filmValue += film.getValue(attributs.get(AnalysisListener.DOT), AnalysisListener.DOT);
-		filmValue += film.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
-		filmValue += film.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
-		filmValue += film.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
-		filmValue += film.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
-		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
-		filmValue += film.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
-		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
-		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
-		filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
 
 		
 		/*
 		 * berechne News-Wert
 		 */		
 		newsValue += news.getValue(attributs.get(AnalysisListener.DOT), AnalysisListener.DOT);
-		newsValue += news.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
-		newsValue += news.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
-		newsValue += news.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
-		newsValue += news.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
-		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
-		newsValue += news.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
-		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
-		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
-		newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
-		newsValue += news.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
 		
 		
 		if( filmValue >= newsValue){
