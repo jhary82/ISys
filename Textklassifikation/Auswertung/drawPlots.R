@@ -9,6 +9,7 @@ evaluate <- function(m, str) {
 	hist( m$QUESTION, main=paste(str, "- Anzahl ! und ?"))
 	hist( m$CITE, main=paste(str, "- Anzahl Zitate" ))
 	hist( m$SENTENCE_LENGTH_AVG, main=paste(str, "- durchschnittliche Satzlängen"  ))
+	hist( m$SENTENCE_LENGTH_MAX, main=paste(str, "- maximale Satzlänge"  ))	
 	hist( m$NUMBER_WITH_DOT, main=paste(str, "- Zahlen mit Punkten enthalten" ))
 	hist( m$NL, main=paste(str, "- Anzahl von nl" ))
 	hist( m$NUMBER_FOUR, main=paste(str, "- vierstellige Zahlen(Jahreszahlen))" ))

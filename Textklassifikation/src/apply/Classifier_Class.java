@@ -35,7 +35,7 @@ public final class Classifier_Class {
 		/*
 		 * erzeuge neue Eintraege für alle Konstanten
 		 */
-		for(int i = 0; i < 13; i++){
+		for(int i = 0; i < 14; i++){
 			list.add( new LinkedList<>());
 		}
 		
@@ -90,6 +90,9 @@ public final class Classifier_Class {
 		}
 		for(Element obj : elem.getChild("noun").getChildren()){			
 			list.get(AnalysisListener.NOUN).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+		}
+		for(Element obj : elem.getChild("sentence_length_max").getChildren()){			
+			list.get(AnalysisListener.SENTENCE_LENGTH_MAX).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		
 	}
