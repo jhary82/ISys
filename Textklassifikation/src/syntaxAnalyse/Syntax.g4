@@ -35,7 +35,7 @@ CITE: ('>>' | '<<' | '"' | '\'' | '\u201c' | '\u201d' | '\u201e' | '\u201f'
 	);
 NUMBER: DIGIT+;
 NOUN: CAPITAL_LETTER LETTER*;
-WORD: CAPITAL_LETTER? LETTER*;
+WORD: CAPITAL_LETTER? LETTER+;
 NL: '\n';
 SKIPED: ([-:)\]/;=*&���] | '\u002d' | '\u2010' | '\u2011' | '\u2012' | '\u2013' | '\u2014' | '\u2015' | '\u2026'
 		| '\u00d0' // �
@@ -48,6 +48,8 @@ SKIPED: ([-:)\]/;=*&���] | '\u002d' | '\u2010' | '\u2011' | '\u2012' | '\u
 		| '\u00e0' // �
 		| '\u00f1' // �
 		| '\u00ed' // �
+		| '+'
+		| '|'
 		) -> skip;
 WS: ([ \t\r]|'\u00a0' | '\u00ad') -> skip;
 fragment CAPITAL_LETTER: [A-Z];
