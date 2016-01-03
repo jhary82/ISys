@@ -64,7 +64,7 @@ public class Learning {
 	private static void makeUeberschriften(String csv) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
-			pw.println("DOT;COMMA;EXCLAMATION;BRACK;QUESTION;CITE;NUMBER_WITH_DOT;WORDS;NL;NUMBER_REST;NUMBER_FOUR;SENTENCE_LENGTH_AVG;PAST;SUB_SENTENCES");
+			pw.println("DOT;COMMA;BRACK;QUESTION;CITE;NUMBER_WITH_DOT;NL;NUMBER_REST;NUMBER_FOUR;SENTENCE_LENGTH_AVG;SUB_SENTENCES");
 			pw.flush();
 			pw.close();
 		} catch (IOException e) {
@@ -88,8 +88,7 @@ public class Learning {
 			SyntaxParser parser = new SyntaxParser(tokens);
 			ParseTree tree = parser.stat();
 
-			ParseTreeWalker walker = new ParseTreeWalker(); // create standard
-															// walker
+			ParseTreeWalker walker = new ParseTreeWalker(); // create standard walker
 			List<Integer> list = new LinkedList<>();
 			AnalysisListener extractor = new AnalysisListener(list);
 			walker.walk(extractor, tree);			

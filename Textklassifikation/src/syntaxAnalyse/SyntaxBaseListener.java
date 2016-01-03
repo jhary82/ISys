@@ -53,6 +53,18 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNumber(@NotNull SyntaxParser.NumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumber(@NotNull SyntaxParser.NumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStat(@NotNull SyntaxParser.StatContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -77,18 +89,6 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumberRest(@NotNull SyntaxParser.NumberRestContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNumberRest(@NotNull SyntaxParser.NumberRestContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDot(@NotNull SyntaxParser.DotContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -96,18 +96,6 @@ public class SyntaxBaseListener implements SyntaxListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDot(@NotNull SyntaxParser.DotContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNumber_four(@NotNull SyntaxParser.Number_fourContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNumber_four(@NotNull SyntaxParser.Number_fourContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

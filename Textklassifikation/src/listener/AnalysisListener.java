@@ -101,20 +101,20 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	}
 	
 	@Override
-	public void enterNumber_four(@NotNull SyntaxParser.Number_fourContext ctx) { 
-		symbols.set(NUMBER_FOUR, symbols.get(NUMBER_FOUR)+1);		
+	public void enterNumber(@NotNull SyntaxParser.NumberContext ctx) {
+		if( ctx.getText().length() == 4){
+			symbols.set(NUMBER_FOUR, symbols.get(NUMBER_FOUR)+1);
+		}
+		else{			
+			symbols.set(NUMBER_REST, symbols.get(NUMBER_REST)+1);
+		}
 	}
 
 	@Override
 	public void enterBrack(@NotNull SyntaxParser.BrackContext ctx) {
 		symbols.set(BRACK, symbols.get(BRACK)+1);		
 	}
-	
-	@Override
-	public void enterNumberRest(@NotNull SyntaxParser.NumberRestContext ctx) {
-		symbols.set(NUMBER_REST, symbols.get(NUMBER_REST)+1);
-	}
-	
+		
 	@Override
 	public void enterWord(@NotNull SyntaxParser.WordContext ctx) { 
 		words++;

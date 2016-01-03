@@ -348,6 +348,18 @@ public class SyntaxParser extends Parser {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumber_with_dot(this);
 		}
 	}
+	public static class NumberContext extends SymbolContext {
+		public TerminalNode NUMBER() { return getToken(SyntaxParser.NUMBER, 0); }
+		public NumberContext(SymbolContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumber(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumber(this);
+		}
+	}
 	public static class BrackContext extends SymbolContext {
 		public TerminalNode BRACK() { return getToken(SyntaxParser.BRACK, 0); }
 		public TerminalNode RBRACK() { return getToken(SyntaxParser.RBRACK, 0); }
@@ -359,33 +371,6 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitBrack(this);
-		}
-	}
-	public static class NumberRestContext extends SymbolContext {
-		public TerminalNode NUMBER() { return getToken(SyntaxParser.NUMBER, 0); }
-		public NumberRestContext(SymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumberRest(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumberRest(this);
-		}
-	}
-	public static class Number_fourContext extends SymbolContext {
-		public TerminalNode NUMBER(int i) {
-			return getToken(SyntaxParser.NUMBER, i);
-		}
-		public List<TerminalNode> NUMBER() { return getTokens(SyntaxParser.NUMBER); }
-		public Number_fourContext(SymbolContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).enterNumber_four(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumber_four(this);
 		}
 	}
 	public static class CiteContext extends SymbolContext {
@@ -430,7 +415,7 @@ public class SyntaxParser extends Parser {
 		enterRule(_localctx, 6, RULE_symbol);
 		int _la;
 		try {
-			setState(52);
+			setState(48);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				_localctx = new BrackContext(_localctx);
@@ -461,34 +446,24 @@ public class SyntaxParser extends Parser {
 				}
 				break;
 			case 4:
-				_localctx = new NumberRestContext(_localctx);
+				_localctx = new NumberContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(45); match(NUMBER);
 				}
 				break;
 			case 5:
-				_localctx = new Number_fourContext(_localctx);
+				_localctx = new WordContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(46); match(NUMBER);
-				setState(47); match(NUMBER);
-				setState(48); match(NUMBER);
-				setState(49); match(NUMBER);
+				setState(46); match(WORD);
 				}
 				break;
 			case 6:
-				_localctx = new WordContext(_localctx);
+				_localctx = new NlContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(50); match(WORD);
-				}
-				break;
-			case 7:
-				_localctx = new NlContext(_localctx);
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(51); match(NL);
+				setState(47); match(NL);
 				}
 				break;
 			}
@@ -505,23 +480,22 @@ public class SyntaxParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\169\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\2\3\2\3\3\7\3\24\n"+
-		"\3\f\3\16\3\27\13\3\3\3\3\3\3\4\3\4\3\4\7\4\36\n\4\f\4\16\4!\13\4\3\4"+
-		"\6\4$\n\4\r\4\16\4%\3\4\5\4)\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3"+
-		"\5\3\5\3\5\5\5\67\n\5\3\5\2\2\6\2\4\6\b\2\4\4\2\5\5\b\b\3\2\6\7A\2\f\3"+
-		"\2\2\2\4\25\3\2\2\2\6(\3\2\2\2\b\66\3\2\2\2\n\r\5\4\3\2\13\r\5\b\5\2\f"+
-		"\n\3\2\2\2\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\20"+
-		"\3\2\2\2\20\21\7\2\2\3\21\3\3\2\2\2\22\24\5\b\5\2\23\22\3\2\2\2\24\27"+
-		"\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31"+
-		"\5\6\4\2\31\5\3\2\2\2\32)\7\3\2\2\33\37\7\4\2\2\34\36\5\b\5\2\35\34\3"+
-		"\2\2\2\36!\3\2\2\2\37\35\3\2\2\2\37 \3\2\2\2 #\3\2\2\2!\37\3\2\2\2\"$"+
-		"\5\6\4\2#\"\3\2\2\2$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&)\3\2\2\2\')\t\2\2\2"+
-		"(\32\3\2\2\2(\33\3\2\2\2(\'\3\2\2\2)\7\3\2\2\2*\67\t\3\2\2+\67\7\t\2\2"+
-		",-\7\n\2\2-.\7\3\2\2.\67\7\n\2\2/\67\7\n\2\2\60\61\7\n\2\2\61\62\7\n\2"+
-		"\2\62\63\7\n\2\2\63\67\7\n\2\2\64\67\7\13\2\2\65\67\7\f\2\2\66*\3\2\2"+
-		"\2\66+\3\2\2\2\66,\3\2\2\2\66/\3\2\2\2\66\60\3\2\2\2\66\64\3\2\2\2\66"+
-		"\65\3\2\2\2\67\t\3\2\2\2\t\f\16\25\37%(\66";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\16\65\4\2\t\2\4\3"+
+		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\2\3\2\3\3\7\3\24"+
+		"\n\3\f\3\16\3\27\13\3\3\3\3\3\3\4\3\4\3\4\7\4\36\n\4\f\4\16\4!\13\4\3"+
+		"\4\6\4$\n\4\r\4\16\4%\3\4\5\4)\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5"+
+		"\63\n\5\3\5\2\2\6\2\4\6\b\2\4\4\2\5\5\b\b\3\2\6\7<\2\f\3\2\2\2\4\25\3"+
+		"\2\2\2\6(\3\2\2\2\b\62\3\2\2\2\n\r\5\4\3\2\13\r\5\b\5\2\f\n\3\2\2\2\f"+
+		"\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\20\3\2\2\2\20\21"+
+		"\7\2\2\3\21\3\3\2\2\2\22\24\5\b\5\2\23\22\3\2\2\2\24\27\3\2\2\2\25\23"+
+		"\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31\5\6\4\2\31\5"+
+		"\3\2\2\2\32)\7\3\2\2\33\37\7\4\2\2\34\36\5\b\5\2\35\34\3\2\2\2\36!\3\2"+
+		"\2\2\37\35\3\2\2\2\37 \3\2\2\2 #\3\2\2\2!\37\3\2\2\2\"$\5\6\4\2#\"\3\2"+
+		"\2\2$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&)\3\2\2\2\')\t\2\2\2(\32\3\2\2\2(\33"+
+		"\3\2\2\2(\'\3\2\2\2)\7\3\2\2\2*\63\t\3\2\2+\63\7\t\2\2,-\7\n\2\2-.\7\3"+
+		"\2\2.\63\7\n\2\2/\63\7\n\2\2\60\63\7\13\2\2\61\63\7\f\2\2\62*\3\2\2\2"+
+		"\62+\3\2\2\2\62,\3\2\2\2\62/\3\2\2\2\62\60\3\2\2\2\62\61\3\2\2\2\63\t"+
+		"\3\2\2\2\t\f\16\25\37%(\62";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -64,7 +64,7 @@ public final class Classifier_Class {
 		for(Element obj : elem.getChild("cite").getChildren()){
 			list.get(AnalysisListener.CITE).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
-		for(Element obj : elem.getChild("sentence_length").getChildren()){
+		for(Element obj : elem.getChild("sentence_length_avg").getChildren()){
 			list.get(AnalysisListener.SENTENCE_LENGTH_AVG).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}		
 		for(Element obj : elem.getChild("number_with_dot").getChildren()){
@@ -81,6 +81,9 @@ public final class Classifier_Class {
 		}
 		for(Element obj : elem.getChild("brack").getChildren()){			
 			list.get(AnalysisListener.BRACK).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
+		}
+		for(Element obj : elem.getChild("sub_sentences").getChildren()){			
+			list.get(AnalysisListener.SUB_SENTENCES).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
 		
 	}

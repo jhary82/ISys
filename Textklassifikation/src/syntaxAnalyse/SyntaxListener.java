@@ -43,6 +43,18 @@ public interface SyntaxListener extends ParseTreeListener {
 	 */
 	void exitComma(@NotNull SyntaxParser.CommaContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code number}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumber(@NotNull SyntaxParser.NumberContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code number}
+	 * labeled alternative in {@link SyntaxParser#symbol}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumber(@NotNull SyntaxParser.NumberContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SyntaxParser#stat}.
 	 * @param ctx the parse tree
 	 */
@@ -65,18 +77,6 @@ public interface SyntaxListener extends ParseTreeListener {
 	 */
 	void exitBrack(@NotNull SyntaxParser.BrackContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code numberRest}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumberRest(@NotNull SyntaxParser.NumberRestContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code numberRest}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumberRest(@NotNull SyntaxParser.NumberRestContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code Dot}
 	 * labeled alternative in {@link SyntaxParser#subSentence}.
 	 * @param ctx the parse tree
@@ -88,18 +88,6 @@ public interface SyntaxListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDot(@NotNull SyntaxParser.DotContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code number_four}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumber_four(@NotNull SyntaxParser.Number_fourContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code number_four}
-	 * labeled alternative in {@link SyntaxParser#symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumber_four(@NotNull SyntaxParser.Number_fourContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code cite}
 	 * labeled alternative in {@link SyntaxParser#symbol}.

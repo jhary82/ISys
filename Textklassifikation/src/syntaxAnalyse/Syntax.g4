@@ -17,8 +17,7 @@ symbol
 	: (BRACK|RBRACK)			#brack		
 	| CITE						#cite
 	| NUMBER DOT NUMBER 		#number_with_dot  
-	| NUMBER 					#numberRest
-	| NUMBER NUMBER NUMBER NUMBER #number_four
+	| NUMBER 					#number	
 	| WORD						#word 
 	| NL						#nl
 	;
