@@ -18,6 +18,18 @@ evaluate <- function(m, str) {
 	hist( m$SUB_SENTENCES, main=paste(str, "- Anzahl an Haupt-,Nebensätzen"))
 	hist( m$PAST, main=paste(str, "- Anzahl an Vergangenheitsformen"))
 	hist( m$NOUN, main=paste(str, "- Anzahl an Nomen"))	
+	hist( m$WORD_LENGTH_3, main=paste(str, "- Wörter der Länge 3"))			
+	hist( m$WORD_LENGTH_4, main=paste(str, "- Wörter der Länge 4"))			
+	hist( m$WORD_LENGTH_5, main=paste(str, "- Wörter der Länge 5"))			
+	hist( m$WORD_LENGTH_6, main=paste(str, "- Wörter der Länge 6"))			
+	hist( m$WORD_LENGTH_7, main=paste(str, "- Wörter der Länge 7"))			
+	hist( m$WORD_LENGTH_8, main=paste(str, "- Wörter der Länge 8 oder mehr"))			
+	hist( m$NOUN_LENGTH_3, main=paste(str, "- Nomen der Länge 3"))			
+	hist( m$NOUN_LENGTH_4, main=paste(str, "- Nomen der Länge 4"))			
+	hist( m$NOUN_LENGTH_5, main=paste(str, "- Nomen der Länge 5"))			
+	hist( m$NOUN_LENGTH_6, main=paste(str, "- Nomen der Länge 6"))			
+	hist( m$NOUN_LENGTH_7, main=paste(str, "- Nomen der Länge 7"))			
+	hist( m$NOUN_LENGTH_8, main=paste(str, "- Nomen der Länge 8 oder mehr"))	
 }
 
 # lade alle Dateien ein

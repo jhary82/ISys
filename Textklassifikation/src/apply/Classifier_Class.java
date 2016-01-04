@@ -35,7 +35,7 @@ public final class Classifier_Class {
 		/*
 		 * erzeuge neue Eintraege für alle Konstanten
 		 */
-		for(int i = 0; i < 14; i++){
+		for(int i = 0; i < AnalysisListener.MAX_ELEMENTS; i++){
 			list.add( new LinkedList<>());
 		}
 		
@@ -94,7 +94,16 @@ public final class Classifier_Class {
 		for(Element obj : elem.getChild("sentence_length_max").getChildren()){			
 			list.get(AnalysisListener.SENTENCE_LENGTH_MAX).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );
 		}
-		
+		for(int i = 0; i < 6; i++){
+			String str = "word_length_"+(i+3);
+			for(Element obj : elem.getChild(str).getChildren()){			
+				list.get(14+i).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );				
+			}
+			str = "noun_length_"+(i+3);
+			for(Element obj : elem.getChild(str).getChildren()){			
+				list.get(20+i).add( new Attribut( obj.getAttribute("low").getIntValue(), obj.getAttribute("high").getIntValue(), obj.getAttribute("value").getDoubleValue()) );				
+			}
+		}
 	}
 
 	/**

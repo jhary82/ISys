@@ -132,6 +132,22 @@ public final class Classifier {
 		//filmValue += film.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
+		
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_3), AnalysisListener.NOUN_LENGTH_3);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_4), AnalysisListener.NOUN_LENGTH_4);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_5), AnalysisListener.NOUN_LENGTH_5);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_6), AnalysisListener.NOUN_LENGTH_6);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_7), AnalysisListener.NOUN_LENGTH_7);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_8), AnalysisListener.NOUN_LENGTH_8);
+		
+		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_3), AnalysisListener.WORD_LENGTH_3);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_4), AnalysisListener.WORD_LENGTH_4);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_5), AnalysisListener.WORD_LENGTH_5);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_6), AnalysisListener.WORD_LENGTH_6);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_8), AnalysisListener.WORD_LENGTH_8);
+		
+		
 
 		
 		/*
@@ -151,6 +167,20 @@ public final class Classifier {
 		//newsValue += news.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
+		
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_3), AnalysisListener.NOUN_LENGTH_3);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_4), AnalysisListener.NOUN_LENGTH_4);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_5), AnalysisListener.NOUN_LENGTH_5);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_6), AnalysisListener.NOUN_LENGTH_6);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_7), AnalysisListener.NOUN_LENGTH_7);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_8), AnalysisListener.NOUN_LENGTH_8);
+		
+		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_3), AnalysisListener.WORD_LENGTH_3);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_4), AnalysisListener.WORD_LENGTH_4);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_5), AnalysisListener.WORD_LENGTH_5);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_6), AnalysisListener.WORD_LENGTH_6);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_8), AnalysisListener.WORD_LENGTH_8);
 		
 		
 		if( filmValue >= newsValue){

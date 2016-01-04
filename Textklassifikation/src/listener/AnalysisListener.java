@@ -17,6 +17,11 @@ import syntaxAnalyse.*;
  */
 public final class AnalysisListener extends SyntaxBaseListener{
 
+	
+	/**
+	 * Anzahl der Konstanten
+	 */
+	final public static int MAX_ELEMENTS = 26;
 	/*
 	 * Konstante Werte
 	 */
@@ -34,6 +39,18 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	final public static int PAST = 11;
 	final public static int NOUN = 12;
 	final public static int SENTENCE_LENGTH_MAX = 13;	
+	final public static int WORD_LENGTH_3 = 14;
+	final public static int WORD_LENGTH_4 = 15;
+	final public static int WORD_LENGTH_5 = 16;
+	final public static int WORD_LENGTH_6 = 17;
+	final public static int WORD_LENGTH_7 = 18;
+	final public static int WORD_LENGTH_8 = 19;
+	final public static int NOUN_LENGTH_3 = 20;
+	final public static int NOUN_LENGTH_4 = 21;
+	final public static int NOUN_LENGTH_5 = 22;
+	final public static int NOUN_LENGTH_6 = 23;
+	final public static int NOUN_LENGTH_7 = 24;
+	final public static int NOUN_LENGTH_8 = 25;
 	
 	/**
 	 * Indizes der Liste der Eigenschaften sind die obigen	
@@ -55,13 +72,25 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	private int word_counter_subsentence = 0;
 	
 	/**
+	 * Längen von Wörtern
+	 */
+	private int word_length[];
+	
+	/**
+	 * Längen von Nomen
+	 */
+	private int noun_length[];
+	
+	/**
 	 * Konstruktor
 	 */
-	public AnalysisListener(List<Integer> list) {
+	public AnalysisListener(List<Integer> list) {		
 		symbols = list;
-		for(int i = 0; i <= 13; i++){
+		for(int i = 0; i < MAX_ELEMENTS; i++){
 			symbols.add(0);
 		}
+		word_length = new int[6];
+		noun_length = new int[6];
 	}
 	
 	/*
@@ -163,12 +192,34 @@ public final class AnalysisListener extends SyntaxBaseListener{
 			symbols.set(PAST, symbols.get(PAST)+1);
 		}		
 		words++;
+		/*
+		 * Laengenermittlung
+		 */
+		switch(text.length()){
+			case 3: word_length[0]++;break;
+			case 4: word_length[1]++;break;
+			case 5: word_length[2]++;break;
+			case 6: word_length[3]++;break;
+			case 7: word_length[4]++;break;
+			default: word_length[5]++;break;
+		}
 	}
 
 	@Override
 	public void enterNoun(@NotNull SyntaxParser.NounContext ctx) {
 		words++;
 		symbols.set(NOUN, symbols.get(NOUN)+1);
+		/*
+		 * Laengenermittlung
+		 */
+		switch(ctx.getText().length()){
+			case 3: noun_length[0]++;break;
+			case 4: noun_length[1]++;break;
+			case 5: noun_length[2]++;break;
+			case 6: noun_length[3]++;break;
+			case 7: noun_length[4]++;break;
+			default: noun_length[5]++;break;
+		}
 	}
 	
 	/*
@@ -178,6 +229,13 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	public void exitStat(@NotNull SyntaxParser.StatContext ctx) { 
 		int words_per_sentence_avg = symbols.get(SENTENCE_LENGTH_AVG)/symbols.get(SUB_SENTENCES);
 		symbols.set(SENTENCE_LENGTH_AVG, words_per_sentence_avg);
+		/*
+		 * setze Word und Nomenlaengen
+		 */
+		for(int i = 0; i < 6; i++){
+			symbols.set(i+14, word_length[i]);
+			symbols.set(i+20, noun_length[i]);
+		}
 	}
 
 
