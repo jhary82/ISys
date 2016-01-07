@@ -184,10 +184,10 @@ public final class AnalysisListener extends SyntaxBaseListener{
 		if(text.startsWith("ge") && (text.endsWith("t")||text.endsWith("en"))) {
 			// es kann sich um Partizip II handeln.
 			symbols.set(PAST, symbols.get(PAST)+1);
-		} else if(/*text.endsWith("te") || */text.endsWith("test") /*||
-				text.endsWith("ten")*/ || text.endsWith("tet")/*||
-				text.endsWith("st")*/ /*|| text.endsWith("en")*/ /*||
-				text.endsWith("t")*/) {
+		} else if(text.endsWith("te") || text.endsWith("test") ||
+				text.endsWith("ten") || text.endsWith("tet")||
+				text.endsWith("st") || text.endsWith("en") ||
+				text.endsWith("t")) {
 			// es kann sich um Pr�teritum handeln
 			symbols.set(PAST, symbols.get(PAST)+1);
 		}		
