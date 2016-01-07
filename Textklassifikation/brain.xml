@@ -1,66 +1,60 @@
 <brain>
 <film>
 <comma>
-<value1 low='0' high='60' value='0.05'/>
-<Value2 low='60' high='90' value='0.7'/>
-<Value3 low='90' high='10000' value='0.25'/>
+<value1 low='0' high='80' value='0.55'/>
+<Value2 low='80' high='10000' value='0.45'/>
 </comma>
 <dot>
-<Value1 low='0' high='50' value='0.1'/>
-<Value2 low='50' high='70' value='0.4'/>
-<Value3 low='70' high='90' value='0.45'/>
-<Value4 low='90' high='10000' value='0.05'/>
+<Value1 low='0' high='75' value='0.65'/>
+<Value2 low='75' high='10000' value='0.35'/>
 </dot>
 <question>
 <Value1 low='0' high='1' value='0.9'/>
-<Value2 low='1' high='5' value='0.05'/>
-<Value3 low='5' high='10000' value='0.05'/>
+<Value3 low='1' high='10000' value='0.1'/>
 </question>
 <cite>
-<Value1 low='0' high='1' value='0'/>
-<Value2 low='1' high='10000' value='1'/>
+<Value1 low='0' high='10' value='0.7'/>
+<Value2 low='10' high='10000' value='0.3'/>
 </cite>
 <sentence_length_avg>
-<Value1 low='0' high='13' value='0.5'/>
-<Value2 low='13' high='14' value='0.35'/>
-<Value3 low='14' high='10000' value='0.15'/>
+<Value1 low='0' high='12' value='0.25'/>
+<Value3 low='12' high='10000' value='0.75'/>
 </sentence_length_avg>
 <number_with_dot>
 <Value1 low='0' high='1' value='0.85'/>
 <Value2 low='1' high='10000' value='0.15'/>
 </number_with_dot>
 <nl>
-<Value1 low='0' high='10' value='0.1'/>
-<Value2 low='10' high='15' value='0.55'/>
-<Value3 low='15' high='10000' value='0.35'/>
+<Value1 low='0' high='15' value='0.65'/>
+<Value2 low='15' high='10000' value='0.35'/>
 </nl>
 <number_four>
-<Value1 low='0' high='10' value='0.85'/>
-<Value2 low='10' high='30' value='0.1'/>
-<Value3 low='30' high='10000' value='0.05'/>
+<Value1 low='0' high='4' value='0.45'/>
+<Value2 low='4' high='10' value='0.4'/>
+<Value3 low='10' high='10000' value='0.15'/>
 </number_four>
 <number_rest>
-<Value1 low='0' high='5' value='0.45'/>
-<Value2 low='5' high='10' value='0.25'/>
-<Value3 low='10' high='10000' value='0.3'/>
+<Value1 low='0' high='10' value='0.7'/>
+<Value2 low='10' high='25' value='0.2'/>
+<Value3 low='25' high='10000' value='0.1'/>
 </number_rest>
 <brack>
 <Value1 low='0' high='5' value='0.65'/>
-<Value2 low='5' high='10' value='0.2'/>
-<Value3 low='10' high='10000' value='0.15'/>
+<Value3 low='5' high='10000' value='0.35'/>
 </brack>
 <sub_sentences>
-<Value1 low='0' high='140' value='0.4'/>
-<Value2 low='140' high='180' value='0.5'/>
+<Value1 low='0' high='100' value='0'/>
+<Value2 low='100' high='180' value='0.9'/>
 <Value3 low='180' high='10000' value='0.1'/>
 </sub_sentences>
 <past>
-<Value1 low='0' high='300' value='0.8'/>
+<Value1 low='0' high='250' value='0.4'/>
+<Value2 low='250' high='300' value='0.4'/>
 <Value2 low='300' high='10000' value='0.2'/>
 </past>
 <noun>
-<Value1 low='0' high='350' value='0.15'/>
-<Value2 low='350' high='500' value='0.65'/>
+<Value1 low='0' high='400' value='0.35'/>
+<Value2 low='400' high='500' value='0.45'/>
 <Value3 low='500' high='10000' value='0.2'/>
 </noun>
 <sentence_length_max>
@@ -69,20 +63,19 @@
 <Value3 low='60' high='10000' value='0.05'/>
 </sentence_length_max>
 <word_length_3>
-<Value1 low='0' high='300' value='0.55'/>
-<Value2 low='300' high='350' value='0.3'/>
-<Value3 low='350' high='10000' value='0.15'/>
+<Value1 low='0' high='250' value='0.3'/>
+<Value2 low='250' high='300' value='0.25'/>
+<Value3 low='300' high='10000' value='0.45'/>
 </word_length_3>
 <word_length_4>
 <Value1 low='0' high='100' value='0.65'/>
-<Value2 low='100' high='120' value='0.2'/>
-<Value3 low='120' high='10000' value='0.15'/>
+<Value2 low='100' high='140' value='0.3'/>
+<Value3 low='140' high='10000' value='0.05'/>
 </word_length_4>
 <word_length_5>
-<Value1 low='0' high='80' value='0.1'/>
-<Value2 low='80' high='100' value='0.45'/>
-<Value3 low='100' high='120' value='0.35'/>
-<Value4 low='120' high='10000' value='0.1'/>
+<Value1 low='0' high='110' value='0.8'/>
+<Value2 low='110' high='120' value='0.1'/>
+<Value3 low='120' high='10000' value='0.1'/>
 </word_length_5>
 <word_length_6>
 <Value1 low='0' high='70' value='0.25'/>
@@ -91,178 +84,175 @@
 </word_length_6>
 <word_length_7>
 <Value1 low='0' high='40' value='0.25'/>
-<Value2 low='40' high='45' value='0.3'/>
-<Value3 low='45' high='10000' value='0.45'/>
+<Value2 low='40' high='50' value='0.6'/>
+<Value3 low='50' high='10000' value='0.15'/>
 </word_length_7>
 <word_length_8>
 <Value1 low='0' high='200' value='0.3'/>
-<Value2 low='200' high='245' value='0.3'/>
-<Value3 low='245' high='300' value='0.3'/>
-<Value4 low='300' high='10000' value='0.1'/>
+<Value2 low='200' high='250' value='0.4'/>
+<Value3 low='250' high='10000' value='0.3'/>
 </word_length_8>
 <noun_length_3>
-<Value1 low='0' high='20' value='0.05'/>
-<Value2 low='20' high='40' value='0.7'/>
-<Value3 low='40' high='10000' value='0.25'/>
+<Value1 low='0' high='30' value='0.4'/>
+<Value2 low='30' high='35' value='0.25'/>
+<Value3 low='35' high='10000' value='0.35'/>
 </noun_length_3>
 <noun_length_4>
-<Value1 low='0' high='60' value='0.7'/>
-<Value2 low='60' high='70' value='0.15'/>
-<Value3 low='70' high='10000' value='0.15'/>
+<Value1 low='0' high='30' value='0.05'/>
+<Value2 low='30' high='40' value='0.15'/>
+<Value3 low='40' high='50' value='0.2'/>
+<Value4 low='50' high='10000' value='0.6'/>
 </noun_length_4>
 <noun_length_5>
-<Value1 low='0' high='60' value='0.4'/>
-<Value2 low='60' high='70' value='0.25'/>
-<Value3 low='70' high='10000' value='0.35'/>
+<Value1 low='0' high='30' value='0'/>
+<Value2 low='30' high='50' value='0.2'/>
+<Value3 low='50' high='60' value='0.2'/>
+<Value4 low='60' high='70' value='0.25'/>
+<Value5 low='70' high='10000' value='0.35'/>
 </noun_length_5>
 <noun_length_6>
 <Value1 low='0' high='40' value='0.05'/>
-<Value2 low='40' high='80' value='0.75'/>
-<Value3 low='80' high='10000' value='0.2'/>
+<Value2 low='40' high='60' value='0.45'/>
+<Value3 low='60' high='10000' value='0.5'/>
 </noun_length_6>
 <noun_length_7>
-<Value1 low='0' high='50' value='0.65'/>
+<Value1 low='0' high='30' value='0.05'/>
+<Value1 low='30' high='50' value='0.6'/>
 <Value2 low='50' high='10000' value='0.35'/>
 </noun_length_7>
 <noun_length_8>
 <Value1 low='0' high='100' value='0.05'/>
 <Value2 low='100' high='200' value='0.75'/>
-<Value3 low='200' high='10000' value='0.2'/>
+<Value3 low='200' high='300' value='0.2'/>
+<Value4 low='300' high='10000' value='0'/>
 </noun_length_8>
 </film>
 <news>
 <comma>
-<Value1 low='0' high='50' value='0.05'/>
-<Value2 low='50' high='145' value='0.9'/>
-<Value3 low='145' high='10000' value='0.05'/>
+<value1 low='0' high='80' value='0.3'/>
+<Value2 low='80' high='10000' value='0.7'/>
 </comma>
 <dot>
-<Value1 low='0' high='60' value='0.15'/>
-<Value2 low='60' high='100' value='0.55'/>
-<Value3 low='100' high='10000' value='0.3'/>
+<Value1 low='0' high='75' value='0.4'/>
+<Value2 low='75' high='10000' value='0.6'/>
 </dot>
 <question>
-<Value1 low='0' high='5' value='0.55'/>
-<Value2 low='5' high='10000' value='0.45'/>
+<Value1 low='0' high='1' value='0'/>
+<Value3 low='1' high='10000' value='1'/>
 </question>
 <cite>
-<Value1 low='0' high='5' value='0.2'/>
-<Value2 low='5' high='15' value='0.15'/>
-<Value3 low='15' high='10000' value='0.65'/>
+<Value1 low='0' high='10' value='0.2'/>
+<Value2 low='10' high='10000' value='0.8'/>
 </cite>
 <sentence_length_avg>
-<Value1 low='0' high='11' value='0.3'/>
-<Value2 low='11' high='13' value='0.65'/>
-<Value3 low='13' high='10000' value='0.05'/>
+<Value1 low='0' high='12' value='0.65'/>
+<Value3 low='12' high='10000' value='0.35'/>
 </sentence_length_avg>
 <number_with_dot>
 <Value1 low='0' high='1' value='0.55'/>
-<Value2 low='1' high='5' value='0.4'/>
-<Value3 low='5' high='10000' value='0.05'/>
+<Value2 low='1' high='10000' value='0.45'/>
 </number_with_dot>
 <nl>
 <Value1 low='0' high='15' value='0.1'/>
-<Value2 low='15' high='25' value='0.75'/>
-<Value3 low='25' high='10000' value='0.15'/>
+<Value2 low='15' high='10000' value='0.9'/>
 </nl>
 <number_four>
 <Value1 low='0' high='4' value='0.55'/>
-<Value2 low='4' high='8' value='0.35'/>
-<Value3 low='8' high='10000' value='0.1'/>
+<Value2 low='4' high='10' value='0.45'/>
+<Value3 low='10' high='10000' value='0'/>
 </number_four>
 <number_rest>
-<Value1 low='0' high='5' value='0.3'/>
-<Value2 low='5' high='15' value='0.5'/>
-<Value3 low='15' high='10000' value='0.2'/>
+<Value1 low='0' high='10' value='0.7'/>
+<Value2 low='10' high='25' value='0.2'/>
+<Value3 low='25' high='10000' value='0.1'/>
 </number_rest>
 <brack>
 <Value1 low='0' high='5' value='0.8'/>
-<Value2 low='5' high='10000' value='0.2'/>
+<Value3 low='5' high='10000' value='0.2'/>
 </brack>
 <sub_sentences>
 <Value1 low='0' high='100' value='0.05'/>
-<Value2 low='100' high='150' value='0.15'/>
-<Value3 low='150' high='250' value='0.7'/>
-<Value4 low='250' high='10000' value='0.1'/>
+<Value2 low='100' high='180' value='0.5'/>
+<Value3 low='180' high='10000' value='0.45'/>
 </sub_sentences>
 <past>
-<Value1 low='0' high='300' value='0.55'/>
+<Value1 low='0' high='250' value='0.3'/>
+<Value2 low='250' high='300' value='0.25'/>
 <Value2 low='300' high='10000' value='0.45'/>
 </past>
 <noun>
 <Value1 low='0' high='400' value='0.25'/>
 <Value2 low='400' high='500' value='0.35'/>
-<Value3 low='500' high='600' value='0.2'/>
-<Value4 low='600' high='10000' value='0.2'/>
+<Value3 low='500' high='10000' value='0.4'/>
 </noun>
 <sentence_length_max>
-<Value1 low='0' high='40' value='0.2'/>
-<Value2 low='40' high='50' value='0'/>
-<Value3 low='50' high='60' value='0.15'/>
-<Value4 low='60' high='10000' value='0.15'/>
+<Value1 low='0' high='45' value='0.35'/>
+<Value2 low='45' high='60' value='0.5'/>
+<Value3 low='60' high='10000' value='0.15'/>
 </sentence_length_max>
 <word_length_3>
-<Value1 low='0' high='300' value='0.6'/>
-<Value2 low='300' high='400' value='0.2'/>
-<Value3 low='400' high='10000' value='0.2'/>
+<Value1 low='0' high='250' value='0.15'/>
+<Value2 low='250' high='300' value='0.45'/>
+<Value3 low='300' high='10000' value='0.4'/>
 </word_length_3>
 <word_length_4>
-<Value1 low='0' high='120' value='0.3'/>
-<Value2 low='120' high='160' value='0.55'/>
-<Value3 low='160' high='10000' value='0.15'/>
+<Value1 low='0' high='100' value='0.05'/>
+<Value2 low='100' high='140' value='0.6'/>
+<Value3 low='140' high='10000' value='0.35'/>
 </word_length_4>
 <word_length_5>
-<Value1 low='0' high='100' value='0.4'/>
-<Value2 low='100' high='120' value='0.25'/>
-<Value3 low='120' high='140' value='0.2'/>
-<Value4 low='140' high='10000' value='0.15'/>
+<Value1 low='0' high='110' value='0.6'/>
+<Value2 low='110' high='120' value='0.05'/>
+<Value3 low='120' high='10000' value='0.35'/>
 </word_length_5>
 <word_length_6>
-<Value1 low='0' high='60' value='0.15'/>
-<Value2 low='60' high='80' value='0.4'/>
-<Value3 low='80' high='90' value='0.15'/>
-<Value4 low='90' high='10000' value='0.3'/>
+<Value1 low='0' high='70' value='0.3'/>
+<Value2 low='70' high='80' value='0.25'/>
+<Value3 low='80' high='10000' value='0.45'/>
 </word_length_6>
 <word_length_7>
-<Value1 low='0' high='35' value='0.25'/>
-<Value2 low='35' high='50' value='0.45'/>
+<Value1 low='0' high='40' value='0.3'/>
+<Value2 low='40' high='50' value='0.4'/>
 <Value3 low='50' high='10000' value='0.3'/>
 </word_length_7>
 <word_length_8>
-<Value1 low='0' high='250' value='0.55'/>
-<Value2 low='250' high='300' value='0.25'/>
-<Value4 low='300' high='10000' value='0.2'/>
+<Value1 low='0' high='200' value='0.15'/>
+<Value2 low='200' high='250' value='0.4'/>
+<Value3 low='250' high='10000' value='0.45'/>
 </word_length_8>
 <noun_length_3>
-<Value1 low='0' high='40' value='0.45'/>
-<Value2 low='40' high='60' value='0.45'/>
-<Value3 low='60' high='10000' value='0.1'/>
+<Value1 low='0' high='30' value='0.15'/>
+<Value2 low='30' high='35' value='0.1'/>
+<Value3 low='35' high='10000' value='0.75'/>
 </noun_length_3>
 <noun_length_4>
 <Value1 low='0' high='30' value='0.05'/>
-<Value2 low='30' high='50' value='0.6'/>
-<Value3 low='50' high='60' value='0.15'/>
-<Value4 low='60' high='10000' value='0.2'/>
+<Value2 low='30' high='40' value='0.3'/>
+<Value3 low='40' high='50' value='0.3'/>
+<Value4 low='50' high='10000' value='0.35'/>
 </noun_length_4>
 <noun_length_5>
-<Value1 low='0' high='40' value='0.3'/>
-<Value2 low='40' high='60' value='0.45'/>
-<Value3 low='60' high='10000' value='0.25'/>
+<Value1 low='0' high='30' value='0.1'/>
+<Value2 low='30' high='50' value='0.45'/>
+<Value3 low='50' high='60' value='0.2'/>
+<Value4 low='60' high='70' value='0.05'/>
+<Value5 low='70' high='10000' value='0.2'/>
 </noun_length_5>
 <noun_length_6>
-<Value1 low='0' high='50' value='0.25'/>
-<Value2 low='50' high='70' value='0.4'/>
-<Value3 low='70' high='10000' value='0.35'/>
+<Value1 low='0' high='40' value='0.1'/>
+<Value2 low='40' high='60' value='0.45'/>
+<Value3 low='60' high='10000' value='0.45'/>
 </noun_length_6>
 <noun_length_7>
 <Value1 low='0' high='30' value='0.1'/>
-<Value2 low='30' high='50' value='0.5'/>
-<Value3 low='50' high='10000' value='0.4'/>
+<Value1 low='30' high='50' value='0.5'/>
+<Value2 low='50' high='10000' value='0.4'/>
 </noun_length_7>
 <noun_length_8>
-<Value1 low='0' high='150' value='0'/>
-<Value2 low='150' high='250' value='0.65'/>
-<Value3 low='250' high='10000' value='0.35'/>
+<Value1 low='0' high='100' value='0'/>
+<Value2 low='100' high='200' value='0.3'/>
+<Value3 low='200' high='300' value='0.55'/>
+<Value4 low='300' high='10000' value='0.15'/>
 </noun_length_8>
 </news>
 </brain>
