@@ -125,19 +125,19 @@ public final class Classifier {
 		filmValue += film.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
-		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
-		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
-		//filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_MAX), AnalysisListener.SENTENCE_LENGTH_MAX);
+		filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_MAX), AnalysisListener.SENTENCE_LENGTH_MAX);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
-		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
 		
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_3), AnalysisListener.NOUN_LENGTH_3);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_4), AnalysisListener.NOUN_LENGTH_4);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_5), AnalysisListener.NOUN_LENGTH_5);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_6), AnalysisListener.NOUN_LENGTH_6);
-		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_7), AnalysisListener.NOUN_LENGTH_7);
+		filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_7), AnalysisListener.NOUN_LENGTH_7);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_8), AnalysisListener.NOUN_LENGTH_8);
 		
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_3), AnalysisListener.WORD_LENGTH_3);
@@ -160,13 +160,13 @@ public final class Classifier {
 		newsValue += news.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
-		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
-		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
+		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
+		newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
-		//newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_MAX), AnalysisListener.SENTENCE_LENGTH_MAX);
+		newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_MAX), AnalysisListener.SENTENCE_LENGTH_MAX);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
-		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
+		newsValue += news.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
 		
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_3), AnalysisListener.NOUN_LENGTH_3);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_4), AnalysisListener.NOUN_LENGTH_4);
@@ -179,7 +179,7 @@ public final class Classifier {
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_4), AnalysisListener.WORD_LENGTH_4);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_5), AnalysisListener.WORD_LENGTH_5);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_6), AnalysisListener.WORD_LENGTH_6);
-		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
+		newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_8), AnalysisListener.WORD_LENGTH_8);
 		
 		
@@ -269,10 +269,14 @@ public final class Classifier {
 		/*
 		 * Test-Daten
 		 */
-		File[] testFilme = new File("Datensatz_1_2015-12-14/Filme/Test/")
-				.listFiles();
-		File[] testNews = new File("Datensatz_1_2015-12-14/Nachrichten/Test/")
-				.listFiles();
+//		File[] testFilme = new File("Datensatz_1_2015-12-14/Filme/Test/")
+//				.listFiles();
+//		File[] testNews = new File("Datensatz_1_2015-12-14/Nachrichten/Test/")
+//				.listFiles();
+		File[] testFilme = new File("Datensatz_2_2016-01-11/Filme/Evaluation/")
+		.listFiles();
+		File[] testNews = new File("Datensatz_2_2016-01-11/Nachrichten/Evaluation/")
+		.listFiles();
 		
 		//classifier.argMax(testFilme, testNews);
 		
