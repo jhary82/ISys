@@ -120,17 +120,17 @@ public final class Classifier {
 		 */		
 		//filmValue += film.getValue(attributs.get(AnalysisListener.DOT), AnalysisListener.DOT);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
-		//filmValue += film.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
+		filmValue += film.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
 		filmValue += film.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
-		filmValue += film.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
-		filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_MAX), AnalysisListener.SENTENCE_LENGTH_MAX);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
-		filmValue += film.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
 		
 		//filmValue += film.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_3), AnalysisListener.NOUN_LENGTH_3);
@@ -144,7 +144,7 @@ public final class Classifier {
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_4), AnalysisListener.WORD_LENGTH_4);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_5), AnalysisListener.WORD_LENGTH_5);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_6), AnalysisListener.WORD_LENGTH_6);
-		filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
+		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_8), AnalysisListener.WORD_LENGTH_8);
 		
 		
@@ -155,17 +155,17 @@ public final class Classifier {
 		 */		
 		//newsValue += news.getValue(attributs.get(AnalysisListener.DOT), AnalysisListener.DOT);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.COMMA), AnalysisListener.COMMA);
-		//newsValue += news.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
+		newsValue += news.getValue(attributs.get(AnalysisListener.BRACK), AnalysisListener.BRACK);
 		newsValue += news.getValue(attributs.get(AnalysisListener.QUESTION), AnalysisListener.QUESTION);
-		newsValue += news.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.CITE), AnalysisListener.CITE);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_WITH_DOT), AnalysisListener.NUMBER_WITH_DOT);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NL), AnalysisListener.NL);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_REST), AnalysisListener.NUMBER_REST);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NUMBER_FOUR), AnalysisListener.NUMBER_FOUR);
-		newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_AVG), AnalysisListener.SENTENCE_LENGTH_AVG);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.SENTENCE_LENGTH_MAX), AnalysisListener.SENTENCE_LENGTH_MAX);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.SUB_SENTENCES), AnalysisListener.SUB_SENTENCES);
-		newsValue += news.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.PAST), AnalysisListener.PAST);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN), AnalysisListener.NOUN);
 		
 		//newsValue += news.getValue(attributs.get(AnalysisListener.NOUN_LENGTH_3), AnalysisListener.NOUN_LENGTH_3);
@@ -179,7 +179,7 @@ public final class Classifier {
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_4), AnalysisListener.WORD_LENGTH_4);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_5), AnalysisListener.WORD_LENGTH_5);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_6), AnalysisListener.WORD_LENGTH_6);
-		newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
+		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
 		//newsValue += news.getValue(attributs.get(AnalysisListener.WORD_LENGTH_8), AnalysisListener.WORD_LENGTH_8);
 		
 		
@@ -190,72 +190,6 @@ public final class Classifier {
 			return NEWS;
 		}
 	}
-	
-//	private void argMax(File[] inputFilm, File[] inputNews){		
-//		List<String> tmpList = new LinkedList<>();
-//		/*
-//		 * erstelle alle Kombinationsmöglichkeiten
-//		 */
-//		for(int a = 0; a < Math.pow(13, 2); a++){			
-//			tmpList.add( Integer.toBinaryString(a) );
-//		}
-//		tmpList.remove(0);
-//		
-//		/*
-//		 * gehe alle Kombinationen durch
-//		 */
-//		List<Integer> bestList = new LinkedList<>();
-//		int total = 0;
-//		
-//		for(String str : tmpList) {
-//			List<Integer> attribList = new LinkedList<>();
-//			for(int i = 0; i < str.length(); i++){
-//				if( str.subSequence(i, i+1).equals("1")){
-//					attribList.add(i);
-//				}
-//			}
-//			/*
-//			 * wende diese Kombination auf allen InputFilm an
-//			 */
-//			int filmCounter = 0, newsCounter = 0;
-//			for(int a = 0; a < inputFilm.length; a++){				
-//				List<Integer> inputAttrib = parseText( inputFilm[a] );
-//				double newsValue = 0, filmValue = 0;
-//				for(int i = 0; i < attribList.size(); i++){
-//					newsValue += news.getValue(inputAttrib.get(i), i);
-//					filmValue += film.getValue(inputAttrib.get(i), i);
-//				}
-//				if( filmValue >= newsValue){
-//					filmCounter++;
-//				}
-//			}
-//			for(int a = 0; a < inputNews.length; a++){				
-//				List<Integer> inputAttrib = parseText( inputNews[a] );
-//				double newsValue = 0, filmValue = 0;
-//				for(int i = 0; i < attribList.size(); i++){
-//					newsValue += news.getValue(inputAttrib.get(i), i);
-//					filmValue += film.getValue(inputAttrib.get(i), i);
-//				}
-//				if( newsValue >= filmValue){
-//					newsCounter++;
-//				}
-//			}
-//			System.out.println("*");
-//			/*
-//			 * bestimme die beste Kombination
-//			 */
-//			if( (newsCounter+filmCounter) > total){
-//				total = newsCounter+filmCounter;
-//				bestList.clear();				
-//				attribList.forEach( e -> bestList.add(e) );				
-//			}
-//		}		
-//		/*
-//		 * Abschluß
-//		 */
-//		System.out.println("\nBeste Kombination ist mit total = "+total);
-//		bestList.forEach( e -> System.out.print(e+","));
-//	}
 	
 	/**
 	 * Einladen des "Brains" und anwenden auf uebergebende Dateiliste
