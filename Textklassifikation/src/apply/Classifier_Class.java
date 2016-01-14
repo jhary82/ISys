@@ -1,6 +1,3 @@
-/**
- * 
- */
 package apply;
 
 
@@ -14,7 +11,7 @@ import org.jdom2.Element;
 
 /**
  * Klasse beinhaltet die Eigenschaften einer der zu klassifizierenden Klassen
- * @author skrause
+ * @author Simon und Erik
  *
  */
 public final class Classifier_Class {
@@ -27,13 +24,13 @@ public final class Classifier_Class {
 	
 	/**
 	 * Konstruktor
-	 * @param elem Wurzelknoten einer Eigenschaft(z.B. Film)
+	 * @param elem - Wurzelknoten einer Eigenschaft(z.B. Film)
 	 */
 	public Classifier_Class(Element elem) {
 		list = new LinkedList<>();		
 		
 		/*
-		 * erzeuge neue Eintraege für alle Konstanten
+		 * erzeuge neue Eintraege fuer alle Konstanten
 		 */
 		for(int i = 0; i < AnalysisListener.MAX_ELEMENTS; i++){
 			list.add( new LinkedList<>());
@@ -48,7 +45,7 @@ public final class Classifier_Class {
 
 	/**
 	 * Laedt die Kindelemente in die Klassenattribute
-	 * @param elem
+	 * @param elem - Wurzelknoten einer Eigenschaft(z.B. Film)
 	 * @throws DataConversionException 
 	 */
 	private void loadFromElement(Element elem) throws DataConversionException {
@@ -107,10 +104,10 @@ public final class Classifier_Class {
 	}
 
 	/**
-	 * Gibt für den übergebenden Wert die richtige Wahrscheinlichkeit zurück
-	 * @param value "Messwert"
-	 * @param chooseValue zu verwendene Eigenschaft
-	 * @return
+	 * Gibt fuer den uebergebenden Wert die richtige Wahrscheinlichkeit zurueck
+	 * @param value - "Messwert"
+	 * @param chooseValue - zu verwendene Eigenschaft
+	 * @return - Gibt den Wahrscheinlichkeitswert zurueck
 	 */
 	public double getValue(int value, int chooseValue) {		
 		
@@ -124,7 +121,7 @@ public final class Classifier_Class {
 	
 	/**
 	 * Private Klasse, die die Attribute einzelner Eigenschaften speichert
-	 * @author skrause
+	 * @author Simon und Erik
 	 *
 	 */
 	private class Attribut {
@@ -143,9 +140,9 @@ public final class Classifier_Class {
 		
 		/**
 		 * Konstruktor
-		 * @param low untere Intervallgrenze
-		 * @param high obere Intervallgrenze
-		 * @param value Wahrscheinlichkeitswert
+		 * @param low - untere Intervallgrenze
+		 * @param high - obere Intervallgrenze
+		 * @param value - Wahrscheinlichkeitswert
 		 */
 		private Attribut(int low, int high, double value){
 			this.low = low;
@@ -154,23 +151,23 @@ public final class Classifier_Class {
 		}
 		
 		/**
-		 * 
-		 * @return gibt die untere Intervallgrenze zurueck
+		 * Diese Methode gibt die untere Intervallgrenze zurueck
+		 * @return - gibt die untere Intervallgrenze zurueck
 		 */
 		private int getLow(){
 			return low;
 		}
 		
 		/**
-		 * 
-		 * @return gibt die obere Intervallgrenze zurueck
+		 * Diese Methode gibt die obere Intervallgrenze zurueck
+		 * @return - gibt die obere Intervallgrenze zurueck
 		 */
 		private int getHigh(){
 			return high;
 		}
 		
 		/**
-		 * 
+		 * Diese Methode gibt den Wahrscheinlichkeitswert zurueck
 		 * @return gibt den Wahrscheinlichkeitswert zurueck
 		 */
 		private double getValue(){

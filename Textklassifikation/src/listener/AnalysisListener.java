@@ -1,9 +1,5 @@
-/**
- * 
- */
 package listener;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.antlr.v4.runtime.misc.NotNull;
@@ -12,13 +8,12 @@ import syntaxAnalyse.*;
 
 /**
  * Antlr - Listener bestimmt die Eigenschaften der zu parsenden Datei
- * @author skrause
+ * @author Simon und Erik
  *
  */
 public final class AnalysisListener extends SyntaxBaseListener{
 
-	
-	/**
+	/*
 	 * Anzahl der Konstanten
 	 */
 	final public static int MAX_ELEMENTS = 26;
@@ -58,26 +53,26 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	private List<Integer> symbols;
 	
 	/**
-	 * Anzahl der Wörter
+	 * Anzahl der Woerter
 	 */
 	private int words = 0;
 	
 	/**
-	 * speichert die Anzahl der Wörter bei Eintritt in einen Satz zwischen
+	 * speichert die Anzahl der Woerter bei Eintritt in einen Satz zwischen
 	 */
 	private int word_counter_sentence = 0;
 	/**
-	 * speichert die Anzahl der Wörter bei Eintritt in einen Nebensatz zwischen
+	 * speichert die Anzahl der Woerter bei Eintritt in einen Nebensatz zwischen
 	 */
 	private int word_counter_subsentence = 0;
 	
 	/**
-	 * Längen von Wörtern
+	 * Laengen von Woertern
 	 */
 	private int word_length[];
 	
 	/**
-	 * Längen von Nomen
+	 * Laengen von Nomen
 	 */
 	private int noun_length[];
 	
@@ -96,12 +91,18 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	/*
 	 * sentence
 	 */
+	/**
+	 * Mit dieser Methode werden die Anzahl der Hauptsaetze erfasst
+	 */
 	@Override
 	public void enterSentence(@NotNull SyntaxParser.SentenceContext ctx) {
 		word_counter_sentence = words;
 		symbols.set(SUB_SENTENCES, symbols.get(SUB_SENTENCES) + 1);
 	}
 
+	/**
+	 * Mit dieser Methdode wird die maxiamle Satzlenge und die durchschnittliche Satzlaenge erfasst.
+	 */
 	@Override 
 	public void exitSentence(@NotNull SyntaxParser.SentenceContext ctx) {
 		int dif = words - word_counter_sentence;		
@@ -115,11 +116,17 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	 * Subsentence 
 	 */
 	
+	/**
+	 * Mit dieser Methdode werden Fragzeichen und Ausrufezeichen erfasst.
+	 */
 	@Override 
 	public void enterQuestion(@NotNull SyntaxParser.QuestionContext ctx) { 
 		symbols.set(QUESTION, symbols.get(QUESTION)+1);		
 	}
 	
+	/**
+	 * Mit dieser Methode werden Kommatas und Nebensaetze erfasst.
+	 */
 	@Override
 	public void enterComma(@NotNull SyntaxParser.CommaContext ctx) {
 		word_counter_subsentence = words;
@@ -127,11 +134,17 @@ public final class AnalysisListener extends SyntaxBaseListener{
 		symbols.set(SUB_SENTENCES, symbols.get(SUB_SENTENCES) + 1);
 	}
 	
+	/**
+	 * Mit dieser Methode werden die Punkte erfasst.
+	 */
 	@Override 
 	public void enterDot(@NotNull SyntaxParser.DotContext ctx) {
 		symbols.set(DOT, symbols.get(DOT)+1);
 	}
-		
+	
+	/**
+	 * Mit dieser Methdode wird die maxiamle Satzlaenge und die durchschnittliche Satzlaenge erfasst.
+	 */
 	@Override
 	public void exitComma(@NotNull SyntaxParser.CommaContext ctx) {
 		int dif = words - word_counter_subsentence;		
@@ -144,22 +157,33 @@ public final class AnalysisListener extends SyntaxBaseListener{
 	/*
 	 * Symbol 
 	 */
-	
+	/**
+	 * Mit dieser Methode werden die Newlines erfasst.
+	 */
 	@Override 
 	public void enterNl(SyntaxParser.NlContext ctx) {
 		symbols.set(NL, symbols.get(NL)+1);		
 	}		
 	
+	/**
+	 * Mit dieser Methode werden Zitate erfasst.
+	 */
 	@Override 
 	public void enterCite( SyntaxParser.CiteContext ctx) {
 		symbols.set(CITE, symbols.get(CITE)+1);
 	}
 	
+	/**
+	 * Mit dieser Methode werden Nummer mit Punkten erfasst.
+	 */
 	@Override
 	public void enterNumber_with_dot( SyntaxParser.Number_with_dotContext ctx) {
 		symbols.set(NUMBER_WITH_DOT, symbols.get(NUMBER_WITH_DOT)+1);		
 	}
 	
+	/**
+	 * Mit dieser Methode werden vierstellige Nummer und Nummer erfasst, die nicht vierstellig sind oder punkte beinhalten.
+	 */
 	@Override
 	public void enterNumber(@NotNull SyntaxParser.NumberContext ctx) {
 		if( ctx.getText().length() == 4){
@@ -169,12 +193,19 @@ public final class AnalysisListener extends SyntaxBaseListener{
 			symbols.set(NUMBER_REST, symbols.get(NUMBER_REST)+1);
 		}
 	}
-
+	
+	/**
+	 * Mit dieser Methode wird die Anzahl an Klammern gezaehlt.
+	 */
 	@Override
 	public void enterBrack(@NotNull SyntaxParser.BrackContext ctx) {
 		symbols.set(BRACK, symbols.get(BRACK)+1);		
 	}
-		
+	
+	/**
+	 * Mit dieser Methode werden die Laengen der Woerter erfasst und es werden Woerter,
+	 * die in der Vergangenheit geschrieben sind miterfasst.
+	 */
 	@Override
 	public void enterWord(@NotNull SyntaxParser.WordContext ctx) {		
 		String text = ctx.getText();
@@ -204,7 +235,10 @@ public final class AnalysisListener extends SyntaxBaseListener{
 			default: word_length[5]++;break;
 		}
 	}
-
+	
+	/**
+	 * Die Laenge der Nomen werden erfasst
+	 */
 	@Override
 	public void enterNoun(@NotNull SyntaxParser.NounContext ctx) {
 		words++;
@@ -222,7 +256,7 @@ public final class AnalysisListener extends SyntaxBaseListener{
 		}
 	}
 	
-	/*
+	/**
 	 * Bei Beenden von stat berechne Mittelwerte
 	 */
 	@Override

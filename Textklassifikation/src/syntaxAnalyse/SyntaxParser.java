@@ -74,6 +74,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitStat(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitStat(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final StatContext stat() throws RecognitionException {
@@ -141,6 +146,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitSentence(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitSentence(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -212,6 +222,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitComma(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitComma(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class DotContext extends SubSentenceContext {
 		public TerminalNode DOT() { return getToken(SyntaxParser.DOT, 0); }
@@ -223,6 +238,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitDot(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitDot(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class QuestionContext extends SubSentenceContext {
@@ -236,6 +256,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitQuestion(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitQuestion(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -347,6 +372,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumber_with_dot(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNumber_with_dot(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class NumberContext extends SymbolContext {
 		public TerminalNode NUMBER() { return getToken(SyntaxParser.NUMBER, 0); }
@@ -358,6 +388,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNumber(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNumber(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class BrackContext extends SymbolContext {
@@ -372,6 +407,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitBrack(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitBrack(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class CiteContext extends SymbolContext {
 		public TerminalNode CITE() { return getToken(SyntaxParser.CITE, 0); }
@@ -383,6 +423,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitCite(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitCite(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class NounContext extends SymbolContext {
@@ -396,6 +441,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNoun(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNoun(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class WordContext extends SymbolContext {
 		public TerminalNode WORD() { return getToken(SyntaxParser.WORD, 0); }
@@ -408,6 +458,11 @@ public class SyntaxParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitWord(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitWord(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class NlContext extends SymbolContext {
 		public TerminalNode NL() { return getToken(SyntaxParser.NL, 0); }
@@ -419,6 +474,11 @@ public class SyntaxParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SyntaxListener ) ((SyntaxListener)listener).exitNl(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SyntaxVisitor ) return ((SyntaxVisitor<? extends T>)visitor).visitNl(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

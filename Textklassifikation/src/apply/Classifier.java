@@ -23,17 +23,12 @@ import org.jdom2.input.SAXBuilder;
 import syntaxAnalyse.SyntaxLexer;
 import syntaxAnalyse.SyntaxParser;
 
-
-/**
- * 
- */
-
 /**
  * Diese Klasse laedt ein Klassifizierungs-XML fuer die beiden
  * Unterscheidungsarten News oder Film ein und klassifiziert dann uebergebende
  * Dateien
  * 
- * @author skrause
+ * @author Simon und Erik
  *
  */
 public final class Classifier {
@@ -48,20 +43,19 @@ public final class Classifier {
 	final public static int NEWS = 1;
 	
 	/**
-	 * Klassifizierungsattribute für Nachrichten
+	 * Klassifizierungsattribute fuer Nachrichten
 	 */
 	private Classifier_Class news;
 
 	/**
-	 * Klassifizierungsattribute für Filme
+	 * Klassifizierungsattribute fuer Filme
 	 */
 	private Classifier_Class film;
 
 	/**
-	 * Konstruktor
+	 * Konstruktor - Klassifizierungs-XML mit dem "Brain"
 	 * 
-	 * @param xml
-	 *            Klassifizierungs-XML mit dem "Brain"
+	 * @param xml - Name der XML-Datei
 	 */
 	public Classifier(File xml) {
 		try {
@@ -80,7 +74,7 @@ public final class Classifier {
 
 	/**
 	 * Parst einen Text und erstellt eine Liste mit Eigenschaften
-	 * @param text zu parsender Text
+	 * @param text - zu parsender Text
 	 * @return Liste mit Texteigenschaften
 	 */
 	public List<Integer> parseText(File text) {
@@ -110,7 +104,7 @@ public final class Classifier {
 	/**
 	 * Klassifiziert mit uebergebenden Attributen,
 	 * ob ein Film oder eine Nachricht vorliegt
-	 * @param attributs uebergebende Attribute
+	 * @param attributs - uebergebende Attribute
 	 * @return FILM oder NEWS
 	 */
 	private int classify(List<Integer> attributs) {
@@ -146,9 +140,6 @@ public final class Classifier {
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_6), AnalysisListener.WORD_LENGTH_6);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_7), AnalysisListener.WORD_LENGTH_7);
 		//filmValue += film.getValue(attributs.get(AnalysisListener.WORD_LENGTH_8), AnalysisListener.WORD_LENGTH_8);
-		
-		
-
 		
 		/*
 		 * berechne News-Wert
@@ -194,7 +185,7 @@ public final class Classifier {
 	/**
 	 * Einladen des "Brains" und anwenden auf uebergebende Dateiliste
 	 * 
-	 * @param args
+	 * @param args - ohne Parameter
 	 */
 	public static void main(String[] args) {
 		File xml = new File("brain.xml");

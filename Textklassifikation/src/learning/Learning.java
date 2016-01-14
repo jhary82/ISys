@@ -1,6 +1,3 @@
-/**
- * 
- */
 package learning;
 
 import java.io.BufferedReader;
@@ -24,13 +21,15 @@ import syntaxAnalyse.SyntaxLexer;
 import syntaxAnalyse.SyntaxParser;
 
 /**
- * @author Erik und Simon
- *
+ * Mit dieser Klasse arbeitet auf den Trainingsdaten und extrahiert die
+ * Merkmalsauspraegungen in eine CSV-Datei.
+ * @author Simon und Erik
  */
 public class Learning {
 
 	/**
-	 * @param args
+	 * Programmstart - Hier werden die Trainingdaten eingelesen und die CSV-Datein vorbereitet.
+	 * @param args - ohne Parameter
 	 */
 	public static void main(String[] args) {
 
@@ -53,7 +52,11 @@ public class Learning {
 		texteEinlesen(trainNachrichten, "Auswertung/Nachrichten");
 
 	}
-
+	
+	/**
+	 * Mit dieser Methode wird in der CSV-Datei in der ersten Zeile eine Überschrift hinzugefügt.
+	 * @param csv - Name der CSV-Datei
+	 */
 	private static void makeUeberschriften(String csv) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(csv, true));
@@ -70,7 +73,12 @@ public class Learning {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Mit dieser Methode werden die Merkmale aus den Texte herausgelesen und in eine CSV-Datei gespeichert.
+	 * @param texte - Eine Liste von Texten die Analysiert werden sollen.
+	 * @param name - Name der CSV-Datei.
+	 */
 	private static void texteEinlesen(File[] texte, String name) {
 		CharStream input = null;
 		BufferedReader reader;
@@ -96,8 +104,13 @@ public class Learning {
 			saveToCSV(name, list);
 		}
 	}
-
-	public static void saveToCSV(String name, List<Integer> counts) {
+	
+	/**
+	 * Mit dieser Methode werden die Merkmale in eine CSV-Datei gespeichert.
+	 * @param name - Name der CSV-Datei
+	 * @param counts - Liste mit den analysierten Merkmalen
+	 */
+	private static void saveToCSV(String name, List<Integer> counts) {
 		File csv = new File(name + ".csv");
 		// speichere in CSV-Datei ab
 		try {
