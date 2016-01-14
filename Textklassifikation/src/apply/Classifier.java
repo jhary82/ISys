@@ -211,8 +211,7 @@ public final class Classifier {
 		.listFiles();
 		File[] testNews = new File("Datensatz_2_2016-01-11/Nachrichten/Evaluation/")
 		.listFiles();
-		
-		//classifier.argMax(testFilme, testNews);
+
 		
 		/*
 		 * werte die Filme aus
